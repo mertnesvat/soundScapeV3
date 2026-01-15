@@ -1,0 +1,147 @@
+{
+  "session_id": "night-20260115-2347",
+  "status": "running",
+  "started_at": "2026-01-15T23:47:00Z",
+  "base_branch": "main",
+  "accumulated_branch": "night/20260115-2347",
+  "queue_file": "features.md",
+  "config": {
+    "max_retries": 2,
+    "continue_on_failure": true,
+    "feature_timeout": 60
+  },
+  "features": [
+    {
+      "id": 1,
+      "name": "Project Foundation",
+      "priority": 1,
+      "dependencies": [],
+      "status": "in_progress",
+      "started_at": "2026-01-15T23:47:30Z"
+    },
+    {
+      "id": 2,
+      "name": "Sound Library",
+      "priority": 2,
+      "dependencies": [
+        1
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "name": "Audio Engine",
+      "priority": 3,
+      "dependencies": [
+        2
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "name": "Sound Mixer",
+      "priority": 4,
+      "dependencies": [
+        3
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "name": "Now Playing Bar",
+      "priority": 5,
+      "dependencies": [
+        4
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "name": "Sleep Timer",
+      "priority": 6,
+      "dependencies": [
+        5
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "name": "Favorites",
+      "priority": 7,
+      "dependencies": [
+        2
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "name": "Saved Mixes",
+      "priority": 8,
+      "dependencies": [
+        4,
+        7
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "name": "Sleep Stories",
+      "priority": 9,
+      "dependencies": [
+        3
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "name": "Binaural Beats",
+      "priority": 10,
+      "dependencies": [
+        3
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "name": "Smart Alarms",
+      "priority": 11,
+      "dependencies": [
+        3
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 12,
+      "name": "Community Discover",
+      "priority": 12,
+      "dependencies": [
+        8
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 13,
+      "name": "Adaptive Soundscapes",
+      "priority": 13,
+      "dependencies": [
+        3,
+        6
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 14,
+      "name": "Sleep Insights",
+      "priority": 14,
+      "dependencies": [
+        3,
+        8
+      ],
+      "status": "pending"
+    }
+  ],
+  "current_feature": 1,
+  "completed": [],
+  "failed": [],
+  "skipped": []
+}
