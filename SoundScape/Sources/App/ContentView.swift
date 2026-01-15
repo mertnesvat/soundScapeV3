@@ -23,7 +23,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            SoundsPlaceholderView()
+            SoundsView()
                 .tabItem {
                     Label(Tab.sounds.rawValue, systemImage: Tab.sounds.icon)
                 }

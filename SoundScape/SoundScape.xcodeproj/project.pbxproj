@@ -22,6 +22,14 @@
 		FB96EB910000000D /* wind_ambient.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001D /* wind_ambient.mp3 */; };
 		FB96EB910000000E /* campfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001E /* campfire.mp3 */; };
 		FB96EB910000000F /* bonfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001F /* bonfire.mp3 */; };
+		FB96EB91000000A1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B1 /* Sound.swift */; };
+		FB96EB91000000A2 /* SoundRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B2 /* SoundRepositoryProtocol.swift */; };
+		FB96EB91000000A3 /* LocalSoundDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B3 /* LocalSoundDataSource.swift */; };
+		FB96EB91000000A4 /* SoundRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B4 /* SoundRepository.swift */; };
+		FB96EB91000000A5 /* SoundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B5 /* SoundsViewModel.swift */; };
+		FB96EB91000000A6 /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B6 /* SoundsView.swift */; };
+		FB96EB91000000A7 /* SoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B7 /* SoundCardView.swift */; };
+		FB96EB91000000A8 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B8 /* CategoryFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +50,14 @@
 		FB96EB910000001D /* wind_ambient.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind_ambient.mp3; sourceTree = "<group>"; };
 		FB96EB910000001E /* campfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = campfire.mp3; sourceTree = "<group>"; };
 		FB96EB910000001F /* bonfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bonfire.mp3; sourceTree = "<group>"; };
+		FB96EB91000000B1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		FB96EB91000000B2 /* SoundRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepositoryProtocol.swift; sourceTree = "<group>"; };
+		FB96EB91000000B3 /* LocalSoundDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91000000B4 /* SoundRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepository.swift; sourceTree = "<group>"; };
+		FB96EB91000000B5 /* SoundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsViewModel.swift; sourceTree = "<group>"; };
+		FB96EB91000000B6 /* SoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
+		FB96EB91000000B7 /* SoundCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCardView.swift; sourceTree = "<group>"; };
+		FB96EB91000000B8 /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +173,7 @@
 		FB96EB9100000049 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000B1 /* Sound.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -164,6 +181,7 @@
 		FB96EB910000004A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000B2 /* SoundRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -178,6 +196,7 @@
 		FB96EB910000004C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000B4 /* SoundRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -185,6 +204,7 @@
 		FB96EB910000004D /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000B3 /* LocalSoundDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -199,8 +219,28 @@
 		FB96EB910000004F /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000C1 /* Views */,
+				FB96EB91000000C2 /* ViewModels */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000B6 /* SoundsView.swift */,
+				FB96EB91000000B7 /* SoundCardView.swift */,
+				FB96EB91000000B8 /* CategoryFilterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000C2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000B5 /* SoundsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000050 /* Mixer */ = {
@@ -321,6 +361,14 @@
 			files = (
 				FB96EB9100000001 /* SoundScapeApp.swift in Sources */,
 				FB96EB9100000002 /* ContentView.swift in Sources */,
+				FB96EB91000000A1 /* Sound.swift in Sources */,
+				FB96EB91000000A2 /* SoundRepositoryProtocol.swift in Sources */,
+				FB96EB91000000A3 /* LocalSoundDataSource.swift in Sources */,
+				FB96EB91000000A4 /* SoundRepository.swift in Sources */,
+				FB96EB91000000A5 /* SoundsViewModel.swift in Sources */,
+				FB96EB91000000A6 /* SoundsView.swift in Sources */,
+				FB96EB91000000A7 /* SoundCardView.swift in Sources */,
+				FB96EB91000000A8 /* CategoryFilterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
