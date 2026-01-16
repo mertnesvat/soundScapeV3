@@ -11,6 +11,7 @@ struct ContentView: View {
         case timer = "Timer"
         case favorites = "Favorites"
         case saved = "Saved"
+        case stories = "Stories"
 
         var icon: String {
             switch self {
@@ -19,6 +20,7 @@ struct ContentView: View {
             case .timer: return "moon.zzz"
             case .favorites: return "heart"
             case .saved: return "folder"
+            case .stories: return "book.fill"
             }
         }
     }
@@ -55,6 +57,12 @@ struct ContentView: View {
                         Label(Tab.saved.rawValue, systemImage: Tab.saved.icon)
                     }
                     .tag(Tab.saved)
+
+                StoriesView()
+                    .tabItem {
+                        Label(Tab.stories.rawValue, systemImage: Tab.stories.icon)
+                    }
+                    .tag(Tab.stories)
             }
             .tint(.purple)
 
@@ -143,5 +151,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(SleepTimerService(audioEngine: audioEngine))
         .environment(FavoritesService())
         .environment(SavedMixesService())
+        .environment(StoryProgressService())
         .preferredColorScheme(.dark)
 }

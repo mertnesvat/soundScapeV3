@@ -46,6 +46,15 @@
 		FB96EB91000000F3 /* MixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000F4 /* MixerView.swift */; };
 		FB96EB91000000F5 /* MixerSoundRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000F6 /* MixerSoundRowView.swift */; };
 		FB96EB91000000G1 /* NowPlayingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000G2 /* NowPlayingBarView.swift */; };
+		FB96EB91000000K1 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000K2 /* Story.swift */; };
+		FB96EB91000000K3 /* LocalStoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000K4 /* LocalStoryDataSource.swift */; };
+		FB96EB91000000K5 /* StoryProgressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000K6 /* StoryProgressService.swift */; };
+		FB96EB91000000K7 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000K8 /* StoriesView.swift */; };
+		FB96EB91000000K9 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KA /* StoryCardView.swift */; };
+		FB96EB91000000KB /* StoryPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KC /* StoryPlayerView.swift */; };
+		FB96EB91000000KD /* FeaturedStoryBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KE /* FeaturedStoryBanner.swift */; };
+		FB96EB91000000KF /* StoryCategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KG /* StoryCategoryFilterView.swift */; };
+		FB96EB91000000KH /* StorySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KI /* StorySectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +99,15 @@
 		FB96EB91000000J6 /* SavedMixesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesView.swift; sourceTree = "<group>"; };
 		FB96EB91000000J8 /* SavedMixRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixRowView.swift; sourceTree = "<group>"; };
 		FB96EB91000000JA /* SaveMixSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMixSheet.swift; sourceTree = "<group>"; };
+		FB96EB91000000K2 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		FB96EB91000000K4 /* LocalStoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoryDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91000000K6 /* StoryProgressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryProgressService.swift; sourceTree = "<group>"; };
+		FB96EB91000000K8 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		FB96EB91000000KA /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
+		FB96EB91000000KC /* StoryPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPlayerView.swift; sourceTree = "<group>"; };
+		FB96EB91000000KE /* FeaturedStoryBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedStoryBanner.swift; sourceTree = "<group>"; };
+		FB96EB91000000KG /* StoryCategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCategoryFilterView.swift; sourceTree = "<group>"; };
+		FB96EB91000000KI /* StorySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +206,7 @@
 				FB96EB91000000H4 /* SleepTimerService.swift */,
 				FB96EB91000000I2 /* FavoritesService.swift */,
 				FB96EB91000000J4 /* SavedMixesService.swift */,
+				FB96EB91000000K6 /* StoryProgressService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -200,9 +219,31 @@
 				FB96EB9100000051 /* Timer */,
 				FB96EB9100000052 /* Favorites */,
 				FB96EB9100000053 /* SavedMixes */,
+				FB96EB91000000KJ /* Stories */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000KJ /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000KK /* Views */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000KK /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000K8 /* StoriesView.swift */,
+				FB96EB91000000KA /* StoryCardView.swift */,
+				FB96EB91000000KC /* StoryPlayerView.swift */,
+				FB96EB91000000KE /* FeaturedStoryBanner.swift */,
+				FB96EB91000000KG /* StoryCategoryFilterView.swift */,
+				FB96EB91000000KI /* StorySectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000048 /* Sounds */ = {
@@ -230,6 +271,7 @@
 				FB96EB91000000E1 /* ActiveSound.swift */,
 				FB96EB91000000H2 /* SleepTimer.swift */,
 				FB96EB91000000J2 /* SavedMix.swift */,
+				FB96EB91000000K2 /* Story.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -261,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB91000000B3 /* LocalSoundDataSource.swift */,
+				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -481,6 +524,15 @@
 				FB96EB91000000J5 /* SavedMixesView.swift in Sources */,
 				FB96EB91000000J7 /* SavedMixRowView.swift in Sources */,
 				FB96EB91000000J9 /* SaveMixSheet.swift in Sources */,
+				FB96EB91000000K1 /* Story.swift in Sources */,
+				FB96EB91000000K3 /* LocalStoryDataSource.swift in Sources */,
+				FB96EB91000000K5 /* StoryProgressService.swift in Sources */,
+				FB96EB91000000K7 /* StoriesView.swift in Sources */,
+				FB96EB91000000K9 /* StoryCardView.swift in Sources */,
+				FB96EB91000000KB /* StoryPlayerView.swift in Sources */,
+				FB96EB91000000KD /* FeaturedStoryBanner.swift in Sources */,
+				FB96EB91000000KF /* StoryCategoryFilterView.swift in Sources */,
+				FB96EB91000000KH /* StorySectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

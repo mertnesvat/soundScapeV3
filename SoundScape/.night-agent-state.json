@@ -18,7 +18,7 @@
     {"id": 5, "name": "Now Playing Bar", "priority": 5, "dependencies": [4], "status": "completed", "commit": "4178034"},
     {"id": 6, "name": "Sleep Timer", "priority": 6, "dependencies": [5], "status": "completed", "commit": "57a31e6"},
     {"id": 7, "name": "Favorites", "priority": 7, "dependencies": [2], "status": "completed", "commit": "1caedd4"},
-    {"id": 8, "name": "Saved Mixes", "priority": 8, "dependencies": [4, 7], "status": "pending"},
+    {"id": 8, "name": "Saved Mixes", "priority": 8, "dependencies": [4, 7], "status": "completed", "commit": "712ecbd"},
     {"id": 9, "name": "Sleep Stories", "priority": 9, "dependencies": [3], "status": "pending"},
     {"id": 10, "name": "Binaural Beats", "priority": 10, "dependencies": [3], "status": "pending"},
     {"id": 11, "name": "Smart Alarms", "priority": 11, "dependencies": [3], "status": "pending"},
@@ -26,8 +26,8 @@
     {"id": 13, "name": "Adaptive Soundscapes", "priority": 13, "dependencies": [3, 6], "status": "pending"},
     {"id": 14, "name": "Sleep Insights", "priority": 14, "dependencies": [3, 8], "status": "pending"}
   ],
-  "current_feature": 8,
-  "completed": [1, 2, 3, 4, 5, 6, 7],
+  "current_feature": 9,
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8],
   "failed": [],
   "skipped": []
 }
