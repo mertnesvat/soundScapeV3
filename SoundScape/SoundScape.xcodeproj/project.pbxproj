@@ -25,6 +25,8 @@
 		FB96EB91000000H1 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H2 /* SleepTimer.swift */; };
 		FB96EB91000000H3 /* SleepTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H4 /* SleepTimerService.swift */; };
 		FB96EB91000000H5 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H6 /* SleepTimerView.swift */; };
+		FB96EB91000000I1 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I2 /* FavoritesService.swift */; };
+		FB96EB91000000I3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I4 /* FavoritesView.swift */; };
 		FB96EB91000000A1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B1 /* Sound.swift */; };
 		FB96EB91000000A2 /* SoundRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B2 /* SoundRepositoryProtocol.swift */; };
 		FB96EB91000000A3 /* LocalSoundDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B3 /* LocalSoundDataSource.swift */; };
@@ -76,6 +78,8 @@
 		FB96EB91000000H2 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
 		FB96EB91000000H4 /* SleepTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerService.swift; sourceTree = "<group>"; };
 		FB96EB91000000H6 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerView.swift; sourceTree = "<group>"; };
+		FB96EB91000000I2 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		FB96EB91000000I4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 			children = (
 				FB96EB91000000E3 /* AudioEngine.swift */,
 				FB96EB91000000H4 /* SleepTimerService.swift */,
+				FB96EB91000000I2 /* FavoritesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -318,8 +323,17 @@
 		FB96EB9100000052 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000I5 /* Views */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000I5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000I4 /* FavoritesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000053 /* SavedMixes */ = {
@@ -437,6 +451,8 @@
 				FB96EB91000000H1 /* SleepTimer.swift in Sources */,
 				FB96EB91000000H3 /* SleepTimerService.swift in Sources */,
 				FB96EB91000000H5 /* SleepTimerView.swift in Sources */,
+				FB96EB91000000I1 /* FavoritesService.swift in Sources */,
+				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

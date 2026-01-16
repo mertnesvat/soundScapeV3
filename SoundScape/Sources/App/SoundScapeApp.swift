@@ -5,6 +5,7 @@ import UIKit
 struct SoundScapeApp: App {
     @State private var audioEngine = AudioEngine()
     @State private var sleepTimerService: SleepTimerService?
+    @State private var favoritesService = FavoritesService()
 
     init() {
         configureAppearance()
@@ -15,6 +16,7 @@ struct SoundScapeApp: App {
             ContentView()
                 .environment(audioEngine)
                 .environment(sleepTimerService ?? createSleepTimerService())
+                .environment(favoritesService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     if sleepTimerService == nil {

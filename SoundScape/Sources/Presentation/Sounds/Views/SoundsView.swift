@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SoundsView: View {
     @Environment(AudioEngine.self) private var audioEngine
+    @Environment(FavoritesService.self) private var favoritesService
     @State private var viewModel: SoundsViewModel?
 
     private let columns = [
@@ -20,21 +21,16 @@ struct SoundsView: View {
                             set: { viewModel.selectCategory($0) }
                         ))
 
-                        // Sound Grid
-                        LazyVGrid(columns: columns, spacing: 16) {
-                            ForEach(viewModel.filteredSounds) { sound in
-                                SoundCardView(
-                                    sound: sound,
-                                    isPlaying: viewModel.isPlaying(sound),
-                                    onTogglePlay: {
-                                        viewModel.togglePlay(for: sound)
-                                    }
-                                )
+                        // Favorites Section (only when favorites exist and no category filter)
+                        if viewModel.selectedCategory == nil {
+                            let favoriteSounds = viewModel.sounds.filter { favoritesService.isFavorite($0.id) }
+                            if !favoriteSounds.isEmpty {
+                                favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
                             }
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.top, 8)
-                        .padding(.bottom, 24)
+
+                        // All Sounds Section
+                        allSoundsSection(viewModel: viewModel)
                     }
                 }
             }
@@ -48,10 +44,83 @@ struct SoundsView: View {
             }
         }
     }
+
+    @ViewBuilder
+    private func favoritesSection(sounds: [Sound], viewModel: SoundsViewModel) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.red)
+                Text("Favorites")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+            }
+            .padding(.horizontal, 16)
+
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(sounds) { sound in
+                    SoundCardView(
+                        sound: sound,
+                        isPlaying: viewModel.isPlaying(sound),
+                        isFavorite: favoritesService.isFavorite(sound.id),
+                        onTogglePlay: {
+                            viewModel.togglePlay(for: sound)
+                        },
+                        onToggleFavorite: {
+                            favoritesService.toggleFavorite(sound.id)
+                        }
+                    )
+                }
+            }
+            .padding(.horizontal, 16)
+
+            Divider()
+                .padding(.vertical, 16)
+                .padding(.horizontal, 16)
+        }
+        .padding(.top, 8)
+    }
+
+    @ViewBuilder
+    private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // Show header only when favorites exist and no category filter
+            if viewModel.selectedCategory == nil {
+                let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
+                if hasFavorites {
+                    Text("All Sounds")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal, 16)
+                }
+            }
+
+            // Sound Grid
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(viewModel.filteredSounds) { sound in
+                    SoundCardView(
+                        sound: sound,
+                        isPlaying: viewModel.isPlaying(sound),
+                        isFavorite: favoritesService.isFavorite(sound.id),
+                        onTogglePlay: {
+                            viewModel.togglePlay(for: sound)
+                        },
+                        onToggleFavorite: {
+                            favoritesService.toggleFavorite(sound.id)
+                        }
+                    )
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 24)
+        }
+    }
 }
 
 #Preview {
     SoundsView()
         .environment(AudioEngine())
+        .environment(FavoritesService())
         .preferredColorScheme(.dark)
 }

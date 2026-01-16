@@ -16,7 +16,7 @@
     {"id": 3, "name": "Audio Engine", "priority": 3, "dependencies": [2], "status": "completed", "commit": "60d81e9"},
     {"id": 4, "name": "Sound Mixer", "priority": 4, "dependencies": [3], "status": "completed", "commit": "77077b8"},
     {"id": 5, "name": "Now Playing Bar", "priority": 5, "dependencies": [4], "status": "completed", "commit": "4178034"},
-    {"id": 6, "name": "Sleep Timer", "priority": 6, "dependencies": [5], "status": "pending"},
+    {"id": 6, "name": "Sleep Timer", "priority": 6, "dependencies": [5], "status": "completed", "commit": "57a31e6"},
     {"id": 7, "name": "Favorites", "priority": 7, "dependencies": [2], "status": "pending"},
     {"id": 8, "name": "Saved Mixes", "priority": 8, "dependencies": [4, 7], "status": "pending"},
     {"id": 9, "name": "Sleep Stories", "priority": 9, "dependencies": [3], "status": "pending"},
@@ -26,8 +26,8 @@
     {"id": 13, "name": "Adaptive Soundscapes", "priority": 13, "dependencies": [3, 6], "status": "pending"},
     {"id": 14, "name": "Sleep Insights", "priority": 14, "dependencies": [3, 8], "status": "pending"}
   ],
-  "current_feature": 6,
-  "completed": [1, 2, 3, 4, 5],
+  "current_feature": 7,
+  "completed": [1, 2, 3, 4, 5, 6],
   "failed": [],
   "skipped": []
 }

@@ -3,7 +3,11 @@ import SwiftUI
 struct SoundCardView: View {
     let sound: Sound
     let isPlaying: Bool
+    let isFavorite: Bool
     let onTogglePlay: () -> Void
+    let onToggleFavorite: () -> Void
+
+    @State private var heartScale: CGFloat = 1.0
 
     private var categoryColor: Color {
         switch sound.category {
@@ -76,6 +80,25 @@ struct SoundCardView: View {
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.3), value: isPlaying)
+        .overlay(alignment: .topTrailing) {
+            Button(action: {
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                    heartScale = 1.3
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                        heartScale = 1.0
+                    }
+                }
+                onToggleFavorite()
+            }) {
+                Image(systemName: isFavorite ? "heart.fill" : "heart")
+                    .foregroundColor(isFavorite ? .red : .gray)
+                    .font(.title3)
+                    .scaleEffect(heartScale)
+            }
+            .padding(12)
+        }
     }
 }
 
@@ -89,7 +112,9 @@ struct SoundCardView: View {
                 fileName: "rain_storm.mp3"
             ),
             isPlaying: false,
-            onTogglePlay: {}
+            isFavorite: false,
+            onTogglePlay: {},
+            onToggleFavorite: {}
         )
 
         SoundCardView(
@@ -100,7 +125,9 @@ struct SoundCardView: View {
                 fileName: "campfire.mp3"
             ),
             isPlaying: true,
-            onTogglePlay: {}
+            isFavorite: true,
+            onTogglePlay: {},
+            onToggleFavorite: {}
         )
     }
     .padding()

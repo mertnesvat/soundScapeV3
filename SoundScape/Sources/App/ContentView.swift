@@ -44,7 +44,7 @@ struct ContentView: View {
                     }
                     .tag(Tab.timer)
 
-                FavoritesPlaceholderView()
+                FavoritesView()
                     .tabItem {
                         Label(Tab.favorites.rawValue, systemImage: Tab.favorites.icon)
                     }
@@ -141,5 +141,6 @@ struct SavedMixesPlaceholderView: View {
     return ContentView()
         .environment(audioEngine)
         .environment(SleepTimerService(audioEngine: audioEngine))
+        .environment(FavoritesService())
         .preferredColorScheme(.dark)
 }
