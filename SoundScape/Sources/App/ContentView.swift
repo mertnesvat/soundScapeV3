@@ -14,6 +14,7 @@ struct ContentView: View {
         case saved = "Saved"
         case stories = "Stories"
         case alarms = "Alarms"
+        case discover = "Discover"
 
         var icon: String {
             switch self {
@@ -25,6 +26,7 @@ struct ContentView: View {
             case .saved: return "folder"
             case .stories: return "book.fill"
             case .alarms: return "alarm"
+            case .discover: return "globe"
             }
         }
     }
@@ -79,6 +81,12 @@ struct ContentView: View {
                         Label(Tab.alarms.rawValue, systemImage: Tab.alarms.icon)
                     }
                     .tag(Tab.alarms)
+
+                DiscoverView()
+                    .tabItem {
+                        Label(Tab.discover.rawValue, systemImage: Tab.discover.icon)
+                    }
+                    .tag(Tab.discover)
             }
             .tint(.purple)
 

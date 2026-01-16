@@ -65,6 +65,14 @@
 		FB96EB91000000M9 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000MA /* AlarmDetailView.swift */; };
 		FB96EB91000000MB /* WeekdaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000MC /* WeekdaySelector.swift */; };
 		FB96EB91000000MD /* SoundPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000ME /* SoundPickerView.swift */; };
+		FB96EB91000000N1 /* CommunityMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000N2 /* CommunityMix.swift */; };
+		FB96EB91000000N3 /* LocalCommunityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000N4 /* LocalCommunityDataSource.swift */; };
+		FB96EB91000000N5 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000N6 /* DiscoverView.swift */; };
+		FB96EB91000000N7 /* CommunityCategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000N8 /* CommunityCategoryFilterView.swift */; };
+		FB96EB91000000N9 /* CommunityMixCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NA /* CommunityMixCardView.swift */; };
+		FB96EB91000000NB /* FeaturedMixBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NC /* FeaturedMixBanner.swift */; };
+		FB96EB91000000ND /* MixDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NE /* MixDetailView.swift */; };
+		FB96EB91000000NF /* MixSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NG /* MixSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +136,14 @@
 		FB96EB91000000MA /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
 		FB96EB91000000MC /* WeekdaySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySelector.swift; sourceTree = "<group>"; };
 		FB96EB91000000ME /* SoundPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerView.swift; sourceTree = "<group>"; };
+		FB96EB91000000N2 /* CommunityMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMix.swift; sourceTree = "<group>"; };
+		FB96EB91000000N4 /* LocalCommunityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCommunityDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91000000N6 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		FB96EB91000000N8 /* CommunityCategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCategoryFilterView.swift; sourceTree = "<group>"; };
+		FB96EB91000000NA /* CommunityMixCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMixCardView.swift; sourceTree = "<group>"; };
+		FB96EB91000000NC /* FeaturedMixBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedMixBanner.swift; sourceTree = "<group>"; };
+		FB96EB91000000NE /* MixDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixDetailView.swift; sourceTree = "<group>"; };
+		FB96EB91000000NG /* MixSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,9 +260,31 @@
 				FB96EB9100000053 /* SavedMixes */,
 				FB96EB91000000KJ /* Stories */,
 				FB96EB91000000MF /* Alarms */,
+				FB96EB91000000NH /* Discover */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000NH /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000NI /* Views */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000NI /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000N6 /* DiscoverView.swift */,
+				FB96EB91000000N8 /* CommunityCategoryFilterView.swift */,
+				FB96EB91000000NA /* CommunityMixCardView.swift */,
+				FB96EB91000000NC /* FeaturedMixBanner.swift */,
+				FB96EB91000000NE /* MixDetailView.swift */,
+				FB96EB91000000NG /* MixSectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB91000000LL /* BinauralBeats */ = {
@@ -314,6 +352,7 @@
 				FB96EB91000000K2 /* Story.swift */,
 				FB96EB91000000L2 /* BinauralBeat.swift */,
 				FB96EB91000000M2 /* Alarm.swift */,
+				FB96EB91000000N2 /* CommunityMix.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -346,6 +385,7 @@
 			children = (
 				FB96EB91000000B3 /* LocalSoundDataSource.swift */,
 				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
+				FB96EB91000000N4 /* LocalCommunityDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -605,6 +645,14 @@
 				FB96EB91000000M9 /* AlarmDetailView.swift in Sources */,
 				FB96EB91000000MB /* WeekdaySelector.swift in Sources */,
 				FB96EB91000000MD /* SoundPickerView.swift in Sources */,
+				FB96EB91000000N1 /* CommunityMix.swift in Sources */,
+				FB96EB91000000N3 /* LocalCommunityDataSource.swift in Sources */,
+				FB96EB91000000N5 /* DiscoverView.swift in Sources */,
+				FB96EB91000000N7 /* CommunityCategoryFilterView.swift in Sources */,
+				FB96EB91000000N9 /* CommunityMixCardView.swift in Sources */,
+				FB96EB91000000NB /* FeaturedMixBanner.swift in Sources */,
+				FB96EB91000000ND /* MixDetailView.swift in Sources */,
+				FB96EB91000000NF /* MixSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@ struct SavedMix: Identifiable, Codable, Equatable {
     let sounds: [MixSound]
     let createdAt: Date
 
-    struct MixSound: Codable, Equatable {
+    struct MixSound: Codable, Equatable, Hashable {
         let soundId: String
         let volume: Float
     }

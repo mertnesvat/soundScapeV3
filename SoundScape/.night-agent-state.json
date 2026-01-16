@@ -5,11 +5,6 @@
   "base_branch": "main",
   "accumulated_branch": "night/20260115-2347",
   "queue_file": "features.md",
-  "config": {
-    "max_retries": 2,
-    "continue_on_failure": true,
-    "feature_timeout": 60
-  },
   "features": [
     {"id": 1, "name": "Project Foundation", "status": "completed"},
     {"id": 2, "name": "Sound Library", "status": "completed"},
@@ -20,14 +15,14 @@
     {"id": 7, "name": "Favorites", "status": "completed"},
     {"id": 8, "name": "Saved Mixes", "status": "completed"},
     {"id": 9, "name": "Sleep Stories", "status": "completed"},
-    {"id": 10, "name": "Binaural Beats", "status": "completed", "commit": "d31d732"},
-    {"id": 11, "name": "Smart Alarms", "status": "pending"},
+    {"id": 10, "name": "Binaural Beats", "status": "completed"},
+    {"id": 11, "name": "Smart Alarms", "status": "completed", "commit": "76b2af5"},
     {"id": 12, "name": "Community Discover", "status": "pending"},
     {"id": 13, "name": "Adaptive Soundscapes", "status": "pending"},
     {"id": 14, "name": "Sleep Insights", "status": "pending"}
   ],
-  "current_feature": 11,
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "current_feature": 12,
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   "failed": [],
   "skipped": []
 }
