@@ -50,7 +50,7 @@ struct ContentView: View {
                     }
                     .tag(Tab.favorites)
 
-                SavedMixesPlaceholderView()
+                SavedMixesView()
                     .tabItem {
                         Label(Tab.saved.rawValue, systemImage: Tab.saved.icon)
                     }
@@ -142,5 +142,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(audioEngine)
         .environment(SleepTimerService(audioEngine: audioEngine))
         .environment(FavoritesService())
+        .environment(SavedMixesService())
         .preferredColorScheme(.dark)
 }

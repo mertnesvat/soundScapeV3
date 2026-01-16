@@ -27,6 +27,11 @@
 		FB96EB91000000H5 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H6 /* SleepTimerView.swift */; };
 		FB96EB91000000I1 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I2 /* FavoritesService.swift */; };
 		FB96EB91000000I3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I4 /* FavoritesView.swift */; };
+		FB96EB91000000J1 /* SavedMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J2 /* SavedMix.swift */; };
+		FB96EB91000000J3 /* SavedMixesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J4 /* SavedMixesService.swift */; };
+		FB96EB91000000J5 /* SavedMixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J6 /* SavedMixesView.swift */; };
+		FB96EB91000000J7 /* SavedMixRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J8 /* SavedMixRowView.swift */; };
+		FB96EB91000000J9 /* SaveMixSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000JA /* SaveMixSheet.swift */; };
 		FB96EB91000000A1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B1 /* Sound.swift */; };
 		FB96EB91000000A2 /* SoundRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B2 /* SoundRepositoryProtocol.swift */; };
 		FB96EB91000000A3 /* LocalSoundDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B3 /* LocalSoundDataSource.swift */; };
@@ -80,6 +85,11 @@
 		FB96EB91000000H6 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerView.swift; sourceTree = "<group>"; };
 		FB96EB91000000I2 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		FB96EB91000000I4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		FB96EB91000000J2 /* SavedMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMix.swift; sourceTree = "<group>"; };
+		FB96EB91000000J4 /* SavedMixesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesService.swift; sourceTree = "<group>"; };
+		FB96EB91000000J6 /* SavedMixesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesView.swift; sourceTree = "<group>"; };
+		FB96EB91000000J8 /* SavedMixRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixRowView.swift; sourceTree = "<group>"; };
+		FB96EB91000000JA /* SaveMixSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMixSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,7 @@
 				FB96EB91000000E3 /* AudioEngine.swift */,
 				FB96EB91000000H4 /* SleepTimerService.swift */,
 				FB96EB91000000I2 /* FavoritesService.swift */,
+				FB96EB91000000J4 /* SavedMixesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 				FB96EB91000000B1 /* Sound.swift */,
 				FB96EB91000000E1 /* ActiveSound.swift */,
 				FB96EB91000000H2 /* SleepTimer.swift */,
+				FB96EB91000000J2 /* SavedMix.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -339,8 +351,19 @@
 		FB96EB9100000053 /* SavedMixes */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000JB /* Views */,
 			);
 			path = SavedMixes;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000JB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000J6 /* SavedMixesView.swift */,
+				FB96EB91000000J8 /* SavedMixRowView.swift */,
+				FB96EB91000000JA /* SaveMixSheet.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000054 /* Components */ = {
@@ -453,6 +476,11 @@
 				FB96EB91000000H5 /* SleepTimerView.swift in Sources */,
 				FB96EB91000000I1 /* FavoritesService.swift in Sources */,
 				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
+				FB96EB91000000J1 /* SavedMix.swift in Sources */,
+				FB96EB91000000J3 /* SavedMixesService.swift in Sources */,
+				FB96EB91000000J5 /* SavedMixesView.swift in Sources */,
+				FB96EB91000000J7 /* SavedMixRowView.swift in Sources */,
+				FB96EB91000000J9 /* SaveMixSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

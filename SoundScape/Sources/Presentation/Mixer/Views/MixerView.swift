@@ -2,6 +2,8 @@ import SwiftUI
 
 struct MixerView: View {
     @Environment(AudioEngine.self) private var audioEngine
+    @Environment(SavedMixesService.self) private var mixesService
+    @State private var showSaveMixSheet = false
 
     var body: some View {
         NavigationStack {
@@ -42,12 +44,22 @@ struct MixerView: View {
             .navigationTitle("Mixer")
             .toolbar {
                 if !audioEngine.activeSounds.isEmpty {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Save Mix") {
+                            showSaveMixSheet = true
+                        }
+                    }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Stop All") {
                             audioEngine.stopAll()
                         }
                         .foregroundColor(.red)
                     }
+                }
+            }
+            .sheet(isPresented: $showSaveMixSheet) {
+                SaveMixSheet { name in
+                    mixesService.saveMix(name: name, sounds: audioEngine.activeSounds)
                 }
             }
         }
@@ -57,5 +69,6 @@ struct MixerView: View {
 #Preview {
     MixerView()
         .environment(AudioEngine())
+        .environment(SavedMixesService())
         .preferredColorScheme(.dark)
 }

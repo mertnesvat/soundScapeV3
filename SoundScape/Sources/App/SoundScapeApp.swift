@@ -6,6 +6,7 @@ struct SoundScapeApp: App {
     @State private var audioEngine = AudioEngine()
     @State private var sleepTimerService: SleepTimerService?
     @State private var favoritesService = FavoritesService()
+    @State private var savedMixesService = SavedMixesService()
 
     init() {
         configureAppearance()
@@ -17,6 +18,7 @@ struct SoundScapeApp: App {
                 .environment(audioEngine)
                 .environment(sleepTimerService ?? createSleepTimerService())
                 .environment(favoritesService)
+                .environment(savedMixesService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     if sleepTimerService == nil {
