@@ -33,6 +33,8 @@
 		FB96EB91000000D1 /* ActiveSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E1 /* ActiveSound.swift */; };
 		FB96EB91000000D2 /* AudioPlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E2 /* AudioPlayerProtocol.swift */; };
 		FB96EB91000000D3 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E3 /* AudioEngine.swift */; };
+		FB96EB91000000F3 /* MixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000F4 /* MixerView.swift */; };
+		FB96EB91000000F5 /* MixerSoundRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000F6 /* MixerSoundRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		FB96EB91000000E1 /* ActiveSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSound.swift; sourceTree = "<group>"; };
 		FB96EB91000000E2 /* AudioPlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerProtocol.swift; sourceTree = "<group>"; };
 		FB96EB91000000E3 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		FB96EB91000000F4 /* MixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView.swift; sourceTree = "<group>"; };
+		FB96EB91000000F6 /* MixerSoundRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerSoundRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,8 +275,18 @@
 		FB96EB9100000050 /* Mixer */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000F7 /* Views */,
 			);
 			path = Mixer;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000F4 /* MixerView.swift */,
+				FB96EB91000000F6 /* MixerSoundRowView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000051 /* Timer */ = {
@@ -397,6 +411,8 @@
 				FB96EB91000000D1 /* ActiveSound.swift in Sources */,
 				FB96EB91000000D2 /* AudioPlayerProtocol.swift in Sources */,
 				FB96EB91000000D3 /* AudioEngine.swift in Sources */,
+				FB96EB91000000F3 /* MixerView.swift in Sources */,
+				FB96EB91000000F5 /* MixerSoundRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

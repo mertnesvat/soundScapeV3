@@ -29,7 +29,7 @@ struct ContentView: View {
                 }
                 .tag(Tab.sounds)
 
-            MixerPlaceholderView()
+            MixerView()
                 .tabItem {
                     Label(Tab.mixer.rawValue, systemImage: Tab.mixer.icon)
                 }
