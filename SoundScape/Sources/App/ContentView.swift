@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(AudioEngine.self) private var audioEngine
     @State private var selectedTab: Tab = .sounds
 
     enum Tab: String, CaseIterable {
@@ -22,38 +23,48 @@ struct ContentView: View {
     }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            SoundsView()
-                .tabItem {
-                    Label(Tab.sounds.rawValue, systemImage: Tab.sounds.icon)
-                }
-                .tag(Tab.sounds)
+        ZStack(alignment: .bottom) {
+            TabView(selection: $selectedTab) {
+                SoundsView()
+                    .tabItem {
+                        Label(Tab.sounds.rawValue, systemImage: Tab.sounds.icon)
+                    }
+                    .tag(Tab.sounds)
 
-            MixerView()
-                .tabItem {
-                    Label(Tab.mixer.rawValue, systemImage: Tab.mixer.icon)
-                }
-                .tag(Tab.mixer)
+                MixerView()
+                    .tabItem {
+                        Label(Tab.mixer.rawValue, systemImage: Tab.mixer.icon)
+                    }
+                    .tag(Tab.mixer)
 
-            TimerPlaceholderView()
-                .tabItem {
-                    Label(Tab.timer.rawValue, systemImage: Tab.timer.icon)
-                }
-                .tag(Tab.timer)
+                TimerPlaceholderView()
+                    .tabItem {
+                        Label(Tab.timer.rawValue, systemImage: Tab.timer.icon)
+                    }
+                    .tag(Tab.timer)
 
-            FavoritesPlaceholderView()
-                .tabItem {
-                    Label(Tab.favorites.rawValue, systemImage: Tab.favorites.icon)
-                }
-                .tag(Tab.favorites)
+                FavoritesPlaceholderView()
+                    .tabItem {
+                        Label(Tab.favorites.rawValue, systemImage: Tab.favorites.icon)
+                    }
+                    .tag(Tab.favorites)
 
-            SavedMixesPlaceholderView()
-                .tabItem {
-                    Label(Tab.saved.rawValue, systemImage: Tab.saved.icon)
-                }
-                .tag(Tab.saved)
+                SavedMixesPlaceholderView()
+                    .tabItem {
+                        Label(Tab.saved.rawValue, systemImage: Tab.saved.icon)
+                    }
+                    .tag(Tab.saved)
+            }
+            .tint(.purple)
+
+            // Now Playing Bar above tab bar
+            VStack {
+                Spacer()
+                NowPlayingBarView()
+                    .padding(.bottom, 49) // Tab bar height
+            }
+            .animation(.spring(response: 0.3), value: audioEngine.activeSounds.isEmpty)
         }
-        .tint(.purple)
     }
 }
 
@@ -126,5 +137,6 @@ struct SavedMixesPlaceholderView: View {
 
 #Preview {
     ContentView()
+        .environment(AudioEngine())
         .preferredColorScheme(.dark)
 }

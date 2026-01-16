@@ -35,6 +35,7 @@
 		FB96EB91000000D3 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E3 /* AudioEngine.swift */; };
 		FB96EB91000000F3 /* MixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000F4 /* MixerView.swift */; };
 		FB96EB91000000F5 /* MixerSoundRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000F6 /* MixerSoundRowView.swift */; };
+		FB96EB91000000G1 /* NowPlayingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000G2 /* NowPlayingBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		FB96EB91000000E3 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
 		FB96EB91000000F4 /* MixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView.swift; sourceTree = "<group>"; };
 		FB96EB91000000F6 /* MixerSoundRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerSoundRowView.swift; sourceTree = "<group>"; };
+		FB96EB91000000G2 /* NowPlayingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 		FB96EB9100000054 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000G2 /* NowPlayingBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				FB96EB91000000D3 /* AudioEngine.swift in Sources */,
 				FB96EB91000000F3 /* MixerView.swift in Sources */,
 				FB96EB91000000F5 /* MixerSoundRowView.swift in Sources */,
+				FB96EB91000000G1 /* NowPlayingBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
