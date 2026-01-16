@@ -84,9 +84,10 @@ final class SleepTimerService {
             }
         }
 
-        // Timer complete - stop all sounds
+        // Timer complete - stop all sounds and record session
         if remainingSeconds <= 0 {
-            audioEngine.stopAll()
+            let timerDuration = TimeInterval(totalSeconds)
+            audioEngine.stopAllFromTimer(timerDuration: timerDuration)
             timer?.invalidate()
             timer = nil
             isActive = false

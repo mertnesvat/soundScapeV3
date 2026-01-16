@@ -9,6 +9,10 @@ final class AudioEngine: AudioPlayerProtocol {
     private var players: [String: AVAudioPlayer] = [:]
     private(set) var activeSounds: [ActiveSound] = []
 
+    // Session tracking for insights
+    private var sessionStartTime: Date?
+    private var insightsService: InsightsService?
+
     var isAnyPlaying: Bool {
         activeSounds.contains { $0.isPlaying }
     }
@@ -17,6 +21,12 @@ final class AudioEngine: AudioPlayerProtocol {
 
     init() {
         configureAudioSession()
+    }
+
+    // MARK: - Insights Service Injection
+
+    func setInsightsService(_ service: InsightsService) {
+        self.insightsService = service
     }
 
     // MARK: - Audio Session Configuration
@@ -68,6 +78,12 @@ final class AudioEngine: AudioPlayerProtocol {
                 isPlaying: true
             )
             activeSounds.append(activeSound)
+
+            // Start session tracking if this is the first sound
+            if sessionStartTime == nil {
+                sessionStartTime = Date()
+                insightsService?.startSession()
+            }
         } catch {
             print("Error creating audio player: \(error.localizedDescription)")
         }
@@ -111,9 +127,37 @@ final class AudioEngine: AudioPlayerProtocol {
     }
 
     func stopAll() {
+        // Record session if played for more than 1 minute (manual stop)
+        recordSessionIfNeeded()
+
         for soundId in players.keys {
             stop(soundId: soundId)
         }
+    }
+
+    /// Called by SleepTimerService when timer ends - records session with timer duration
+    func stopAllFromTimer(timerDuration: TimeInterval) {
+        let soundIds = activeSounds.map { $0.id }
+        insightsService?.recordSession(duration: timerDuration, soundsUsed: soundIds)
+        sessionStartTime = nil
+
+        for soundId in players.keys {
+            stop(soundId: soundId)
+        }
+    }
+
+    private func recordSessionIfNeeded() {
+        guard let startTime = sessionStartTime else { return }
+
+        let duration = Date().timeIntervalSince(startTime)
+        let minimumDuration: TimeInterval = 60 // 1 minute
+
+        if duration >= minimumDuration {
+            let soundIds = activeSounds.map { $0.id }
+            insightsService?.recordSession(duration: duration, soundsUsed: soundIds)
+        }
+
+        sessionStartTime = nil
     }
 
     func pauseAll() {

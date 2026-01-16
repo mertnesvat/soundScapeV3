@@ -37,6 +37,8 @@ struct SoundScapeApp: App {
                     if adaptiveSessionService == nil {
                         adaptiveSessionService = AdaptiveSessionService(audioEngine: audioEngine)
                     }
+                    // Wire up InsightsService to AudioEngine for session tracking
+                    audioEngine.setInsightsService(insightsService)
                 }
         }
     }
