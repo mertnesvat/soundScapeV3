@@ -58,6 +58,13 @@
 		FB96EB91000000L1 /* BinauralBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000L2 /* BinauralBeat.swift */; };
 		FB96EB91000000L3 /* BinauralBeatEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000L4 /* BinauralBeatEngine.swift */; };
 		FB96EB91000000L5 /* BinauralBeatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000L6 /* BinauralBeatsView.swift */; };
+		FB96EB91000000M1 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000M2 /* Alarm.swift */; };
+		FB96EB91000000M3 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000M4 /* AlarmService.swift */; };
+		FB96EB91000000M5 /* AlarmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000M6 /* AlarmsView.swift */; };
+		FB96EB91000000M7 /* AlarmRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000M8 /* AlarmRowView.swift */; };
+		FB96EB91000000M9 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000MA /* AlarmDetailView.swift */; };
+		FB96EB91000000MB /* WeekdaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000MC /* WeekdaySelector.swift */; };
+		FB96EB91000000MD /* SoundPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000ME /* SoundPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +121,13 @@
 		FB96EB91000000L2 /* BinauralBeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeat.swift; sourceTree = "<group>"; };
 		FB96EB91000000L4 /* BinauralBeatEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeatEngine.swift; sourceTree = "<group>"; };
 		FB96EB91000000L6 /* BinauralBeatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeatsView.swift; sourceTree = "<group>"; };
+		FB96EB91000000M2 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		FB96EB91000000M4 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
+		FB96EB91000000M6 /* AlarmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsView.swift; sourceTree = "<group>"; };
+		FB96EB91000000M8 /* AlarmRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowView.swift; sourceTree = "<group>"; };
+		FB96EB91000000MA /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
+		FB96EB91000000MC /* WeekdaySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaySelector.swift; sourceTree = "<group>"; };
+		FB96EB91000000ME /* SoundPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +228,7 @@
 				FB96EB91000000J4 /* SavedMixesService.swift */,
 				FB96EB91000000K6 /* StoryProgressService.swift */,
 				FB96EB91000000L4 /* BinauralBeatEngine.swift */,
+				FB96EB91000000M4 /* AlarmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,6 +243,7 @@
 				FB96EB9100000052 /* Favorites */,
 				FB96EB9100000053 /* SavedMixes */,
 				FB96EB91000000KJ /* Stories */,
+				FB96EB91000000MF /* Alarms */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
@@ -297,6 +313,7 @@
 				FB96EB91000000J2 /* SavedMix.swift */,
 				FB96EB91000000K2 /* Story.swift */,
 				FB96EB91000000L2 /* BinauralBeat.swift */,
+				FB96EB91000000M2 /* Alarm.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -442,6 +459,26 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FB96EB91000000MF /* Alarms */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000MG /* Views */,
+			);
+			path = Alarms;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000MG /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000M6 /* AlarmsView.swift */,
+				FB96EB91000000M8 /* AlarmRowView.swift */,
+				FB96EB91000000MA /* AlarmDetailView.swift */,
+				FB96EB91000000MC /* WeekdaySelector.swift */,
+				FB96EB91000000ME /* SoundPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -561,6 +598,13 @@
 				FB96EB91000000L1 /* BinauralBeat.swift in Sources */,
 				FB96EB91000000L3 /* BinauralBeatEngine.swift in Sources */,
 				FB96EB91000000L5 /* BinauralBeatsView.swift in Sources */,
+				FB96EB91000000M1 /* Alarm.swift in Sources */,
+				FB96EB91000000M3 /* AlarmService.swift in Sources */,
+				FB96EB91000000M5 /* AlarmsView.swift in Sources */,
+				FB96EB91000000M7 /* AlarmRowView.swift in Sources */,
+				FB96EB91000000M9 /* AlarmDetailView.swift in Sources */,
+				FB96EB91000000MB /* WeekdaySelector.swift in Sources */,
+				FB96EB91000000MD /* SoundPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
