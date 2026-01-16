@@ -11,6 +11,7 @@ struct SoundScapeApp: App {
     @State private var storyProgressService = StoryProgressService()
     @State private var binauralBeatEngine = BinauralBeatEngine()
     @State private var alarmService = AlarmService()
+    @State private var insightsService = InsightsService()
 
     init() {
         configureAppearance()
@@ -27,6 +28,7 @@ struct SoundScapeApp: App {
                 .environment(storyProgressService)
                 .environment(binauralBeatEngine)
                 .environment(alarmService)
+                .environment(insightsService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     if sleepTimerService == nil {

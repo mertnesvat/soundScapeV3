@@ -16,6 +16,7 @@ struct ContentView: View {
         case alarms = "Alarms"
         case discover = "Discover"
         case adaptive = "Adaptive"
+        case insights = "Insights"
 
         var icon: String {
             switch self {
@@ -29,6 +30,7 @@ struct ContentView: View {
             case .alarms: return "alarm"
             case .discover: return "globe"
             case .adaptive: return "waveform.path.ecg"
+            case .insights: return "chart.bar.fill"
             }
         }
     }
@@ -95,6 +97,12 @@ struct ContentView: View {
                         Label(Tab.adaptive.rawValue, systemImage: Tab.adaptive.icon)
                     }
                     .tag(Tab.adaptive)
+
+                InsightsView()
+                    .tabItem {
+                        Label(Tab.insights.rawValue, systemImage: Tab.insights.icon)
+                    }
+                    .tag(Tab.insights)
             }
             .tint(.purple)
 
@@ -187,5 +195,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(BinauralBeatEngine())
         .environment(AlarmService())
         .environment(AdaptiveSessionService(audioEngine: audioEngine))
+        .environment(InsightsService())
         .preferredColorScheme(.dark)
 }
