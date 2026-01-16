@@ -22,6 +22,22 @@
 		FB96EB910000000D /* wind_ambient.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001D /* wind_ambient.mp3 */; };
 		FB96EB910000000E /* campfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001E /* campfire.mp3 */; };
 		FB96EB910000000F /* bonfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001F /* bonfire.mp3 */; };
+		FB96EB91000000Q1 /* Creative Mind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R1 /* Creative Mind.mp3 */; };
+		FB96EB91000000Q2 /* Midnight Calm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R2 /* Midnight Calm.mp3 */; };
+		FB96EB91000000Q3 /* Ocean Lullaby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R3 /* Ocean Lullaby.mp3 */; };
+		FB96EB91000000Q4 /* Deep Focus Flow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R4 /* Deep Focus Flow.mp3 */; };
+		FB96EB91000000Q5 /* Starlit Sky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R5 /* Starlit Sky.mp3 */; };
+		FB96EB91000000Q6 /* Forest Sanctuary.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R6 /* Forest Sanctuary.mp3 */; };
+		FB96EB91000000Q7 /* cinematic_piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R7 /* cinematic_piano.mp3 */; };
+		FB96EB91000000Q8 /* rainforest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R8 /* rainforest.mp3 */; };
+		FB96EB91000000Q9 /* thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000R9 /* thunder.mp3 */; };
+		FB96EB91000000QA /* castle_wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RA /* castle_wind.mp3 */; };
+		FB96EB91000000QB /* meadow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RB /* meadow.mp3 */; };
+		FB96EB91000000QC /* heavy_thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RC /* heavy_thunder.mp3 */; };
+		FB96EB91000000QD /* night_wildlife.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RD /* night_wildlife.mp3 */; };
+		FB96EB91000000QE /* spring_birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RE /* spring_birds.mp3 */; };
+		FB96EB91000000QF /* calm_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RF /* calm_ocean.mp3 */; };
+		FB96EB91000000QG /* ambient_melody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RG /* ambient_melody.mp3 */; };
 		FB96EB91000000H1 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H2 /* SleepTimer.swift */; };
 		FB96EB91000000H3 /* SleepTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H4 /* SleepTimerService.swift */; };
 		FB96EB91000000H5 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H6 /* SleepTimerView.swift */; };
@@ -108,6 +124,22 @@
 		FB96EB910000001D /* wind_ambient.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind_ambient.mp3; sourceTree = "<group>"; };
 		FB96EB910000001E /* campfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = campfire.mp3; sourceTree = "<group>"; };
 		FB96EB910000001F /* bonfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bonfire.mp3; sourceTree = "<group>"; };
+		FB96EB91000000R1 /* Creative Mind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Creative Mind.mp3"; sourceTree = "<group>"; };
+		FB96EB91000000R2 /* Midnight Calm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Midnight Calm.mp3"; sourceTree = "<group>"; };
+		FB96EB91000000R3 /* Ocean Lullaby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ocean Lullaby.mp3"; sourceTree = "<group>"; };
+		FB96EB91000000R4 /* Deep Focus Flow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Deep Focus Flow.mp3"; sourceTree = "<group>"; };
+		FB96EB91000000R5 /* Starlit Sky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Starlit Sky.mp3"; sourceTree = "<group>"; };
+		FB96EB91000000R6 /* Forest Sanctuary.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Forest Sanctuary.mp3"; sourceTree = "<group>"; };
+		FB96EB91000000R7 /* cinematic_piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cinematic_piano.mp3; sourceTree = "<group>"; };
+		FB96EB91000000R8 /* rainforest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rainforest.mp3; sourceTree = "<group>"; };
+		FB96EB91000000R9 /* thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunder.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RA /* castle_wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = castle_wind.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RB /* meadow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meadow.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RC /* heavy_thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = heavy_thunder.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RD /* night_wildlife.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = night_wildlife.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RE /* spring_birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring_birds.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RF /* calm_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = calm_ocean.mp3; sourceTree = "<group>"; };
+		FB96EB91000000RG /* ambient_melody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient_melody.mp3; sourceTree = "<group>"; };
 		FB96EB91000000B1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		FB96EB91000000B2 /* SoundRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FB96EB91000000B3 /* LocalSoundDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSource.swift; sourceTree = "<group>"; };
@@ -372,6 +404,22 @@
 				FB96EB910000001D /* wind_ambient.mp3 */,
 				FB96EB910000001E /* campfire.mp3 */,
 				FB96EB910000001F /* bonfire.mp3 */,
+				FB96EB91000000R1 /* Creative Mind.mp3 */,
+				FB96EB91000000R2 /* Midnight Calm.mp3 */,
+				FB96EB91000000R3 /* Ocean Lullaby.mp3 */,
+				FB96EB91000000R4 /* Deep Focus Flow.mp3 */,
+				FB96EB91000000R5 /* Starlit Sky.mp3 */,
+				FB96EB91000000R6 /* Forest Sanctuary.mp3 */,
+				FB96EB91000000R7 /* cinematic_piano.mp3 */,
+				FB96EB91000000R8 /* rainforest.mp3 */,
+				FB96EB91000000R9 /* thunder.mp3 */,
+				FB96EB91000000RA /* castle_wind.mp3 */,
+				FB96EB91000000RB /* meadow.mp3 */,
+				FB96EB91000000RC /* heavy_thunder.mp3 */,
+				FB96EB91000000RD /* night_wildlife.mp3 */,
+				FB96EB91000000RE /* spring_birds.mp3 */,
+				FB96EB91000000RF /* calm_ocean.mp3 */,
+				FB96EB91000000RG /* ambient_melody.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -667,6 +715,22 @@
 				FB96EB910000000D /* wind_ambient.mp3 in Resources */,
 				FB96EB910000000E /* campfire.mp3 in Resources */,
 				FB96EB910000000F /* bonfire.mp3 in Resources */,
+				FB96EB91000000Q1 /* Creative Mind.mp3 in Resources */,
+				FB96EB91000000Q2 /* Midnight Calm.mp3 in Resources */,
+				FB96EB91000000Q3 /* Ocean Lullaby.mp3 in Resources */,
+				FB96EB91000000Q4 /* Deep Focus Flow.mp3 in Resources */,
+				FB96EB91000000Q5 /* Starlit Sky.mp3 in Resources */,
+				FB96EB91000000Q6 /* Forest Sanctuary.mp3 in Resources */,
+				FB96EB91000000Q7 /* cinematic_piano.mp3 in Resources */,
+				FB96EB91000000Q8 /* rainforest.mp3 in Resources */,
+				FB96EB91000000Q9 /* thunder.mp3 in Resources */,
+				FB96EB91000000QA /* castle_wind.mp3 in Resources */,
+				FB96EB91000000QB /* meadow.mp3 in Resources */,
+				FB96EB91000000QC /* heavy_thunder.mp3 in Resources */,
+				FB96EB91000000QD /* night_wildlife.mp3 in Resources */,
+				FB96EB91000000QE /* spring_birds.mp3 in Resources */,
+				FB96EB91000000QF /* calm_ocean.mp3 in Resources */,
+				FB96EB91000000QG /* ambient_melody.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
