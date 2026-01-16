@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct SoundsView: View {
-    @State private var viewModel = SoundsViewModel()
+    @Environment(AudioEngine.self) private var audioEngine
+    @State private var viewModel: SoundsViewModel?
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -12,30 +13,38 @@ struct SoundsView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 0) {
-                    // Category Filter
-                    CategoryFilterView(selectedCategory: $viewModel.selectedCategory)
+                    if let viewModel = viewModel {
+                        // Category Filter
+                        CategoryFilterView(selectedCategory: Binding(
+                            get: { viewModel.selectedCategory },
+                            set: { viewModel.selectCategory($0) }
+                        ))
 
-                    // Sound Grid
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(viewModel.filteredSounds) { sound in
-                            SoundCardView(
-                                sound: sound,
-                                isPlaying: viewModel.isPlaying(sound),
-                                onTogglePlay: {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            )
+                        // Sound Grid
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(viewModel.filteredSounds) { sound in
+                                SoundCardView(
+                                    sound: sound,
+                                    isPlaying: viewModel.isPlaying(sound),
+                                    onTogglePlay: {
+                                        viewModel.togglePlay(for: sound)
+                                    }
+                                )
+                            }
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
+                        .padding(.bottom, 24)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.top, 8)
-                    .padding(.bottom, 24)
                 }
             }
             .background(Color(.systemBackground))
             .navigationTitle("Sounds")
             .onAppear {
-                viewModel.loadSounds()
+                if viewModel == nil {
+                    viewModel = SoundsViewModel(audioEngine: audioEngine)
+                }
+                viewModel?.loadSounds()
             }
         }
     }
@@ -43,5 +52,6 @@ struct SoundsView: View {
 
 #Preview {
     SoundsView()
+        .environment(AudioEngine())
         .preferredColorScheme(.dark)
 }

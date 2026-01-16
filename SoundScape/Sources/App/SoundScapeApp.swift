@@ -3,6 +3,8 @@ import UIKit
 
 @main
 struct SoundScapeApp: App {
+    @State private var audioEngine = AudioEngine()
+
     init() {
         configureAppearance()
     }
@@ -10,6 +12,7 @@ struct SoundScapeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(audioEngine)
                 .preferredColorScheme(.dark)
         }
     }

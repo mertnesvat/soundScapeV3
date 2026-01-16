@@ -30,6 +30,9 @@
 		FB96EB91000000A6 /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B6 /* SoundsView.swift */; };
 		FB96EB91000000A7 /* SoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B7 /* SoundCardView.swift */; };
 		FB96EB91000000A8 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B8 /* CategoryFilterView.swift */; };
+		FB96EB91000000D1 /* ActiveSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E1 /* ActiveSound.swift */; };
+		FB96EB91000000D2 /* AudioPlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E2 /* AudioPlayerProtocol.swift */; };
+		FB96EB91000000D3 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E3 /* AudioEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		FB96EB91000000B6 /* SoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000B7 /* SoundCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCardView.swift; sourceTree = "<group>"; };
 		FB96EB91000000B8 /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
+		FB96EB91000000E1 /* ActiveSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSound.swift; sourceTree = "<group>"; };
+		FB96EB91000000E2 /* AudioPlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerProtocol.swift; sourceTree = "<group>"; };
+		FB96EB91000000E3 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +129,19 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB9100000049 /* Entities */,
+				FB96EB91000000F1 /* Protocols */,
 				FB96EB910000004A /* Repositories */,
 				FB96EB910000004B /* UseCases */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000F1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000E2 /* AudioPlayerProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000046 /* Data */ = {
@@ -135,8 +150,17 @@
 				FB96EB910000004C /* Repositories */,
 				FB96EB910000004D /* DataSources */,
 				FB96EB910000004E /* Models */,
+				FB96EB91000000F2 /* Services */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000F2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000E3 /* AudioEngine.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000047 /* Presentation */ = {
@@ -174,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB91000000B1 /* Sound.swift */,
+				FB96EB91000000E1 /* ActiveSound.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -369,6 +394,9 @@
 				FB96EB91000000A6 /* SoundsView.swift in Sources */,
 				FB96EB91000000A7 /* SoundCardView.swift in Sources */,
 				FB96EB91000000A8 /* CategoryFilterView.swift in Sources */,
+				FB96EB91000000D1 /* ActiveSound.swift in Sources */,
+				FB96EB91000000D2 /* AudioPlayerProtocol.swift in Sources */,
+				FB96EB91000000D3 /* AudioEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

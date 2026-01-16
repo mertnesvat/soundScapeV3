@@ -7,7 +7,6 @@ final class SoundsViewModel {
     // MARK: - State
     private(set) var sounds: [Sound] = []
     var selectedCategory: SoundCategory? = nil
-    private(set) var playingSoundIds: Set<String> = []
 
     var filteredSounds: [Sound] {
         if let category = selectedCategory {
@@ -18,9 +17,11 @@ final class SoundsViewModel {
 
     // MARK: - Dependencies
     private let repository: SoundRepositoryProtocol
+    private let audioEngine: AudioEngine
 
-    init(repository: SoundRepositoryProtocol = SoundRepository()) {
+    init(repository: SoundRepositoryProtocol = SoundRepository(), audioEngine: AudioEngine) {
         self.repository = repository
+        self.audioEngine = audioEngine
     }
 
     // MARK: - Actions
@@ -33,14 +34,19 @@ final class SoundsViewModel {
     }
 
     func togglePlay(for sound: Sound) {
-        if playingSoundIds.contains(sound.id) {
-            playingSoundIds.remove(sound.id)
-        } else {
-            playingSoundIds.insert(sound.id)
-        }
+        audioEngine.togglePlayback(for: sound)
     }
 
     func isPlaying(_ sound: Sound) -> Bool {
-        playingSoundIds.contains(sound.id)
+        audioEngine.isPlaying(soundId: sound.id)
+    }
+
+    // MARK: - Active Sounds Access
+    var activeSounds: [ActiveSound] {
+        audioEngine.activeSounds
+    }
+
+    var isAnyPlaying: Bool {
+        audioEngine.isAnyPlaying
     }
 }
