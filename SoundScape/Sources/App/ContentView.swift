@@ -7,11 +7,8 @@ struct ContentView: View {
 
     enum Tab: String, CaseIterable {
         case sounds = "Sounds"
-        case mixer = "Mixer"
         case binaural = "Binaural"
-        case timer = "Timer"
         case favorites = "Favorites"
-        case saved = "Saved"
         case stories = "Stories"
         case alarms = "Alarms"
         case discover = "Discover"
@@ -21,11 +18,8 @@ struct ContentView: View {
         var icon: String {
             switch self {
             case .sounds: return "waveform"
-            case .mixer: return "slider.horizontal.3"
             case .binaural: return "brain.head.profile"
-            case .timer: return "moon.zzz"
             case .favorites: return "heart"
-            case .saved: return "folder"
             case .stories: return "book.fill"
             case .alarms: return "alarm"
             case .discover: return "globe"
@@ -44,35 +38,17 @@ struct ContentView: View {
                     }
                     .tag(Tab.sounds)
 
-                MixerView()
-                    .tabItem {
-                        Label(Tab.mixer.rawValue, systemImage: Tab.mixer.icon)
-                    }
-                    .tag(Tab.mixer)
-
                 BinauralBeatsView()
                     .tabItem {
                         Label(Tab.binaural.rawValue, systemImage: Tab.binaural.icon)
                     }
                     .tag(Tab.binaural)
 
-                SleepTimerView()
-                    .tabItem {
-                        Label(Tab.timer.rawValue, systemImage: Tab.timer.icon)
-                    }
-                    .tag(Tab.timer)
-
                 FavoritesView()
                     .tabItem {
                         Label(Tab.favorites.rawValue, systemImage: Tab.favorites.icon)
                     }
                     .tag(Tab.favorites)
-
-                SavedMixesView()
-                    .tabItem {
-                        Label(Tab.saved.rawValue, systemImage: Tab.saved.icon)
-                    }
-                    .tag(Tab.saved)
 
                 StoriesView()
                     .tabItem {

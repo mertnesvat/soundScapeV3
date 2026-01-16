@@ -1,505 +1,130 @@
-# SoundScape Rebuild - Feature Queue
-
 ---
 base_branch: main
 max_retries: 2
 continue_on_failure: true
-bundle_identifier: com.StudioNext.SoundScape
-firebase_project: next-soundscape
-platform: iOS only (iPhone)
+visual_gate_enabled: true
+visual_gate_threshold: 0.7
+bundle_id: com.goat.SoundScape
+action_logging: true
 ---
 
-## Project Context
+# Feature Queue: SoundScape Refinements
 
-SoundScape is a wellness audio app that helps users create personalized ambient soundscapes for:
-- Sleep & Relaxation
-- Study & Focus
-- Baby White Noise
-- Meditation
-- Work Environments
+### 1. Sounds Top Bar Navigation Refinement
 
-Users mix multiple sounds together, adjust individual volumes, save favorite combinations, and set sleep timers.
+Consolidate sound-related features into the Sounds view by adding toolbar buttons that open Mixer, Timer, and Saved as sheet modals. This reduces tab bar clutter by grouping related functionality together.
 
-### Assets Available
+**User Story:** As a user, I want quick access to Mixer, Timer, and Saved from the Sounds screen so I can manage my audio experience without switching tabs.
 
-All content files are in `rebuild-assets/`:
-- **Sounds/** - 11 ambient sound files (white_noise, pink_noise, brown_noise, brown_noise_deep, morning_birds, winter_forest, serene_morning, rain_storm, wind_ambient, campfire, bonfire)
-- **Firebase/** - GoogleService-Info.plist (project: next-soundscape)
-- **AppIcon/** - App icon assets
+**Acceptance Criteria:**
+- User sees three toolbar icons in Sounds view top bar (mixer slider, timer/moon, folder icons)
+- Tapping Mixer icon opens MixerView as a sheet modal
+- Tapping Timer icon opens SleepTimerView as a sheet modal
+- Tapping Saved icon opens SavedMixesView as a sheet modal
+- Mixer, Timer, and Saved tabs are removed from the main tab bar
+- Tab bar now has fewer tabs: Sounds, Binaural, Favorites, Stories, Alarms, Discover, Adaptive, Insights (8 tabs instead of 11)
+- All existing functionality of Mixer, Timer, Saved works correctly in sheet presentation
 
-### Sound Categories
-| Category | Sounds |
-|----------|--------|
-| Noise | White Noise, Pink Noise, Brown Noise, Deep Brown Noise |
-| Nature | Morning Birds, Winter Forest, Serene Morning |
-| Weather | Rain Storm, Wind Ambient |
-| Fire | Campfire, Bonfire |
-
-### Design Guidelines
-- Dark Mode Primary (app used at bedtime)
-- Large Touch Targets (easy to tap when drowsy)
-- Minimal Visual Noise (calming interface)
-- Persistent Playback (now playing bar always accessible)
-- Smooth Animations (gentle transitions)
-
----
-
-## Features
-
-### 1. Project Foundation
 **Priority:** 1
-**Dependencies:** none
-
-Set up the iOS project structure with Swift Package Manager:
-- Create SoundScape Xcode project with bundle ID `com.StudioNext.SoundScape`
-- Configure SPM package structure following Clean Architecture
-- Set up folder structure: Domain, Data, Presentation layers
-- Copy assets from `rebuild-assets/` (Sounds, Firebase config, AppIcon)
-- Configure Info.plist for background audio playback
-- Set deployment target iOS 17.0, iPhone only
+**Dependencies:** None
 
 ---
 
-### 2. Sound Library
+### 2. Fix Insights Real Data Binding
+
+The Insights view currently only shows mock data because `recordSession()` is never called. Bind real usage data so Insights reflects actual user listening behavior.
+
+**User Story:** As a user, I want to see my actual listening statistics in Insights so I can track my sleep and sound usage patterns over time.
+
+**Acceptance Criteria:**
+- When sleep timer completes, a session is recorded with duration and sounds that were playing
+- When user manually stops all sounds after playing for more than 1 minute, a session is recorded
+- Insights view shows real weekly sleep chart data based on recorded sessions
+- Average duration, quality, and time-to-sleep metrics reflect actual usage
+- Top sounds section shows the user's actual most-played sounds
+- Total sessions and total sleep time counters are accurate
+- Recommendations are based on real usage patterns
+
 **Priority:** 2
-**Dependencies:** Project Foundation
-
-The main screen where users browse and play ambient sounds (Sounds Tab / Home).
-
-**Requirements:**
-- Grid layout of all available sounds
-- Sounds organized by category (Noise, Nature, Weather, Fire)
-- Category filter tabs at the top
-- Play/pause button on each sound card
-- Visual indicator when a sound is playing
-- Sound loops continuously in background
-- Dark theme UI with calming aesthetics
-
-**Domain Layer:**
-- Sound entity (id, name, category, fileName, isFavorite)
-- SoundCategory enum
-- SoundRepositoryProtocol
-
-**Data Layer:**
-- Local sound data source loading from bundled MP3 files
-- Sound repository implementation
-
-**Presentation Layer:**
-- SoundsView (main tab view)
-- SoundCardView (individual sound tile)
-- CategoryFilterView (horizontal filter tabs)
-- SoundsViewModel
+**Dependencies:** None
 
 ---
 
-### 3. Audio Engine
+### 3. Add Calm Music Category
+
+Add new calming music tracks as a new "Music" category in the Sounds view. These are longer, melodic tracks for relaxation.
+
+**User Story:** As a user, I want access to calming music tracks alongside ambient sounds so I have more variety for relaxation and sleep.
+
+**Acceptance Criteria:**
+- New "Music" category appears in the Sounds view category filter
+- Music category has a distinct color (e.g., pink or teal)
+- The following tracks are available in the Music category:
+  - Creative Mind
+  - Midnight Calm
+  - Ocean Lullaby
+  - Deep Focus Flow
+  - Starlit Sky
+  - Forest Sanctuary
+- Each track can be played, mixed with other sounds, and added to favorites
+- Audio files are properly bundled from new_content/calm_music folder
+- Duplicate files are handled (use best quality version of each track)
+
 **Priority:** 3
-**Dependencies:** Sound Library
-
-Core audio playback engine supporting multiple simultaneous sounds.
-
-**Requirements:**
-- Play/pause individual sounds
-- Multiple sounds playing simultaneously (mixing)
-- Individual volume control per sound (0-100%)
-- Background audio playback (app backgrounded)
-- Looping audio playback
-- Smooth audio transitions
-
-**Domain Layer:**
-- AudioPlayerProtocol
-- PlaybackState entity
-- ActiveSound entity (sound, volume, isPlaying)
-
-**Data Layer:**
-- AVFoundation-based audio player implementation
-- Audio session configuration for background playback
-
-**Presentation Layer:**
-- Integration with SoundsViewModel for play/pause actions
+**Dependencies:** None
 
 ---
 
-### 4. Sound Mixer
-**Priority:** 4
-**Dependencies:** Audio Engine
+### 4. Add New Background Sounds
 
-View for controlling currently playing sounds with volume sliders.
+Expand the existing sound library with additional ambient sounds from the new_content/more_backgroundSound folder. These add variety to Nature, Weather, and other categories.
 
-**Requirements:**
-- List of currently playing sounds
-- Volume slider (0-100%) for each active sound
-- Sound name and category label
-- Remove button to stop individual sounds
-- Total count of active sounds
-- Accessible from Now Playing bar
+**User Story:** As a user, I want more variety in ambient sounds so I can create more diverse and personalized soundscapes.
 
-**Domain Layer:**
-- MixerState entity
-- GetActiveSoundsUseCase
+**Acceptance Criteria:**
+- New sounds are added to appropriate existing categories:
+  - Nature: Spring Birds, Meadow, Night Wildlife
+  - Weather: Rainforest, Thunder, Heavy Thunder, Castle Wind
+  - Ocean (new category or extend Nature): Calm Ocean
+  - Music: Cinematic Piano, Ambient Melody
+- Each new sound has appropriate metadata (name, category, icon)
+- All new sounds work with mixer, favorites, and saved mixes features
+- Audio files are properly bundled from new_content/more_backgroundSound folder
+- Sound names are user-friendly (cleaned up from filename format)
 
-**Presentation Layer:**
-- MixerView (modal/sheet)
-- MixerSoundRowView (sound with volume slider)
-- MixerViewModel
+**Priority:** 3
+**Dependencies:** Feature 3 (shares Music category)
 
 ---
 
-### 5. Now Playing Bar
-**Priority:** 5
-**Dependencies:** Sound Mixer
-
-Persistent mini-player bar showing playback status.
-
-**Requirements:**
-- Shows at bottom of screen when sounds are playing
-- Displays count of active sounds
-- Play/Pause all button
-- Timer button (navigates to timer)
-- Tap to expand to full Mixer view
-- Animates in/out based on playback state
-
-**Presentation Layer:**
-- NowPlayingBarView
-- Integration with main tab view
-
----
-
-### 6. Sleep Timer
-**Priority:** 6
-**Dependencies:** Now Playing Bar
-
-Automatic shutdown timer with gradual fade-out.
-
-**Requirements:**
-- Preset duration buttons: 5, 15, 30, 45 min, 1h, 1.5h, 2h
-- Countdown display showing remaining time (MM:SS)
-- Cancel button to stop timer
-- Timer icon in Now Playing bar shows active state
-- When timer ends, volume gradually fades out over ~30 seconds
-- All sounds stop after fade completes
-
-**Domain Layer:**
-- SleepTimer entity (duration, remainingTime, isActive)
-- SleepTimerRepositoryProtocol
-
-**Data Layer:**
-- Timer implementation with fade-out logic
-
-**Presentation Layer:**
-- SleepTimerView (sheet/modal)
-- TimerButtonView (preset buttons)
-- Integration with NowPlayingBarView
-
----
-
-### 7. Favorites
-**Priority:** 7
-**Dependencies:** Sound Library
-
-Quick access to preferred individual sounds.
-
-**Requirements:**
-- Heart icon on each sound card
-- Favorites section at top of sound library (when favorites exist)
-- Filled heart for favorited sounds
-- Tap heart to toggle favorite status
-- Persist favorites locally
-
-**Domain Layer:**
-- ToggleFavoriteUseCase
-- GetFavoriteSoundsUseCase
-
-**Data Layer:**
-- UserDefaults or JSON file persistence for favorites
-
-**Presentation Layer:**
-- Update SoundCardView with favorite heart icon
-- FavoritesSection in SoundsView
-
----
-
-### 8. Saved Mixes
-**Priority:** 8
-**Dependencies:** Sound Mixer, Favorites
-
-Save and recall favorite sound combinations.
-
-**Requirements:**
-- Save current mix with custom name
-- List of saved mixes showing name, sounds, creation date
-- Play button to instantly load a mix
-- Edit and delete options (swipe actions)
-- Empty state with prompt to save first mix
-- Persist mixes locally
-
-**Domain Layer:**
-- Mix entity (id, name, sounds with volumes, createdAt)
-- MixRepositoryProtocol
-- SaveMixUseCase
-- LoadMixUseCase
-- DeleteMixUseCase
-
-**Data Layer:**
-- JSON file persistence for saved mixes
-
-**Presentation Layer:**
-- SavedMixesView (list view)
-- SavedMixRowView
-- SaveMixSheet (name input)
-- SavedMixesViewModel
-
----
-
-## Post-MVP Features
-
-### 9. Sleep Stories
-**Priority:** 9
-**Dependencies:** Audio Engine
-
-Narrated audio stories designed to help users fall asleep (Stories Tab).
-
-**Requirements:**
-- Featured stories banner at top
-- Story cards with cover art, title, duration
-- Category filters: Fiction, Nature Journeys, Meditation, ASMR
-- Narrator filter (different voice types)
-- Duration filter: 10, 20, 30, 45 minutes
-- Search bar
-- Continue listening section for in-progress stories
-- Story player with optional background soundscape mixing
-- Progress saved if user stops mid-story
-
-**Story card shows:**
-- Cover artwork
-- Story title
-- Narrator name
-- Duration
-- Progress bar (if started)
-
-**Firebase Integration:**
-- Fetch stories from Firestore `stories` collection
-- Fetch narrators from Firestore `narrators` collection
-- Stream audio from Firebase Storage
-
-**Domain Layer:**
-- Story entity (id, title, narrator, duration, category, coverUrl, audioUrl, progress)
-- Narrator entity (id, name, voiceType, avatarUrl)
-- StoryCategory enum
-- StoryRepositoryProtocol
-- NarratorRepositoryProtocol
-
-**Data Layer:**
-- Firebase Firestore data source for stories/narrators
-- Firebase Storage for audio streaming
-- Local persistence for progress tracking
-
-**Presentation Layer:**
-- StoriesView (tab view with filters)
-- StoryCardView
-- StoryPlayerView
-- StoriesViewModel
-
----
-
-### 10. Binaural Beats
-**Priority:** 10
-**Dependencies:** Audio Engine
-
-Brainwave entrainment audio for different mental states.
-
-**Requirements:**
-- Brainwave state selector:
-  - Delta (Deep Sleep) - 2Hz
-  - Theta (Meditation) - 6Hz
-  - Alpha (Relaxation) - 10Hz
-  - Beta (Focus) - 20Hz
-  - Gamma (Creativity) - 40Hz
-- Tone type toggle: Binaural vs Isochronic
-- Intensity slider
-- Headphone required notice (for binaural)
-- Solfeggio frequency options (528Hz, 432Hz, etc.)
-- Can be mixed with other ambient sounds
-
-**Domain Layer:**
-- BrainwaveState enum (delta, theta, alpha, beta, gamma)
-- ToneType enum (binaural, isochronic)
-- BinauralBeat entity (state, toneType, intensity, baseFrequency)
-- BinauralPlayerProtocol
-
-**Data Layer:**
-- AVAudioEngine-based tone generator for binaural beats
-- Real-time audio synthesis
-
-**Presentation Layer:**
-- BinauralBeatsView (dedicated section or integrated)
-- BrainwaveStateSelector
-- FrequencySliderView
-- BinauralBeatsViewModel
-
----
-
-### 11. Smart Alarms
-**Priority:** 11
-**Dependencies:** Audio Engine
-
-Wake-up alarms with gradual volume and smart timing (Alarms Tab).
-
-**Requirements:**
-- List of configured alarms
-- Add alarm button
-- Each alarm shows: time, repeat days, enabled toggle
-- Alarm detail screen with:
-  - Time picker
-  - Repeat days selector (M T W T F S S)
-  - Alarm sound picker (nature sounds: birds, sunrise, ocean, etc.)
-  - Volume ramp duration (wake gradually over 5-30 min)
-  - Smart alarm toggle (wake during light sleep within window)
-  - Snooze duration setting
-- Local notifications for alarm triggers
-- Gradual volume increase
-
-**Domain Layer:**
-- Alarm entity (id, time, repeatDays, soundId, volumeRampMinutes, smartAlarmEnabled, smartAlarmWindow, snoozeMinutes, isEnabled)
-- AlarmRepositoryProtocol
-- ScheduleAlarmUseCase
-- TriggerAlarmUseCase
-
-**Data Layer:**
-- Local persistence for alarms (JSON/UserDefaults)
-- UNUserNotificationCenter for scheduling
-- Background audio for alarm playback
-
-**Presentation Layer:**
-- AlarmsView (tab view with alarm list)
-- AlarmRowView
-- AlarmDetailView
-- AlarmsViewModel
-
----
-
-### 12. Community Discover
-**Priority:** 12
-**Dependencies:** Saved Mixes
-
-Browse and share sound mixes with other users (Discover Tab).
-
-**Requirements:**
-- Featured mix of the week/month
-- Category sections: Trending, New, Popular, Sleep, Focus, Nature
-- Mix cards showing:
-  - Mix name
-  - Creator name/avatar
-  - Sound count
-  - Play count, upvotes, saves
-  - Tags
-- Search and filter options
-- Share your own mix button
-- Preview mix before saving
-- Upvote system to help others find good mixes
-- Share code for direct sharing
-
-**Firebase Integration:**
-- Firestore collection for community mixes
-- User profiles for creators
-- Analytics for play counts, upvotes
-
-**Domain Layer:**
-- CommunityMix entity (id, name, creatorId, creatorName, sounds, playCount, upvotes, saves, tags, createdAt)
-- CommunityRepositoryProtocol
-- FetchTrendingMixesUseCase
-- ShareMixUseCase
-- UpvoteMixUseCase
-
-**Data Layer:**
-- Firebase Firestore for community mixes
-- Cloud Functions for trending algorithms (optional)
-
-**Presentation Layer:**
-- DiscoverView (tab view)
-- CommunityMixCardView
-- ShareMixSheet
-- DiscoverViewModel
-
----
-
-### 13. Adaptive Soundscapes
-**Priority:** 13
-**Dependencies:** Audio Engine, Sleep Timer
-
-Context-aware soundscapes that evolve automatically (Adaptive Tab).
-
-**Requirements:**
-- Preset adaptive modes:
-  - Sleep Cycle (sounds change through night phases)
-  - Day & Night (follows time of day)
-  - Weather Sync (matches local weather via API)
-  - Heart Rate Calming (responds to HealthKit HR data)
-- Custom trigger configuration
-- Evolution pattern selector
-- Preview of how sounds will change
-- Smooth transitions between sound phases
-
-**Domain Layer:**
-- AdaptiveMode enum (sleepCycle, dayNight, weatherSync, heartRate)
-- AdaptiveSession entity (mode, phases, currentPhase, triggers)
-- SoundPhase entity (sounds, duration, transitionStyle)
-- AdaptiveRepositoryProtocol
-- WeatherServiceProtocol
-- HealthKitServiceProtocol
-
-**Data Layer:**
-- Weather API integration (OpenWeatherMap or similar)
-- HealthKit integration for heart rate
-- Timer-based phase transitions
-
-**Presentation Layer:**
-- AdaptiveView (tab view)
-- AdaptiveModeCardView
-- PhasePreviewView
-- AdaptiveViewModel
-
----
-
-### 14. Sleep Insights
-**Priority:** 14
-**Dependencies:** Audio Engine, Saved Mixes
-
-Analytics and recommendations based on sleep data (Insights Tab).
-
-**Requirements:**
-- Sleep duration chart (weekly/monthly views)
-- Sleep quality score
-- Time to fall asleep average
-- Deep sleep percentage (if available from HealthKit)
-- Best performing sounds (correlation analysis)
-- Personalized recommendations based on usage patterns
-- Sleep goals and progress tracking
-- Export data option
-
-**HealthKit Integration:**
-- Request sleep analysis access
-- Read sleep samples (inBed, asleep, awake stages)
-- Correlate with app usage data
-
-**Domain Layer:**
-- SleepSession entity (date, duration, quality, soundsUsed, timeToSleep)
-- SleepInsight entity (metric, value, trend, recommendation)
-- InsightsRepositoryProtocol
-- HealthKitSleepServiceProtocol
-- AnalyzeSleepPatternsUseCase
-- GenerateRecommendationsUseCase
-
-**Data Layer:**
-- HealthKit data source for sleep data
-- Local persistence for app usage tracking
-- Analytics engine for correlations
-
-**Presentation Layer:**
-- InsightsView (tab view)
-- SleepChartView (weekly/monthly)
-- InsightCardView
-- RecommendationRowView
-- InsightsViewModel
-
----
+## New Content Files Reference
+
+### calm_music folder:
+| File | Display Name |
+|------|-------------|
+| Creative Mind.mp3 | Creative Mind |
+| Midnight Calm.mp3 | Midnight Calm |
+| Ocean Lullaby.mp3 | Ocean Lullaby |
+| Deep Focus Flow.mp3 | Deep Focus Flow |
+| Starlit Sky.mp3 | Starlit Sky |
+| Forest Sanctuary.mp3 | Forest Sanctuary |
+
+### more_backgroundSound folder:
+| File | Display Name | Category |
+|------|-------------|----------|
+| 353156__tri-tachyon__soundscape-last-31-cinematic-piano.mp3 | Cinematic Piano | Music |
+| 457447__innorecords__rain-sound-and-rainforest.mp3 | Rainforest | Weather |
+| 527664__straget__thunder.mp3 | Thunder | Weather |
+| 483479__astounded__wind_blowing_gusting_through_french_castle_tower.mp3 | Castle Wind | Weather |
+| 53380__eric5335__meadow-ambience.mp3 | Meadow | Nature |
+| 446753__bluedelta__heavy-thunder-strike-no-rain-quadro.mp3 | Heavy Thunder | Weather |
+| 352514__inspectorj__ambience-night-wildlife-a.mp3 | Night Wildlife | Nature |
+| 345852__hargissssound__spring-birds-loop-with-low-cut-new-jersey.mp3 | Spring Birds | Nature |
+| 578524__samsterbirdies__calm-ocean-waves.mp3 | Calm Ocean | Nature |
+| 341541__patricklieberkind__beautiful-ambient-melody.mp3 | Ambient Melody | Music |
+
+**Skip these files:**
+- 345851__hargissssound__spring-birds-raw-new-jersey.mp3 (use loop version instead)
+- 639585__xkeril__the-story-youre-about-to-hear.mp3 (intro/story clip, not ambient)
+- Duplicate Midnight Calm files (1)-(5) - use original only
+- Duplicate Creative Mind (1), Ocean Lullaby (1), Starlit Sky (1), Forest Sanctuary (1) - use originals only

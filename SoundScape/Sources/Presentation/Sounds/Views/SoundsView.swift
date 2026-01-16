@@ -5,6 +5,11 @@ struct SoundsView: View {
     @Environment(FavoritesService.self) private var favoritesService
     @State private var viewModel: SoundsViewModel?
 
+    // Sheet presentation states for toolbar actions
+    @State private var showMixerSheet = false
+    @State private var showTimerSheet = false
+    @State private var showSavedSheet = false
+
     private let columns = [
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16)
@@ -36,6 +41,38 @@ struct SoundsView: View {
             }
             .background(Color(.systemBackground))
             .navigationTitle("Sounds")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    HStack(spacing: 16) {
+                        Button {
+                            showMixerSheet = true
+                        } label: {
+                            Image(systemName: "slider.horizontal.3")
+                        }
+
+                        Button {
+                            showTimerSheet = true
+                        } label: {
+                            Image(systemName: "moon.zzz")
+                        }
+
+                        Button {
+                            showSavedSheet = true
+                        } label: {
+                            Image(systemName: "folder")
+                        }
+                    }
+                }
+            }
+            .sheet(isPresented: $showMixerSheet) {
+                MixerView()
+            }
+            .sheet(isPresented: $showTimerSheet) {
+                SleepTimerView()
+            }
+            .sheet(isPresented: $showSavedSheet) {
+                SavedMixesView()
+            }
             .onAppear {
                 if viewModel == nil {
                     viewModel = SoundsViewModel(audioEngine: audioEngine)
