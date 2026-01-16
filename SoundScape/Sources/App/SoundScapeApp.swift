@@ -8,6 +8,7 @@ struct SoundScapeApp: App {
     @State private var favoritesService = FavoritesService()
     @State private var savedMixesService = SavedMixesService()
     @State private var storyProgressService = StoryProgressService()
+    @State private var binauralBeatEngine = BinauralBeatEngine()
 
     init() {
         configureAppearance()
@@ -21,6 +22,7 @@ struct SoundScapeApp: App {
                 .environment(favoritesService)
                 .environment(savedMixesService)
                 .environment(storyProgressService)
+                .environment(binauralBeatEngine)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     if sleepTimerService == nil {

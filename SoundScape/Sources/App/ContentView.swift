@@ -8,6 +8,7 @@ struct ContentView: View {
     enum Tab: String, CaseIterable {
         case sounds = "Sounds"
         case mixer = "Mixer"
+        case binaural = "Binaural"
         case timer = "Timer"
         case favorites = "Favorites"
         case saved = "Saved"
@@ -17,6 +18,7 @@ struct ContentView: View {
             switch self {
             case .sounds: return "waveform"
             case .mixer: return "slider.horizontal.3"
+            case .binaural: return "brain.head.profile"
             case .timer: return "moon.zzz"
             case .favorites: return "heart"
             case .saved: return "folder"
@@ -39,6 +41,12 @@ struct ContentView: View {
                         Label(Tab.mixer.rawValue, systemImage: Tab.mixer.icon)
                     }
                     .tag(Tab.mixer)
+
+                BinauralBeatsView()
+                    .tabItem {
+                        Label(Tab.binaural.rawValue, systemImage: Tab.binaural.icon)
+                    }
+                    .tag(Tab.binaural)
 
                 SleepTimerView()
                     .tabItem {
@@ -152,5 +160,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(FavoritesService())
         .environment(SavedMixesService())
         .environment(StoryProgressService())
+        .environment(BinauralBeatEngine())
         .preferredColorScheme(.dark)
 }

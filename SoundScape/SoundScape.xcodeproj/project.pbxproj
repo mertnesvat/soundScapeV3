@@ -55,6 +55,9 @@
 		FB96EB91000000KD /* FeaturedStoryBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KE /* FeaturedStoryBanner.swift */; };
 		FB96EB91000000KF /* StoryCategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KG /* StoryCategoryFilterView.swift */; };
 		FB96EB91000000KH /* StorySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000KI /* StorySectionView.swift */; };
+		FB96EB91000000L1 /* BinauralBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000L2 /* BinauralBeat.swift */; };
+		FB96EB91000000L3 /* BinauralBeatEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000L4 /* BinauralBeatEngine.swift */; };
+		FB96EB91000000L5 /* BinauralBeatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000L6 /* BinauralBeatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +111,9 @@
 		FB96EB91000000KE /* FeaturedStoryBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedStoryBanner.swift; sourceTree = "<group>"; };
 		FB96EB91000000KG /* StoryCategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCategoryFilterView.swift; sourceTree = "<group>"; };
 		FB96EB91000000KI /* StorySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySectionView.swift; sourceTree = "<group>"; };
+		FB96EB91000000L2 /* BinauralBeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeat.swift; sourceTree = "<group>"; };
+		FB96EB91000000L4 /* BinauralBeatEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeatEngine.swift; sourceTree = "<group>"; };
+		FB96EB91000000L6 /* BinauralBeatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 				FB96EB91000000I2 /* FavoritesService.swift */,
 				FB96EB91000000J4 /* SavedMixesService.swift */,
 				FB96EB91000000K6 /* StoryProgressService.swift */,
+				FB96EB91000000L4 /* BinauralBeatEngine.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -216,6 +223,7 @@
 			children = (
 				FB96EB910000004F /* Sounds */,
 				FB96EB9100000050 /* Mixer */,
+				FB96EB91000000LL /* BinauralBeats */,
 				FB96EB9100000051 /* Timer */,
 				FB96EB9100000052 /* Favorites */,
 				FB96EB9100000053 /* SavedMixes */,
@@ -223,6 +231,22 @@
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000LL /* BinauralBeats */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000LM /* Views */,
+			);
+			path = BinauralBeats;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000LM /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000L6 /* BinauralBeatsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB91000000KJ /* Stories */ = {
@@ -272,6 +296,7 @@
 				FB96EB91000000H2 /* SleepTimer.swift */,
 				FB96EB91000000J2 /* SavedMix.swift */,
 				FB96EB91000000K2 /* Story.swift */,
+				FB96EB91000000L2 /* BinauralBeat.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -533,6 +558,9 @@
 				FB96EB91000000KD /* FeaturedStoryBanner.swift in Sources */,
 				FB96EB91000000KF /* StoryCategoryFilterView.swift in Sources */,
 				FB96EB91000000KH /* StorySectionView.swift in Sources */,
+				FB96EB91000000L1 /* BinauralBeat.swift in Sources */,
+				FB96EB91000000L3 /* BinauralBeatEngine.swift in Sources */,
+				FB96EB91000000L5 /* BinauralBeatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
