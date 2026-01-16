@@ -79,6 +79,44 @@ final class LocalSoundDataSource {
                 name: "Bonfire",
                 category: .fire,
                 fileName: "bonfire.mp3"
+            ),
+
+            // Music category
+            Sound(
+                id: "creative_mind",
+                name: "Creative Mind",
+                category: .music,
+                fileName: "Creative Mind.mp3"
+            ),
+            Sound(
+                id: "midnight_calm",
+                name: "Midnight Calm",
+                category: .music,
+                fileName: "Midnight Calm.mp3"
+            ),
+            Sound(
+                id: "ocean_lullaby",
+                name: "Ocean Lullaby",
+                category: .music,
+                fileName: "Ocean Lullaby.mp3"
+            ),
+            Sound(
+                id: "deep_focus_flow",
+                name: "Deep Focus Flow",
+                category: .music,
+                fileName: "Deep Focus Flow.mp3"
+            ),
+            Sound(
+                id: "starlit_sky",
+                name: "Starlit Sky",
+                category: .music,
+                fileName: "Starlit Sky.mp3"
+            ),
+            Sound(
+                id: "forest_sanctuary",
+                name: "Forest Sanctuary",
+                category: .music,
+                fileName: "Forest Sanctuary.mp3"
             )
         ]
     }

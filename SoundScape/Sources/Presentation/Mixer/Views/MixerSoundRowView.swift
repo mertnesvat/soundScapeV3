@@ -62,6 +62,7 @@ struct MixerSoundRowView: View {
         case .nature: return .green
         case .weather: return .blue
         case .fire: return .orange
+        case .music: return .pink
         }
     }
 }

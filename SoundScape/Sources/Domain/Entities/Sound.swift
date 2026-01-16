@@ -13,6 +13,7 @@ enum SoundCategory: String, CaseIterable {
     case nature = "Nature"
     case weather = "Weather"
     case fire = "Fire"
+    case music = "Music"
 
     var icon: String {
         switch self {
@@ -20,6 +21,7 @@ enum SoundCategory: String, CaseIterable {
         case .nature: return "leaf.fill"
         case .weather: return "cloud.rain.fill"
         case .fire: return "flame.fill"
+        case .music: return "music.note"
         }
     }
 
@@ -29,6 +31,7 @@ enum SoundCategory: String, CaseIterable {
         case .nature: return "green"
         case .weather: return "blue"
         case .fire: return "orange"
+        case .music: return "pink"
         }
     }
 }
