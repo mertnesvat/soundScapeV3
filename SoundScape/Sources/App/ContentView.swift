@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(AudioEngine.self) private var audioEngine
+    @Environment(SleepTimerService.self) private var sleepTimerService
     @State private var selectedTab: Tab = .sounds
 
     enum Tab: String, CaseIterable {
@@ -37,7 +38,7 @@ struct ContentView: View {
                     }
                     .tag(Tab.mixer)
 
-                TimerPlaceholderView()
+                SleepTimerView()
                     .tabItem {
                         Label(Tab.timer.rawValue, systemImage: Tab.timer.icon)
                     }
@@ -136,7 +137,9 @@ struct SavedMixesPlaceholderView: View {
 }
 
 #Preview {
-    ContentView()
-        .environment(AudioEngine())
+    let audioEngine = AudioEngine()
+    return ContentView()
+        .environment(audioEngine)
+        .environment(SleepTimerService(audioEngine: audioEngine))
         .preferredColorScheme(.dark)
 }

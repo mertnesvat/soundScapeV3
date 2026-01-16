@@ -2,6 +2,7 @@ import SwiftUI
 
 struct NowPlayingBarView: View {
     @Environment(AudioEngine.self) private var audioEngine
+    @Environment(SleepTimerService.self) private var timerService
     @State private var showMixer = false
     @State private var showTimer = false
 
@@ -31,9 +32,18 @@ struct NowPlayingBarView: View {
 
                 // Timer button
                 Button(action: { showTimer = true }) {
-                    Image(systemName: "timer")
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                    HStack(spacing: 4) {
+                        Image(systemName: timerService.isActive ? "timer.circle.fill" : "timer")
+                            .font(.title3)
+                            .foregroundColor(timerService.isActive ? .purple : .secondary)
+
+                        if timerService.isActive {
+                            Text(timerService.remainingTimeFormatted)
+                                .font(.caption)
+                                .monospacedDigit()
+                                .foregroundColor(.purple)
+                        }
+                    }
                 }
 
                 // Play/Pause button
@@ -62,20 +72,7 @@ struct NowPlayingBarView: View {
                 MixerView()
             }
             .sheet(isPresented: $showTimer) {
-                // Timer placeholder - will be replaced in Feature 6
-                NavigationStack {
-                    ContentUnavailableView(
-                        "Sleep Timer",
-                        systemImage: "timer",
-                        description: Text("Coming soon")
-                    )
-                    .navigationTitle("Timer")
-                    .toolbar {
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Button("Done") { showTimer = false }
-                        }
-                    }
-                }
+                SleepTimerView()
             }
         }
     }
@@ -105,7 +102,9 @@ struct WaveformIndicator: View {
 }
 
 #Preview {
-    NowPlayingBarView()
-        .environment(AudioEngine())
+    let audioEngine = AudioEngine()
+    return NowPlayingBarView()
+        .environment(audioEngine)
+        .environment(SleepTimerService(audioEngine: audioEngine))
         .preferredColorScheme(.dark)
 }

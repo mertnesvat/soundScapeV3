@@ -22,6 +22,9 @@
 		FB96EB910000000D /* wind_ambient.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001D /* wind_ambient.mp3 */; };
 		FB96EB910000000E /* campfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001E /* campfire.mp3 */; };
 		FB96EB910000000F /* bonfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB910000001F /* bonfire.mp3 */; };
+		FB96EB91000000H1 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H2 /* SleepTimer.swift */; };
+		FB96EB91000000H3 /* SleepTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H4 /* SleepTimerService.swift */; };
+		FB96EB91000000H5 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H6 /* SleepTimerView.swift */; };
 		FB96EB91000000A1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B1 /* Sound.swift */; };
 		FB96EB91000000A2 /* SoundRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B2 /* SoundRepositoryProtocol.swift */; };
 		FB96EB91000000A3 /* LocalSoundDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B3 /* LocalSoundDataSource.swift */; };
@@ -70,6 +73,9 @@
 		FB96EB91000000F4 /* MixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView.swift; sourceTree = "<group>"; };
 		FB96EB91000000F6 /* MixerSoundRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerSoundRowView.swift; sourceTree = "<group>"; };
 		FB96EB91000000G2 /* NowPlayingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBarView.swift; sourceTree = "<group>"; };
+		FB96EB91000000H2 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
+		FB96EB91000000H4 /* SleepTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerService.swift; sourceTree = "<group>"; };
+		FB96EB91000000H6 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB91000000E3 /* AudioEngine.swift */,
+				FB96EB91000000H4 /* SleepTimerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 			children = (
 				FB96EB91000000B1 /* Sound.swift */,
 				FB96EB91000000E1 /* ActiveSound.swift */,
+				FB96EB91000000H2 /* SleepTimer.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -294,8 +302,17 @@
 		FB96EB9100000051 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91000000H7 /* Views */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000H7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000H6 /* SleepTimerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000052 /* Favorites */ = {
@@ -417,6 +434,9 @@
 				FB96EB91000000F3 /* MixerView.swift in Sources */,
 				FB96EB91000000F5 /* MixerSoundRowView.swift in Sources */,
 				FB96EB91000000G1 /* NowPlayingBarView.swift in Sources */,
+				FB96EB91000000H1 /* SleepTimer.swift in Sources */,
+				FB96EB91000000H3 /* SleepTimerService.swift in Sources */,
+				FB96EB91000000H5 /* SleepTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
