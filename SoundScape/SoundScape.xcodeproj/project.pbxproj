@@ -73,6 +73,12 @@
 		FB96EB91000000NB /* FeaturedMixBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NC /* FeaturedMixBanner.swift */; };
 		FB96EB91000000ND /* MixDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NE /* MixDetailView.swift */; };
 		FB96EB91000000NF /* MixSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000NG /* MixSectionView.swift */; };
+		FB96EB91000000O1 /* AdaptiveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000O2 /* AdaptiveMode.swift */; };
+		FB96EB91000000O3 /* AdaptiveSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000O4 /* AdaptiveSessionService.swift */; };
+		FB96EB91000000O5 /* AdaptiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000O6 /* AdaptiveView.swift */; };
+		FB96EB91000000O7 /* AdaptiveModeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000O8 /* AdaptiveModeCardView.swift */; };
+		FB96EB91000000O9 /* PhasePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000OA /* PhasePreviewView.swift */; };
+		FB96EB91000000OB /* ActiveAdaptiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +150,12 @@
 		FB96EB91000000NC /* FeaturedMixBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedMixBanner.swift; sourceTree = "<group>"; };
 		FB96EB91000000NE /* MixDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixDetailView.swift; sourceTree = "<group>"; };
 		FB96EB91000000NG /* MixSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSectionView.swift; sourceTree = "<group>"; };
+		FB96EB91000000O2 /* AdaptiveMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveMode.swift; sourceTree = "<group>"; };
+		FB96EB91000000O4 /* AdaptiveSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveSessionService.swift; sourceTree = "<group>"; };
+		FB96EB91000000O6 /* AdaptiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveView.swift; sourceTree = "<group>"; };
+		FB96EB91000000O8 /* AdaptiveModeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveModeCardView.swift; sourceTree = "<group>"; };
+		FB96EB91000000OA /* PhasePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhasePreviewView.swift; sourceTree = "<group>"; };
+		FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAdaptiveSessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +257,7 @@
 				FB96EB91000000K6 /* StoryProgressService.swift */,
 				FB96EB91000000L4 /* BinauralBeatEngine.swift */,
 				FB96EB91000000M4 /* AlarmService.swift */,
+				FB96EB91000000O4 /* AdaptiveSessionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -261,6 +274,7 @@
 				FB96EB91000000KJ /* Stories */,
 				FB96EB91000000MF /* Alarms */,
 				FB96EB91000000NH /* Discover */,
+				FB96EB91000000OD /* Adaptive */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
@@ -353,6 +367,7 @@
 				FB96EB91000000L2 /* BinauralBeat.swift */,
 				FB96EB91000000M2 /* Alarm.swift */,
 				FB96EB91000000N2 /* CommunityMix.swift */,
+				FB96EB91000000O2 /* AdaptiveMode.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -519,6 +534,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB96EB91000000OD /* Adaptive */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000OE /* Views */,
+			);
+			path = Adaptive;
+			sourceTree = "<group>";
+		};
+		FB96EB91000000OE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000O6 /* AdaptiveView.swift */,
+				FB96EB91000000O8 /* AdaptiveModeCardView.swift */,
+				FB96EB91000000OA /* PhasePreviewView.swift */,
+				FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -653,6 +687,12 @@
 				FB96EB91000000NB /* FeaturedMixBanner.swift in Sources */,
 				FB96EB91000000ND /* MixDetailView.swift in Sources */,
 				FB96EB91000000NF /* MixSectionView.swift in Sources */,
+				FB96EB91000000O1 /* AdaptiveMode.swift in Sources */,
+				FB96EB91000000O3 /* AdaptiveSessionService.swift in Sources */,
+				FB96EB91000000O5 /* AdaptiveView.swift in Sources */,
+				FB96EB91000000O7 /* AdaptiveModeCardView.swift in Sources */,
+				FB96EB91000000O9 /* PhasePreviewView.swift in Sources */,
+				FB96EB91000000OB /* ActiveAdaptiveSessionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

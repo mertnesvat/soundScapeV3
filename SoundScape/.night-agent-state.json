@@ -16,13 +16,13 @@
     {"id": 8, "name": "Saved Mixes", "status": "completed"},
     {"id": 9, "name": "Sleep Stories", "status": "completed"},
     {"id": 10, "name": "Binaural Beats", "status": "completed"},
-    {"id": 11, "name": "Smart Alarms", "status": "completed", "commit": "76b2af5"},
-    {"id": 12, "name": "Community Discover", "status": "pending"},
+    {"id": 11, "name": "Smart Alarms", "status": "completed"},
+    {"id": 12, "name": "Community Discover", "status": "completed", "commit": "daea55c"},
     {"id": 13, "name": "Adaptive Soundscapes", "status": "pending"},
     {"id": 14, "name": "Sleep Insights", "status": "pending"}
   ],
-  "current_feature": 12,
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  "current_feature": 13,
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "failed": [],
   "skipped": []
 }

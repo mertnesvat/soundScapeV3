@@ -15,6 +15,7 @@ struct ContentView: View {
         case stories = "Stories"
         case alarms = "Alarms"
         case discover = "Discover"
+        case adaptive = "Adaptive"
 
         var icon: String {
             switch self {
@@ -27,6 +28,7 @@ struct ContentView: View {
             case .stories: return "book.fill"
             case .alarms: return "alarm"
             case .discover: return "globe"
+            case .adaptive: return "waveform.path.ecg"
             }
         }
     }
@@ -87,6 +89,12 @@ struct ContentView: View {
                         Label(Tab.discover.rawValue, systemImage: Tab.discover.icon)
                     }
                     .tag(Tab.discover)
+
+                AdaptiveView()
+                    .tabItem {
+                        Label(Tab.adaptive.rawValue, systemImage: Tab.adaptive.icon)
+                    }
+                    .tag(Tab.adaptive)
             }
             .tint(.purple)
 
@@ -178,5 +186,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(StoryProgressService())
         .environment(BinauralBeatEngine())
         .environment(AlarmService())
+        .environment(AdaptiveSessionService(audioEngine: audioEngine))
         .preferredColorScheme(.dark)
 }
