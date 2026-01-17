@@ -26,6 +26,7 @@ final class AudioEngine: AudioPlayerProtocol {
     init() {
         configureAudioSession()
         setupInterruptionHandling()
+        setupRemoteCommandCenter()
     }
 
     deinit {
@@ -102,6 +103,46 @@ final class AudioEngine: AudioPlayerProtocol {
             @unknown default:
                 break
             }
+        }
+    }
+
+    // MARK: - Remote Command Center
+
+    private func setupRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        // Play command - triggered from lock screen/Control Center play button
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            guard let self else { return .commandFailed }
+            Task { @MainActor in
+                self.resumeAll()
+            }
+            return .success
+        }
+
+        // Pause command - triggered from lock screen/Control Center pause button
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget { [weak self] _ in
+            guard let self else { return .commandFailed }
+            Task { @MainActor in
+                self.pauseAll()
+            }
+            return .success
+        }
+
+        // Toggle play/pause command - triggered by headphone button
+        commandCenter.togglePlayPauseCommand.isEnabled = true
+        commandCenter.togglePlayPauseCommand.addTarget { [weak self] _ in
+            guard let self else { return .commandFailed }
+            Task { @MainActor in
+                if self.isAnyPlaying {
+                    self.pauseAll()
+                } else {
+                    self.resumeAll()
+                }
+            }
+            return .success
         }
     }
 
