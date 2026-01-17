@@ -1,2 +1,56 @@
+# Build output
 build/
-SoundScape/build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcode user-specific files (DO NOT commit)
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Xcode workspace settings (keep xcshareddata!)
+project.xcworkspace/contents.xcworkspacedata
+project.xcworkspace/xcuserdata/
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/xcshareddata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+Package.resolved
+
+# CocoaPods (if used)
+Pods/
+!Podfile.lock
+
+# Carthage (if used)
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# OS files
+.DS_Store
+*.swp
+*~
+
+# IDE
+*.idea/
+*.vscode/
+
+# Firebase
+firebase-debug.log
+.firebase/
+
+# Secrets (never commit)
+*.p12
+*.mobileprovision
+GoogleService-Info.plist.backup
