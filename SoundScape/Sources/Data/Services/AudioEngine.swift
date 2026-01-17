@@ -13,6 +13,9 @@ final class AudioEngine: AudioPlayerProtocol {
     private var sessionStartTime: Date?
     private var insightsService: InsightsService?
 
+    // Track if we were playing before an interruption
+    private var wasPlayingBeforeInterruption = false
+
     var isAnyPlaying: Bool {
         activeSounds.contains { $0.isPlaying }
     }
@@ -21,6 +24,11 @@ final class AudioEngine: AudioPlayerProtocol {
 
     init() {
         configureAudioSession()
+        setupInterruptionHandling()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Insights Service Injection
@@ -34,10 +42,65 @@ final class AudioEngine: AudioPlayerProtocol {
     private func configureAudioSession() {
         do {
             let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playback, mode: .default, options: [.mixWithOthers])
+            // Use .playback category without .mixWithOthers to enable:
+            // - Background audio playback
+            // - Now Playing controls on lock screen
+            // - Remote command center support
+            try session.setCategory(.playback, mode: .default)
             try session.setActive(true)
         } catch {
             print("Audio session configuration error: \(error.localizedDescription)")
+        }
+    }
+
+    // MARK: - Interruption Handling
+
+    private func setupInterruptionHandling() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleAudioInterruption),
+            name: AVAudioSession.interruptionNotification,
+            object: AVAudioSession.sharedInstance()
+        )
+    }
+
+    @objc private func handleAudioInterruption(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+            return
+        }
+
+        Task { @MainActor in
+            switch type {
+            case .began:
+                // Interruption began (phone call, Siri, etc.)
+                wasPlayingBeforeInterruption = isAnyPlaying
+                if wasPlayingBeforeInterruption {
+                    pauseAll()
+                }
+
+            case .ended:
+                // Interruption ended - check if we should resume
+                guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else {
+                    return
+                }
+                let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+
+                if options.contains(.shouldResume) && wasPlayingBeforeInterruption {
+                    // Reactivate audio session and resume playback
+                    do {
+                        try AVAudioSession.sharedInstance().setActive(true)
+                        resumeAll()
+                    } catch {
+                        print("Failed to reactivate audio session: \(error.localizedDescription)")
+                    }
+                }
+                wasPlayingBeforeInterruption = false
+
+            @unknown default:
+                break
+            }
         }
     }
 
