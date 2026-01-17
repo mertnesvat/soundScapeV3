@@ -1,5 +1,6 @@
 import AVFoundation
 import Foundation
+import MediaPlayer
 
 @Observable
 @MainActor
@@ -147,6 +148,9 @@ final class AudioEngine: AudioPlayerProtocol {
                 sessionStartTime = Date()
                 insightsService?.startSession()
             }
+
+            // Update Now Playing info on lock screen
+            updateNowPlayingInfo()
         } catch {
             print("Error creating audio player: \(error.localizedDescription)")
         }
@@ -162,6 +166,8 @@ final class AudioEngine: AudioPlayerProtocol {
         fadeOut(player: player, duration: 0.3) { [weak self] in
             player.pause()
             self?.activeSounds[index].isPlaying = false
+            // Update Now Playing info after pause
+            self?.updateNowPlayingInfo()
         }
     }
 
@@ -176,6 +182,9 @@ final class AudioEngine: AudioPlayerProtocol {
         player.play()
         fadeIn(player: player, targetVolume: targetVolume, duration: 0.3)
         activeSounds[index].isPlaying = true
+
+        // Update Now Playing info after resume
+        updateNowPlayingInfo()
     }
 
     func stop(soundId: String) {
@@ -186,6 +195,8 @@ final class AudioEngine: AudioPlayerProtocol {
             player.stop()
             self?.players.removeValue(forKey: soundId)
             self?.activeSounds.removeAll { $0.id == soundId }
+            // Update Now Playing info after removing sound
+            self?.updateNowPlayingInfo()
         }
     }
 
@@ -196,6 +207,9 @@ final class AudioEngine: AudioPlayerProtocol {
         for soundId in players.keys {
             stop(soundId: soundId)
         }
+
+        // Clear Now Playing info when all sounds stopped
+        clearNowPlayingInfo()
     }
 
     /// Called by SleepTimerService when timer ends - records session with timer duration
@@ -207,6 +221,9 @@ final class AudioEngine: AudioPlayerProtocol {
         for soundId in players.keys {
             stop(soundId: soundId)
         }
+
+        // Clear Now Playing info when timer stops all sounds
+        clearNowPlayingInfo()
     }
 
     private func recordSessionIfNeeded() {
@@ -227,12 +244,16 @@ final class AudioEngine: AudioPlayerProtocol {
         for activeSound in activeSounds where activeSound.isPlaying {
             pause(soundId: activeSound.id)
         }
+        // Update Now Playing info to reflect paused state
+        updateNowPlayingInfo()
     }
 
     func resumeAll() {
         for activeSound in activeSounds where !activeSound.isPlaying {
             resume(soundId: activeSound.id)
         }
+        // Update Now Playing info to reflect playing state
+        updateNowPlayingInfo()
     }
 
     func setVolume(_ volume: Float, for soundId: String) {
@@ -279,6 +300,39 @@ final class AudioEngine: AudioPlayerProtocol {
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             completion()
         }
+    }
+
+    // MARK: - Now Playing Info Center
+
+    private func updateNowPlayingInfo() {
+        guard !activeSounds.isEmpty else {
+            clearNowPlayingInfo()
+            return
+        }
+
+        var nowPlayingInfo = [String: Any]()
+
+        // Title - "SoundScape Mix"
+        nowPlayingInfo[MPMediaItemPropertyTitle] = "SoundScape Mix"
+
+        // Subtitle - list of active sound names
+        let soundNames = activeSounds.map { $0.sound.name }.joined(separator: ", ")
+        nowPlayingInfo[MPMediaItemPropertyArtist] = soundNames
+
+        // Playback state (1.0 = playing, 0.0 = paused)
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isAnyPlaying ? 1.0 : 0.0
+
+        // Artwork - use app icon or system waveform as fallback
+        if let image = UIImage(named: "AppIcon") ?? UIImage(systemName: "waveform.circle.fill") {
+            let artwork = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+        }
+
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+
+    private func clearNowPlayingInfo() {
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
     }
 
     // MARK: - Toggle Convenience
