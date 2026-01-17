@@ -104,6 +104,14 @@
 		FB96EB91000000QE /* spring_birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RE /* spring_birds.mp3 */; };
 		FB96EB91000000QF /* calm_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RF /* calm_ocean.mp3 */; };
 		FB96EB91000000QG /* ambient_melody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RG /* ambient_melody.mp3 */; };
+		FB96EB91000000T1 /* SleepTimerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U1 /* SleepTimerServiceTests.swift */; };
+		FB96EB91000000T2 /* InsightsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U2 /* InsightsServiceTests.swift */; };
+		FB96EB91000000T3 /* AudioEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U3 /* AudioEngineTests.swift */; };
+		FB96EB91000000T4 /* FavoritesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U4 /* FavoritesServiceTests.swift */; };
+		FB96EB91000000T5 /* SavedMixesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U5 /* SavedMixesServiceTests.swift */; };
+		FB96EB91000000T6 /* BinauralBeatEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U6 /* BinauralBeatEngineTests.swift */; };
+		FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U7 /* AlarmServiceTests.swift */; };
+		FB96EB91000000T8 /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U8 /* AlarmTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,10 +214,36 @@
 		FB96EB91000000RE /* spring_birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring_birds.mp3; sourceTree = "<group>"; };
 		FB96EB91000000RF /* calm_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = calm_ocean.mp3; sourceTree = "<group>"; };
 		FB96EB91000000RG /* ambient_melody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient_melody.mp3; sourceTree = "<group>"; };
+		FB96EB91000000U1 /* SleepTimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U2 /* InsightsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U3 /* AudioEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U4 /* FavoritesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U5 /* SavedMixesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U6 /* BinauralBeatEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeatEngineTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U7 /* AlarmServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000U8 /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
+		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXContainerItemProxy section */
+		FB96EB91000000W1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB96EB9100000080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB96EB9100000060;
+			remoteInfo = SoundScape;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FB96EB9100000030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB96EB91000000X1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -223,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB9100000041 /* Sources */,
+				FB96EB91000000Y1 /* Tests */,
 				FB96EB9100000042 /* Resources */,
 				FB96EB9100000043 /* Products */,
 			);
@@ -254,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB9100000020 /* SoundScape.app */,
+				FB96EB91000000V1 /* SoundScapeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -644,6 +680,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB96EB91000000Y1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000U1 /* SleepTimerServiceTests.swift */,
+				FB96EB91000000U2 /* InsightsServiceTests.swift */,
+				FB96EB91000000U3 /* AudioEngineTests.swift */,
+				FB96EB91000000U4 /* FavoritesServiceTests.swift */,
+				FB96EB91000000U5 /* SavedMixesServiceTests.swift */,
+				FB96EB91000000U6 /* BinauralBeatEngineTests.swift */,
+				FB96EB91000000U7 /* AlarmServiceTests.swift */,
+				FB96EB91000000U8 /* AlarmTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -664,6 +715,23 @@
 			productReference = FB96EB9100000020 /* SoundScape.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FB96EB91000000Z1 /* SoundScapeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB96EB91000000Z5 /* Build configuration list for PBXNativeTarget "SoundScapeTests" */;
+			buildPhases = (
+				FB96EB91000000Z2 /* Sources */,
+				FB96EB91000000X1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB96EB91000000Z4 /* PBXTargetDependency */,
+			);
+			name = SoundScapeTests;
+			productName = SoundScapeTests;
+			productReference = FB96EB91000000V1 /* SoundScapeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -676,6 +744,10 @@
 				TargetAttributes = {
 					FB96EB9100000060 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					FB96EB91000000Z1 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = FB96EB9100000060;
 					};
 				};
 			};
@@ -693,6 +765,7 @@
 			projectRoot = "";
 			targets = (
 				FB96EB9100000060 /* SoundScape */,
+				FB96EB91000000Z1 /* SoundScapeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -812,7 +885,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB96EB91000000Z2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB96EB91000000T1 /* SleepTimerServiceTests.swift in Sources */,
+				FB96EB91000000T2 /* InsightsServiceTests.swift in Sources */,
+				FB96EB91000000T3 /* AudioEngineTests.swift in Sources */,
+				FB96EB91000000T4 /* FavoritesServiceTests.swift in Sources */,
+				FB96EB91000000T5 /* SavedMixesServiceTests.swift in Sources */,
+				FB96EB91000000T6 /* BinauralBeatEngineTests.swift in Sources */,
+				FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */,
+				FB96EB91000000T8 /* AlarmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB96EB91000000Z4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB96EB9100000060 /* SoundScape */;
+			targetProxy = FB96EB91000000W1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FB96EB9100000090 /* Debug */ = {
@@ -998,6 +1094,48 @@
 			};
 			name = Release;
 		};
+		FB96EB91000000Z6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5C6693YG48;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScapeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundScape.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SoundScape";
+			};
+			name = Debug;
+		};
+		FB96EB91000000Z7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5C6693YG48;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScapeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundScape.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SoundScape";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1015,6 +1153,15 @@
 			buildConfigurations = (
 				FB96EB9100000090 /* Debug */,
 				FB96EB9100000091 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB96EB91000000Z5 /* Build configuration list for PBXNativeTarget "SoundScapeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB96EB91000000Z6 /* Debug */,
+				FB96EB91000000Z7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
