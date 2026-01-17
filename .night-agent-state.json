@@ -1,1 +1,62 @@
-{"session_id": "night-20250116-001", "started_at": "2026-01-16T23:35:43Z", "status": "running", "current_feature": 1, "features": [{"id": 1, "name": "Sounds Top Bar Navigation Refinement", "status": "pending"}, {"id": 2, "name": "Fix Insights Real Data Binding", "status": "pending"}, {"id": 3, "name": "Add Calm Music Category", "status": "pending"}, {"id": 4, "name": "Add New Background Sounds", "status": "pending"}]}
+{
+  "session_id": "night-20260117-175018",
+  "accumulated_branch": "night/20260117-175018",
+  "base_branch": "master",
+  "started_at": "2026-01-17T17:50:18Z",
+  "completed_at": "2026-01-17T18:00:00Z",
+  "status": "completed",
+  "features": [
+    {
+      "id": 1,
+      "title": "Configure AVAudioSession for Background Audio",
+      "priority": 1,
+      "dependencies": [],
+      "status": "completed",
+      "commit": "562879c"
+    },
+    {
+      "id": 2,
+      "title": "Implement MPNowPlayingInfoCenter Integration",
+      "priority": 1,
+      "dependencies": [1],
+      "status": "completed",
+      "commit": "3280087"
+    },
+    {
+      "id": 3,
+      "title": "Implement MPRemoteCommandCenter Play/Pause Controls",
+      "priority": 1,
+      "dependencies": [2],
+      "status": "completed",
+      "commit": "7cae013"
+    },
+    {
+      "id": 4,
+      "title": "Handle Audio Interruptions Gracefully",
+      "priority": 2,
+      "dependencies": [1],
+      "status": "completed",
+      "note": "Implemented as part of Feature 1"
+    },
+    {
+      "id": 5,
+      "title": "Update Now Playing Info on Sound Changes",
+      "priority": 2,
+      "dependencies": [2],
+      "status": "completed",
+      "note": "Implemented as part of Feature 2"
+    },
+    {
+      "id": 6,
+      "title": "Create Now Playing Artwork Assets",
+      "priority": 3,
+      "dependencies": [2],
+      "status": "completed",
+      "commit": "bdc44ca"
+    }
+  ],
+  "current_feature": null,
+  "completed_features": [1, 2, 3, 4, 5, 6],
+  "failed_features": [],
+  "skipped_features": []
+}
