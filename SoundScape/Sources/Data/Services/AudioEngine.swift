@@ -363,8 +363,8 @@ final class AudioEngine: AudioPlayerProtocol {
         // Playback state (1.0 = playing, 0.0 = paused)
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isAnyPlaying ? 1.0 : 0.0
 
-        // Artwork - use app icon or system waveform as fallback
-        if let image = UIImage(named: "AppIcon") ?? UIImage(systemName: "waveform.circle.fill") {
+        // Artwork - use dedicated Now Playing artwork or system waveform as fallback
+        if let image = UIImage(named: "NowPlayingArtwork") ?? UIImage(systemName: "waveform.circle.fill") {
             let artwork = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
             nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
         }
