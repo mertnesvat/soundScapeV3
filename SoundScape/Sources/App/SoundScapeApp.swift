@@ -1,6 +1,5 @@
 import SwiftUI
 import UIKit
-import FirebaseCore
 
 @main
 struct SoundScapeApp: App {
@@ -13,11 +12,8 @@ struct SoundScapeApp: App {
     @State private var binauralBeatEngine = BinauralBeatEngine()
     @State private var alarmService = AlarmService()
     @State private var insightsService = InsightsService()
-    @State private var analyticsService = AnalyticsService()
-    @State private var appReviewService = AppReviewService()
 
     init() {
-        FirebaseApp.configure()
         configureAppearance()
     }
 
@@ -33,8 +29,6 @@ struct SoundScapeApp: App {
                 .environment(binauralBeatEngine)
                 .environment(alarmService)
                 .environment(insightsService)
-                .environment(analyticsService)
-                .environment(appReviewService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     if sleepTimerService == nil {
@@ -45,17 +39,6 @@ struct SoundScapeApp: App {
                     }
                     // Wire up InsightsService to AudioEngine for session tracking
                     audioEngine.setInsightsService(insightsService)
-                    audioEngine.setAnalyticsService(analyticsService)
-
-                    // Wire up analytics and review services to other services
-                    sleepTimerService?.setServices(analytics: analyticsService, appReview: appReviewService)
-                    favoritesService.setServices(analytics: analyticsService, appReview: appReviewService)
-                    savedMixesService.setServices(analytics: analyticsService, appReview: appReviewService)
-                    adaptiveSessionService?.setServices(analytics: analyticsService, appReview: appReviewService)
-
-                    // Log app launch event
-                    analyticsService.logAppLaunch()
-                    analyticsService.updateUserProperties()
                 }
         }
     }

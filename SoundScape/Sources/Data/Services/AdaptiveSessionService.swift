@@ -13,9 +13,6 @@ final class AdaptiveSessionService {
     private var phaseTimer: Timer?
     private let audioEngine: AudioEngine
     private let soundRepository: SoundRepository
-    private var analyticsService: AnalyticsService?
-    private var appReviewService: AppReviewService?
-    private var sessionStartTime: Date?
 
     // MARK: - Computed Properties
 
@@ -63,11 +60,6 @@ final class AdaptiveSessionService {
         self.soundRepository = soundRepository
     }
 
-    func setServices(analytics: AnalyticsService, appReview: AppReviewService) {
-        self.analyticsService = analytics
-        self.appReviewService = appReview
-    }
-
     // MARK: - Public Methods
 
     func start(mode: AdaptiveMode) {
@@ -75,11 +67,7 @@ final class AdaptiveSessionService {
         currentMode = mode
         currentPhaseIndex = 0
         isActive = true
-        sessionStartTime = Date()
         startPhase()
-
-        // Log analytics for adaptive session started
-        analyticsService?.logAdaptiveSessionStarted(modeName: mode.rawValue)
     }
 
     func stop() {
@@ -125,17 +113,7 @@ final class AdaptiveSessionService {
         currentPhaseIndex += 1
 
         guard let mode = currentMode, currentPhaseIndex < mode.phases.count else {
-            // Session complete - log analytics and request review
-            let modeName = currentMode?.rawValue ?? "Unknown"
-            let duration = sessionStartTime.map { Date().timeIntervalSince($0) } ?? TimeInterval(totalDuration * 60)
-
-            analyticsService?.logAdaptiveSessionCompleted(modeName: modeName, totalDuration: duration)
-
-            // Request review after completing adaptive session (positive action)
-            if let analytics = analyticsService {
-                appReviewService?.onAdaptiveSessionCompleted(analyticsService: analytics)
-            }
-
+            // Session complete
             stop()
             return
         }

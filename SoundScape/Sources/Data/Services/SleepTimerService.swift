@@ -14,8 +14,6 @@ final class SleepTimerService {
     private var timer: Timer?
     private var originalVolumes: [String: Float] = [:]
     private let audioEngine: AudioEngine
-    private var analyticsService: AnalyticsService?
-    private var appReviewService: AppReviewService?
 
     // MARK: - Computed Properties
 
@@ -32,15 +30,8 @@ final class SleepTimerService {
 
     // MARK: - Initialization
 
-    init(audioEngine: AudioEngine, analyticsService: AnalyticsService? = nil, appReviewService: AppReviewService? = nil) {
+    init(audioEngine: AudioEngine) {
         self.audioEngine = audioEngine
-        self.analyticsService = analyticsService
-        self.appReviewService = appReviewService
-    }
-
-    func setServices(analytics: AnalyticsService, appReview: AppReviewService) {
-        self.analyticsService = analytics
-        self.appReviewService = appReview
     }
 
     // MARK: - Public Methods
@@ -61,17 +52,9 @@ final class SleepTimerService {
                 self?.tick()
             }
         }
-
-        // Log timer set event
-        analyticsService?.logTimerSet(duration: TimeInterval(minutes * 60))
     }
 
     func cancel() {
-        // Log timer cancelled event before resetting state
-        if isActive && remainingSeconds > 0 {
-            analyticsService?.logTimerCancelled(remainingTime: TimeInterval(remainingSeconds))
-        }
-
         timer?.invalidate()
         timer = nil
         isActive = false
@@ -104,15 +87,6 @@ final class SleepTimerService {
         // Timer complete - stop all sounds and record session
         if remainingSeconds <= 0 {
             let timerDuration = TimeInterval(totalSeconds)
-
-            // Log timer completed event
-            analyticsService?.logTimerCompleted(duration: timerDuration)
-
-            // Request review after successful sleep session (positive action)
-            if let analytics = analyticsService {
-                appReviewService?.onSleepSessionCompleted(analyticsService: analytics)
-            }
-
             audioEngine.stopAllFromTimer(timerDuration: timerDuration)
             timer?.invalidate()
             timer = nil

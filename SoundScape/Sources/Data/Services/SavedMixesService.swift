@@ -5,18 +5,10 @@ final class SavedMixesService {
     private(set) var mixes: [SavedMix] = []
     private let fileURL: URL
 
-    private var analyticsService: AnalyticsService?
-    private var appReviewService: AppReviewService?
-
     init() {
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         fileURL = documentsPath.appendingPathComponent("saved_mixes.json")
         loadMixes()
-    }
-
-    func setServices(analytics: AnalyticsService, appReview: AppReviewService) {
-        self.analyticsService = analytics
-        self.appReviewService = appReview
     }
 
     func saveMix(name: String, sounds: [ActiveSound]) {
@@ -24,14 +16,6 @@ final class SavedMixesService {
         let mix = SavedMix(id: UUID(), name: name, sounds: mixSounds, createdAt: Date())
         mixes.insert(mix, at: 0)
         persistMixes()
-
-        // Log analytics for mix saved
-        analyticsService?.logMixSaved(mixName: name, soundCount: sounds.count)
-
-        // Request review after saving a mix (positive action)
-        if let analytics = analyticsService {
-            appReviewService?.onMixSaved(analyticsService: analytics)
-        }
     }
 
     func deleteMix(_ mix: SavedMix) {
