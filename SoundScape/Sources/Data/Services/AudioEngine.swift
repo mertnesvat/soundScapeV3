@@ -13,6 +13,8 @@ final class AudioEngine: AudioPlayerProtocol {
     // Session tracking for insights
     private var sessionStartTime: Date?
     private var insightsService: InsightsService?
+    private var analyticsService: AnalyticsService?
+    private var reviewPromptService: ReviewPromptService?
 
     // Track if we were playing before an interruption
     private var wasPlayingBeforeInterruption = false
@@ -37,6 +39,14 @@ final class AudioEngine: AudioPlayerProtocol {
 
     func setInsightsService(_ service: InsightsService) {
         self.insightsService = service
+    }
+
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
+    }
+
+    func setReviewPromptService(_ service: ReviewPromptService) {
+        self.reviewPromptService = service
     }
 
     // MARK: - Audio Session Configuration
@@ -184,10 +194,19 @@ final class AudioEngine: AudioPlayerProtocol {
             )
             activeSounds.append(activeSound)
 
+            // Log analytics event
+            analyticsService?.logSoundPlayed(
+                soundId: sound.id,
+                soundName: sound.name,
+                category: sound.category.rawValue,
+                volume: 0.7
+            )
+
             // Start session tracking if this is the first sound
             if sessionStartTime == nil {
                 sessionStartTime = Date()
                 insightsService?.startSession()
+                analyticsService?.logEvent(.sessionStarted)
             }
 
             // Update Now Playing info on lock screen
@@ -258,6 +277,17 @@ final class AudioEngine: AudioPlayerProtocol {
         let soundIds = activeSounds.map { $0.id }
         insightsService?.recordSession(duration: timerDuration, soundsUsed: soundIds)
         sessionStartTime = nil
+
+        // Log session ended analytics event
+        analyticsService?.logSessionEnded(
+            duration: timerDuration,
+            quality: 80, // Default quality for timer-completed sessions
+            soundsUsed: soundIds,
+            timeToSleep: timerDuration
+        )
+
+        // Trigger review prompt after successful sleep session
+        reviewPromptService?.recordSuccessfulSleepSession()
 
         for soundId in players.keys {
             stop(soundId: soundId)
