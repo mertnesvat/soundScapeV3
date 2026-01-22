@@ -1,6 +1,10 @@
 import SwiftUI
 import UIKit
 
+#if canImport(FirebaseCore)
+import FirebaseCore
+#endif
+
 @main
 struct SoundScapeApp: App {
     @State private var audioEngine = AudioEngine()
@@ -12,9 +16,17 @@ struct SoundScapeApp: App {
     @State private var binauralBeatEngine = BinauralBeatEngine()
     @State private var alarmService = AlarmService()
     @State private var insightsService = InsightsService()
+    @State private var analyticsService = AnalyticsService()
 
     init() {
+        configureFirebase()
         configureAppearance()
+    }
+
+    private func configureFirebase() {
+        #if canImport(FirebaseCore)
+        FirebaseApp.configure()
+        #endif
     }
 
     var body: some Scene {
@@ -29,6 +41,7 @@ struct SoundScapeApp: App {
                 .environment(binauralBeatEngine)
                 .environment(alarmService)
                 .environment(insightsService)
+                .environment(analyticsService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     if sleepTimerService == nil {
@@ -39,6 +52,12 @@ struct SoundScapeApp: App {
                     }
                     // Wire up InsightsService to AudioEngine for session tracking
                     audioEngine.setInsightsService(insightsService)
+                    // Wire up AnalyticsService to services for analytics tracking
+                    sleepTimerService?.setAnalyticsService(analyticsService)
+                    favoritesService.setAnalyticsService(analyticsService)
+                    savedMixesService.setAnalyticsService(analyticsService)
+                    // Configure analytics service
+                    analyticsService.configure()
                 }
         }
     }

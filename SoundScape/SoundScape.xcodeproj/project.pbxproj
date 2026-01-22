@@ -81,6 +81,7 @@
 		FB96EB91000000OB /* ActiveAdaptiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */; };
 		FB96EB91000000P1 /* SleepInsight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P2 /* SleepInsight.swift */; };
 		FB96EB91000000P3 /* InsightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P4 /* InsightsService.swift */; };
+		FB96EB91000000AN1 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000AN2 /* AnalyticsService.swift */; };
 		FB96EB91000000P5 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P6 /* InsightsView.swift */; };
 		FB96EB91000000P7 /* WeeklySleepChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P8 /* WeeklySleepChartView.swift */; };
 		FB96EB91000000P9 /* MetricsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000PA /* MetricsGridView.swift */; };
@@ -191,6 +192,7 @@
 		FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAdaptiveSessionView.swift; sourceTree = "<group>"; };
 		FB96EB91000000P2 /* SleepInsight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepInsight.swift; sourceTree = "<group>"; };
 		FB96EB91000000P4 /* InsightsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsService.swift; sourceTree = "<group>"; };
+		FB96EB91000000AN2 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		FB96EB91000000P6 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000P8 /* WeeklySleepChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySleepChartView.swift; sourceTree = "<group>"; };
 		FB96EB91000000PA /* MetricsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsGridView.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				FB96EB91000000M4 /* AlarmService.swift */,
 				FB96EB91000000O4 /* AdaptiveSessionService.swift */,
 				FB96EB91000000P4 /* InsightsService.swift */,
+				FB96EB91000000AN2 /* AnalyticsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -711,6 +714,10 @@
 			dependencies = (
 			);
 			name = SoundScape;
+			packageProductDependencies = (
+				FB96EB91000FBP01 /* FirebaseAnalytics */,
+				FB96EB91000FBP02 /* FirebaseCore */,
+			);
 			productName = SoundScape;
 			productReference = FB96EB9100000020 /* SoundScape.app */;
 			productType = "com.apple.product-type.application";
@@ -763,6 +770,9 @@
 			productRefGroup = FB96EB9100000043 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
+			packageReferences = (
+				FB96EB91000FBR01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			targets = (
 				FB96EB9100000060 /* SoundScape */,
 				FB96EB91000000Z1 /* SoundScapeTests */,
@@ -875,6 +885,7 @@
 				FB96EB91000000OB /* ActiveAdaptiveSessionView.swift in Sources */,
 				FB96EB91000000P1 /* SleepInsight.swift in Sources */,
 				FB96EB91000000P3 /* InsightsService.swift in Sources */,
+				FB96EB91000000AN1 /* AnalyticsService.swift in Sources */,
 				FB96EB91000000P5 /* InsightsView.swift in Sources */,
 				FB96EB91000000P7 /* WeeklySleepChartView.swift in Sources */,
 				FB96EB91000000P9 /* MetricsGridView.swift in Sources */,
@@ -1050,7 +1061,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1082,7 +1093,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1103,7 +1114,7 @@
 				DEVELOPMENT_TEAM = 5C6693YG48;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScapeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1124,7 +1135,7 @@
 				DEVELOPMENT_TEAM = 5C6693YG48;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScapeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1167,6 +1178,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB96EB91000FBR01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB96EB91000FBP01 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB96EB91000FBR01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FB96EB91000FBP02 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB96EB91000FBR01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB96EB9100000080 /* Project object */;
 }

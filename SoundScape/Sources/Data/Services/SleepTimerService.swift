@@ -14,6 +14,7 @@ final class SleepTimerService {
     private var timer: Timer?
     private var originalVolumes: [String: Float] = [:]
     private let audioEngine: AudioEngine
+    private var analyticsService: AnalyticsService?
 
     // MARK: - Computed Properties
 
@@ -34,6 +35,10 @@ final class SleepTimerService {
         self.audioEngine = audioEngine
     }
 
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
+    }
+
     // MARK: - Public Methods
 
     func start(minutes: Int) {
@@ -47,6 +52,9 @@ final class SleepTimerService {
             originalVolumes[activeSound.id] = activeSound.volume
         }
 
+        // Log timer start event
+        analyticsService?.logTimerStart(duration: TimeInterval(totalSeconds))
+
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             Task { @MainActor in
                 self?.tick()
@@ -59,6 +67,12 @@ final class SleepTimerService {
         timer = nil
         isActive = false
         remainingSeconds = 0
+
+        // Log timer cancel if it was active
+        if totalSeconds > 0 {
+            analyticsService?.logEvent(.timerCancel)
+        }
+
         totalSeconds = 0
 
         // Restore original volumes if timer was cancelled during fade
@@ -91,6 +105,15 @@ final class SleepTimerService {
             timer?.invalidate()
             timer = nil
             isActive = false
+
+            // Log timer complete event and check for review prompt
+            analyticsService?.logTimerComplete(duration: timerDuration)
+
+            // Request review after a brief delay (don't interrupt the fade-out experience)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                self?.analyticsService?.requestReviewIfAppropriate()
+            }
+
             totalSeconds = 0
             originalVolumes.removeAll()
         }
