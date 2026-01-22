@@ -13,6 +13,10 @@ final class AudioEngine: AudioPlayerProtocol {
     // Session tracking for insights
     private var sessionStartTime: Date?
     private var insightsService: InsightsService?
+    private var analyticsService: AnalyticsService?
+
+    // Track sound start times for analytics
+    private var soundStartTimes: [String: Date] = [:]
 
     // Track if we were playing before an interruption
     private var wasPlayingBeforeInterruption = false
@@ -37,6 +41,10 @@ final class AudioEngine: AudioPlayerProtocol {
 
     func setInsightsService(_ service: InsightsService) {
         self.insightsService = service
+    }
+
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
     }
 
     // MARK: - Audio Session Configuration
@@ -190,6 +198,16 @@ final class AudioEngine: AudioPlayerProtocol {
                 insightsService?.startSession()
             }
 
+            // Track sound start time and log analytics
+            soundStartTimes[sound.id] = Date()
+            analyticsService?.logSoundStarted(soundId: sound.id, soundName: sound.name, category: sound.category.rawValue)
+
+            // Log mix started if multiple sounds
+            if activeSounds.count > 1 {
+                let soundNames = activeSounds.map { $0.sound.name }
+                analyticsService?.logMixStarted(soundCount: activeSounds.count, soundNames: soundNames)
+            }
+
             // Update Now Playing info on lock screen
             updateNowPlayingInfo()
         } catch {
@@ -230,6 +248,14 @@ final class AudioEngine: AudioPlayerProtocol {
 
     func stop(soundId: String) {
         guard let player = players[soundId] else { return }
+
+        // Log analytics for sound stopped
+        if let startTime = soundStartTimes[soundId],
+           let activeSound = activeSounds.first(where: { $0.id == soundId }) {
+            let duration = Date().timeIntervalSince(startTime)
+            analyticsService?.logSoundStopped(soundId: soundId, soundName: activeSound.sound.name, duration: duration)
+            soundStartTimes.removeValue(forKey: soundId)
+        }
 
         // Fade out before stopping
         fadeOut(player: player, duration: 0.3) { [weak self] in
