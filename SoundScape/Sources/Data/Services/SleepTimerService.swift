@@ -14,6 +14,7 @@ final class SleepTimerService {
     private var timer: Timer?
     private var originalVolumes: [String: Float] = [:]
     private let audioEngine: AudioEngine
+    private var analyticsService: AnalyticsService?
 
     // MARK: - Computed Properties
 
@@ -34,6 +35,10 @@ final class SleepTimerService {
         self.audioEngine = audioEngine
     }
 
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
+    }
+
     // MARK: - Public Methods
 
     func start(minutes: Int) {
@@ -41,6 +46,9 @@ final class SleepTimerService {
         totalSeconds = minutes * 60
         remainingSeconds = totalSeconds
         isActive = true
+
+        // Log analytics event
+        analyticsService?.logSleepTimerStarted(durationMinutes: minutes)
 
         // Store original volumes for fade calculation
         for activeSound in audioEngine.activeSounds {
@@ -55,6 +63,10 @@ final class SleepTimerService {
     }
 
     func cancel() {
+        if isActive {
+            analyticsService?.logSleepTimerCancelled()
+        }
+
         timer?.invalidate()
         timer = nil
         isActive = false
@@ -87,6 +99,11 @@ final class SleepTimerService {
         // Timer complete - stop all sounds and record session
         if remainingSeconds <= 0 {
             let timerDuration = TimeInterval(totalSeconds)
+            let timerMinutes = totalSeconds / 60
+
+            // Log timer completed event
+            analyticsService?.logSleepTimerCompleted(durationMinutes: timerMinutes)
+
             audioEngine.stopAllFromTimer(timerDuration: timerDuration)
             timer?.invalidate()
             timer = nil

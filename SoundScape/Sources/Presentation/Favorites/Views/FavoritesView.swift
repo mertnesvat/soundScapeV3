@@ -44,7 +44,7 @@ struct FavoritesView: View {
                                         audioEngine.togglePlayback(for: sound)
                                     },
                                     onToggleFavorite: {
-                                        favoritesService.toggleFavorite(sound.id)
+                                        favoritesService.toggleFavorite(sound.id, soundName: sound.name)
                                     }
                                 )
                             }

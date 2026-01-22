@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SleepTimerService.self) private var sleepTimerService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var selectedTab: Tab = .sounds
 
     enum Tab: String, CaseIterable {
@@ -82,6 +83,9 @@ struct ContentView: View {
                     .tag(Tab.insights)
             }
             .tint(.purple)
+            .onChange(of: selectedTab) { _, newTab in
+                analyticsService.logTabSelected(newTab.rawValue)
+            }
 
             // Now Playing Bar above tab bar
             VStack {
@@ -173,5 +177,7 @@ struct SavedMixesPlaceholderView: View {
         .environment(AlarmService())
         .environment(AdaptiveSessionService(audioEngine: audioEngine))
         .environment(InsightsService())
+        .environment(AnalyticsService())
+        .environment(ReviewPromptService())
         .preferredColorScheme(.dark)
 }

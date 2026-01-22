@@ -104,7 +104,7 @@ struct SoundsView: View {
                             viewModel.togglePlay(for: sound)
                         },
                         onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id)
+                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
                         }
                     )
                 }
@@ -143,7 +143,7 @@ struct SoundsView: View {
                             viewModel.togglePlay(for: sound)
                         },
                         onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id)
+                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
                         }
                     )
                 }

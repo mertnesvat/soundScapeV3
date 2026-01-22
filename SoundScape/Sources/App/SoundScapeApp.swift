@@ -12,6 +12,8 @@ struct SoundScapeApp: App {
     @State private var binauralBeatEngine = BinauralBeatEngine()
     @State private var alarmService = AlarmService()
     @State private var insightsService = InsightsService()
+    @State private var analyticsService = AnalyticsService()
+    @State private var reviewPromptService = ReviewPromptService()
 
     init() {
         configureAppearance()
@@ -29,11 +31,27 @@ struct SoundScapeApp: App {
                 .environment(binauralBeatEngine)
                 .environment(alarmService)
                 .environment(insightsService)
+                .environment(analyticsService)
+                .environment(reviewPromptService)
                 .preferredColorScheme(.dark)
                 .onAppear {
+                    // Configure Firebase Analytics
+                    analyticsService.configure()
+
+                    // Wire up services to AnalyticsService and ReviewPromptService
+                    reviewPromptService.setAnalyticsService(analyticsService)
+                    audioEngine.setAnalyticsService(analyticsService)
+                    audioEngine.setReviewPromptService(reviewPromptService)
+                    favoritesService.setAnalyticsService(analyticsService)
+                    favoritesService.setReviewPromptService(reviewPromptService)
+                    savedMixesService.setAnalyticsService(analyticsService)
+                    savedMixesService.setReviewPromptService(reviewPromptService)
+
                     if sleepTimerService == nil {
                         sleepTimerService = SleepTimerService(audioEngine: audioEngine)
                     }
+                    sleepTimerService?.setAnalyticsService(analyticsService)
+
                     if adaptiveSessionService == nil {
                         adaptiveSessionService = AdaptiveSessionService(audioEngine: audioEngine)
                     }
