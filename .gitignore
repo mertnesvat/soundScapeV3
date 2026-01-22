@@ -21,7 +21,8 @@ project.xcworkspace/xcuserdata/
 .build/
 .swiftpm/
 Packages/
-Package.resolved
+# Keep Package.resolved in xcodeproj for Xcode Cloud
+!/*/SoundScape.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 # CocoaPods (if used)
 Pods/
