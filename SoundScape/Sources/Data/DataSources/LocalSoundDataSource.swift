@@ -184,31 +184,61 @@ final class LocalSoundDataSource {
                 id: "page_turning",
                 name: "Page Turning",
                 category: .asmr,
-                fileName: "page_turning.mp3"
+                fileName: "ASMR-page-turn.mp3"
             ),
             Sound(
-                id: "soft_whispers",
-                name: "Soft Whispers",
+                id: "gentle_brush_strokes",
+                name: "Gentle Brush Strokes",
                 category: .asmr,
-                fileName: "whispers.mp3"
+                fileName: "ASMR-page-turn-2.mp3"
             ),
             Sound(
                 id: "gentle_tapping",
                 name: "Gentle Tapping",
                 category: .asmr,
-                fileName: "tapping.mp3"
+                fileName: "ASMR-gentle-tap.mp3"
             ),
             Sound(
-                id: "soft_brushing",
-                name: "Soft Brushing",
+                id: "gentle_tapping_2",
+                name: "Gentle Tapping 2",
                 category: .asmr,
-                fileName: "brushing.mp3"
+                fileName: "ASMR-gentle-tap-2.mp3"
             ),
             Sound(
-                id: "paper_crinkle",
-                name: "Paper Crinkle",
+                id: "gentle_tapping_3",
+                name: "Gentle Tapping 3",
                 category: .asmr,
-                fileName: "crinkle.mp3"
+                fileName: "ASMR-gentle-tap-3.mp3"
+            ),
+            Sound(
+                id: "nail_tapping",
+                name: "Nail Tapping",
+                category: .asmr,
+                fileName: "ASMR-nail-tap.mp3"
+            ),
+            Sound(
+                id: "mechanical_keyboard",
+                name: "Mechanical Keyboard",
+                category: .asmr,
+                fileName: "ASMR-mechanical-keyboard.mp3"
+            ),
+            Sound(
+                id: "mechanical_keyboard_2",
+                name: "Mechanical Keyboard 2",
+                category: .asmr,
+                fileName: "ASMR-mechanical-keyboard-2.mp3"
+            ),
+            Sound(
+                id: "slime_squelching",
+                name: "Slime Squelching",
+                category: .asmr,
+                fileName: "ASMR-wet-slime-squelching.mp3"
+            ),
+            Sound(
+                id: "winter_forest_walk",
+                name: "Winter Forest Walk",
+                category: .asmr,
+                fileName: "ASMR-winter-forrest-walk.mp3"
             )
         ]
     }

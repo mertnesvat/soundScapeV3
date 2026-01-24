@@ -107,6 +107,16 @@
 		FB96EB91000000QE /* spring_birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RE /* spring_birds.mp3 */; };
 		FB96EB91000000QF /* calm_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RF /* calm_ocean.mp3 */; };
 		FB96EB91000000QG /* ambient_melody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RG /* ambient_melody.mp3 */; };
+		FB96EB91ASMR0010 /* ASMR-page-turn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0020 /* ASMR-page-turn.mp3 */; };
+		FB96EB91ASMR0011 /* ASMR-page-turn-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0021 /* ASMR-page-turn-2.mp3 */; };
+		FB96EB91ASMR0012 /* ASMR-gentle-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0022 /* ASMR-gentle-tap.mp3 */; };
+		FB96EB91ASMR0013 /* ASMR-gentle-tap-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0023 /* ASMR-gentle-tap-2.mp3 */; };
+		FB96EB91ASMR0014 /* ASMR-gentle-tap-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0024 /* ASMR-gentle-tap-3.mp3 */; };
+		FB96EB91ASMR0015 /* ASMR-nail-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0025 /* ASMR-nail-tap.mp3 */; };
+		FB96EB91ASMR0016 /* ASMR-mechanical-keyboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0026 /* ASMR-mechanical-keyboard.mp3 */; };
+		FB96EB91ASMR0017 /* ASMR-mechanical-keyboard-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0027 /* ASMR-mechanical-keyboard-2.mp3 */; };
+		FB96EB91ASMR0018 /* ASMR-wet-slime-squelching.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0028 /* ASMR-wet-slime-squelching.mp3 */; };
+		FB96EB91ASMR0019 /* ASMR-winter-forrest-walk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0029 /* ASMR-winter-forrest-walk.mp3 */; };
 		FB96EB91000000S1 /* AppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S2 /* AppearanceService.swift */; };
 		FB96EB91000000S3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S4 /* SettingsView.swift */; };
 		FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S6 /* AppearanceSettingsView.swift */; };
@@ -119,6 +129,7 @@
 		FB96EB91000000T6 /* BinauralBeatEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U6 /* BinauralBeatEngineTests.swift */; };
 		FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U7 /* AlarmServiceTests.swift */; };
 		FB96EB91000000T8 /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U8 /* AlarmTests.swift */; };
+		FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
 		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
 		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
@@ -281,6 +292,16 @@
 		FB96EB91000000RE /* spring_birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring_birds.mp3; sourceTree = "<group>"; };
 		FB96EB91000000RF /* calm_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = calm_ocean.mp3; sourceTree = "<group>"; };
 		FB96EB91000000RG /* ambient_melody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient_melody.mp3; sourceTree = "<group>"; };
+		FB96EB91ASMR0020 /* ASMR-page-turn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-page-turn.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0021 /* ASMR-page-turn-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-page-turn-2.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0022 /* ASMR-gentle-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-gentle-tap.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0023 /* ASMR-gentle-tap-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-gentle-tap-2.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0024 /* ASMR-gentle-tap-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-gentle-tap-3.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0025 /* ASMR-nail-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-nail-tap.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0026 /* ASMR-mechanical-keyboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-mechanical-keyboard.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0027 /* ASMR-mechanical-keyboard-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-mechanical-keyboard-2.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0028 /* ASMR-wet-slime-squelching.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-wet-slime-squelching.mp3"; sourceTree = "<group>"; };
+		FB96EB91ASMR0029 /* ASMR-winter-forrest-walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ASMR-winter-forrest-walk.mp3"; sourceTree = "<group>"; };
 		FB96EB91000000S2 /* AppearanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceService.swift; sourceTree = "<group>"; };
 		FB96EB91000000S4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S6 /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
@@ -293,6 +314,7 @@
 		FB96EB91000000U6 /* BinauralBeatEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralBeatEngineTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U7 /* AlarmServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U8 /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
+		FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSourceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
@@ -479,6 +501,16 @@
 				FB96EB91000000RE /* spring_birds.mp3 */,
 				FB96EB91000000RF /* calm_ocean.mp3 */,
 				FB96EB91000000RG /* ambient_melody.mp3 */,
+				FB96EB91ASMR0020 /* ASMR-page-turn.mp3 */,
+				FB96EB91ASMR0021 /* ASMR-page-turn-2.mp3 */,
+				FB96EB91ASMR0022 /* ASMR-gentle-tap.mp3 */,
+				FB96EB91ASMR0023 /* ASMR-gentle-tap-2.mp3 */,
+				FB96EB91ASMR0024 /* ASMR-gentle-tap-3.mp3 */,
+				FB96EB91ASMR0025 /* ASMR-nail-tap.mp3 */,
+				FB96EB91ASMR0026 /* ASMR-mechanical-keyboard.mp3 */,
+				FB96EB91ASMR0027 /* ASMR-mechanical-keyboard-2.mp3 */,
+				FB96EB91ASMR0028 /* ASMR-wet-slime-squelching.mp3 */,
+				FB96EB91ASMR0029 /* ASMR-winter-forrest-walk.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -824,6 +856,7 @@
 				FB96EB91000000U6 /* BinauralBeatEngineTests.swift */,
 				FB96EB91000000U7 /* AlarmServiceTests.swift */,
 				FB96EB91000000U8 /* AlarmTests.swift */,
+				FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1024,6 +1057,16 @@
 				FB96EB91000000QE /* spring_birds.mp3 in Resources */,
 				FB96EB91000000QF /* calm_ocean.mp3 in Resources */,
 				FB96EB91000000QG /* ambient_melody.mp3 in Resources */,
+				FB96EB91ASMR0010 /* ASMR-page-turn.mp3 in Resources */,
+				FB96EB91ASMR0011 /* ASMR-page-turn-2.mp3 in Resources */,
+				FB96EB91ASMR0012 /* ASMR-gentle-tap.mp3 in Resources */,
+				FB96EB91ASMR0013 /* ASMR-gentle-tap-2.mp3 in Resources */,
+				FB96EB91ASMR0014 /* ASMR-gentle-tap-3.mp3 in Resources */,
+				FB96EB91ASMR0015 /* ASMR-nail-tap.mp3 in Resources */,
+				FB96EB91ASMR0016 /* ASMR-mechanical-keyboard.mp3 in Resources */,
+				FB96EB91ASMR0017 /* ASMR-mechanical-keyboard-2.mp3 in Resources */,
+				FB96EB91ASMR0018 /* ASMR-wet-slime-squelching.mp3 in Resources */,
+				FB96EB91ASMR0019 /* ASMR-winter-forrest-walk.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1195,7 @@
 				FB96EB91000000T6 /* BinauralBeatEngineTests.swift in Sources */,
 				FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */,
 				FB96EB91000000T8 /* AlarmTests.swift in Sources */,
+				FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
