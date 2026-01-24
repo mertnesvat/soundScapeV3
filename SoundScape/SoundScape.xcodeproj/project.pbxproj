@@ -135,6 +135,11 @@
 		FB96EB91SIRI000D /* ResumeSoundsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI000E /* ResumeSoundsIntent.swift */; };
 		FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */; };
 		FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0012 /* SleepTimerDuration.swift */; };
+		FB96EB91WDGT0001 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0010 /* WidgetSharedState.swift */; };
+		FB96EB91WDGT0002 /* SoundScapeWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */; };
+		FB96EB91WDGT0003 /* StandByWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0012 /* StandByWidget.swift */; };
+		FB96EB91WDGT0004 /* WidgetSharedStateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
+		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +273,14 @@
 		FB96EB91SIRI000E /* ResumeSoundsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeSoundsIntent.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeShortcuts.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0012 /* SleepTimerDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerDuration.swift; sourceTree = "<group>"; };
+		FB96EB91WDGT0010 /* WidgetSharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSharedState.swift; sourceTree = "<group>"; };
+		FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeWidgetBundle.swift; sourceTree = "<group>"; };
+		FB96EB91WDGT0012 /* StandByWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandByWidget.swift; sourceTree = "<group>"; };
+		FB96EB91WDGT0013 /* WidgetSharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSharedState.swift; sourceTree = "<group>"; };
+		FB96EB91WDGT0014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScapeWidget.entitlements; sourceTree = "<group>"; };
+		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
+		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,7 +291,28 @@
 			remoteGlobalIDString = FB96EB9100000060;
 			remoteInfo = SoundScape;
 		};
+		FB96EB91WDGT0030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB96EB9100000080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB96EB91WDGT0040;
+			remoteInfo = SoundScapeWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB96EB91WDGT0050 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FB96EB9100000030 /* Frameworks */ = {
@@ -296,6 +330,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB96EB91WDGT0060 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -305,6 +346,8 @@
 				FB96EB9100000041 /* Sources */,
 				FB96EB91000000Y1 /* Tests */,
 				FB96EB9100000042 /* Resources */,
+				FB96EB91WDGT0070 /* SoundScapeWidget */,
+				FB96EB91WDGT0016 /* SoundScape.entitlements */,
 				FB96EB9100000043 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -336,8 +379,21 @@
 			children = (
 				FB96EB9100000020 /* SoundScape.app */,
 				FB96EB91000000V1 /* SoundScapeTests.xctest */,
+				FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FB96EB91WDGT0070 /* SoundScapeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */,
+				FB96EB91WDGT0012 /* StandByWidget.swift */,
+				FB96EB91WDGT0010 /* WidgetSharedState.swift */,
+				FB96EB91WDGT0014 /* Info.plist */,
+				FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */,
+			);
+			path = SoundScapeWidget;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000044 /* App */ = {
@@ -605,6 +661,7 @@
 				FB96EB91000000AD /* ReviewPromptService.swift */,
 				FB96EB91000000S2 /* AppearanceService.swift */,
 				FB96EB91MOTION02 /* MotionService.swift */,
+				FB96EB91WDGT0013 /* WidgetSharedState.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -805,10 +862,12 @@
 				FB96EB9100000061 /* Sources */,
 				FB96EB9100000030 /* Frameworks */,
 				FB96EB9100000062 /* Resources */,
+				FB96EB91WDGT0050 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FB96EB91WDGT0031 /* PBXTargetDependency */,
 			);
 			name = SoundScape;
 			packageProductDependencies = (
@@ -835,6 +894,23 @@
 			productReference = FB96EB91000000V1 /* SoundScapeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FB96EB91WDGT0040 /* SoundScapeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB96EB91WDGT0080 /* Build configuration list for PBXNativeTarget "SoundScapeWidgetExtension" */;
+			buildPhases = (
+				FB96EB91WDGT0041 /* Sources */,
+				FB96EB91WDGT0060 /* Frameworks */,
+				FB96EB91WDGT0042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundScapeWidgetExtension;
+			productName = SoundScapeWidgetExtension;
+			productReference = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -851,6 +927,9 @@
 					FB96EB91000000Z1 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = FB96EB9100000060;
+					};
+					FB96EB91WDGT0040 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -872,6 +951,7 @@
 			targets = (
 				FB96EB9100000060 /* SoundScape */,
 				FB96EB91000000Z1 /* SoundScapeTests */,
+				FB96EB91WDGT0040 /* SoundScapeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -910,6 +990,13 @@
 				FB96EB91000000QE /* spring_birds.mp3 in Resources */,
 				FB96EB91000000QF /* calm_ocean.mp3 in Resources */,
 				FB96EB91000000QG /* ambient_melody.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB96EB91WDGT0042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,6 +1097,7 @@
 				FB96EB91SIRI000D /* ResumeSoundsIntent.swift in Sources */,
 				FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */,
 				FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */,
+				FB96EB91WDGT0004 /* WidgetSharedStateApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1028,6 +1116,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB96EB91WDGT0041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB96EB91WDGT0002 /* SoundScapeWidgetBundle.swift in Sources */,
+				FB96EB91WDGT0003 /* StandByWidget.swift in Sources */,
+				FB96EB91WDGT0001 /* WidgetSharedState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1035,6 +1133,11 @@
 			isa = PBXTargetDependency;
 			target = FB96EB9100000060 /* SoundScape */;
 			targetProxy = FB96EB91000000W1 /* PBXContainerItemProxy */;
+		};
+		FB96EB91WDGT0031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB96EB91WDGT0040 /* SoundScapeWidgetExtension */;
+			targetProxy = FB96EB91WDGT0030 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1161,8 +1264,10 @@
 		FB96EB9100000092 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SoundScape.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5C6693YG48;
@@ -1193,8 +1298,10 @@
 		FB96EB9100000093 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SoundScape.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5C6693YG48;
@@ -1264,6 +1371,68 @@
 			};
 			name = Release;
 		};
+		FB96EB91WDGT0081 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SoundScapeWidget/SoundScapeWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5C6693YG48;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoundScapeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SoundScape Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape.SoundScapeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FB96EB91WDGT0082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SoundScapeWidget/SoundScapeWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5C6693YG48;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoundScapeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SoundScape Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape.SoundScapeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1290,6 +1459,15 @@
 			buildConfigurations = (
 				FB96EB91000000Z6 /* Debug */,
 				FB96EB91000000Z7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB96EB91WDGT0080 /* Build configuration list for PBXNativeTarget "SoundScapeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB96EB91WDGT0081 /* Debug */,
+				FB96EB91WDGT0082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
