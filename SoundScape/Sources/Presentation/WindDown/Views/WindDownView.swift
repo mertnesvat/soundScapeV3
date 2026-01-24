@@ -64,7 +64,6 @@ struct WindDownView: View {
     @Environment(SleepContentPlayerService.self) private var playerService
 
     @State private var selectedContent: SleepContent?
-    @State private var showingFullPlayer = false
 
     // Featured content - default to yoga_nidra_10min
     private var featuredContent: SleepContent {
@@ -146,22 +145,11 @@ struct WindDownView: View {
             .background(Color(.systemBackground))
             .navigationTitle("Wind Down")
             .navigationBarTitleDisplayMode(.large)
-            .fullScreenCover(isPresented: $showingFullPlayer) {
-                if let content = selectedContent {
-                    SleepContentPlayerView(
-                        content: content,
-                        onDismiss: { showingFullPlayer = false }
-                    )
-                    .gesture(
-                        DragGesture(minimumDistance: 50)
-                            .onEnded { value in
-                                // Swipe down to minimize (not stop)
-                                if value.translation.height > 100 {
-                                    showingFullPlayer = false
-                                }
-                            }
-                    )
-                }
+            .fullScreenCover(item: $selectedContent) { content in
+                SleepContentPlayerView(
+                    content: content,
+                    onDismiss: { selectedContent = nil }
+                )
             }
         }
     }
@@ -242,7 +230,6 @@ struct WindDownView: View {
 
     private func playContent(_ content: SleepContent) {
         selectedContent = content
-        showingFullPlayer = true
     }
 }
 
