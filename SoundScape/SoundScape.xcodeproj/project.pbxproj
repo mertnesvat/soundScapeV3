@@ -30,6 +30,9 @@
 		FB96EB91000000A6 /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B6 /* SoundsView.swift */; };
 		FB96EB91000000A7 /* SoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B7 /* SoundCardView.swift */; };
 		FB96EB91000000A8 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000B8 /* CategoryFilterView.swift */; };
+		FB96EB91000000AA /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000AB /* AnalyticsService.swift */; };
+		FB96EB91000000AC /* ReviewPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000AD /* ReviewPromptService.swift */; };
+		FB96EB91000000AE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FB96EB91000000AF /* FirebaseAnalytics */; };
 		FB96EB91000000D1 /* ActiveSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E1 /* ActiveSound.swift */; };
 		FB96EB91000000D2 /* AudioPlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E2 /* AudioPlayerProtocol.swift */; };
 		FB96EB91000000D3 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000E3 /* AudioEngine.swift */; };
@@ -104,6 +107,10 @@
 		FB96EB91000000QE /* spring_birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RE /* spring_birds.mp3 */; };
 		FB96EB91000000QF /* calm_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RF /* calm_ocean.mp3 */; };
 		FB96EB91000000QG /* ambient_melody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000RG /* ambient_melody.mp3 */; };
+		FB96EB91000000S1 /* AppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S2 /* AppearanceService.swift */; };
+		FB96EB91000000S3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S4 /* SettingsView.swift */; };
+		FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S6 /* AppearanceSettingsView.swift */; };
+		FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S8 /* OLEDBackgroundModifier.swift */; };
 		FB96EB91000000T1 /* SleepTimerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U1 /* SleepTimerServiceTests.swift */; };
 		FB96EB91000000T2 /* InsightsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U2 /* InsightsServiceTests.swift */; };
 		FB96EB91000000T3 /* AudioEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U3 /* AudioEngineTests.swift */; };
@@ -112,20 +119,15 @@
 		FB96EB91000000T6 /* BinauralBeatEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U6 /* BinauralBeatEngineTests.swift */; };
 		FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U7 /* AlarmServiceTests.swift */; };
 		FB96EB91000000T8 /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U8 /* AlarmTests.swift */; };
-		FB96EB91000000AA /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000AB /* AnalyticsService.swift */; };
-		FB96EB91000000AC /* ReviewPromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000AD /* ReviewPromptService.swift */; };
-		FB96EB91000000AE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FB96EB91000000AF /* FirebaseAnalytics */; };
-		FB96EB91000000S1 /* AppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S2 /* AppearanceService.swift */; };
-		FB96EB91000000S3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S4 /* SettingsView.swift */; };
-		FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S6 /* AppearanceSettingsView.swift */; };
-		FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S8 /* OLEDBackgroundModifier.swift */; };
+		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
+		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
+		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
+		FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY006 /* SleepBuddyView.swift */; };
+		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
+		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
+		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
-		FB96EB91VIZ00001 /* VisualizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00002 /* VisualizationType.swift */; };
-		FB96EB91VIZ00003 /* WaveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00004 /* WaveLayer.swift */; };
-		FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00006 /* ParticleLayer.swift */; };
-		FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00008 /* LiquidVisualizationView.swift */; };
-		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
 		FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0002 /* ServiceContainer.swift */; };
 		FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0004 /* StartSleepMixIntent.swift */; };
 		FB96EB91SIRI0005 /* SavedMixEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0006 /* SavedMixEntity.swift */; };
@@ -135,18 +137,47 @@
 		FB96EB91SIRI000D /* ResumeSoundsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI000E /* ResumeSoundsIntent.swift */; };
 		FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */; };
 		FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0012 /* SleepTimerDuration.swift */; };
+		FB96EB91VIZ00001 /* VisualizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00002 /* VisualizationType.swift */; };
+		FB96EB91VIZ00003 /* WaveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00004 /* WaveLayer.swift */; };
+		FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00006 /* ParticleLayer.swift */; };
+		FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00008 /* LiquidVisualizationView.swift */; };
 		FB96EB91WDGT0001 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0010 /* WidgetSharedState.swift */; };
 		FB96EB91WDGT0002 /* SoundScapeWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */; };
 		FB96EB91WDGT0003 /* StandByWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0012 /* StandByWidget.swift */; };
-		FB96EB91WDGT0004 /* WidgetSharedStateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
-		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
+		FB96EB91WDGT0004 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
 		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
-		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
-		FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY006 /* SleepBuddyView.swift */; };
-		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
-		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB96EB91000000W1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB96EB9100000080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB96EB9100000060;
+			remoteInfo = SoundScape;
+		};
+		FB96EB91WDGT0030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB96EB9100000080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB96EB91WDGT0040;
+			remoteInfo = SoundScapeWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB96EB91WDGT0050 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FB96EB9100000011 /* SoundScapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeApp.swift; sourceTree = "<group>"; };
@@ -166,6 +197,8 @@
 		FB96EB910000001F /* bonfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bonfire.mp3; sourceTree = "<group>"; };
 		FB96EB9100000020 /* SoundScape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundScape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB9100000021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB96EB91000000AB /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		FB96EB91000000AD /* ReviewPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPromptService.swift; sourceTree = "<group>"; };
 		FB96EB91000000B1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		FB96EB91000000B2 /* SoundRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FB96EB91000000B3 /* LocalSoundDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSource.swift; sourceTree = "<group>"; };
@@ -248,6 +281,10 @@
 		FB96EB91000000RE /* spring_birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring_birds.mp3; sourceTree = "<group>"; };
 		FB96EB91000000RF /* calm_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = calm_ocean.mp3; sourceTree = "<group>"; };
 		FB96EB91000000RG /* ambient_melody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient_melody.mp3; sourceTree = "<group>"; };
+		FB96EB91000000S2 /* AppearanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceService.swift; sourceTree = "<group>"; };
+		FB96EB91000000S4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FB96EB91000000S6 /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
+		FB96EB91000000S8 /* OLEDBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEDBackgroundModifier.swift; sourceTree = "<group>"; };
 		FB96EB91000000U1 /* SleepTimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U2 /* InsightsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U3 /* AudioEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineTests.swift; sourceTree = "<group>"; };
@@ -257,19 +294,15 @@
 		FB96EB91000000U7 /* AlarmServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U8 /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB96EB91000000AB /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
-		FB96EB91000000AD /* ReviewPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPromptService.swift; sourceTree = "<group>"; };
-		FB96EB91000000S2 /* AppearanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceService.swift; sourceTree = "<group>"; };
-		FB96EB91000000S4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		FB96EB91000000S6 /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
-		FB96EB91000000S8 /* OLEDBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEDBackgroundModifier.swift; sourceTree = "<group>"; };
+		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY004 /* SleepBuddyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyService.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY006 /* SleepBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyView.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
+		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
-		FB96EB91VIZ00002 /* VisualizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationType.swift; sourceTree = "<group>"; };
-		FB96EB91VIZ00004 /* WaveLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveLayer.swift; sourceTree = "<group>"; };
-		FB96EB91VIZ00006 /* ParticleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleLayer.swift; sourceTree = "<group>"; };
-		FB96EB91VIZ00008 /* LiquidVisualizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidVisualizationView.swift; sourceTree = "<group>"; };
-		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0002 /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0004 /* StartSleepMixIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSleepMixIntent.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0006 /* SavedMixEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixEntity.swift; sourceTree = "<group>"; };
@@ -279,52 +312,19 @@
 		FB96EB91SIRI000E /* ResumeSoundsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeSoundsIntent.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeShortcuts.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0012 /* SleepTimerDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerDuration.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00002 /* VisualizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationType.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00004 /* WaveLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveLayer.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00006 /* ParticleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleLayer.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00008 /* LiquidVisualizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidVisualizationView.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0010 /* WidgetSharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSharedState.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeWidgetBundle.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0012 /* StandByWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandByWidget.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0013 /* WidgetSharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSharedState.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScapeWidget.entitlements; sourceTree = "<group>"; };
-		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
-		FB96EB91BUDDY004 /* SleepBuddyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyService.swift; sourceTree = "<group>"; };
-		FB96EB91BUDDY006 /* SleepBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyView.swift; sourceTree = "<group>"; };
-		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
-		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXContainerItemProxy section */
-		FB96EB91000000W1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB96EB9100000080 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB96EB9100000060;
-			remoteInfo = SoundScape;
-		};
-		FB96EB91WDGT0030 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB96EB9100000080 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB96EB91WDGT0040;
-			remoteInfo = SoundScapeWidgetExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FB96EB91WDGT0050 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FB96EB9100000030 /* Frameworks */ = {
@@ -396,19 +396,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FB96EB91WDGT0070 /* SoundScapeWidget */ = {
-			isa = PBXGroup;
-			children = (
-				FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */,
-				FB96EB91WDGT0012 /* StandByWidget.swift */,
-				FB96EB91CTRL0002 /* SoundScapeControl.swift */,
-				FB96EB91WDGT0010 /* WidgetSharedState.swift */,
-				FB96EB91WDGT0014 /* Info.plist */,
-				FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */,
-			);
-			path = SoundScapeWidget;
-			sourceTree = "<group>";
-		};
 		FB96EB9100000044 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,22 +404,6 @@
 				FB96EB91SIRI0011 /* Intents */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		FB96EB91SIRI0011 /* Intents */ = {
-			isa = PBXGroup;
-			children = (
-				FB96EB91SIRI0002 /* ServiceContainer.swift */,
-				FB96EB91SIRI0004 /* StartSleepMixIntent.swift */,
-				FB96EB91SIRI0006 /* SavedMixEntity.swift */,
-				FB96EB91SIRI0008 /* PlaySavedMixIntent.swift */,
-				FB96EB91SIRI000A /* SetSleepTimerIntent.swift */,
-				FB96EB91SIRI0012 /* SleepTimerDuration.swift */,
-				FB96EB91SIRI000C /* StopSoundsIntent.swift */,
-				FB96EB91SIRI000E /* ResumeSoundsIntent.swift */,
-				FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */,
-			);
-			path = Intents;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000045 /* Domain */ = {
@@ -621,17 +592,6 @@
 				FB96EB91VIZ00009 /* Visualization */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		FB96EB91VIZ00009 /* Visualization */ = {
-			isa = PBXGroup;
-			children = (
-				FB96EB91VIZ00002 /* VisualizationType.swift */,
-				FB96EB91VIZ00004 /* WaveLayer.swift */,
-				FB96EB91VIZ00006 /* ParticleLayer.swift */,
-				FB96EB91VIZ00008 /* LiquidVisualizationView.swift */,
-			);
-			path = Visualization;
 			sourceTree = "<group>";
 		};
 		FB96EB91000000C1 /* Views */ = {
@@ -853,6 +813,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB96EB91000000Y1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91000000U1 /* SleepTimerServiceTests.swift */,
+				FB96EB91000000U2 /* InsightsServiceTests.swift */,
+				FB96EB91000000U3 /* AudioEngineTests.swift */,
+				FB96EB91000000U4 /* FavoritesServiceTests.swift */,
+				FB96EB91000000U5 /* SavedMixesServiceTests.swift */,
+				FB96EB91000000U6 /* BinauralBeatEngineTests.swift */,
+				FB96EB91000000U7 /* AlarmServiceTests.swift */,
+				FB96EB91000000U8 /* AlarmTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		FB96EB91BUDDY00B /* SleepBuddy */ = {
 			isa = PBXGroup;
 			children = (
@@ -871,19 +846,44 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FB96EB91000000Y1 /* Tests */ = {
+		FB96EB91SIRI0011 /* Intents */ = {
 			isa = PBXGroup;
 			children = (
-				FB96EB91000000U1 /* SleepTimerServiceTests.swift */,
-				FB96EB91000000U2 /* InsightsServiceTests.swift */,
-				FB96EB91000000U3 /* AudioEngineTests.swift */,
-				FB96EB91000000U4 /* FavoritesServiceTests.swift */,
-				FB96EB91000000U5 /* SavedMixesServiceTests.swift */,
-				FB96EB91000000U6 /* BinauralBeatEngineTests.swift */,
-				FB96EB91000000U7 /* AlarmServiceTests.swift */,
-				FB96EB91000000U8 /* AlarmTests.swift */,
+				FB96EB91SIRI0002 /* ServiceContainer.swift */,
+				FB96EB91SIRI0004 /* StartSleepMixIntent.swift */,
+				FB96EB91SIRI0006 /* SavedMixEntity.swift */,
+				FB96EB91SIRI0008 /* PlaySavedMixIntent.swift */,
+				FB96EB91SIRI000A /* SetSleepTimerIntent.swift */,
+				FB96EB91SIRI0012 /* SleepTimerDuration.swift */,
+				FB96EB91SIRI000C /* StopSoundsIntent.swift */,
+				FB96EB91SIRI000E /* ResumeSoundsIntent.swift */,
+				FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */,
 			);
-			path = Tests;
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		FB96EB91VIZ00009 /* Visualization */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91VIZ00002 /* VisualizationType.swift */,
+				FB96EB91VIZ00004 /* WaveLayer.swift */,
+				FB96EB91VIZ00006 /* ParticleLayer.swift */,
+				FB96EB91VIZ00008 /* LiquidVisualizationView.swift */,
+			);
+			path = Visualization;
+			sourceTree = "<group>";
+		};
+		FB96EB91WDGT0070 /* SoundScapeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91WDGT0011 /* SoundScapeWidgetBundle.swift */,
+				FB96EB91WDGT0012 /* StandByWidget.swift */,
+				FB96EB91CTRL0002 /* SoundScapeControl.swift */,
+				FB96EB91WDGT0010 /* WidgetSharedState.swift */,
+				FB96EB91WDGT0014 /* Info.plist */,
+				FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */,
+			);
+			path = SoundScapeWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1131,7 +1131,7 @@
 				FB96EB91SIRI000D /* ResumeSoundsIntent.swift in Sources */,
 				FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */,
 				FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */,
-				FB96EB91WDGT0004 /* WidgetSharedStateApp.swift in Sources */,
+				FB96EB91WDGT0004 /* WidgetSharedState.swift in Sources */,
 				FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */,
 				FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */,
 				FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */,
@@ -1415,7 +1415,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = SoundScapeWidget/SoundScapeWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1446,7 +1445,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = SoundScapeWidget/SoundScapeWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
