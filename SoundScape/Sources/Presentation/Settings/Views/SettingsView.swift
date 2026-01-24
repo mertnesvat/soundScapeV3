@@ -4,8 +4,9 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(AppearanceService.self) private var appearanceService
     @Environment(SleepBuddyService.self) private var sleepBuddyService
+    @Environment(AnalyticsService.self) private var analyticsService
 
-    @State private var showingSleepBuddy = false
+    @State private var sleepBuddyTapped = false
 
     var body: some View {
         NavigationStack {
@@ -20,36 +21,45 @@ struct SettingsView: View {
 
                 Section {
                     Button {
-                        showingSleepBuddy = true
+                        if !sleepBuddyTapped {
+                            sleepBuddyTapped = true
+                            analyticsService.logSleepBuddyInterestShown()
+                        }
                     } label: {
                         HStack {
                             Label {
                                 Text("Sleep Buddy")
                             } icon: {
                                 Image(systemName: "person.2.fill")
-                                    .foregroundStyle(.purple)
+                                    .foregroundStyle(sleepBuddyTapped ? .gray : .purple)
                             }
 
                             Spacer()
 
-                            if sleepBuddyService.isPaired, let buddy = sleepBuddyService.buddy {
-                                Text(buddy.name)
+                            if sleepBuddyTapped {
+                                Text("Coming Soon")
+                                    .font(.caption)
                                     .foregroundStyle(.secondary)
                             } else {
-                                Text("Not paired")
+                                Text("Tap to learn more")
                                     .foregroundStyle(.secondary)
                             }
 
-                            Image(systemName: "chevron.right")
+                            Image(systemName: sleepBuddyTapped ? "clock.fill" : "chevron.right")
                                 .font(.caption)
-                                .foregroundStyle(.tertiary)
+                                .foregroundStyle(sleepBuddyTapped ? Color.orange : Color.gray.opacity(0.5))
                         }
                     }
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(sleepBuddyTapped ? .secondary : .primary)
+                    .disabled(sleepBuddyTapped)
                 } header: {
                     Text("Social")
                 } footer: {
-                    Text("Pair with a friend to motivate each other with sleep streaks")
+                    if sleepBuddyTapped {
+                        Text("Sleep Buddy is coming soon! Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates.")
+                    } else {
+                        Text("Pair with a friend to motivate each other with sleep streaks")
+                    }
                 }
 
                 Section {
@@ -73,8 +83,8 @@ struct SettingsView: View {
                 }
             }
             .oledBackground()
-            .sheet(isPresented: $showingSleepBuddy) {
-                SleepBuddyView()
+            .onAppear {
+                analyticsService.logSettingsOpened()
             }
         }
     }
@@ -84,5 +94,6 @@ struct SettingsView: View {
     SettingsView()
         .environment(AppearanceService())
         .environment(SleepBuddyService())
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }
