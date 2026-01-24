@@ -161,6 +161,7 @@
 		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
 		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
 		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
+		FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CMSN0002 /* ComingSoonBadge.swift */; };
 		FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */; };
 		FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */; };
 		FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */; };
@@ -360,6 +361,7 @@
 		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
 		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
 		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
+		FB96EB91CMSN0002 /* ComingSoonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonBadge.swift; sourceTree = "<group>"; };
 		FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_5min.mp3; sourceTree = "<group>"; };
 		FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_8min.mp3; sourceTree = "<group>"; };
 		FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_10min.mp3; sourceTree = "<group>"; };
@@ -929,6 +931,7 @@
 			children = (
 				FB96EB91SLPCARD2 /* SleepContentCardView.swift */,
 				FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */,
+				FB96EB91CMSN0002 /* ComingSoonBadge.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1241,6 +1244,7 @@
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
 				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
+				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
 				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
 				FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */,
 				FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */,

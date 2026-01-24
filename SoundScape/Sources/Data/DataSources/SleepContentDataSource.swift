@@ -39,32 +39,122 @@ final class SleepContentDataSource {
     // MARK: - Sleep Stories (Coming Soon Placeholders)
 
     /// Sleep stories - calming narratives for sleep
+    /// Migrated from LocalStoryDataSource with all 12 original stories
+    /// Categories: Fiction, Nature Journeys, Meditation, ASMR
     static let sleepStories: [SleepContent] = [
+        // Fiction Stories
         SleepContent(
-            id: "story_moonlit_garden",
-            title: "The Moonlit Garden",
-            narrator: "Sarah Mitchell",
-            duration: 1800,  // 30 minutes
+            id: "story_sleepy_forest",
+            title: "The Sleepy Forest",
+            narrator: "Sarah Moon",
+            duration: 1200,  // 20 min
             contentType: .sleepStory,
-            description: "A peaceful journey through an enchanted garden under the soft glow of moonlight.",
+            description: "A gentle tale of woodland creatures preparing for winter. Follow a young fox as she discovers the magic of the forest at twilight.",
             audioFileName: nil  // Coming Soon
         ),
         SleepContent(
-            id: "story_ocean_voyage",
-            title: "Ocean Voyage",
-            narrator: "James Walker",
-            duration: 2400,  // 40 minutes
+            id: "story_dream_lighthouse",
+            title: "The Dream Lighthouse",
+            narrator: "Thomas Gray",
+            duration: 1500,  // 25 min
             contentType: .sleepStory,
-            description: "Drift off as you sail across calm seas under a starlit sky.",
+            description: "A lighthouse keeper guides ships through a sea of stars in this whimsical bedtime story.",
             audioFileName: nil  // Coming Soon
         ),
         SleepContent(
-            id: "story_mountain_retreat",
-            title: "Mountain Retreat",
-            narrator: "Emma Rose",
-            duration: 1500,  // 25 minutes
+            id: "story_cloud_wanderer",
+            title: "The Cloud Wanderer",
+            narrator: "Sarah Moon",
+            duration: 1080,  // 18 min
             contentType: .sleepStory,
-            description: "Find tranquility in a cozy cabin nestled in the mountains.",
+            description: "Float among the clouds with a curious child who discovers a world above the world.",
+            audioFileName: nil  // Coming Soon
+        ),
+
+        // Nature Journey Stories
+        SleepContent(
+            id: "story_ocean_waves_journey",
+            title: "Ocean Waves Journey",
+            narrator: "James Rivers",
+            duration: 1500,  // 25 min
+            contentType: .sleepStory,
+            description: "Float along peaceful ocean currents. Let the rhythm of gentle waves carry you to a place of deep relaxation.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "story_mountain_meadow_walk",
+            title: "Mountain Meadow Walk",
+            narrator: "Emma Stone",
+            duration: 1320,  // 22 min
+            contentType: .sleepStory,
+            description: "Wander through alpine meadows filled with wildflowers, breathing in the crisp mountain air.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "story_rainy_forest_path",
+            title: "Rainy Forest Path",
+            narrator: "James Rivers",
+            duration: 1440,  // 24 min
+            contentType: .sleepStory,
+            description: "Walk through an ancient forest as gentle rain falls through the canopy above.",
+            audioFileName: nil  // Coming Soon
+        ),
+
+        // Meditation Stories
+        SleepContent(
+            id: "story_breathing_into_sleep",
+            title: "Breathing Into Sleep",
+            narrator: "Dr. Emily Chen",
+            duration: 900,  // 15 min
+            contentType: .sleepStory,
+            description: "Guided breathing exercises for deep relaxation. Release the day and prepare your mind for restful sleep.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "story_body_scan_relaxation",
+            title: "Body Scan Relaxation",
+            narrator: "Dr. Emily Chen",
+            duration: 1200,  // 20 min
+            contentType: .sleepStory,
+            description: "A progressive relaxation journey through each part of your body, releasing tension as you go.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "story_starlight_meditation",
+            title: "Starlight Meditation",
+            narrator: "Maya Thompson",
+            duration: 1080,  // 18 min
+            contentType: .sleepStory,
+            description: "Visualize yourself floating among the stars in this peaceful guided meditation.",
+            audioFileName: nil  // Coming Soon
+        ),
+
+        // ASMR Stories
+        SleepContent(
+            id: "story_library_whispers",
+            title: "Library Whispers",
+            narrator: "Alex Kim",
+            duration: 1800,  // 30 min
+            contentType: .sleepStory,
+            description: "Soft whispers and gentle page turning in a cozy library. Perfect for triggering relaxation.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "story_rainy_window",
+            title: "Rainy Window",
+            narrator: "Alex Kim",
+            duration: 2400,  // 40 min
+            contentType: .sleepStory,
+            description: "Rain tapping on windows with soft whispered narration about finding peace.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "story_cozy_cottage_night",
+            title: "Cozy Cottage Night",
+            narrator: "Sophie White",
+            duration: 2100,  // 35 min
+            contentType: .sleepStory,
+            description: "Crackling fire, soft rain, and gentle whispers guide you through a peaceful evening.",
             audioFileName: nil  // Coming Soon
         )
     ]
