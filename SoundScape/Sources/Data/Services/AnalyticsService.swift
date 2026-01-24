@@ -63,6 +63,10 @@ final class AnalyticsService {
         case reviewPromptShown = "review_prompt_shown"
         case reviewPromptAccepted = "review_prompt_accepted"
         case reviewPromptDeclined = "review_prompt_declined"
+
+        // Settings & Feature interest
+        case settingsOpened = "settings_opened"
+        case sleepBuddyInterestShown = "sleep_buddy_interest_shown"
     }
 
     // MARK: - Parameter Keys
@@ -87,6 +91,7 @@ final class AnalyticsService {
         case tabName = "tab_name"
         case sessionQuality = "session_quality"
         case timeToSleep = "time_to_sleep_minutes"
+        case featureName = "feature_name"
     }
 
     // MARK: - Initialization
@@ -307,6 +312,18 @@ final class AnalyticsService {
 
     func logReviewPromptDeclined() {
         logEvent(.reviewPromptDeclined)
+    }
+
+    // MARK: - Settings & Feature Interest
+
+    func logSettingsOpened() {
+        logEvent(.settingsOpened)
+    }
+
+    func logSleepBuddyInterestShown() {
+        logEvent(.sleepBuddyInterestShown, parameters: [
+            .featureName: "sleep_buddy"
+        ])
     }
 
     // MARK: - User Properties
