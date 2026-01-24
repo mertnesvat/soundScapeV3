@@ -9,6 +9,8 @@ struct SleepContentTimerOption: Identifiable {
 
     static func presets(contentDuration: TimeInterval) -> [SleepContentTimerOption] {
         var options = [
+            SleepContentTimerOption(minutes: 5, label: "5 min", isEndOfContent: false),
+            SleepContentTimerOption(minutes: 10, label: "10 min", isEndOfContent: false),
             SleepContentTimerOption(minutes: 15, label: "15 min", isEndOfContent: false),
             SleepContentTimerOption(minutes: 30, label: "30 min", isEndOfContent: false),
             SleepContentTimerOption(minutes: 45, label: "45 min", isEndOfContent: false),

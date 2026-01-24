@@ -3,9 +3,11 @@ import SwiftUI
 struct ContentView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SleepTimerService.self) private var sleepTimerService
+    @Environment(SleepContentPlayerService.self) private var sleepContentPlayerService
     @Environment(AnalyticsService.self) private var analyticsService
     @Environment(AppearanceService.self) private var appearanceService
     @State private var selectedTab: Tab = .sounds
+    @State private var showingSleepContentPlayer = false
 
     enum Tab: String, CaseIterable {
         case sounds = "Sounds"
@@ -93,13 +95,34 @@ struct ContentView: View {
                 configureTabBarAppearance(isOLED: appearanceService.isOLEDModeEnabled)
             }
 
-            // Now Playing Bar above tab bar
-            VStack {
+            // Now Playing Bars above tab bar
+            VStack(spacing: 8) {
                 Spacer()
+
+                // Sleep content mini player (when content is playing but full player is dismissed)
+                if sleepContentPlayerService.currentContent != nil && !showingSleepContentPlayer {
+                    SleepContentMiniPlayer(onTap: {
+                        showingSleepContentPlayer = true
+                    })
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
+
+                // Sound mixer now playing bar
                 NowPlayingBarView()
-                    .padding(.bottom, 49) // Tab bar height
             }
+            .padding(.bottom, 49) // Tab bar height
             .animation(.spring(response: 0.3), value: audioEngine.activeSounds.isEmpty)
+            .animation(.spring(response: 0.3), value: sleepContentPlayerService.currentContent?.id)
+
+            // Full-screen sleep content player
+            .fullScreenCover(isPresented: $showingSleepContentPlayer) {
+                if let content = sleepContentPlayerService.currentContent {
+                    SleepContentPlayerView(
+                        content: content,
+                        onDismiss: { showingSleepContentPlayer = false }
+                    )
+                }
+            }
         }
     }
 
