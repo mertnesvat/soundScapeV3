@@ -121,16 +121,36 @@ struct SleepContentPlayerView: View {
     // MARK: - Background Gradient
 
     private var backgroundGradient: some View {
-        LinearGradient(
-            colors: [
-                categoryColor.opacity(0.8),
-                categoryColor.opacity(0.4),
-                Color(.systemBackground).opacity(0.95),
-                Color(.systemBackground)
-            ],
-            startPoint: .top,
-            endPoint: .bottom
-        )
+        ZStack {
+            // Base color - OLED friendly
+            (appearanceService.isOLEDModeEnabled ? Color.black : Color(.systemBackground))
+
+            // Category color gradient overlay
+            LinearGradient(
+                colors: [
+                    categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.5 : 0.7),
+                    categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.25 : 0.35),
+                    categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.1 : 0.15),
+                    Color.clear
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+
+            // Subtle radial glow from the artwork area (OLED mode)
+            if appearanceService.isOLEDModeEnabled {
+                RadialGradient(
+                    colors: [
+                        categoryColor.opacity(0.15),
+                        Color.clear
+                    ],
+                    center: .center,
+                    startRadius: 50,
+                    endRadius: 300
+                )
+                .offset(y: -50)
+            }
+        }
         .ignoresSafeArea()
     }
 
