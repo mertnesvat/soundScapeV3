@@ -158,6 +158,7 @@
 		FB96EB91WDGT0003 /* StandByWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0012 /* StandByWidget.swift */; };
 		FB96EB91WDGT0004 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
 		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +349,7 @@
 		FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScapeWidget.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +534,7 @@
 				FB96EB91000000O2 /* AdaptiveMode.swift */,
 				FB96EB91000000P2 /* SleepInsight.swift */,
 				FB96EB91BUDDY002 /* SleepBuddy.swift */,
+				FB96EB91SLPC0002 /* SleepContent.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1200,6 +1203,7 @@
 				FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */,
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
 				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
+				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
