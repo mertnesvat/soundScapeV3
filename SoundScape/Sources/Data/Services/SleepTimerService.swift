@@ -1,4 +1,5 @@
 import Foundation
+import WidgetKit
 
 @Observable
 @MainActor
@@ -55,6 +56,10 @@ final class SleepTimerService {
             originalVolumes[activeSound.id] = activeSound.volume
         }
 
+        // Update widget with timer end date
+        let timerEndDate = Date().addingTimeInterval(TimeInterval(totalSeconds))
+        WidgetSharedState.updateTimerState(timerEndDate: timerEndDate)
+
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             Task { @MainActor in
                 self?.tick()
@@ -78,6 +83,9 @@ final class SleepTimerService {
             audioEngine.setVolume(volume, for: soundId)
         }
         originalVolumes.removeAll()
+
+        // Clear timer from widget
+        WidgetSharedState.updateTimerState(timerEndDate: nil)
     }
 
     // MARK: - Private Methods
@@ -110,6 +118,9 @@ final class SleepTimerService {
             isActive = false
             totalSeconds = 0
             originalVolumes.removeAll()
+
+            // Clear timer from widget (state will be cleared by stopAllFromTimer)
+            WidgetSharedState.updateTimerState(timerEndDate: nil)
         }
     }
 }

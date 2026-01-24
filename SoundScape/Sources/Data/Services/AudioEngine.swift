@@ -1,6 +1,7 @@
 import AVFoundation
 import Foundation
 import MediaPlayer
+import WidgetKit
 
 @Observable
 @MainActor
@@ -211,6 +212,9 @@ final class AudioEngine: AudioPlayerProtocol {
 
             // Update Now Playing info on lock screen
             updateNowPlayingInfo()
+
+            // Update widget shared state
+            updateWidgetState()
         } catch {
             print("Error creating audio player: \(error.localizedDescription)")
         }
@@ -228,6 +232,8 @@ final class AudioEngine: AudioPlayerProtocol {
             self?.activeSounds[index].isPlaying = false
             // Update Now Playing info after pause
             self?.updateNowPlayingInfo()
+            // Update widget shared state
+            self?.updateWidgetState()
         }
     }
 
@@ -245,6 +251,9 @@ final class AudioEngine: AudioPlayerProtocol {
 
         // Update Now Playing info after resume
         updateNowPlayingInfo()
+
+        // Update widget shared state
+        updateWidgetState()
     }
 
     func stop(soundId: String) {
@@ -257,6 +266,8 @@ final class AudioEngine: AudioPlayerProtocol {
             self?.activeSounds.removeAll { $0.id == soundId }
             // Update Now Playing info after removing sound
             self?.updateNowPlayingInfo()
+            // Update widget shared state
+            self?.updateWidgetState()
         }
     }
 
@@ -270,6 +281,9 @@ final class AudioEngine: AudioPlayerProtocol {
 
         // Clear Now Playing info when all sounds stopped
         clearNowPlayingInfo()
+
+        // Clear widget shared state
+        WidgetSharedState.clearState()
     }
 
     /// Called by SleepTimerService when timer ends - records session with timer duration
@@ -295,6 +309,9 @@ final class AudioEngine: AudioPlayerProtocol {
 
         // Clear Now Playing info when timer stops all sounds
         clearNowPlayingInfo()
+
+        // Clear widget shared state
+        WidgetSharedState.clearState()
     }
 
     private func recordSessionIfNeeded() {
@@ -317,6 +334,8 @@ final class AudioEngine: AudioPlayerProtocol {
         }
         // Update Now Playing info to reflect paused state
         updateNowPlayingInfo()
+        // Update widget shared state
+        updateWidgetState()
     }
 
     func resumeAll() {
@@ -325,6 +344,8 @@ final class AudioEngine: AudioPlayerProtocol {
         }
         // Update Now Playing info to reflect playing state
         updateNowPlayingInfo()
+        // Update widget shared state
+        updateWidgetState()
     }
 
     func setVolume(_ volume: Float, for soundId: String) {
@@ -404,6 +425,16 @@ final class AudioEngine: AudioPlayerProtocol {
 
     private func clearNowPlayingInfo() {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
+    }
+
+    // MARK: - Widget State Updates
+
+    private func updateWidgetState() {
+        let soundNames = activeSounds.map { $0.sound.name }
+        WidgetSharedState.updatePlaybackState(
+            isPlaying: isAnyPlaying,
+            activeSoundNames: soundNames
+        )
     }
 
     // MARK: - Toggle Convenience

@@ -177,6 +177,38 @@ final class LocalSoundDataSource {
                 name: "Forest Sanctuary",
                 category: .music,
                 fileName: "Forest Sanctuary.mp3"
+            ),
+
+            // ASMR category
+            Sound(
+                id: "page_turning",
+                name: "Page Turning",
+                category: .asmr,
+                fileName: "page_turning.mp3"
+            ),
+            Sound(
+                id: "soft_whispers",
+                name: "Soft Whispers",
+                category: .asmr,
+                fileName: "whispers.mp3"
+            ),
+            Sound(
+                id: "gentle_tapping",
+                name: "Gentle Tapping",
+                category: .asmr,
+                fileName: "tapping.mp3"
+            ),
+            Sound(
+                id: "soft_brushing",
+                name: "Soft Brushing",
+                category: .asmr,
+                fileName: "brushing.mp3"
+            ),
+            Sound(
+                id: "paper_crinkle",
+                name: "Paper Crinkle",
+                category: .asmr,
+                fileName: "crinkle.mp3"
             )
         ]
     }
