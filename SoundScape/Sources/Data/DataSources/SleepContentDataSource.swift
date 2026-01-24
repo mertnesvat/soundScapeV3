@@ -245,24 +245,33 @@ final class SleepContentDataSource {
 
     // MARK: - Sleep Hypnosis (Coming Soon Placeholders)
 
-    /// Sleep hypnosis sessions
+    /// Sleep hypnosis sessions for deep relaxation
     static let sleepHypnosis: [SleepContent] = [
         SleepContent(
             id: "hypnosis_deep_sleep",
             title: "Deep Sleep Hypnosis",
-            narrator: "Dr. Sarah Williams",
-            duration: 2700,  // 45 minutes
+            narrator: "Michael Waters",
+            duration: 1800,  // 30 min
             contentType: .sleepHypnosis,
-            description: "Gentle suggestions guide your subconscious mind toward restful sleep.",
+            description: "Gentle hypnotic induction designed to guide you into the deepest, most restorative sleep.",
             audioFileName: nil  // Coming Soon
         ),
         SleepContent(
-            id: "hypnosis_insomnia_relief",
-            title: "Insomnia Relief",
-            narrator: "Dr. Sarah Williams",
-            duration: 3600,  // 60 minutes
+            id: "hypnosis_letting_go",
+            title: "Letting Go",
+            narrator: "Sarah Moon",
+            duration: 1500,  // 25 min
             contentType: .sleepHypnosis,
-            description: "Specialized hypnotherapy session designed to help overcome sleeplessness.",
+            description: "Release the worries of the day through soothing hypnotic suggestions for peaceful sleep.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "hypnosis_dreams",
+            title: "Peaceful Dreams",
+            narrator: "Michael Waters",
+            duration: 1200,  // 20 min
+            contentType: .sleepHypnosis,
+            description: "Prepare your mind for beautiful, peaceful dreams as you drift off to sleep.",
             audioFileName: nil  // Coming Soon
         )
     ]
@@ -272,21 +281,39 @@ final class SleepContentDataSource {
     /// Bedtime affirmations
     static let affirmations: [SleepContent] = [
         SleepContent(
-            id: "affirmations_peaceful_sleep",
-            title: "Peaceful Sleep",
-            narrator: "Emma Rose",
-            duration: 600,  // 10 minutes
+            id: "affirmation_self_love",
+            title: "Self-Love Affirmations",
+            narrator: "Sophie White",
+            duration: 420,  // 7 min
             contentType: .affirmations,
-            description: "Positive affirmations to release the day and embrace restful sleep.",
+            description: "Gentle affirmations to remind yourself of your worth as you prepare for sleep.",
             audioFileName: nil  // Coming Soon
         ),
         SleepContent(
-            id: "affirmations_self_love",
-            title: "Self-Love & Rest",
-            narrator: "Maya Thompson",
-            duration: 720,  // 12 minutes
+            id: "affirmation_peaceful",
+            title: "Peaceful Sleep Affirmations",
+            narrator: "Sophie White",
+            duration: 360,  // 6 min
             contentType: .affirmations,
-            description: "Gentle affirmations nurturing self-compassion as you drift off.",
+            description: "Calming words to ease your mind and invite restful, peaceful sleep.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "affirmation_tomorrow",
+            title: "Tomorrow's Promise",
+            narrator: "Alex Kim",
+            duration: 480,  // 8 min
+            contentType: .affirmations,
+            description: "Positive affirmations about the new day ahead, releasing today's concerns.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "affirmation_releasing",
+            title: "Releasing Anxiety",
+            narrator: "Dr. Emily Chen",
+            duration: 600,  // 10 min
+            contentType: .affirmations,
+            description: "Soothing affirmations to help let go of anxious thoughts before sleep.",
             audioFileName: nil  // Coming Soon
         )
     ]
