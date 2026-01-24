@@ -12,7 +12,6 @@ struct SleepContentPlayerView: View {
     @State private var sliderValue: Double = 0
     @State private var isSliderEditing = false
     @State private var showTimerSheet = false
-    @State private var dragOffset: CGFloat = 0
 
     private var categoryColor: Color {
         content.contentType.color
@@ -88,34 +87,6 @@ struct SleepContentPlayerView: View {
                 isTimerActive: playerService.isTimerActive
             )
         }
-        // Interactive swipe-to-minimize gesture
-        .offset(y: dragOffset)
-        .gesture(
-            DragGesture()
-                .onChanged { value in
-                    // Only allow downward drag
-                    if value.translation.height > 0 {
-                        dragOffset = value.translation.height
-                    }
-                }
-                .onEnded { value in
-                    // If dragged more than 150 points, dismiss to mini player
-                    if value.translation.height > 150 {
-                        withAnimation(.spring(response: 0.3)) {
-                            dragOffset = UIScreen.main.bounds.height
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            onDismiss()
-                        }
-                    } else {
-                        // Snap back
-                        withAnimation(.spring(response: 0.3)) {
-                            dragOffset = 0
-                        }
-                    }
-                }
-        )
-        .animation(.interactiveSpring(), value: dragOffset)
     }
 
     // MARK: - Background Gradient

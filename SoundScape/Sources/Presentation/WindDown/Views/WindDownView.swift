@@ -145,11 +145,12 @@ struct WindDownView: View {
             .background(Color(.systemBackground))
             .navigationTitle("Wind Down")
             .navigationBarTitleDisplayMode(.large)
-            .fullScreenCover(item: $selectedContent) { content in
+            .sheet(item: $selectedContent) { content in
                 SleepContentPlayerView(
                     content: content,
                     onDismiss: { selectedContent = nil }
                 )
+                .presentationDragIndicator(.visible)
             }
         }
     }

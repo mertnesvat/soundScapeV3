@@ -114,13 +114,14 @@ struct ContentView: View {
             .animation(.spring(response: 0.3), value: audioEngine.activeSounds.isEmpty)
             .animation(.spring(response: 0.3), value: sleepContentPlayerService.currentContent?.id)
 
-            // Full-screen sleep content player
-            .fullScreenCover(isPresented: $showingSleepContentPlayer) {
+            // Sleep content player sheet
+            .sheet(isPresented: $showingSleepContentPlayer) {
                 if let content = sleepContentPlayerService.currentContent {
                     SleepContentPlayerView(
                         content: content,
                         onDismiss: { showingSleepContentPlayer = false }
                     )
+                    .presentationDragIndicator(.visible)
                 }
             }
         }
