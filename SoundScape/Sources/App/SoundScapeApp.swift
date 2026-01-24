@@ -16,6 +16,7 @@ struct SoundScapeApp: App {
     @State private var reviewPromptService = ReviewPromptService()
     @State private var appearanceService = AppearanceService()
     @State private var motionService = MotionService()
+    @State private var sleepBuddyService = SleepBuddyService()
 
     init() {
         configureAppearance()
@@ -37,6 +38,7 @@ struct SoundScapeApp: App {
                 .environment(reviewPromptService)
                 .environment(appearanceService)
                 .environment(motionService)
+                .environment(sleepBuddyService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     // Configure Firebase Analytics
@@ -61,6 +63,9 @@ struct SoundScapeApp: App {
                     }
                     // Wire up InsightsService to AudioEngine for session tracking
                     audioEngine.setInsightsService(insightsService)
+
+                    // Wire up SleepBuddyService to InsightsService for streak calculation
+                    sleepBuddyService.setInsightsService(insightsService)
                 }
         }
     }

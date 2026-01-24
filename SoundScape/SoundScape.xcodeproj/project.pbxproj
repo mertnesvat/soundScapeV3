@@ -141,6 +141,11 @@
 		FB96EB91WDGT0004 /* WidgetSharedStateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
 		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
+		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
+		FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY006 /* SleepBuddyView.swift */; };
+		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
+		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -283,6 +288,11 @@
 		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY004 /* SleepBuddyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyService.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY006 /* SleepBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyView.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
+		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -462,6 +472,7 @@
 				FB96EB91000000OD /* Adaptive */,
 				FB96EB91000000PJ /* Insights */,
 				FB96EB91000000SA /* Settings */,
+				FB96EB91BUDDY00B /* SleepBuddy */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
@@ -514,6 +525,7 @@
 				FB96EB91000000N2 /* CommunityMix.swift */,
 				FB96EB91000000O2 /* AdaptiveMode.swift */,
 				FB96EB91000000P2 /* SleepInsight.swift */,
+				FB96EB91BUDDY002 /* SleepBuddy.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -665,6 +677,7 @@
 				FB96EB91000000S2 /* AppearanceService.swift */,
 				FB96EB91MOTION02 /* MotionService.swift */,
 				FB96EB91WDGT0013 /* WidgetSharedState.swift */,
+				FB96EB91BUDDY004 /* SleepBuddyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -836,6 +849,24 @@
 			children = (
 				FB96EB91000000S4 /* SettingsView.swift */,
 				FB96EB91000000S6 /* AppearanceSettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91BUDDY00B /* SleepBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91BUDDY00C /* Views */,
+			);
+			path = SleepBuddy;
+			sourceTree = "<group>";
+		};
+		FB96EB91BUDDY00C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91BUDDY006 /* SleepBuddyView.swift */,
+				FB96EB91BUDDY008 /* InviteBuddyView.swift */,
+				FB96EB91BUDDY00A /* BuddyStatusCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1101,6 +1132,11 @@
 				FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */,
 				FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */,
 				FB96EB91WDGT0004 /* WidgetSharedStateApp.swift in Sources */,
+				FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */,
+				FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */,
+				FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */,
+				FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */,
+				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
