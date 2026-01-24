@@ -28,6 +28,33 @@ final class SleepContentPlayerService: NSObject {
     /// Track if we were playing before an interruption
     private var wasPlayingBeforeInterruption = false
 
+    // MARK: - Sleep Timer Properties
+
+    /// Whether the sleep timer is active
+    private(set) var isTimerActive = false
+
+    /// Remaining seconds on the sleep timer
+    private(set) var timerRemainingSeconds: Int = 0
+
+    /// Total seconds for the current timer
+    private(set) var timerTotalSeconds: Int = 0
+
+    /// Timer instance for countdown
+    private var sleepTimer: Timer?
+
+    /// Original volume before fade-out begins
+    private var originalVolume: Float = 1.0
+
+    /// Whether we're in the fade-out phase
+    private var isFadingOut = false
+
+    /// Formatted remaining time string (MM:SS)
+    var timerRemainingFormatted: String {
+        let minutes = timerRemainingSeconds / 60
+        let seconds = timerRemainingSeconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
     // MARK: - Initialization
 
     override init() {
@@ -354,6 +381,87 @@ final class SleepContentPlayerService: NSObject {
 
     private func clearNowPlayingInfo() {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
+    }
+
+    // MARK: - Sleep Timer Controls
+
+    /// Start the sleep timer with specified minutes
+    func startSleepTimer(minutes: Int) {
+        cancelSleepTimer()
+
+        timerTotalSeconds = minutes * 60
+        timerRemainingSeconds = timerTotalSeconds
+        isTimerActive = true
+        isFadingOut = false
+
+        // Store original volume
+        originalVolume = player?.volume ?? 1.0
+
+        sleepTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                self?.timerTick()
+            }
+        }
+    }
+
+    /// Cancel the sleep timer
+    func cancelSleepTimer() {
+        sleepTimer?.invalidate()
+        sleepTimer = nil
+        isTimerActive = false
+        timerRemainingSeconds = 0
+        timerTotalSeconds = 0
+        isFadingOut = false
+
+        // Restore original volume if we were fading
+        player?.volume = originalVolume
+    }
+
+    /// Internal timer tick handler
+    private func timerTick() {
+        guard timerRemainingSeconds > 0 else { return }
+
+        timerRemainingSeconds -= 1
+
+        // Start 30-second fade-out when timer is about to end
+        let fadeOutDuration: Int = 30
+        if timerRemainingSeconds <= fadeOutDuration && timerRemainingSeconds > 0 {
+            isFadingOut = true
+            let fadeProgress = Float(timerRemainingSeconds) / Float(fadeOutDuration)
+            player?.volume = originalVolume * fadeProgress
+        }
+
+        // Timer complete - stop playback
+        if timerRemainingSeconds <= 0 {
+            completeTimer()
+        }
+    }
+
+    /// Handle timer completion
+    private func completeTimer() {
+        // Save progress before stopping
+        saveProgress()
+
+        // Stop playback
+        player?.stop()
+
+        // Reset timer state
+        sleepTimer?.invalidate()
+        sleepTimer = nil
+        isTimerActive = false
+        timerTotalSeconds = 0
+        isFadingOut = false
+
+        // Reset player state
+        isPlaying = false
+        progressTimer?.invalidate()
+        progressTimer = nil
+
+        // Restore volume for next playback
+        player?.volume = originalVolume
+
+        // Update UI
+        updateNowPlayingInfo()
     }
 }
 

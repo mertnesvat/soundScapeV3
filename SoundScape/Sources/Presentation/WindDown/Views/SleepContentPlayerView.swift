@@ -11,6 +11,7 @@ struct SleepContentPlayerView: View {
 
     @State private var sliderValue: Double = 0
     @State private var isSliderEditing = false
+    @State private var showTimerSheet = false
 
     private var categoryColor: Color {
         content.contentType.color
@@ -73,6 +74,19 @@ struct SleepContentPlayerView: View {
                 sliderValue = playerService.duration > 0 ? newValue / playerService.duration : 0
             }
         }
+        .sheet(isPresented: $showTimerSheet) {
+            SleepContentTimerSheet(
+                contentDuration: playerService.duration,
+                currentTime: playerService.currentTime,
+                onTimerSelected: { minutes in
+                    playerService.startSleepTimer(minutes: minutes)
+                },
+                onTimerCancelled: {
+                    playerService.cancelSleepTimer()
+                },
+                isTimerActive: playerService.isTimerActive
+            )
+        }
     }
 
     // MARK: - Background Gradient
@@ -94,41 +108,68 @@ struct SleepContentPlayerView: View {
     // MARK: - Header
 
     private var header: some View {
-        HStack {
-            Button(action: {
-                playerService.pause()
-                onDismiss()
-            }) {
-                Image(systemName: "chevron.down")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .frame(width: 44, height: 44)
-                    .background(Color.white.opacity(0.2))
-                    .clipShape(Circle())
+        VStack(spacing: 12) {
+            HStack {
+                Button(action: {
+                    playerService.pause()
+                    onDismiss()
+                }) {
+                    Image(systemName: "chevron.down")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(width: 44, height: 44)
+                        .background(Color.white.opacity(0.2))
+                        .clipShape(Circle())
+                }
+
+                Spacer()
+
+                // Content type badge
+                HStack(spacing: 6) {
+                    Image(systemName: content.contentType.icon)
+                        .font(.caption)
+                    Text(content.contentType.rawValue)
+                        .font(.caption)
+                        .fontWeight(.medium)
+                }
+                .foregroundColor(.white.opacity(0.9))
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(Color.white.opacity(0.2))
+                .clipShape(Capsule())
+
+                Spacer()
+
+                // Timer button
+                Button(action: {
+                    showTimerSheet = true
+                }) {
+                    Image(systemName: playerService.isTimerActive ? "clock.fill" : "clock")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(playerService.isTimerActive ? .purple : .white)
+                        .frame(width: 44, height: 44)
+                        .background(playerService.isTimerActive ? Color.white : Color.white.opacity(0.2))
+                        .clipShape(Circle())
+                }
             }
 
-            Spacer()
-
-            // Content type badge
-            HStack(spacing: 6) {
-                Image(systemName: content.contentType.icon)
-                    .font(.caption)
-                Text(content.contentType.rawValue)
-                    .font(.caption)
-                    .fontWeight(.medium)
+            // Timer countdown display
+            if playerService.isTimerActive {
+                HStack(spacing: 6) {
+                    Image(systemName: "moon.zzz.fill")
+                        .font(.caption)
+                    Text("\(playerService.timerRemainingFormatted) remaining")
+                        .font(.caption)
+                        .fontWeight(.medium)
+                }
+                .foregroundColor(.white.opacity(0.9))
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(Color.purple.opacity(0.6))
+                .clipShape(Capsule())
             }
-            .foregroundColor(.white.opacity(0.9))
-            .padding(.horizontal, 12)
-            .padding(.vertical, 6)
-            .background(Color.white.opacity(0.2))
-            .clipShape(Capsule())
-
-            Spacer()
-
-            // Placeholder for symmetry
-            Color.clear
-                .frame(width: 44, height: 44)
         }
         .padding(.top, 16)
     }

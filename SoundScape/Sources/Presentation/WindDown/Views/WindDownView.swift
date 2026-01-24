@@ -3,7 +3,6 @@ import SwiftUI
 // MARK: - Wind Down Content Category
 
 enum WindDownCategory: String, CaseIterable, Identifiable {
-    case featured = "Featured"
     case yogaNidra = "Yoga Nidra"
     case sleepStories = "Sleep Stories"
     case meditations = "Meditations"
@@ -15,7 +14,6 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
 
     var icon: String {
         switch self {
-        case .featured: return "star.fill"
         case .yogaNidra: return "figure.mind.and.body"
         case .sleepStories: return "book.fill"
         case .meditations: return "brain.head.profile"
@@ -27,7 +25,6 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
 
     var color: Color {
         switch self {
-        case .featured: return .yellow
         case .yogaNidra: return .indigo
         case .sleepStories: return .purple
         case .meditations: return .teal
@@ -39,7 +36,6 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
 
     var description: String {
         switch self {
-        case .featured: return "Curated picks for tonight"
         case .yogaNidra: return "Deep relaxation practice"
         case .sleepStories: return "Soothing bedtime tales"
         case .meditations: return "Guided sleep meditation"
@@ -48,38 +44,70 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
         case .affirmations: return "Positive sleep affirmations"
         }
     }
+
+    var contentType: SleepContentType {
+        switch self {
+        case .yogaNidra: return .yogaNidra
+        case .sleepStories: return .sleepStory
+        case .meditations: return .guidedMeditation
+        case .breathing: return .breathingExercise
+        case .hypnosis: return .sleepHypnosis
+        case .affirmations: return .affirmations
+        }
+    }
 }
 
 // MARK: - Wind Down View
 
 struct WindDownView: View {
     @Environment(StoryProgressService.self) private var progressService
+    @Environment(SleepContentPlayerService.self) private var playerService
+
+    @State private var selectedContent: SleepContent?
+    @State private var showingPlayer = false
+
+    // Featured content - default to yoga_nidra_10min
+    private var featuredContent: SleepContent {
+        SleepContentDataSource.content(withId: "yoga_nidra_10min") ??
+        SleepContentDataSource.yogaNidraSessions.first!
+    }
+
+    // Continue listening - incomplete sessions (progress > 0 and < 95%)
+    private var incompleteContent: [SleepContent] {
+        let allContent = SleepContentDataSource.allContentFlat()
+        return allContent.filter { content in
+            let progress = progressFraction(for: content)
+            return progress > 0 && progress < 0.95
+        }
+        .sorted { content1, content2 in
+            // Sort by most recently played (highest progress first as proxy)
+            progressFraction(for: content1) > progressFraction(for: content2)
+        }
+    }
 
     private var greeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
-        switch hour {
-        case 5..<12:
-            return "Good Morning"
-        case 12..<17:
-            return "Good Afternoon"
-        case 17..<21:
+        if hour >= 21 || hour < 5 {
+            return "Ready for Sleep?"
+        } else if hour >= 17 {
             return "Good Evening"
-        default:
-            return "Time to Wind Down"
+        } else if hour >= 12 {
+            return "Good Afternoon"
+        } else {
+            return "Good Morning"
         }
     }
 
     private var greetingSubtitle: String {
         let hour = Calendar.current.component(.hour, from: Date())
-        switch hour {
-        case 5..<12:
-            return "Start your day with intention"
-        case 12..<17:
-            return "Take a moment to relax"
-        case 17..<21:
-            return "Prepare for restful sleep"
-        default:
+        if hour >= 21 || hour < 5 {
             return "Let's help you drift off peacefully"
+        } else if hour >= 17 {
+            return "Prepare for restful sleep"
+        } else if hour >= 12 {
+            return "Take a moment to relax"
+        } else {
+            return "Start your day with intention"
         }
     }
 
@@ -90,9 +118,23 @@ struct WindDownView: View {
                     // Personalized Header
                     headerSection
 
-                    // Content Sections
+                    // Featured Tonight Section
+                    featuredSection
+
+                    // Continue Listening Section (only if has incomplete content)
+                    ContinueListeningSection(
+                        incompleteContent: incompleteContent,
+                        progressForContent: { progressFraction(for: $0) },
+                        onContentTap: { playContent($0) }
+                    )
+
+                    // Content Sections by Category
                     ForEach(WindDownCategory.allCases) { category in
-                        WindDownSectionView(category: category)
+                        WindDownSectionView(
+                            category: category,
+                            onContentTap: { playContent($0) },
+                            progressForContent: { progressFraction(for: $0) }
+                        )
                     }
 
                     // Bottom padding for tab bar and now playing bar
@@ -104,6 +146,14 @@ struct WindDownView: View {
             .background(Color(.systemBackground))
             .navigationTitle("Wind Down")
             .navigationBarTitleDisplayMode(.large)
+            .sheet(isPresented: $showingPlayer) {
+                if let content = selectedContent {
+                    SleepContentPlayerView(
+                        content: content,
+                        onDismiss: { showingPlayer = false }
+                    )
+                }
+            }
         }
     }
 
@@ -140,12 +190,63 @@ struct WindDownView: View {
         .padding(.horizontal, 16)
         .padding(.top, 8)
     }
+
+    // MARK: - Featured Section
+
+    private var featuredSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "star.fill")
+                    .font(.title3)
+                    .foregroundColor(.yellow)
+
+                Text("Featured Tonight")
+                    .font(.title3)
+                    .fontWeight(.bold)
+
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+
+            LargeFeaturedCard(
+                content: featuredContent,
+                progress: progressFraction(for: featuredContent),
+                onTap: { playContent(featuredContent) }
+            )
+        }
+    }
+
+    // MARK: - Helper Methods
+
+    private func progressFraction(for content: SleepContent) -> Double {
+        let played = progressService.getProgress(for: content.id)
+        guard content.duration > 0 else { return 0 }
+        return min(played / content.duration, 1.0)
+    }
+
+    private func progressFraction(for contentId: String) -> Double {
+        guard let content = SleepContentDataSource.content(withId: contentId) else {
+            return 0
+        }
+        return progressFraction(for: content)
+    }
+
+    private func playContent(_ content: SleepContent) {
+        selectedContent = content
+        showingPlayer = true
+    }
 }
 
 // MARK: - Section View
 
 struct WindDownSectionView: View {
     let category: WindDownCategory
+    let onContentTap: (SleepContent) -> Void
+    let progressForContent: (SleepContent) -> Double
+
+    private var contentForCategory: [SleepContent] {
+        SleepContentDataSource.content(for: category.contentType)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -161,10 +262,12 @@ struct WindDownSectionView: View {
 
                 Spacer()
 
-                Button(action: {}) {
-                    Text("See All")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                if contentForCategory.count > 4 {
+                    Button(action: {}) {
+                        Text("See All")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -172,10 +275,11 @@ struct WindDownSectionView: View {
             // Horizontal Scroll of Cards
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(0..<4) { index in
-                        WindDownContentCard(
-                            category: category,
-                            index: index
+                    ForEach(contentForCategory) { content in
+                        SleepContentCardView(
+                            content: content,
+                            progress: progressForContent(content),
+                            onTap: { onContentTap(content) }
                         )
                     }
                 }
@@ -185,79 +289,12 @@ struct WindDownSectionView: View {
     }
 }
 
-// MARK: - Content Card (Placeholder)
-
-struct WindDownContentCard: View {
-    let category: WindDownCategory
-    let index: Int
-
-    private var placeholderTitles: [String] {
-        switch category {
-        case .featured:
-            return ["Tonight's Pick", "Editor's Choice", "Most Popular", "New Release"]
-        case .yogaNidra:
-            return ["Deep Rest", "Body Scan", "Peaceful Sleep", "Total Relaxation"]
-        case .sleepStories:
-            return ["The Dream Garden", "Moonlit Forest", "Ocean Voyage", "Starlight Journey"]
-        case .meditations:
-            return ["Sleep Well", "Let Go", "Peaceful Mind", "Drift Away"]
-        case .breathing:
-            return ["4-7-8 Breath", "Box Breathing", "Calm Breath", "Sleep Breath"]
-        case .hypnosis:
-            return ["Deep Sleep", "Release Anxiety", "Peaceful Dreams", "Restful Night"]
-        case .affirmations:
-            return ["I Am Calm", "Peaceful Sleep", "Sweet Dreams", "Rest Easy"]
-        }
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Cover placeholder with gradient
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(
-                        LinearGradient(
-                            colors: [category.color.opacity(0.8), category.color.opacity(0.4)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .aspectRatio(1, contentMode: .fit)
-
-                Image(systemName: category.icon)
-                    .font(.system(size: 28))
-                    .foregroundColor(.white.opacity(0.8))
-            }
-
-            // Title
-            Text(placeholderTitles[index % placeholderTitles.count])
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .foregroundColor(.primary)
-                .lineLimit(2)
-
-            // Duration placeholder
-            HStack(spacing: 4) {
-                Image(systemName: "clock")
-                    .font(.caption2)
-                Text("\((index + 1) * 5 + 10) min")
-                    .font(.caption)
-            }
-            .foregroundColor(.secondary)
-        }
-        .frame(width: 140)
-        .padding(12)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color(.systemGray6))
-        )
-    }
-}
-
 // MARK: - Preview
 
 #Preview {
     WindDownView()
         .environment(StoryProgressService())
+        .environment(SleepContentPlayerService())
+        .environment(AppearanceService())
         .preferredColorScheme(.dark)
 }

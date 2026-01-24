@@ -168,6 +168,8 @@
 		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
 		FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */; };
 		FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */; };
+		FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CONTLS02 /* ContinueListeningSection.swift */; };
+		FB96EB91SLPTMR01 /* SleepContentTimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +370,8 @@
 		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerService.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerView.swift; sourceTree = "<group>"; };
+		FB96EB91CONTLS02 /* ContinueListeningSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueListeningSection.swift; sourceTree = "<group>"; };
+		FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentTimerSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -922,6 +926,7 @@
 			children = (
 				FB96EB91WNDWN002 /* WindDownView.swift */,
 				FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */,
+				FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				FB96EB91SLPCARD2 /* SleepContentCardView.swift */,
 				FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */,
 				FB96EB91CMSN0002 /* ComingSoonBadge.swift */,
+				FB96EB91CONTLS02 /* ContinueListeningSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1248,6 +1254,8 @@
 				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
 				FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */,
 				FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */,
+				FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */,
+				FB96EB91SLPTMR01 /* SleepContentTimerSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
