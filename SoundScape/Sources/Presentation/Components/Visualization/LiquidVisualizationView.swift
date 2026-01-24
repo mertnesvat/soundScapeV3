@@ -83,6 +83,12 @@ struct LiquidVisualizationView: View {
                 color: layer.color,
                 intensity: layer.intensity
             )
+
+        case .sparkle:
+            SparkleLayer(
+                color: layer.color,
+                intensity: layer.intensity
+            )
         }
     }
 }
@@ -128,6 +134,9 @@ struct MiniVisualizationView: View {
 
             case .melody:
                 MiniMelodyView(color: color, intensity: volume)
+
+            case .sparkle:
+                MiniSparkleView(color: color, intensity: volume)
             }
         }
         .frame(width: size, height: size)
@@ -310,6 +319,111 @@ private struct MiniMelodyView: View {
                     context.stroke(Path(ellipseIn: rect), with: .color(color), lineWidth: 1.5)
                 }
             }
+        }
+    }
+}
+
+private struct MiniSparkleView: View {
+    let color: Color
+    let intensity: Float
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 20.0)) { timeline in
+            Canvas { context, size in
+                let time = timeline.date.timeIntervalSinceReferenceDate
+                let sparkleCount = Int(6 * intensity) + 3
+
+                for i in 0..<sparkleCount {
+                    // Create pseudo-random positions that change slowly
+                    let seed = Double(i) * 1.618
+                    let xBase = fmod(seed * 7.3, 1.0) * Double(size.width)
+                    let yBase = fmod(seed * 5.7, 1.0) * Double(size.height)
+
+                    // Add gentle movement
+                    let x = xBase + sin(time * 0.5 + seed) * 3
+                    let y = yBase + cos(time * 0.7 + seed) * 3
+
+                    // Twinkling effect - each sparkle has its own phase
+                    let twinkle = (sin(time * 2.5 + seed * 3.14) + 1) / 2
+                    let sparkleSize = 2.0 + twinkle * 2.0
+
+                    let rect = CGRect(
+                        x: x - sparkleSize / 2,
+                        y: y - sparkleSize / 2,
+                        width: sparkleSize,
+                        height: sparkleSize
+                    )
+
+                    context.opacity = Double(intensity) * 0.4 * (0.5 + twinkle * 0.5)
+                    context.fill(Path(ellipseIn: rect), with: .color(color))
+                }
+            }
+        }
+    }
+}
+
+/// Full-size sparkle layer for ASMR sounds
+struct SparkleLayer: View {
+    let color: Color
+    let intensity: Float
+
+    @State private var sparkles: [(x: CGFloat, y: CGFloat, phase: Double, size: CGFloat)] = []
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 30.0)) { timeline in
+            Canvas { context, size in
+                if sparkles.isEmpty {
+                    Task { @MainActor in
+                        initSparkles(in: size)
+                    }
+                }
+
+                let time = timeline.date.timeIntervalSinceReferenceDate
+
+                for sparkle in sparkles {
+                    // Twinkling effect
+                    let twinkle = (sin(time * 2.0 + sparkle.phase) + 1) / 2
+                    let currentSize = sparkle.size * (0.5 + CGFloat(twinkle) * 0.5)
+
+                    // Gentle drift
+                    let x = sparkle.x + CGFloat(sin(time * 0.3 + sparkle.phase)) * 5
+                    let y = sparkle.y + CGFloat(cos(time * 0.4 + sparkle.phase)) * 5
+
+                    let rect = CGRect(
+                        x: x - currentSize / 2,
+                        y: y - currentSize / 2,
+                        width: currentSize,
+                        height: currentSize
+                    )
+
+                    context.opacity = Double(intensity) * 0.6 * twinkle
+                    context.fill(Path(ellipseIn: rect), with: .color(color))
+
+                    // Add a subtle glow around larger sparkles
+                    if sparkle.size > 4 {
+                        let glowRect = CGRect(
+                            x: x - currentSize,
+                            y: y - currentSize,
+                            width: currentSize * 2,
+                            height: currentSize * 2
+                        )
+                        context.opacity = Double(intensity) * 0.15 * twinkle
+                        context.fill(Path(ellipseIn: glowRect), with: .color(color))
+                    }
+                }
+            }
+        }
+    }
+
+    private func initSparkles(in size: CGSize) {
+        let count = Int(25 * intensity) + 10
+        sparkles = (0..<count).map { _ in
+            (
+                x: CGFloat.random(in: 0...size.width),
+                y: CGFloat.random(in: 0...size.height),
+                phase: Double.random(in: 0...Double.pi * 2),
+                size: CGFloat.random(in: 2...6)
+            )
         }
     }
 }

@@ -7,6 +7,7 @@ enum VisualizationType {
     case grain      // Noise - subtle static grain
     case flow       // Wind - horizontal flowing lines
     case melody     // Music - pulsing circles
+    case sparkle    // ASMR - soft sparkle/shimmer effect
 
     /// Maps a SoundCategory to its visualization type
     static func from(_ category: SoundCategory) -> VisualizationType {
@@ -21,6 +22,8 @@ enum VisualizationType {
             return .grain
         case .music:
             return .melody
+        case .asmr:
+            return .sparkle
         }
     }
 
@@ -32,6 +35,7 @@ enum VisualizationType {
         case .weather: return .blue
         case .fire: return .orange
         case .music: return .pink
+        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
         }
     }
 }

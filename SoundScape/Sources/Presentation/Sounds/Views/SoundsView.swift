@@ -12,6 +12,9 @@ struct SoundsView: View {
     @State private var showTimerSheet = false
     @State private var showSavedSheet = false
     @State private var showSettingsSheet = false
+    @State private var showASMRInfoSheet = false
+
+    private let asmrInfoService = ASMRInfoService()
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -46,10 +49,22 @@ struct SoundsView: View {
             .navigationTitle("Sounds")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        showSettingsSheet = true
-                    } label: {
-                        Image(systemName: "gearshape")
+                    HStack(spacing: 16) {
+                        Button {
+                            showSettingsSheet = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                        }
+
+                        // Show ASMR info button when ASMR category is selected
+                        if viewModel?.selectedCategory == .asmr {
+                            Button {
+                                showASMRInfoSheet = true
+                            } label: {
+                                Image(systemName: "info.circle")
+                                    .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
+                            }
+                        }
                     }
                 }
 
@@ -86,6 +101,16 @@ struct SoundsView: View {
             }
             .sheet(isPresented: $showSettingsSheet) {
                 SettingsView()
+            }
+            .sheet(isPresented: $showASMRInfoSheet) {
+                ASMRInfoView()
+            }
+            .onChange(of: viewModel?.selectedCategory) { oldValue, newValue in
+                // Show ASMR info sheet on first visit to ASMR category
+                if newValue == .asmr && !asmrInfoService.hasSeenInfo {
+                    showASMRInfoSheet = true
+                    asmrInfoService.markAsSeen()
+                }
             }
             .onAppear {
                 if viewModel == nil {

@@ -125,6 +125,7 @@
 		FB96EB91VIZ00003 /* WaveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00004 /* WaveLayer.swift */; };
 		FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00006 /* ParticleLayer.swift */; };
 		FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00008 /* LiquidVisualizationView.swift */; };
+		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,7 @@
 		FB96EB91VIZ00004 /* WaveLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveLayer.swift; sourceTree = "<group>"; };
 		FB96EB91VIZ00006 /* ParticleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleLayer.swift; sourceTree = "<group>"; };
 		FB96EB91VIZ00008 /* LiquidVisualizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidVisualizationView.swift; sourceTree = "<group>"; };
+		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,6 +511,7 @@
 				FB96EB91000000G2 /* NowPlayingBarView.swift */,
 				FB96EB91000000S8 /* OLEDBackgroundModifier.swift */,
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
+				FB96EB91ASMR0002 /* ASMRInfoView.swift */,
 				FB96EB91VIZ00009 /* Visualization */,
 			);
 			path = Components;
@@ -962,6 +965,7 @@
 				FB96EB91VIZ00003 /* WaveLayer.swift in Sources */,
 				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,
 				FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */,
+				FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
