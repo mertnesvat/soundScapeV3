@@ -161,6 +161,10 @@
 		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
 		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
 		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
+		FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */; };
+		FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */; };
+		FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */; };
+		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +358,10 @@
 		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
 		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
 		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
+		FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_5min.mp3; sourceTree = "<group>"; };
+		FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_8min.mp3; sourceTree = "<group>"; };
+		FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_10min.mp3; sourceTree = "<group>"; };
+		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,6 +528,9 @@
 				FB96EB91ASMR0027 /* ASMR-mechanical-keyboard-2.mp3 */,
 				FB96EB91ASMR0028 /* ASMR-wet-slime-squelching.mp3 */,
 				FB96EB91ASMR0029 /* ASMR-winter-forrest-walk.mp3 */,
+				FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */,
+				FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */,
+				FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -572,6 +583,7 @@
 				FB96EB91000000B3 /* LocalSoundDataSource.swift */,
 				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
 				FB96EB91000000N4 /* LocalCommunityDataSource.swift */,
+				FB96EB91SLPCDS02 /* SleepContentDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -1103,6 +1115,9 @@
 				FB96EB91ASMR0017 /* ASMR-mechanical-keyboard-2.mp3 in Resources */,
 				FB96EB91ASMR0018 /* ASMR-wet-slime-squelching.mp3 in Resources */,
 				FB96EB91ASMR0019 /* ASMR-winter-forrest-walk.mp3 in Resources */,
+				FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */,
+				FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */,
+				FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1220,6 +1235,7 @@
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
 				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
+				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
