@@ -75,20 +75,38 @@ final class SleepContentDataSource {
     static let guidedMeditations: [SleepContent] = [
         SleepContent(
             id: "meditation_body_scan",
-            title: "Body Scan for Sleep",
-            narrator: "Dr. Michael Chen",
-            duration: 900,  // 15 minutes
+            title: "Body Scan Relaxation",
+            narrator: "Dr. Emily Chen",
+            duration: 1200,  // 20 min
             contentType: .guidedMeditation,
-            description: "Progressive relaxation through gentle awareness of each part of your body.",
+            description: "A progressive journey through each part of your body, releasing tension as you go deeper into relaxation.",
             audioFileName: nil  // Coming Soon
         ),
         SleepContent(
-            id: "meditation_loving_kindness",
-            title: "Loving Kindness",
+            id: "meditation_floating",
+            title: "Floating on Clouds",
             narrator: "Maya Thompson",
-            duration: 1200,  // 20 minutes
+            duration: 900,  // 15 min
             contentType: .guidedMeditation,
-            description: "Cultivate feelings of warmth and compassion as you drift to sleep.",
+            description: "Visualize yourself floating on soft clouds, drifting peacefully toward sleep.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "meditation_gratitude",
+            title: "Gratitude for Sleep",
+            narrator: "Dr. Emily Chen",
+            duration: 600,  // 10 min
+            contentType: .guidedMeditation,
+            description: "End your day with gratitude, reflecting on positive moments as you prepare for restful sleep.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "meditation_garden",
+            title: "Peaceful Garden Walk",
+            narrator: "James Rivers",
+            duration: 1080,  // 18 min
+            contentType: .guidedMeditation,
+            description: "Walk through a beautiful, serene garden as evening falls, finding your inner peace.",
             audioFileName: nil  // Coming Soon
         )
     ]
@@ -98,21 +116,39 @@ final class SleepContentDataSource {
     /// Breathing exercises for relaxation
     static let breathingExercises: [SleepContent] = [
         SleepContent(
-            id: "breathing_4_7_8",
-            title: "4-7-8 Breathing",
+            id: "breathing_478",
+            title: "4-7-8 Breath",
             narrator: "Guided Voice",
-            duration: 300,  // 5 minutes
+            duration: 300,  // 5 min
             contentType: .breathingExercise,
-            description: "The classic relaxation breath pattern: inhale 4, hold 7, exhale 8.",
+            description: "The relaxing breath technique. Inhale for 4 counts, hold for 7, exhale for 8. Known to promote deep relaxation.",
             audioFileName: nil  // Coming Soon
         ),
         SleepContent(
             id: "breathing_box",
             title: "Box Breathing",
             narrator: "Guided Voice",
-            duration: 420,  // 7 minutes
+            duration: 420,  // 7 min
             contentType: .breathingExercise,
-            description: "Square breathing technique used by Navy SEALs for calm and focus.",
+            description: "Equal counts of inhale, hold, exhale, hold. Used by Navy SEALs for stress relief and focus.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "breathing_deep_sleep",
+            title: "Deep Sleep Breath",
+            narrator: "Guided Voice",
+            duration: 600,  // 10 min
+            contentType: .breathingExercise,
+            description: "Extended exhale breathing designed specifically to activate your parasympathetic nervous system.",
+            audioFileName: nil  // Coming Soon
+        ),
+        SleepContent(
+            id: "breathing_relaxing",
+            title: "Relaxing Exhale",
+            narrator: "Guided Voice",
+            duration: 480,  // 8 min
+            contentType: .breathingExercise,
+            description: "Focus on long, slow exhales to release tension and prepare for restful sleep.",
             audioFileName: nil  // Coming Soon
         )
     ]
