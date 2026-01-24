@@ -17,6 +17,7 @@ struct SoundScapeApp: App {
     @State private var appearanceService = AppearanceService()
     @State private var motionService = MotionService()
     @State private var sleepBuddyService = SleepBuddyService()
+    @State private var sleepContentPlayerService = SleepContentPlayerService()
 
     init() {
         configureAppearance()
@@ -39,6 +40,7 @@ struct SoundScapeApp: App {
                 .environment(appearanceService)
                 .environment(motionService)
                 .environment(sleepBuddyService)
+                .environment(sleepContentPlayerService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     // Configure Firebase Analytics
