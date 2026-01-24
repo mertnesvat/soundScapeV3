@@ -121,6 +121,10 @@
 		FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S8 /* OLEDBackgroundModifier.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
+		FB96EB91VIZ00001 /* VisualizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00002 /* VisualizationType.swift */; };
+		FB96EB91VIZ00003 /* WaveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00004 /* WaveLayer.swift */; };
+		FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00006 /* ParticleLayer.swift */; };
+		FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00008 /* LiquidVisualizationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +244,10 @@
 		FB96EB91000000S8 /* OLEDBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEDBackgroundModifier.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00002 /* VisualizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationType.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00004 /* WaveLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveLayer.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00006 /* ParticleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleLayer.swift; sourceTree = "<group>"; };
+		FB96EB91VIZ00008 /* LiquidVisualizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidVisualizationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -501,8 +509,20 @@
 				FB96EB91000000G2 /* NowPlayingBarView.swift */,
 				FB96EB91000000S8 /* OLEDBackgroundModifier.swift */,
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
+				FB96EB91VIZ00009 /* Visualization */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FB96EB91VIZ00009 /* Visualization */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91VIZ00002 /* VisualizationType.swift */,
+				FB96EB91VIZ00004 /* WaveLayer.swift */,
+				FB96EB91VIZ00006 /* ParticleLayer.swift */,
+				FB96EB91VIZ00008 /* LiquidVisualizationView.swift */,
+			);
+			path = Visualization;
 			sourceTree = "<group>";
 		};
 		FB96EB91000000C1 /* Views */ = {
@@ -938,6 +958,10 @@
 				FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */,
 				FB96EB91MOTION01 /* MotionService.swift in Sources */,
 				FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */,
+				FB96EB91VIZ00001 /* VisualizationType.swift in Sources */,
+				FB96EB91VIZ00003 /* WaveLayer.swift in Sources */,
+				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,
+				FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

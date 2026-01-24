@@ -43,7 +43,7 @@ struct SoundCardView: View {
     var body: some View {
         Button(action: onTogglePlay) {
             VStack(spacing: 12) {
-                // Icon with glow effect when playing
+                // Icon with glow effect when playing, mini visualization overlay
                 ZStack {
                     Circle()
                         .fill(categoryColor.opacity(0.2))
@@ -54,6 +54,10 @@ struct SoundCardView: View {
                             .fill(categoryColor.opacity(0.3))
                             .frame(width: 70, height: 70)
                             .blur(radius: 10)
+
+                        // Mini visualization when playing
+                        MiniVisualizationView(sound: sound, volume: 0.7, size: 50)
+                            .opacity(0.8)
                     }
 
                     Image(systemName: sound.category.icon)
