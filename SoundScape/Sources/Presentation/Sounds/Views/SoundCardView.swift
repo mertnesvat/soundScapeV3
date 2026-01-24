@@ -7,6 +7,7 @@ struct SoundCardView: View {
     let onTogglePlay: () -> Void
     let onToggleFavorite: () -> Void
 
+    @Environment(AppearanceService.self) private var appearanceService
     @State private var heartScale: CGFloat = 1.0
 
     private var categoryColor: Color {
@@ -17,6 +18,25 @@ struct SoundCardView: View {
         case .fire: return .orange
         case .music: return .pink
         }
+    }
+
+    private var cardBackgroundColor: Color {
+        if appearanceService.isOLEDModeEnabled {
+            return isPlaying
+                ? Color(.systemGray6).opacity(0.15)
+                : Color(.systemGray6).opacity(0.08)
+        } else {
+            return Color(.systemGray6)
+        }
+    }
+
+    private var glowColor: Color {
+        if isPlaying {
+            return appearanceService.isOLEDModeEnabled
+                ? categoryColor.opacity(0.6)
+                : categoryColor.opacity(0.4)
+        }
+        return .clear
     }
 
     var body: some View {
@@ -65,17 +85,17 @@ struct SoundCardView: View {
             .padding(.horizontal, 12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color(.systemGray6))
+                    .fill(cardBackgroundColor)
                     .shadow(
-                        color: isPlaying ? categoryColor.opacity(0.4) : .clear,
-                        radius: isPlaying ? 12 : 0
+                        color: glowColor,
+                        radius: isPlaying ? (appearanceService.isOLEDModeEnabled ? 16 : 12) : 0
                     )
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(
-                        isPlaying ? categoryColor.opacity(0.5) : Color.clear,
-                        lineWidth: 2
+                        isPlaying ? categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.7 : 0.5) : Color.clear,
+                        lineWidth: appearanceService.isOLEDModeEnabled ? 1 : 2
                     )
             )
         }
@@ -134,4 +154,5 @@ struct SoundCardView: View {
     .padding()
     .preferredColorScheme(.dark)
     .background(Color(.systemBackground))
+    .environment(AppearanceService())
 }

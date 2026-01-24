@@ -3,12 +3,14 @@ import SwiftUI
 struct SoundsView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(FavoritesService.self) private var favoritesService
+    @Environment(AppearanceService.self) private var appearanceService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
     @State private var showMixerSheet = false
     @State private var showTimerSheet = false
     @State private var showSavedSheet = false
+    @State private var showSettingsSheet = false
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -39,9 +41,17 @@ struct SoundsView: View {
                     }
                 }
             }
-            .background(Color(.systemBackground))
+            .oledBackground()
             .navigationTitle("Sounds")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showSettingsSheet = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                }
+
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 16) {
                         Button {
@@ -72,6 +82,9 @@ struct SoundsView: View {
             }
             .sheet(isPresented: $showSavedSheet) {
                 SavedMixesView()
+            }
+            .sheet(isPresented: $showSettingsSheet) {
+                SettingsView()
             }
             .onAppear {
                 if viewModel == nil {
@@ -159,5 +172,6 @@ struct SoundsView: View {
     SoundsView()
         .environment(AudioEngine())
         .environment(FavoritesService())
+        .environment(AppearanceService())
         .preferredColorScheme(.dark)
 }
