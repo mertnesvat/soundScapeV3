@@ -159,6 +159,8 @@
 		FB96EB91WDGT0004 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
 		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
+		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
+		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +352,8 @@
 		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
+		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
+		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -889,6 +893,7 @@
 			isa = PBXGroup;
 			children = (
 				FB96EB91WNDWN004 /* Views */,
+				FB96EB91WNDWN005 /* Components */,
 			);
 			path = WindDown;
 			sourceTree = "<group>";
@@ -899,6 +904,15 @@
 				FB96EB91WNDWN002 /* WindDownView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91WNDWN005 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SLPCARD2 /* SleepContentCardView.swift */,
+				FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		FB96EB91SIRI0011 /* Intents */ = {
@@ -1204,6 +1218,8 @@
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
 				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
+				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
+				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
