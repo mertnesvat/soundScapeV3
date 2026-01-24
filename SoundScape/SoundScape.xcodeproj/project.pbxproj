@@ -126,6 +126,15 @@
 		FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00006 /* ParticleLayer.swift */; };
 		FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91VIZ00008 /* LiquidVisualizationView.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
+		FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0002 /* ServiceContainer.swift */; };
+		FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0004 /* StartSleepMixIntent.swift */; };
+		FB96EB91SIRI0005 /* SavedMixEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0006 /* SavedMixEntity.swift */; };
+		FB96EB91SIRI0007 /* PlaySavedMixIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0008 /* PlaySavedMixIntent.swift */; };
+		FB96EB91SIRI0009 /* SetSleepTimerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI000A /* SetSleepTimerIntent.swift */; };
+		FB96EB91SIRI000B /* StopSoundsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI000C /* StopSoundsIntent.swift */; };
+		FB96EB91SIRI000D /* ResumeSoundsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI000E /* ResumeSoundsIntent.swift */; };
+		FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */; };
+		FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0012 /* SleepTimerDuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +259,15 @@
 		FB96EB91VIZ00006 /* ParticleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleLayer.swift; sourceTree = "<group>"; };
 		FB96EB91VIZ00008 /* LiquidVisualizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidVisualizationView.swift; sourceTree = "<group>"; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI0002 /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI0004 /* StartSleepMixIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSleepMixIntent.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI0006 /* SavedMixEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixEntity.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI0008 /* PlaySavedMixIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySavedMixIntent.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI000A /* SetSleepTimerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSleepTimerIntent.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI000C /* StopSoundsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopSoundsIntent.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI000E /* ResumeSoundsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeSoundsIntent.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeShortcuts.swift; sourceTree = "<group>"; };
+		FB96EB91SIRI0012 /* SleepTimerDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerDuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,8 +345,25 @@
 			children = (
 				FB96EB9100000011 /* SoundScapeApp.swift */,
 				FB96EB9100000012 /* ContentView.swift */,
+				FB96EB91SIRI0011 /* Intents */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		FB96EB91SIRI0011 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SIRI0002 /* ServiceContainer.swift */,
+				FB96EB91SIRI0004 /* StartSleepMixIntent.swift */,
+				FB96EB91SIRI0006 /* SavedMixEntity.swift */,
+				FB96EB91SIRI0008 /* PlaySavedMixIntent.swift */,
+				FB96EB91SIRI000A /* SetSleepTimerIntent.swift */,
+				FB96EB91SIRI0012 /* SleepTimerDuration.swift */,
+				FB96EB91SIRI000C /* StopSoundsIntent.swift */,
+				FB96EB91SIRI000E /* ResumeSoundsIntent.swift */,
+				FB96EB91SIRI0010 /* SoundScapeShortcuts.swift */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000045 /* Domain */ = {
@@ -966,6 +1001,15 @@
 				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,
 				FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */,
 				FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */,
+				FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */,
+				FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */,
+				FB96EB91SIRI0005 /* SavedMixEntity.swift in Sources */,
+				FB96EB91SIRI0007 /* PlaySavedMixIntent.swift in Sources */,
+				FB96EB91SIRI0009 /* SetSleepTimerIntent.swift in Sources */,
+				FB96EB91SIRI000B /* StopSoundsIntent.swift in Sources */,
+				FB96EB91SIRI000D /* ResumeSoundsIntent.swift in Sources */,
+				FB96EB91SIRI000F /* SoundScapeShortcuts.swift in Sources */,
+				FB96EB91SIRI0013 /* SleepTimerDuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
