@@ -8,6 +8,7 @@ struct SoundCardView: View {
     let onToggleFavorite: () -> Void
 
     @Environment(AppearanceService.self) private var appearanceService
+    @Environment(MotionService.self) private var motionService
     @State private var heartScale: CGFloat = 1.0
 
     private var categoryColor: Color {
@@ -98,6 +99,7 @@ struct SoundCardView: View {
                         lineWidth: appearanceService.isOLEDModeEnabled ? 1 : 2
                     )
             )
+            .reflectiveSheen(categoryColor: categoryColor, cornerRadius: 16)
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.3), value: isPlaying)
@@ -155,4 +157,5 @@ struct SoundCardView: View {
     .preferredColorScheme(.dark)
     .background(Color(.systemBackground))
     .environment(AppearanceService())
+    .environment(MotionService())
 }

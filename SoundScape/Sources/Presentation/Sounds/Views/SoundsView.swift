@@ -4,6 +4,7 @@ struct SoundsView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(FavoritesService.self) private var favoritesService
     @Environment(AppearanceService.self) private var appearanceService
+    @Environment(MotionService.self) private var motionService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
@@ -91,6 +92,10 @@ struct SoundsView: View {
                     viewModel = SoundsViewModel(audioEngine: audioEngine)
                 }
                 viewModel?.loadSounds()
+                motionService.startUpdates()
+            }
+            .onDisappear {
+                motionService.stopUpdates()
             }
         }
     }
@@ -173,5 +178,6 @@ struct SoundsView: View {
         .environment(AudioEngine())
         .environment(FavoritesService())
         .environment(AppearanceService())
+        .environment(MotionService())
         .preferredColorScheme(.dark)
 }

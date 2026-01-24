@@ -119,6 +119,8 @@
 		FB96EB91000000S3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S4 /* SettingsView.swift */; };
 		FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S6 /* AppearanceSettingsView.swift */; };
 		FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S8 /* OLEDBackgroundModifier.swift */; };
+		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
+		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -236,6 +238,8 @@
 		FB96EB91000000S4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S6 /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S8 /* OLEDBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEDBackgroundModifier.swift; sourceTree = "<group>"; };
+		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
+		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -496,6 +500,7 @@
 			children = (
 				FB96EB91000000G2 /* NowPlayingBarView.swift */,
 				FB96EB91000000S8 /* OLEDBackgroundModifier.swift */,
+				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				FB96EB91000000AB /* AnalyticsService.swift */,
 				FB96EB91000000AD /* ReviewPromptService.swift */,
 				FB96EB91000000S2 /* AppearanceService.swift */,
+				FB96EB91MOTION02 /* MotionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -930,6 +936,8 @@
 				FB96EB91000000S3 /* SettingsView.swift in Sources */,
 				FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */,
 				FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */,
+				FB96EB91MOTION01 /* MotionService.swift in Sources */,
+				FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

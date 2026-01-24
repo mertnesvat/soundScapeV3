@@ -15,6 +15,7 @@ struct SoundScapeApp: App {
     @State private var analyticsService = AnalyticsService()
     @State private var reviewPromptService = ReviewPromptService()
     @State private var appearanceService = AppearanceService()
+    @State private var motionService = MotionService()
 
     init() {
         configureAppearance()
@@ -35,6 +36,7 @@ struct SoundScapeApp: App {
                 .environment(analyticsService)
                 .environment(reviewPromptService)
                 .environment(appearanceService)
+                .environment(motionService)
                 .preferredColorScheme(.dark)
                 .onAppear {
                     // Configure Firebase Analytics
