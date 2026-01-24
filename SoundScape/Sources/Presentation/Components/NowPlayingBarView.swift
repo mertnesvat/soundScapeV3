@@ -3,8 +3,21 @@ import SwiftUI
 struct NowPlayingBarView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SleepTimerService.self) private var timerService
+    @Environment(AppearanceService.self) private var appearanceService
     @State private var showMixer = false
     @State private var showTimer = false
+
+    private var barBackgroundColor: Color {
+        appearanceService.isOLEDModeEnabled
+            ? Color(.systemGray6).opacity(0.25)
+            : Color(.systemGray6)
+    }
+
+    private var barShadowColor: Color {
+        appearanceService.isOLEDModeEnabled
+            ? Color.purple.opacity(0.4)
+            : Color.black.opacity(0.3)
+    }
 
     var body: some View {
         if !audioEngine.activeSounds.isEmpty {
@@ -63,8 +76,8 @@ struct NowPlayingBarView: View {
             .padding(.vertical, 12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color(.systemGray6))
-                    .shadow(color: .black.opacity(0.3), radius: 10, y: -5)
+                    .fill(barBackgroundColor)
+                    .shadow(color: barShadowColor, radius: 10, y: -5)
             )
             .padding(.horizontal, 16)
             .transition(.move(edge: .bottom).combined(with: .opacity))
@@ -106,5 +119,6 @@ struct WaveformIndicator: View {
     return NowPlayingBarView()
         .environment(audioEngine)
         .environment(SleepTimerService(audioEngine: audioEngine))
+        .environment(AppearanceService())
         .preferredColorScheme(.dark)
 }

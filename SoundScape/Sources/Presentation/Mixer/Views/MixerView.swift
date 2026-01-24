@@ -18,7 +18,17 @@ struct MixerView: View {
                 } else {
                     // List of active sounds with volume controls
                     List {
-                        // Header showing count
+                        // Visualization section at top
+                        Section {
+                            LiquidVisualizationView(
+                                activeSounds: audioEngine.activeSounds,
+                                height: 150
+                            )
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color.clear)
+                        }
+
+                        // Sound controls section
                         Section {
                             ForEach(audioEngine.activeSounds) { activeSound in
                                 MixerSoundRowView(

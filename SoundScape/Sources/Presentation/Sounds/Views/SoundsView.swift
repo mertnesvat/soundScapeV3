@@ -3,12 +3,18 @@ import SwiftUI
 struct SoundsView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(FavoritesService.self) private var favoritesService
+    @Environment(AppearanceService.self) private var appearanceService
+    @Environment(MotionService.self) private var motionService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
     @State private var showMixerSheet = false
     @State private var showTimerSheet = false
     @State private var showSavedSheet = false
+    @State private var showSettingsSheet = false
+    @State private var showASMRInfoSheet = false
+
+    private let asmrInfoService = ASMRInfoService()
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -39,9 +45,29 @@ struct SoundsView: View {
                     }
                 }
             }
-            .background(Color(.systemBackground))
+            .oledBackground()
             .navigationTitle("Sounds")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack(spacing: 16) {
+                        Button {
+                            showSettingsSheet = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                        }
+
+                        // Show ASMR info button when ASMR category is selected
+                        if viewModel?.selectedCategory == .asmr {
+                            Button {
+                                showASMRInfoSheet = true
+                            } label: {
+                                Image(systemName: "info.circle")
+                                    .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
+                            }
+                        }
+                    }
+                }
+
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 16) {
                         Button {
@@ -73,11 +99,28 @@ struct SoundsView: View {
             .sheet(isPresented: $showSavedSheet) {
                 SavedMixesView()
             }
+            .sheet(isPresented: $showSettingsSheet) {
+                SettingsView()
+            }
+            .sheet(isPresented: $showASMRInfoSheet) {
+                ASMRInfoView()
+            }
+            .onChange(of: viewModel?.selectedCategory) { oldValue, newValue in
+                // Show ASMR info sheet on first visit to ASMR category
+                if newValue == .asmr && !asmrInfoService.hasSeenInfo {
+                    showASMRInfoSheet = true
+                    asmrInfoService.markAsSeen()
+                }
+            }
             .onAppear {
                 if viewModel == nil {
                     viewModel = SoundsViewModel(audioEngine: audioEngine)
                 }
                 viewModel?.loadSounds()
+                motionService.startUpdates()
+            }
+            .onDisappear {
+                motionService.stopUpdates()
             }
         }
     }
@@ -159,5 +202,7 @@ struct SoundsView: View {
     SoundsView()
         .environment(AudioEngine())
         .environment(FavoritesService())
+        .environment(AppearanceService())
+        .environment(MotionService())
         .preferredColorScheme(.dark)
 }

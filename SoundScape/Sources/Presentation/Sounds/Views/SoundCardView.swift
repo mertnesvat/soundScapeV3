@@ -7,6 +7,8 @@ struct SoundCardView: View {
     let onTogglePlay: () -> Void
     let onToggleFavorite: () -> Void
 
+    @Environment(AppearanceService.self) private var appearanceService
+    @Environment(MotionService.self) private var motionService
     @State private var heartScale: CGFloat = 1.0
 
     private var categoryColor: Color {
@@ -16,13 +18,33 @@ struct SoundCardView: View {
         case .weather: return .blue
         case .fire: return .orange
         case .music: return .pink
+        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
         }
+    }
+
+    private var cardBackgroundColor: Color {
+        if appearanceService.isOLEDModeEnabled {
+            return isPlaying
+                ? Color(.systemGray6).opacity(0.15)
+                : Color(.systemGray6).opacity(0.08)
+        } else {
+            return Color(.systemGray6)
+        }
+    }
+
+    private var glowColor: Color {
+        if isPlaying {
+            return appearanceService.isOLEDModeEnabled
+                ? categoryColor.opacity(0.6)
+                : categoryColor.opacity(0.4)
+        }
+        return .clear
     }
 
     var body: some View {
         Button(action: onTogglePlay) {
             VStack(spacing: 12) {
-                // Icon with glow effect when playing
+                // Icon with glow effect when playing, mini visualization overlay
                 ZStack {
                     Circle()
                         .fill(categoryColor.opacity(0.2))
@@ -33,6 +55,10 @@ struct SoundCardView: View {
                             .fill(categoryColor.opacity(0.3))
                             .frame(width: 70, height: 70)
                             .blur(radius: 10)
+
+                        // Mini visualization when playing
+                        MiniVisualizationView(sound: sound, volume: 0.7, size: 50)
+                            .opacity(0.8)
                     }
 
                     Image(systemName: sound.category.icon)
@@ -65,19 +91,20 @@ struct SoundCardView: View {
             .padding(.horizontal, 12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color(.systemGray6))
+                    .fill(cardBackgroundColor)
                     .shadow(
-                        color: isPlaying ? categoryColor.opacity(0.4) : .clear,
-                        radius: isPlaying ? 12 : 0
+                        color: glowColor,
+                        radius: isPlaying ? (appearanceService.isOLEDModeEnabled ? 16 : 12) : 0
                     )
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(
-                        isPlaying ? categoryColor.opacity(0.5) : Color.clear,
-                        lineWidth: 2
+                        isPlaying ? categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.7 : 0.5) : Color.clear,
+                        lineWidth: appearanceService.isOLEDModeEnabled ? 1 : 2
                     )
             )
+            .reflectiveSheen(categoryColor: categoryColor, cornerRadius: 16)
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.3), value: isPlaying)
@@ -134,4 +161,6 @@ struct SoundCardView: View {
     .padding()
     .preferredColorScheme(.dark)
     .background(Color(.systemBackground))
+    .environment(AppearanceService())
+    .environment(MotionService())
 }

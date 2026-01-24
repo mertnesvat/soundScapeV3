@@ -4,6 +4,7 @@ struct ContentView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SleepTimerService.self) private var sleepTimerService
     @Environment(AnalyticsService.self) private var analyticsService
+    @Environment(AppearanceService.self) private var appearanceService
     @State private var selectedTab: Tab = .sounds
 
     enum Tab: String, CaseIterable {
@@ -86,6 +87,12 @@ struct ContentView: View {
             .onChange(of: selectedTab) { _, newTab in
                 analyticsService.logTabSelected(newTab.rawValue)
             }
+            .onChange(of: appearanceService.isOLEDModeEnabled) { _, isOLED in
+                configureTabBarAppearance(isOLED: isOLED)
+            }
+            .onAppear {
+                configureTabBarAppearance(isOLED: appearanceService.isOLEDModeEnabled)
+            }
 
             // Now Playing Bar above tab bar
             VStack {
@@ -95,6 +102,32 @@ struct ContentView: View {
             }
             .animation(.spring(response: 0.3), value: audioEngine.activeSounds.isEmpty)
         }
+    }
+
+    private func configureTabBarAppearance(isOLED: Bool) {
+        let appearance = UITabBarAppearance()
+
+        if isOLED {
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .black
+
+            // Dim unselected items for OLED
+            appearance.stackedLayoutAppearance.normal.iconColor = UIColor.gray.withAlphaComponent(0.6)
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+                .foregroundColor: UIColor.gray.withAlphaComponent(0.6)
+            ]
+
+            // Selected items glow with purple
+            appearance.stackedLayoutAppearance.selected.iconColor = UIColor.systemPurple
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+                .foregroundColor: UIColor.systemPurple
+            ]
+        } else {
+            appearance.configureWithDefaultBackground()
+        }
+
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
     }
 }
 
@@ -179,5 +212,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(InsightsService())
         .environment(AnalyticsService())
         .environment(ReviewPromptService())
+        .environment(AppearanceService())
         .preferredColorScheme(.dark)
 }
