@@ -1,1 +1,24 @@
-{"session_id": "night-20260124-001", "base_branch": "feature/v3", "accumulated_branch": "night/night-20260124-001", "status": "running", "started_at": "2026-01-24T15:08:59Z", "features": []}
+{
+  "session_id": "night-20260124-221705",
+  "base_branch": "feature/sleep-1",
+  "accumulated_branch": "night/winddown-20260124",
+  "status": "running",
+  "started_at": "2026-01-24T22:17:05Z",
+  "features": [
+    {"id": 1, "name": "Wind Down Tab Core Architecture", "status": "pending", "priority": 1, "dependencies": []},
+    {"id": 2, "name": "Sleep Content Entity & Data Model", "status": "pending", "priority": 1, "dependencies": [1]},
+    {"id": 11, "name": "Content Card Components", "status": "pending", "priority": 1, "dependencies": [2]},
+    {"id": 3, "name": "Yoga Nidra Content Integration", "status": "pending", "priority": 1, "dependencies": [2]},
+    {"id": 4, "name": "Sleep Content Player", "status": "pending", "priority": 1, "dependencies": [3]},
+    {"id": 6, "name": "Breathing Exercises Section", "status": "pending", "priority": 2, "dependencies": [2]},
+    {"id": 7, "name": "Guided Meditations Section", "status": "pending", "priority": 2, "dependencies": [2]},
+    {"id": 5, "name": "Sleep Stories Section", "status": "pending", "priority": 2, "dependencies": [4]},
+    {"id": 10, "name": "Featured Content & Continue Listening", "status": "pending", "priority": 2, "dependencies": [4]},
+    {"id": 12, "name": "Sleep Timer Integration", "status": "pending", "priority": 2, "dependencies": [4]},
+    {"id": 8, "name": "Sleep Hypnosis Section", "status": "pending", "priority": 3, "dependencies": [2]},
+    {"id": 9, "name": "Bedtime Affirmations Section", "status": "pending", "priority": 3, "dependencies": [2]}
+  ],
+  "current_feature": null,
+  "completed_features": [],
+  "failed_features": []
+}

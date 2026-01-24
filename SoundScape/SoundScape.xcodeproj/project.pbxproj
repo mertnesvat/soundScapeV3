@@ -136,6 +136,7 @@
 		FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY006 /* SleepBuddyView.swift */; };
 		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
 		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
+		FB96EB91WNDWN001 /* WindDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WNDWN002 /* WindDownView.swift */; };
 		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
@@ -322,6 +323,7 @@
 		FB96EB91BUDDY006 /* SleepBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
+		FB96EB91WNDWN002 /* WindDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDownView.swift; sourceTree = "<group>"; };
 		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				FB96EB9100000052 /* Favorites */,
 				FB96EB9100000053 /* SavedMixes */,
 				FB96EB91000000KJ /* Stories */,
+				FB96EB91WNDWN003 /* WindDown */,
 				FB96EB91000000MF /* Alarms */,
 				FB96EB91000000NH /* Discover */,
 				FB96EB91000000OD /* Adaptive */,
@@ -879,6 +882,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB96EB91WNDWN003 /* WindDown */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91WNDWN004 /* Views */,
+			);
+			path = WindDown;
+			sourceTree = "<group>";
+		};
+		FB96EB91WNDWN004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91WNDWN002 /* WindDownView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FB96EB91SIRI0011 /* Intents */ = {
 			isa = PBXGroup;
 			children = (
@@ -1180,6 +1199,7 @@
 				FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */,
 				FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */,
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
+				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

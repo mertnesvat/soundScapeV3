@@ -11,7 +11,7 @@ struct ContentView: View {
         case sounds = "Sounds"
         case binaural = "Binaural"
         case favorites = "Favorites"
-        // case stories = "Stories" // TODO: Enable after v1 release
+        case windDown = "Wind Down"
         case alarms = "Alarms"
         case discover = "Discover"
         case adaptive = "Adaptive"
@@ -22,7 +22,7 @@ struct ContentView: View {
             case .sounds: return "waveform"
             case .binaural: return "brain.head.profile"
             case .favorites: return "heart"
-            // case .stories: return "book.fill" // TODO: Enable after v1 release
+            case .windDown: return "moon.zzz.fill"
             case .alarms: return "alarm"
             case .discover: return "globe"
             case .adaptive: return "waveform.path.ecg"
@@ -52,12 +52,11 @@ struct ContentView: View {
                     }
                     .tag(Tab.favorites)
 
-                // TODO: Enable after v1 release
-                // StoriesView()
-                //     .tabItem {
-                //         Label(Tab.stories.rawValue, systemImage: Tab.stories.icon)
-                //     }
-                //     .tag(Tab.stories)
+                WindDownView()
+                    .tabItem {
+                        Label(Tab.windDown.rawValue, systemImage: Tab.windDown.icon)
+                    }
+                    .tag(Tab.windDown)
 
                 AlarmsView()
                     .tabItem {
