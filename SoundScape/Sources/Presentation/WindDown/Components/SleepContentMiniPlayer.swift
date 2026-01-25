@@ -45,18 +45,32 @@ struct SleepContentMiniPlayer: View {
                     // Tap area for expanding player
                     Button(action: onTap) {
                         HStack(spacing: 12) {
-                            // Content type icon with animated indicator
+                            // Cover art or icon with animated indicator
                             ZStack {
-                                Circle()
-                                    .fill(content.contentType.color.opacity(0.2))
-                                    .frame(width: 44, height: 44)
-
-                                if playerService.isPlaying {
-                                    // Animated breathing indicator
-                                    Circle()
-                                        .fill(content.contentType.color.opacity(0.3))
+                                if let coverName = content.coverImageName {
+                                    // Use cover image
+                                    Image(coverName)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
                                         .frame(width: 44, height: 44)
-                                        .scaleEffect(playerService.isPlaying ? 1.2 : 1.0)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                } else {
+                                    // Fallback to icon
+                                    Circle()
+                                        .fill(content.contentType.color.opacity(0.2))
+                                        .frame(width: 44, height: 44)
+
+                                    Image(systemName: content.contentType.icon)
+                                        .font(.system(size: 18))
+                                        .foregroundColor(content.contentType.color)
+                                }
+
+                                // Animated breathing indicator when playing
+                                if playerService.isPlaying {
+                                    RoundedRectangle(cornerRadius: content.coverImageName != nil ? 8 : 22)
+                                        .stroke(content.contentType.color, lineWidth: 2)
+                                        .frame(width: 44, height: 44)
+                                        .scaleEffect(playerService.isPlaying ? 1.15 : 1.0)
                                         .opacity(playerService.isPlaying ? 0 : 1)
                                         .animation(
                                             .easeInOut(duration: 1.5)
@@ -64,10 +78,6 @@ struct SleepContentMiniPlayer: View {
                                             value: playerService.isPlaying
                                         )
                                 }
-
-                                Image(systemName: content.contentType.icon)
-                                    .font(.system(size: 18))
-                                    .foregroundColor(content.contentType.color)
                             }
 
                             // Title and narrator

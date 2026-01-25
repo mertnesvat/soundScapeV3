@@ -11,151 +11,87 @@ final class SleepContentDataSource {
             id: "yoga_nidra_5min",
             title: "Quick Yoga Nidra",
             narrator: "Guided Voice",
-            duration: 300,  // 5 minutes
+            duration: 293,  // 4:53
             contentType: .yogaNidra,
             description: "A brief but powerful yoga nidra session perfect for short breaks or when you need quick relaxation.",
-            audioFileName: "yoga_nidra_sleep_5min.mp3"
+            audioFileName: "yoga_nidra_sleep_5min.mp3",
+            coverImageName: "yoga_nidra_sleep_5min_cover"
         ),
         SleepContent(
             id: "yoga_nidra_8min",
             title: "Extended Yoga Nidra",
             narrator: "Guided Voice",
-            duration: 480,  // 8 minutes
+            duration: 438,  // 7:18
             contentType: .yogaNidra,
             description: "A deeper yoga nidra experience with extended body scan and visualization.",
-            audioFileName: "yoga_nidra_sleep_8min.mp3"
+            audioFileName: "yoga_nidra_sleep_8min.mp3",
+            coverImageName: "yoga_nidra_sleep_8min_cover"
         ),
         SleepContent(
             id: "yoga_nidra_10min",
             title: "Complete Yoga Nidra",
             narrator: "Guided Voice",
-            duration: 600,  // 10 minutes
+            duration: 767,  // 12:47
             contentType: .yogaNidra,
             description: "The full yoga nidra journey. Perfect for bedtime relaxation and deep restoration.",
-            audioFileName: "yoga_nidra_sleep_10min.mp3"
+            audioFileName: "yoga_nidra_sleep_10min.mp3",
+            coverImageName: "yoga_nidra_sleep_10min_cover"
         )
     ]
 
-    // MARK: - Sleep Stories (Coming Soon Placeholders)
+    // MARK: - Sleep Stories
 
     /// Sleep stories - calming narratives for sleep
-    /// Migrated from LocalStoryDataSource with all 12 original stories
-    /// Categories: Fiction, Nature Journeys, Meditation, ASMR
     static let sleepStories: [SleepContent] = [
-        // Fiction Stories
         SleepContent(
-            id: "story_sleepy_forest",
-            title: "The Sleepy Forest",
-            narrator: "Sarah Moon",
-            duration: 1200,  // 20 min
+            id: "story_clockmakers_gift",
+            title: "The Clockmaker's Final Gift",
+            narrator: "AI Narrator",
+            duration: 430,  // 7:10
             contentType: .sleepStory,
-            description: "A gentle tale of woodland creatures preparing for winter. Follow a young fox as she discovers the magic of the forest at twilight.",
-            audioFileName: nil  // Coming Soon
+            description: "In a quiet village nestled between rolling hills, there lived an old clockmaker whose hands had grown too tired to wind the clocks he once loved.",
+            audioFileName: "the_clockmakers_final_gift.mp3",
+            coverImageName: "the_clockmakers_final_gift_cover"
         ),
         SleepContent(
-            id: "story_dream_lighthouse",
-            title: "The Dream Lighthouse",
-            narrator: "Thomas Gray",
-            duration: 1500,  // 25 min
+            id: "story_garden_between_stars",
+            title: "The Garden Between Stars",
+            narrator: "AI Narrator",
+            duration: 445,  // 7:25
             contentType: .sleepStory,
-            description: "A lighthouse keeper guides ships through a sea of stars in this whimsical bedtime story.",
-            audioFileName: nil  // Coming Soon
+            description: "High above the world, where the sky turns from blue to endless black, there exists a garden that no telescope has ever found.",
+            audioFileName: "the_garden_between_stars.mp3",
+            coverImageName: "the_garden_between_stars_cover"
         ),
         SleepContent(
-            id: "story_cloud_wanderer",
-            title: "The Cloud Wanderer",
-            narrator: "Sarah Moon",
-            duration: 1080,  // 18 min
+            id: "story_last_lighthouse_keeper",
+            title: "The Last Lighthouse Keeper",
+            narrator: "AI Narrator",
+            duration: 419,  // 6:59
             contentType: .sleepStory,
-            description: "Float among the clouds with a curious child who discovers a world above the world.",
-            audioFileName: nil  // Coming Soon
-        ),
-
-        // Nature Journey Stories
-        SleepContent(
-            id: "story_ocean_waves_journey",
-            title: "Ocean Waves Journey",
-            narrator: "James Rivers",
-            duration: 1500,  // 25 min
-            contentType: .sleepStory,
-            description: "Float along peaceful ocean currents. Let the rhythm of gentle waves carry you to a place of deep relaxation.",
-            audioFileName: nil  // Coming Soon
+            description: "On the edge of a rocky coast where the Atlantic meets the sky, there stands a lighthouse that has guided ships for two hundred years.",
+            audioFileName: "the_last_lighthouse_keeper.mp3",
+            coverImageName: "the_last_lighthouse_keeper_cover"
         ),
         SleepContent(
-            id: "story_mountain_meadow_walk",
-            title: "Mountain Meadow Walk",
-            narrator: "Emma Stone",
-            duration: 1320,  // 22 min
+            id: "story_mountain_learned_to_rest",
+            title: "The Mountain That Learned to Rest",
+            narrator: "AI Narrator",
+            duration: 545,  // 9:05
             contentType: .sleepStory,
-            description: "Wander through alpine meadows filled with wildflowers, breathing in the crisp mountain air.",
-            audioFileName: nil  // Coming Soon
+            description: "Long ago, when the world was still learning to be still, there was a mountain who had forgotten how to rest.",
+            audioFileName: "the_mountain_that_learned_to_rest.mp3",
+            coverImageName: "the_mountain_that_learned_to_rest_cover"
         ),
         SleepContent(
-            id: "story_rainy_forest_path",
-            title: "Rainy Forest Path",
-            narrator: "James Rivers",
-            duration: 1440,  // 24 min
+            id: "story_rivers_secret",
+            title: "The River's Secret",
+            narrator: "AI Narrator",
+            duration: 501,  // 8:21
             contentType: .sleepStory,
-            description: "Walk through an ancient forest as gentle rain falls through the canopy above.",
-            audioFileName: nil  // Coming Soon
-        ),
-
-        // Meditation Stories
-        SleepContent(
-            id: "story_breathing_into_sleep",
-            title: "Breathing Into Sleep",
-            narrator: "Dr. Emily Chen",
-            duration: 900,  // 15 min
-            contentType: .sleepStory,
-            description: "Guided breathing exercises for deep relaxation. Release the day and prepare your mind for restful sleep.",
-            audioFileName: nil  // Coming Soon
-        ),
-        SleepContent(
-            id: "story_body_scan_relaxation",
-            title: "Body Scan Relaxation",
-            narrator: "Dr. Emily Chen",
-            duration: 1200,  // 20 min
-            contentType: .sleepStory,
-            description: "A progressive relaxation journey through each part of your body, releasing tension as you go.",
-            audioFileName: nil  // Coming Soon
-        ),
-        SleepContent(
-            id: "story_starlight_meditation",
-            title: "Starlight Meditation",
-            narrator: "Maya Thompson",
-            duration: 1080,  // 18 min
-            contentType: .sleepStory,
-            description: "Visualize yourself floating among the stars in this peaceful guided meditation.",
-            audioFileName: nil  // Coming Soon
-        ),
-
-        // ASMR Stories
-        SleepContent(
-            id: "story_library_whispers",
-            title: "Library Whispers",
-            narrator: "Alex Kim",
-            duration: 1800,  // 30 min
-            contentType: .sleepStory,
-            description: "Soft whispers and gentle page turning in a cozy library. Perfect for triggering relaxation.",
-            audioFileName: nil  // Coming Soon
-        ),
-        SleepContent(
-            id: "story_rainy_window",
-            title: "Rainy Window",
-            narrator: "Alex Kim",
-            duration: 2400,  // 40 min
-            contentType: .sleepStory,
-            description: "Rain tapping on windows with soft whispered narration about finding peace.",
-            audioFileName: nil  // Coming Soon
-        ),
-        SleepContent(
-            id: "story_cozy_cottage_night",
-            title: "Cozy Cottage Night",
-            narrator: "Sophie White",
-            duration: 2100,  // 35 min
-            contentType: .sleepStory,
-            description: "Crackling fire, soft rain, and gentle whispers guide you through a peaceful evening.",
-            audioFileName: nil  // Coming Soon
+            description: "Deep in the heart of an ancient forest, there flows a river that knows a secret—a secret about sleep, about dreams, and about letting go.",
+            audioFileName: "the_rivers_secret.mp3",
+            coverImageName: "the_rivers_secret_cover"
         )
     ]
 
@@ -170,7 +106,8 @@ final class SleepContentDataSource {
             duration: 1200,  // 20 min
             contentType: .guidedMeditation,
             description: "A progressive journey through each part of your body, releasing tension as you go deeper into relaxation.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         ),
         SleepContent(
             id: "meditation_floating",
@@ -179,7 +116,8 @@ final class SleepContentDataSource {
             duration: 900,  // 15 min
             contentType: .guidedMeditation,
             description: "Visualize yourself floating on soft clouds, drifting peacefully toward sleep.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         ),
         SleepContent(
             id: "meditation_gratitude",
@@ -188,7 +126,8 @@ final class SleepContentDataSource {
             duration: 600,  // 10 min
             contentType: .guidedMeditation,
             description: "End your day with gratitude, reflecting on positive moments as you prepare for restful sleep.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         ),
         SleepContent(
             id: "meditation_garden",
@@ -197,7 +136,8 @@ final class SleepContentDataSource {
             duration: 1080,  // 18 min
             contentType: .guidedMeditation,
             description: "Walk through a beautiful, serene garden as evening falls, finding your inner peace.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         )
     ]
 
@@ -212,7 +152,8 @@ final class SleepContentDataSource {
             duration: 300,  // 5 min
             contentType: .breathingExercise,
             description: "The relaxing breath technique. Inhale for 4 counts, hold for 7, exhale for 8. Known to promote deep relaxation.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         ),
         SleepContent(
             id: "breathing_box",
@@ -221,7 +162,8 @@ final class SleepContentDataSource {
             duration: 420,  // 7 min
             contentType: .breathingExercise,
             description: "Equal counts of inhale, hold, exhale, hold. Used by Navy SEALs for stress relief and focus.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         ),
         SleepContent(
             id: "breathing_deep_sleep",
@@ -230,7 +172,8 @@ final class SleepContentDataSource {
             duration: 600,  // 10 min
             contentType: .breathingExercise,
             description: "Extended exhale breathing designed specifically to activate your parasympathetic nervous system.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         ),
         SleepContent(
             id: "breathing_relaxing",
@@ -239,82 +182,80 @@ final class SleepContentDataSource {
             duration: 480,  // 8 min
             contentType: .breathingExercise,
             description: "Focus on long, slow exhales to release tension and prepare for restful sleep.",
-            audioFileName: nil  // Coming Soon
+            audioFileName: nil,  // Coming Soon
+            coverImageName: nil
         )
     ]
 
-    // MARK: - Sleep Hypnosis (Coming Soon Placeholders)
+    // MARK: - Sleep Hypnosis
 
     /// Sleep hypnosis sessions for deep relaxation
     static let sleepHypnosis: [SleepContent] = [
         SleepContent(
-            id: "hypnosis_deep_sleep",
-            title: "Deep Sleep Hypnosis",
-            narrator: "Michael Waters",
-            duration: 1800,  // 30 min
+            id: "hypnosis_floating",
+            title: "Floating Into Dreams",
+            narrator: "AI Voice Guide",
+            duration: 327,  // 5:27
             contentType: .sleepHypnosis,
-            description: "Gentle hypnotic induction designed to guide you into the deepest, most restorative sleep.",
-            audioFileName: nil  // Coming Soon
+            description: "Close your eyes. Find yourself floating gently, weightlessly, as the world below becomes softer and more distant.",
+            audioFileName: "sleep_hypnosis_floating.mp3",
+            coverImageName: "sleep_hypnosis_floating_cover"
         ),
         SleepContent(
-            id: "hypnosis_letting_go",
-            title: "Letting Go",
-            narrator: "Sarah Moon",
-            duration: 1500,  // 25 min
+            id: "hypnosis_ocean",
+            title: "Ocean Depths Journey",
+            narrator: "AI Voice Guide",
+            duration: 307,  // 5:07
             contentType: .sleepHypnosis,
-            description: "Release the worries of the day through soothing hypnotic suggestions for peaceful sleep.",
-            audioFileName: nil  // Coming Soon
+            description: "You are walking along a quiet beach at twilight. The sky is painted in soft shades of violet and deep blue.",
+            audioFileName: "sleep_hypnosis_ocean.mp3",
+            coverImageName: "sleep_hypnosis_ocean_cover"
         ),
         SleepContent(
-            id: "hypnosis_dreams",
-            title: "Peaceful Dreams",
-            narrator: "Michael Waters",
-            duration: 1200,  // 20 min
+            id: "hypnosis_staircase",
+            title: "The Velvet Staircase",
+            narrator: "AI Voice Guide",
+            duration: 320,  // 5:20
             contentType: .sleepHypnosis,
-            description: "Prepare your mind for beautiful, peaceful dreams as you drift off to sleep.",
-            audioFileName: nil  // Coming Soon
+            description: "Imagine you're standing at the top of a beautiful staircase. The carpet beneath your feet is the softest velvet.",
+            audioFileName: "sleep_hypnosis_staircase.mp3",
+            coverImageName: "sleep_hypnosis_staircase_cover"
         )
     ]
 
-    // MARK: - Affirmations (Coming Soon Placeholders)
+    // MARK: - Affirmations
 
     /// Bedtime affirmations
     static let affirmations: [SleepContent] = [
         SleepContent(
-            id: "affirmation_self_love",
-            title: "Self-Love Affirmations",
-            narrator: "Sophie White",
-            duration: 420,  // 7 min
+            id: "affirmation_gratitude",
+            title: "Gratitude Affirmations",
+            narrator: "AI Voice Guide",
+            duration: 185,  // 3:05
             contentType: .affirmations,
-            description: "Gentle affirmations to remind yourself of your worth as you prepare for sleep.",
-            audioFileName: nil  // Coming Soon
+            description: "Let your heart fill with gratitude as these gentle words guide you peacefully into sleep.",
+            audioFileName: "bedtime_gratitude_affirmations.mp3",
+            coverImageName: "bedtime_gratitude_affirmations_cover"
         ),
         SleepContent(
-            id: "affirmation_peaceful",
-            title: "Peaceful Sleep Affirmations",
-            narrator: "Sophie White",
-            duration: 360,  // 6 min
+            id: "affirmation_peace",
+            title: "Peace Affirmations",
+            narrator: "AI Voice Guide",
+            duration: 177,  // 2:57
             contentType: .affirmations,
-            description: "Calming words to ease your mind and invite restful, peaceful sleep.",
-            audioFileName: nil  // Coming Soon
+            description: "Settle into your bed and let these calming words wash over you as you drift toward peaceful sleep.",
+            audioFileName: "bedtime_peace_affirmations.mp3",
+            coverImageName: "bedtime_peace_affirmations_cover"
         ),
         SleepContent(
-            id: "affirmation_tomorrow",
-            title: "Tomorrow's Promise",
-            narrator: "Alex Kim",
-            duration: 480,  // 8 min
+            id: "affirmation_release",
+            title: "Release Affirmations",
+            narrator: "AI Voice Guide",
+            duration: 185,  // 3:05
             contentType: .affirmations,
-            description: "Positive affirmations about the new day ahead, releasing today's concerns.",
-            audioFileName: nil  // Coming Soon
-        ),
-        SleepContent(
-            id: "affirmation_releasing",
-            title: "Releasing Anxiety",
-            narrator: "Dr. Emily Chen",
-            duration: 600,  // 10 min
-            contentType: .affirmations,
-            description: "Soothing affirmations to help let go of anxious thoughts before sleep.",
-            audioFileName: nil  // Coming Soon
+            description: "Let go of the day's tension as these gentle affirmations help you release and surrender to rest.",
+            audioFileName: "bedtime_release_affirmations.mp3",
+            coverImageName: "bedtime_release_affirmations_cover"
         )
     ]
 

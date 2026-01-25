@@ -19,11 +19,27 @@ struct LargeFeaturedCard: View {
     var body: some View {
         Button(action: onTap) {
             ZStack(alignment: .bottomLeading) {
-                // Background gradient
-                backgroundGradient
-
-                // Decorative icon
-                decorativeIcon
+                // Background - cover image or gradient
+                if let coverName = content.coverImageName {
+                    Image(coverName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 180)
+                        .overlay(
+                            LinearGradient(
+                                colors: [
+                                    Color.black.opacity(0.1),
+                                    Color.black.opacity(0.7)
+                                ],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        )
+                } else {
+                    // Fallback gradient
+                    backgroundGradient
+                    decorativeIcon
+                }
 
                 // Content overlay
                 contentOverlay
@@ -209,7 +225,8 @@ struct LargeFeaturedCard: View {
                 duration: 1800,
                 contentType: .yogaNidra,
                 description: "A deeply relaxing 30-minute practice to help you unwind and prepare for restful sleep.",
-                audioFileName: "yoga_nidra_1.mp3"
+                audioFileName: "yoga_nidra_1.mp3",
+                coverImageName: nil
             ),
             progress: 0.0,
             onTap: {}
@@ -223,7 +240,8 @@ struct LargeFeaturedCard: View {
                 duration: 2400,
                 contentType: .sleepStory,
                 description: "Journey through an enchanted forest under the silver moonlight.",
-                audioFileName: "story_1.mp3"
+                audioFileName: "story_1.mp3",
+                coverImageName: nil
             ),
             progress: 0.35,
             onTap: {}
@@ -243,7 +261,8 @@ struct LargeFeaturedCard: View {
             duration: 1500,
             contentType: .sleepHypnosis,
             description: "Gentle hypnotherapy to guide you into deep, restful sleep.",
-            audioFileName: nil
+            audioFileName: nil,
+            coverImageName: nil
         ),
         progress: 0.0,
         onTap: {}

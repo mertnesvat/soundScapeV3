@@ -31,13 +31,14 @@ struct SleepContentCardView: View {
                 // Cover with gradient and icon
                 coverImage
 
-                // Title
+                // Title - fixed height for 2 lines
                 Text(content.title)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
+                    .frame(height: 40, alignment: .top)
 
                 // Narrator
                 Text(content.narrator)
@@ -54,12 +55,11 @@ struct SleepContentCardView: View {
                 }
                 .foregroundColor(.secondary)
 
-                // Progress bar (if started)
-                if progress > 0 {
-                    progressBar
-                }
+                // Progress bar - always reserve space for consistent height
+                progressBar
+                    .opacity(progress > 0 ? 1 : 0)
             }
-            .frame(width: 140)
+            .frame(width: 140, height: 220)
             .padding(12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
@@ -76,19 +76,30 @@ struct SleepContentCardView: View {
 
     private var coverImage: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(
-                    LinearGradient(
-                        colors: gradientColors,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+            if let coverName = content.coverImageName {
+                // Use actual cover image
+                Image(coverName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 116, height: 116)
+                    .clipped()
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            } else {
+                // Fallback to gradient with icon
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        LinearGradient(
+                            colors: gradientColors,
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                     )
-                )
-                .aspectRatio(1, contentMode: .fit)
+                    .aspectRatio(1, contentMode: .fit)
 
-            Image(systemName: content.contentType.icon)
-                .font(.system(size: 28))
-                .foregroundColor(.white.opacity(0.8))
+                Image(systemName: content.contentType.icon)
+                    .font(.system(size: 28))
+                    .foregroundColor(.white.opacity(0.8))
+            }
         }
     }
 
@@ -156,7 +167,8 @@ struct ScaleButtonStyle: ButtonStyle {
                 duration: 1200,
                 contentType: .yogaNidra,
                 description: "A deeply relaxing practice",
-                audioFileName: "yoga_nidra_1.mp3"
+                audioFileName: "yoga_nidra_1.mp3",
+                coverImageName: nil
             ),
             progress: 0.0,
             onTap: {}
@@ -170,7 +182,8 @@ struct ScaleButtonStyle: ButtonStyle {
                 duration: 1800,
                 contentType: .sleepStory,
                 description: "A peaceful journey",
-                audioFileName: "story_1.mp3"
+                audioFileName: "story_1.mp3",
+                coverImageName: nil
             ),
             progress: 0.45,
             onTap: {}
@@ -191,7 +204,8 @@ struct ScaleButtonStyle: ButtonStyle {
             duration: 900,
             contentType: .sleepHypnosis,
             description: "Coming soon",
-            audioFileName: nil
+            audioFileName: nil,
+            coverImageName: nil
         ),
         progress: 0.0,
         onTap: {}

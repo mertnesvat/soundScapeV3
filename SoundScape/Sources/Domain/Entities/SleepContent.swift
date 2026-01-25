@@ -11,10 +11,16 @@ struct SleepContent: Identifiable, Equatable {
     let contentType: SleepContentType
     let description: String
     let audioFileName: String?  // nil = Coming Soon
+    let coverImageName: String?  // Asset catalog image name, nil = use icon fallback
 
     /// Whether the content has audio available for playback
     var isAvailable: Bool {
         audioFileName != nil
+    }
+
+    /// Whether the content has a custom cover image
+    var hasCoverImage: Bool {
+        coverImageName != nil
     }
 
     /// Duration formatted as human-readable string (e.g., "5 min", "1h 30m")

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AppearanceSettingsView: View {
     @Environment(AppearanceService.self) private var appearanceService
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         @Bindable var service = appearanceService
@@ -12,24 +13,95 @@ struct AppearanceSettingsView: View {
                     get: { appearanceService.isOLEDModeEnabled },
                     set: { _ in appearanceService.toggleOLEDMode() }
                 )) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("OLED Mode")
-                        Text("Pure black backgrounds for OLED displays")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                    HStack(spacing: 12) {
+                        // Gradient icon
+                        ZStack {
+                            Circle()
+                                .fill(
+                                    LinearGradient(
+                                        colors: [.purple, .indigo, .black],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .frame(width: 32, height: 32)
+
+                            Image(systemName: "moon.stars.fill")
+                                .font(.system(size: 14))
+                                .foregroundColor(.white)
+                        }
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            // Gradient title
+                            Text("SUPER BLACK")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: [.purple, .indigo],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+
+                            Text("True black for OLED displays")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 .tint(.purple)
             } header: {
                 Text("Display")
             } footer: {
-                Text("OLED Mode uses pure black (#000000) backgrounds to save battery on OLED displays and reduce eye strain at night. Active sounds will glow softly against the dark background.")
+                Text("SUPER BLACK uses pure black (#000000) backgrounds to save battery on OLED displays and reduce eye strain at night. Active sounds glow softly against the dark.")
             }
 
             Section {
                 OLEDPreviewCard(isOLEDMode: appearanceService.isOLEDModeEnabled)
             } header: {
                 Text("Preview")
+            }
+
+            // About Section
+            Section {
+                Button(action: {
+                    openURL(URL(string: "https://studionext.co.uk/")!)
+                }) {
+                    HStack {
+                        Label("Website", systemImage: "globe")
+                        Spacer()
+                        Image(systemName: "arrow.up.right")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .foregroundColor(.primary)
+
+                Button(action: {
+                    openURL(URL(string: "https://studionext.co.uk/soundscape-privacy.html")!)
+                }) {
+                    HStack {
+                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                        Spacer()
+                        Image(systemName: "arrow.up.right")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .foregroundColor(.primary)
+            } header: {
+                Text("About")
+            } footer: {
+                VStack(spacing: 4) {
+                    Text("SoundScape")
+                        .fontWeight(.medium)
+                    Text("Made with ♥ by Studio Next")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.top, 8)
             }
         }
         .navigationTitle("Appearance")
@@ -62,7 +134,7 @@ private struct OLEDPreviewCard: View {
                 )
             }
 
-            Text(isOLEDMode ? "OLED Mode: On" : "Standard Mode")
+            Text(isOLEDMode ? "SUPER BLACK: On" : "Standard Mode")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }

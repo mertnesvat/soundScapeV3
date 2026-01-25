@@ -198,22 +198,33 @@ struct SleepContentPlayerView: View {
 
     private var contentInfo: some View {
         VStack(spacing: 24) {
-            // Cover art placeholder
+            // Cover art
             ZStack {
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(
-                        LinearGradient(
-                            colors: [categoryColor.opacity(0.6), categoryColor.opacity(0.3)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
+                if let coverName = content.coverImageName {
+                    // Use actual cover image
+                    Image(coverName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 240, height: 240)
+                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                        .shadow(color: categoryColor.opacity(0.3), radius: 20, x: 0, y: 10)
+                } else {
+                    // Fallback gradient with icon
+                    RoundedRectangle(cornerRadius: 24)
+                        .fill(
+                            LinearGradient(
+                                colors: [categoryColor.opacity(0.6), categoryColor.opacity(0.3)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
                         )
-                    )
-                    .frame(width: 240, height: 240)
-                    .shadow(color: categoryColor.opacity(0.3), radius: 20, x: 0, y: 10)
+                        .frame(width: 240, height: 240)
+                        .shadow(color: categoryColor.opacity(0.3), radius: 20, x: 0, y: 10)
 
-                Image(systemName: content.contentType.icon)
-                    .font(.system(size: 80))
-                    .foregroundColor(.white.opacity(0.8))
+                    Image(systemName: content.contentType.icon)
+                        .font(.system(size: 80))
+                        .foregroundColor(.white.opacity(0.8))
+                }
             }
 
             // Title and narrator
@@ -366,7 +377,8 @@ struct SleepContentPlayerView: View {
             duration: 600,
             contentType: .yogaNidra,
             description: "A deeply relaxing practice for peaceful sleep",
-            audioFileName: "yoga_nidra_sleep_10min.mp3"
+            audioFileName: "yoga_nidra_sleep_10min.mp3",
+            coverImageName: "yoga_nidra_sleep_10min_cover"
         ),
         onDismiss: {}
     )
@@ -385,7 +397,8 @@ struct SleepContentPlayerView: View {
             duration: 1800,
             contentType: .sleepStory,
             description: "A peaceful journey through dreams",
-            audioFileName: nil
+            audioFileName: nil,
+            coverImageName: nil
         ),
         onDismiss: {}
     )

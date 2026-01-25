@@ -165,6 +165,17 @@
 		FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */; };
 		FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */; };
 		FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */; };
+		FB96EB91WIND0001 /* bedtime_gratitude_affirmations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0011 /* bedtime_gratitude_affirmations.mp3 */; };
+		FB96EB91WIND0002 /* bedtime_peace_affirmations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0012 /* bedtime_peace_affirmations.mp3 */; };
+		FB96EB91WIND0003 /* bedtime_release_affirmations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0013 /* bedtime_release_affirmations.mp3 */; };
+		FB96EB91WIND0004 /* the_clockmakers_final_gift.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0014 /* the_clockmakers_final_gift.mp3 */; };
+		FB96EB91WIND0005 /* the_garden_between_stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0015 /* the_garden_between_stars.mp3 */; };
+		FB96EB91WIND0006 /* the_last_lighthouse_keeper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0016 /* the_last_lighthouse_keeper.mp3 */; };
+		FB96EB91WIND0007 /* the_mountain_that_learned_to_rest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0017 /* the_mountain_that_learned_to_rest.mp3 */; };
+		FB96EB91WIND0008 /* the_rivers_secret.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0018 /* the_rivers_secret.mp3 */; };
+		FB96EB91WIND0009 /* sleep_hypnosis_floating.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0019 /* sleep_hypnosis_floating.mp3 */; };
+		FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */; };
+		FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */; };
 		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
 		FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */; };
 		FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */; };
@@ -368,6 +379,17 @@
 		FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_5min.mp3; sourceTree = "<group>"; };
 		FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_8min.mp3; sourceTree = "<group>"; };
 		FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_10min.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0011 /* bedtime_gratitude_affirmations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bedtime_gratitude_affirmations.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0012 /* bedtime_peace_affirmations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bedtime_peace_affirmations.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0013 /* bedtime_release_affirmations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bedtime_release_affirmations.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0014 /* the_clockmakers_final_gift.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_clockmakers_final_gift.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0015 /* the_garden_between_stars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_garden_between_stars.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0016 /* the_last_lighthouse_keeper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_last_lighthouse_keeper.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0017 /* the_mountain_that_learned_to_rest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_mountain_that_learned_to_rest.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0018 /* the_rivers_secret.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_rivers_secret.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0019 /* sleep_hypnosis_floating.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_floating.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_ocean.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_staircase.mp3; sourceTree = "<group>"; };
 		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerService.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerView.swift; sourceTree = "<group>"; };
@@ -543,6 +565,17 @@
 				FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */,
 				FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */,
 				FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */,
+				FB96EB91WIND0011 /* bedtime_gratitude_affirmations.mp3 */,
+				FB96EB91WIND0012 /* bedtime_peace_affirmations.mp3 */,
+				FB96EB91WIND0013 /* bedtime_release_affirmations.mp3 */,
+				FB96EB91WIND0014 /* the_clockmakers_final_gift.mp3 */,
+				FB96EB91WIND0015 /* the_garden_between_stars.mp3 */,
+				FB96EB91WIND0016 /* the_last_lighthouse_keeper.mp3 */,
+				FB96EB91WIND0017 /* the_mountain_that_learned_to_rest.mp3 */,
+				FB96EB91WIND0018 /* the_rivers_secret.mp3 */,
+				FB96EB91WIND0019 /* sleep_hypnosis_floating.mp3 */,
+				FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */,
+				FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -1136,6 +1169,17 @@
 				FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */,
 				FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */,
 				FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */,
+				FB96EB91WIND0001 /* bedtime_gratitude_affirmations.mp3 in Resources */,
+				FB96EB91WIND0002 /* bedtime_peace_affirmations.mp3 in Resources */,
+				FB96EB91WIND0003 /* bedtime_release_affirmations.mp3 in Resources */,
+				FB96EB91WIND0004 /* the_clockmakers_final_gift.mp3 in Resources */,
+				FB96EB91WIND0005 /* the_garden_between_stars.mp3 in Resources */,
+				FB96EB91WIND0006 /* the_last_lighthouse_keeper.mp3 in Resources */,
+				FB96EB91WIND0007 /* the_mountain_that_learned_to_rest.mp3 in Resources */,
+				FB96EB91WIND0008 /* the_rivers_secret.mp3 in Resources */,
+				FB96EB91WIND0009 /* sleep_hypnosis_floating.mp3 in Resources */,
+				FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */,
+				FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

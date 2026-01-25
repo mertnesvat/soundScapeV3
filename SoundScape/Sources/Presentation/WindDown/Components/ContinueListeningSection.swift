@@ -175,7 +175,8 @@ struct ContinueListeningCard: View {
                     duration: 600,
                     contentType: .yogaNidra,
                     description: "Full yoga nidra journey",
-                    audioFileName: "yoga_nidra_sleep_10min.mp3"
+                    audioFileName: "yoga_nidra_sleep_10min.mp3",
+                    coverImageName: nil
                 ),
                 SleepContent(
                     id: "preview-2",
@@ -184,7 +185,8 @@ struct ContinueListeningCard: View {
                     duration: 1200,
                     contentType: .sleepStory,
                     description: "A gentle tale",
-                    audioFileName: nil
+                    audioFileName: nil,
+                    coverImageName: nil
                 )
             ],
             progressForContent: { id in
