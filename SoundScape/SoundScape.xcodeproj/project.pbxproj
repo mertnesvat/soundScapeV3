@@ -136,6 +136,7 @@
 		FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY006 /* SleepBuddyView.swift */; };
 		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
 		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
+		FB96EB91WNDWN001 /* WindDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WNDWN002 /* WindDownView.swift */; };
 		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
@@ -157,6 +158,30 @@
 		FB96EB91WDGT0003 /* StandByWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0012 /* StandByWidget.swift */; };
 		FB96EB91WDGT0004 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
 		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
+		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
+		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
+		FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CMSN0002 /* ComingSoonBadge.swift */; };
+		FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */; };
+		FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */; };
+		FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */; };
+		FB96EB91WIND0001 /* bedtime_gratitude_affirmations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0011 /* bedtime_gratitude_affirmations.mp3 */; };
+		FB96EB91WIND0002 /* bedtime_peace_affirmations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0012 /* bedtime_peace_affirmations.mp3 */; };
+		FB96EB91WIND0003 /* bedtime_release_affirmations.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0013 /* bedtime_release_affirmations.mp3 */; };
+		FB96EB91WIND0004 /* the_clockmakers_final_gift.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0014 /* the_clockmakers_final_gift.mp3 */; };
+		FB96EB91WIND0005 /* the_garden_between_stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0015 /* the_garden_between_stars.mp3 */; };
+		FB96EB91WIND0006 /* the_last_lighthouse_keeper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0016 /* the_last_lighthouse_keeper.mp3 */; };
+		FB96EB91WIND0007 /* the_mountain_that_learned_to_rest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0017 /* the_mountain_that_learned_to_rest.mp3 */; };
+		FB96EB91WIND0008 /* the_rivers_secret.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0018 /* the_rivers_secret.mp3 */; };
+		FB96EB91WIND0009 /* sleep_hypnosis_floating.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND0019 /* sleep_hypnosis_floating.mp3 */; };
+		FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */; };
+		FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */; };
+		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
+		FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */; };
+		FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */; };
+		FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CONTLS02 /* ContinueListeningSection.swift */; };
+		FB96EB91SLPTMR01 /* SleepContentTimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */; };
+		FB96EB91MINPLY01 /* SleepContentMiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MINPLY02 /* SleepContentMiniPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +347,7 @@
 		FB96EB91BUDDY006 /* SleepBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
+		FB96EB91WNDWN002 /* WindDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDownView.swift; sourceTree = "<group>"; };
 		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
@@ -346,6 +372,30 @@
 		FB96EB91WDGT0015 /* SoundScapeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScapeWidget.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
+		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
+		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
+		FB96EB91CMSN0002 /* ComingSoonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonBadge.swift; sourceTree = "<group>"; };
+		FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_5min.mp3; sourceTree = "<group>"; };
+		FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_8min.mp3; sourceTree = "<group>"; };
+		FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoga_nidra_sleep_10min.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0011 /* bedtime_gratitude_affirmations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bedtime_gratitude_affirmations.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0012 /* bedtime_peace_affirmations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bedtime_peace_affirmations.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0013 /* bedtime_release_affirmations.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bedtime_release_affirmations.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0014 /* the_clockmakers_final_gift.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_clockmakers_final_gift.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0015 /* the_garden_between_stars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_garden_between_stars.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0016 /* the_last_lighthouse_keeper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_last_lighthouse_keeper.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0017 /* the_mountain_that_learned_to_rest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_mountain_that_learned_to_rest.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0018 /* the_rivers_secret.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_rivers_secret.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND0019 /* sleep_hypnosis_floating.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_floating.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_ocean.mp3; sourceTree = "<group>"; };
+		FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_staircase.mp3; sourceTree = "<group>"; };
+		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerService.swift; sourceTree = "<group>"; };
+		FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerView.swift; sourceTree = "<group>"; };
+		FB96EB91CONTLS02 /* ContinueListeningSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueListeningSection.swift; sourceTree = "<group>"; };
+		FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentTimerSheet.swift; sourceTree = "<group>"; };
+		FB96EB91MINPLY02 /* SleepContentMiniPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentMiniPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +510,7 @@
 				FB96EB9100000052 /* Favorites */,
 				FB96EB9100000053 /* SavedMixes */,
 				FB96EB91000000KJ /* Stories */,
+				FB96EB91WNDWN003 /* WindDown */,
 				FB96EB91000000MF /* Alarms */,
 				FB96EB91000000NH /* Discover */,
 				FB96EB91000000OD /* Adaptive */,
@@ -511,6 +562,20 @@
 				FB96EB91ASMR0027 /* ASMR-mechanical-keyboard-2.mp3 */,
 				FB96EB91ASMR0028 /* ASMR-wet-slime-squelching.mp3 */,
 				FB96EB91ASMR0029 /* ASMR-winter-forrest-walk.mp3 */,
+				FB96EB91YOGA0011 /* yoga_nidra_sleep_5min.mp3 */,
+				FB96EB91YOGA0012 /* yoga_nidra_sleep_8min.mp3 */,
+				FB96EB91YOGA0013 /* yoga_nidra_sleep_10min.mp3 */,
+				FB96EB91WIND0011 /* bedtime_gratitude_affirmations.mp3 */,
+				FB96EB91WIND0012 /* bedtime_peace_affirmations.mp3 */,
+				FB96EB91WIND0013 /* bedtime_release_affirmations.mp3 */,
+				FB96EB91WIND0014 /* the_clockmakers_final_gift.mp3 */,
+				FB96EB91WIND0015 /* the_garden_between_stars.mp3 */,
+				FB96EB91WIND0016 /* the_last_lighthouse_keeper.mp3 */,
+				FB96EB91WIND0017 /* the_mountain_that_learned_to_rest.mp3 */,
+				FB96EB91WIND0018 /* the_rivers_secret.mp3 */,
+				FB96EB91WIND0019 /* sleep_hypnosis_floating.mp3 */,
+				FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */,
+				FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -529,6 +594,7 @@
 				FB96EB91000000O2 /* AdaptiveMode.swift */,
 				FB96EB91000000P2 /* SleepInsight.swift */,
 				FB96EB91BUDDY002 /* SleepBuddy.swift */,
+				FB96EB91SLPC0002 /* SleepContent.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -562,6 +628,7 @@
 				FB96EB91000000B3 /* LocalSoundDataSource.swift */,
 				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
 				FB96EB91000000N4 /* LocalCommunityDataSource.swift */,
+				FB96EB91SLPCDS02 /* SleepContentDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -670,6 +737,7 @@
 				FB96EB91MOTION02 /* MotionService.swift */,
 				FB96EB91WDGT0013 /* WidgetSharedState.swift */,
 				FB96EB91BUDDY004 /* SleepBuddyService.swift */,
+				FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -879,6 +947,37 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB96EB91WNDWN003 /* WindDown */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91WNDWN004 /* Views */,
+				FB96EB91WNDWN005 /* Components */,
+			);
+			path = WindDown;
+			sourceTree = "<group>";
+		};
+		FB96EB91WNDWN004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91WNDWN002 /* WindDownView.swift */,
+				FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */,
+				FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91WNDWN005 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SLPCARD2 /* SleepContentCardView.swift */,
+				FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */,
+				FB96EB91CMSN0002 /* ComingSoonBadge.swift */,
+				FB96EB91CONTLS02 /* ContinueListeningSection.swift */,
+				FB96EB91MINPLY02 /* SleepContentMiniPlayer.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FB96EB91SIRI0011 /* Intents */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1166,20 @@
 				FB96EB91ASMR0017 /* ASMR-mechanical-keyboard-2.mp3 in Resources */,
 				FB96EB91ASMR0018 /* ASMR-wet-slime-squelching.mp3 in Resources */,
 				FB96EB91ASMR0019 /* ASMR-winter-forrest-walk.mp3 in Resources */,
+				FB96EB91YOGA0001 /* yoga_nidra_sleep_5min.mp3 in Resources */,
+				FB96EB91YOGA0002 /* yoga_nidra_sleep_8min.mp3 in Resources */,
+				FB96EB91YOGA0003 /* yoga_nidra_sleep_10min.mp3 in Resources */,
+				FB96EB91WIND0001 /* bedtime_gratitude_affirmations.mp3 in Resources */,
+				FB96EB91WIND0002 /* bedtime_peace_affirmations.mp3 in Resources */,
+				FB96EB91WIND0003 /* bedtime_release_affirmations.mp3 in Resources */,
+				FB96EB91WIND0004 /* the_clockmakers_final_gift.mp3 in Resources */,
+				FB96EB91WIND0005 /* the_garden_between_stars.mp3 in Resources */,
+				FB96EB91WIND0006 /* the_last_lighthouse_keeper.mp3 in Resources */,
+				FB96EB91WIND0007 /* the_mountain_that_learned_to_rest.mp3 in Resources */,
+				FB96EB91WIND0008 /* the_rivers_secret.mp3 in Resources */,
+				FB96EB91WIND0009 /* sleep_hypnosis_floating.mp3 in Resources */,
+				FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */,
+				FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1180,6 +1293,17 @@
 				FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */,
 				FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */,
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
+				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
+				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
+				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
+				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
+				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
+				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
+				FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */,
+				FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */,
+				FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */,
+				FB96EB91SLPTMR01 /* SleepContentTimerSheet.swift in Sources */,
+				FB96EB91MINPLY01 /* SleepContentMiniPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

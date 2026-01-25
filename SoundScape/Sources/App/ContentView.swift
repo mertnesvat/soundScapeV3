@@ -3,15 +3,17 @@ import SwiftUI
 struct ContentView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SleepTimerService.self) private var sleepTimerService
+    @Environment(SleepContentPlayerService.self) private var sleepContentPlayerService
     @Environment(AnalyticsService.self) private var analyticsService
     @Environment(AppearanceService.self) private var appearanceService
     @State private var selectedTab: Tab = .sounds
+    @State private var showingSleepContentPlayer = false
 
     enum Tab: String, CaseIterable {
         case sounds = "Sounds"
         case binaural = "Binaural"
         case favorites = "Favorites"
-        // case stories = "Stories" // TODO: Enable after v1 release
+        case windDown = "Wind Down"
         case alarms = "Alarms"
         case discover = "Discover"
         case adaptive = "Adaptive"
@@ -22,7 +24,7 @@ struct ContentView: View {
             case .sounds: return "waveform"
             case .binaural: return "brain.head.profile"
             case .favorites: return "heart"
-            // case .stories: return "book.fill" // TODO: Enable after v1 release
+            case .windDown: return "moon.zzz.fill"
             case .alarms: return "alarm"
             case .discover: return "globe"
             case .adaptive: return "waveform.path.ecg"
@@ -52,12 +54,11 @@ struct ContentView: View {
                     }
                     .tag(Tab.favorites)
 
-                // TODO: Enable after v1 release
-                // StoriesView()
-                //     .tabItem {
-                //         Label(Tab.stories.rawValue, systemImage: Tab.stories.icon)
-                //     }
-                //     .tag(Tab.stories)
+                WindDownView()
+                    .tabItem {
+                        Label(Tab.windDown.rawValue, systemImage: Tab.windDown.icon)
+                    }
+                    .tag(Tab.windDown)
 
                 AlarmsView()
                     .tabItem {
@@ -94,13 +95,35 @@ struct ContentView: View {
                 configureTabBarAppearance(isOLED: appearanceService.isOLEDModeEnabled)
             }
 
-            // Now Playing Bar above tab bar
-            VStack {
+            // Now Playing Bars above tab bar
+            VStack(spacing: 8) {
                 Spacer()
+
+                // Sleep content mini player (when content is playing but full player is dismissed)
+                if sleepContentPlayerService.currentContent != nil && !showingSleepContentPlayer {
+                    SleepContentMiniPlayer(onTap: {
+                        showingSleepContentPlayer = true
+                    })
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
+
+                // Sound mixer now playing bar
                 NowPlayingBarView()
-                    .padding(.bottom, 49) // Tab bar height
             }
+            .padding(.bottom, 49) // Tab bar height
             .animation(.spring(response: 0.3), value: audioEngine.activeSounds.isEmpty)
+            .animation(.spring(response: 0.3), value: sleepContentPlayerService.currentContent?.id)
+
+            // Sleep content player sheet
+            .sheet(isPresented: $showingSleepContentPlayer) {
+                if let content = sleepContentPlayerService.currentContent {
+                    SleepContentPlayerView(
+                        content: content,
+                        onDismiss: { showingSleepContentPlayer = false }
+                    )
+                    .presentationDragIndicator(.visible)
+                }
+            }
         }
     }
 
