@@ -2,13 +2,10 @@ import SwiftUI
 
 struct OnboardingPaywallView: View {
     @Environment(OnboardingService.self) private var onboardingService
+    @Environment(PaywallService.self) private var paywallService
     let onComplete: () -> Void
 
-    // TODO: Implement actual paywall with StoreKit
-    // - Add subscription products
-    // - Handle purchase flow
-    // - Restore purchases
-    // - Track conversion analytics
+    @State private var hasTriggeredPaywall = false
 
     private let features = [
         "Unlimited access to all 27+ sounds",
@@ -109,10 +106,13 @@ struct OnboardingPaywallView: View {
     }
 
     private func handleStartTrial() {
-        // TODO: Implement StoreKit purchase flow
-        // For now, just complete onboarding
-        onboardingService.completeOnboarding()
-        onComplete()
+        guard !hasTriggeredPaywall else { return }
+        hasTriggeredPaywall = true
+
+        paywallService.triggerPaywall(placement: "campaign_trigger") { [self] in
+            onboardingService.completeOnboarding()
+            onComplete()
+        }
     }
 
     private func handleLimitedAccess() {
@@ -124,4 +124,5 @@ struct OnboardingPaywallView: View {
 #Preview {
     OnboardingPaywallView(onComplete: {})
         .environment(OnboardingService())
+        .environment(PaywallService())
 }

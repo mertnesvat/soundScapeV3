@@ -19,6 +19,7 @@ struct SoundScapeApp: App {
     @State private var sleepBuddyService = SleepBuddyService()
     @State private var sleepContentPlayerService = SleepContentPlayerService()
     @State private var onboardingService = OnboardingService()
+    @State private var paywallService = PaywallService()
 
     init() {
         configureAppearance()
@@ -49,6 +50,7 @@ struct SoundScapeApp: App {
             .environment(sleepBuddyService)
             .environment(sleepContentPlayerService)
             .environment(onboardingService)
+            .environment(paywallService)
             .preferredColorScheme(.dark)
                 .onAppear {
                     // Configure Firebase Analytics
@@ -76,6 +78,9 @@ struct SoundScapeApp: App {
 
                     // Wire up SleepBuddyService to InsightsService for streak calculation
                     sleepBuddyService.setInsightsService(insightsService)
+
+                    // Wire up PaywallService to AnalyticsService
+                    paywallService.setAnalyticsService(analyticsService)
                 }
         }
     }

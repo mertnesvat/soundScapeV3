@@ -67,6 +67,12 @@ final class AnalyticsService {
         // Settings & Feature interest
         case settingsOpened = "settings_opened"
         case sleepBuddyInterestShown = "sleep_buddy_interest_shown"
+
+        // Paywall events
+        case paywallShown = "paywall_shown"
+        case purchaseCompleted = "purchase_completed"
+        case purchaseRestored = "purchase_restored"
+        case paywallError = "paywall_error"
     }
 
     // MARK: - Parameter Keys
@@ -92,6 +98,8 @@ final class AnalyticsService {
         case sessionQuality = "session_quality"
         case timeToSleep = "time_to_sleep_minutes"
         case featureName = "feature_name"
+        case placement = "placement"
+        case errorMessage = "error_message"
     }
 
     // MARK: - Initialization
@@ -323,6 +331,31 @@ final class AnalyticsService {
     func logSleepBuddyInterestShown() {
         logEvent(.sleepBuddyInterestShown, parameters: [
             .featureName: "sleep_buddy"
+        ])
+    }
+
+    // MARK: - Paywall Events
+
+    func logPaywallShown(placement: String) {
+        logEvent(.paywallShown, parameters: [
+            .placement: placement
+        ])
+    }
+
+    func logPurchaseCompleted(placement: String) {
+        logEvent(.purchaseCompleted, parameters: [
+            .placement: placement
+        ])
+    }
+
+    func logPurchaseRestored() {
+        logEvent(.purchaseRestored)
+    }
+
+    func logPaywallError(placement: String, error: String) {
+        logEvent(.paywallError, parameters: [
+            .placement: placement,
+            .errorMessage: error
         ])
     }
 

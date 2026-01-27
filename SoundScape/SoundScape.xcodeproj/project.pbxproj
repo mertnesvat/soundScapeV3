@@ -44,6 +44,7 @@
 		FB96EB91000000H3 /* SleepTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H4 /* SleepTimerService.swift */; };
 		FB96EB91000000H5 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H6 /* SleepTimerView.swift */; };
 		FB96EB91000000I1 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I2 /* FavoritesService.swift */; };
+		FB96EB91PAYWAL01 /* PaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PAYWAL02 /* PaywallService.swift */; };
 		FB96EB91000000I3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I4 /* FavoritesView.swift */; };
 		FB96EB91000000J1 /* SavedMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J2 /* SavedMix.swift */; };
 		FB96EB91000000J3 /* SavedMixesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J4 /* SavedMixesService.swift */; };
@@ -272,6 +273,7 @@
 		FB96EB91000000H4 /* SleepTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerService.swift; sourceTree = "<group>"; };
 		FB96EB91000000H6 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerView.swift; sourceTree = "<group>"; };
 		FB96EB91000000I2 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		FB96EB91PAYWAL02 /* PaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallService.swift; sourceTree = "<group>"; };
 		FB96EB91000000I4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		FB96EB91000000J2 /* SavedMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMix.swift; sourceTree = "<group>"; };
 		FB96EB91000000J4 /* SavedMixesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesService.swift; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 				FB96EB91000000E3 /* AudioEngine.swift */,
 				FB96EB91000000H4 /* SleepTimerService.swift */,
 				FB96EB91000000I2 /* FavoritesService.swift */,
+				FB96EB91PAYWAL02 /* PaywallService.swift */,
 				FB96EB91000000J4 /* SavedMixesService.swift */,
 				FB96EB91000000K6 /* StoryProgressService.swift */,
 				FB96EB91000000L4 /* BinauralBeatEngine.swift */,
@@ -1116,6 +1119,7 @@
 			name = SoundScape;
 			packageProductDependencies = (
 				FB96EB91000000AF /* FirebaseAnalytics */,
+				FB96EB91000000SX /* SuperwallKit */,
 			);
 			productName = SoundScape;
 			productReference = FB96EB9100000020 /* SoundScape.app */;
@@ -1188,6 +1192,7 @@
 			mainGroup = FB96EB9100000040;
 			packageReferences = (
 				FB96EB91000000AG /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FB96EB91000000SW /* XCRemoteSwiftPackageReference "Superwall-iOS" */,
 			);
 			productRefGroup = FB96EB9100000043 /* Products */;
 			projectDirPath = "";
@@ -1295,6 +1300,7 @@
 				FB96EB91000000H3 /* SleepTimerService.swift in Sources */,
 				FB96EB91000000H5 /* SleepTimerView.swift in Sources */,
 				FB96EB91000000I1 /* FavoritesService.swift in Sources */,
+				FB96EB91PAYWAL01 /* PaywallService.swift in Sources */,
 				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
 				FB96EB91000000J1 /* SavedMix.swift in Sources */,
 				FB96EB91000000J3 /* SavedMixesService.swift in Sources */,
@@ -1785,6 +1791,14 @@
 				minimumVersion = 11.0.0;
 			};
 		};
+		FB96EB91000000SW /* XCRemoteSwiftPackageReference "Superwall-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/superwall/Superwall-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1792,6 +1806,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB96EB91000000AG /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		FB96EB91000000SX /* SuperwallKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB96EB91000000SW /* XCRemoteSwiftPackageReference "Superwall-iOS" */;
+			productName = SuperwallKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
