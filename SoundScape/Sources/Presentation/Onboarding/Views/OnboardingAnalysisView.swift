@@ -1,11 +1,14 @@
 import SwiftUI
 
 struct OnboardingAnalysisView: View {
+    let isActive: Bool
+    let onComplete: () -> Void
+
     @State private var progress: Double = 0
     @State private var currentMessageIndex = 0
     @State private var hasStarted = false
+    @State private var hasCompleted = false
     @State private var timer: Timer?
-    let onComplete: () -> Void
 
     private let messages = [
         "Reviewing your sleep goals...",
@@ -53,28 +56,44 @@ struct OnboardingAnalysisView: View {
             Spacer()
         }
         .background(Color.black)
+        .onChange(of: isActive) { _, newValue in
+            if newValue {
+                resetAndStart()
+            } else {
+                // Clean up when becoming inactive
+                stopAnalysis()
+            }
+        }
         .onAppear {
-            // Reset state and start fresh
-            resetAndStart()
+            // Also try onAppear as backup
+            if isActive && !hasStarted {
+                resetAndStart()
+            }
         }
         .onDisappear {
-            // Clean up timer when leaving
-            timer?.invalidate()
-            timer = nil
+            stopAnalysis()
         }
     }
 
+    private func stopAnalysis() {
+        timer?.invalidate()
+        timer = nil
+    }
+
     private func resetAndStart() {
+        // Prevent multiple starts or restarting after completion
+        guard !hasStarted, !hasCompleted else { return }
+
         // Reset state
         progress = 0
         currentMessageIndex = 0
-        hasStarted = false
-        timer?.invalidate()
+        hasStarted = true
+
+        // Stop any existing timer
+        stopAnalysis()
 
         // Small delay to ensure view is visible before starting
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            guard !hasStarted else { return }
-            hasStarted = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             startAnalysis()
         }
     }
@@ -104,6 +123,7 @@ struct OnboardingAnalysisView: View {
             if elapsed >= totalDuration {
                 t.invalidate()
                 timer = nil
+                hasCompleted = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     onComplete()
                 }
@@ -113,5 +133,5 @@ struct OnboardingAnalysisView: View {
 }
 
 #Preview {
-    OnboardingAnalysisView(onComplete: {})
+    OnboardingAnalysisView(isActive: true, onComplete: {})
 }

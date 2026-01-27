@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ONBTEST001 /* OnboardingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBTEST002 /* OnboardingServiceTests.swift */; };
 		FB96EB9100000001 /* SoundScapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000011 /* SoundScapeApp.swift */; };
 		FB96EB9100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000012 /* ContentView.swift */; };
 		FB96EB9100000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000013 /* Assets.xcassets */; };
@@ -233,6 +234,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ONBTEST002 /* OnboardingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB9100000011 /* SoundScapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeApp.swift; sourceTree = "<group>"; };
 		FB96EB9100000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FB96EB9100000013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -962,6 +964,7 @@
 				FB96EB91000000U7 /* AlarmServiceTests.swift */,
 				FB96EB91000000U8 /* AlarmTests.swift */,
 				FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */,
+				ONBTEST002 /* OnboardingServiceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1412,6 +1415,7 @@
 				FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */,
 				FB96EB91000000T8 /* AlarmTests.swift in Sources */,
 				FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */,
+				ONBTEST001 /* OnboardingServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

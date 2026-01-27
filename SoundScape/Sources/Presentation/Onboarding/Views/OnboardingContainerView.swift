@@ -55,6 +55,7 @@ struct OnboardingContainerView: View {
                     .tag(OnboardingStep.quizChallenges)
 
                     OnboardingAnalysisView(
+                        isActive: currentStep == .analysis,
                         onComplete: nextStep
                     )
                     .tag(OnboardingStep.analysis)
