@@ -182,6 +182,23 @@
 		FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CONTLS02 /* ContinueListeningSection.swift */; };
 		FB96EB91SLPTMR01 /* SleepContentTimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */; };
 		FB96EB91MINPLY01 /* SleepContentMiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MINPLY02 /* SleepContentMiniPlayer.swift */; };
+		3F6DCBBDFFC5A40F917C9508 /* OnboardingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD4C86DDD10FA9A93DE98D /* OnboardingProfile.swift */; };
+		70DC78193E0FCB572E72415F /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C0B408C4BCCFBE34B44DB /* OnboardingService.swift */; };
+		C66B7F40B2557912223CF998 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEC6A0E896B561BC9D739CF /* OnboardingContainerView.swift */; };
+		779959174996A6AD40CDAA2B /* OnboardingWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1CE02E93CBD1D72F33CCE /* OnboardingWelcomeView.swift */; };
+		643FDD53319FC09246E72F54 /* OnboardingQuizGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04938D4D27D2F50C08EA99B /* OnboardingQuizGoalView.swift */; };
+		DE7C2A208ADBAF5A6C1165E8 /* OnboardingQuizChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EB7A609960D2EEFA697DD /* OnboardingQuizChallengesView.swift */; };
+		8BC6F81E8B954C75D2EB4EEF /* OnboardingAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE6FA4AAD0B0DA9922B94F /* OnboardingAnalysisView.swift */; };
+		8F91E9B0EE5C5921021ACA75 /* OnboardingResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CE278D2BFA6E572C8936D /* OnboardingResultsView.swift */; };
+		5151D8253A55E710FDC5ECC2 /* OnboardingPainPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67839140C998CAAFA11F5BFA /* OnboardingPainPointsView.swift */; };
+		F3F82DC5B06A02E9BA93160A /* OnboardingBenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AC0491AEB5AFEF2640A465 /* OnboardingBenefitsView.swift */; };
+		867381D3D1D0DD6C5975FCC8 /* OnboardingReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F4C65670B6A8FFE90FFBF8 /* OnboardingReviewsView.swift */; };
+		A07A6FA5F7EA66CD4D28EE21 /* OnboardingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */; };
+		5C3BB79C6FDB277D788B7081 /* OnboardingCustomPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */; };
+		D53EC2E841C9BE2D2D805B3B /* OnboardingPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */; };
+		F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */; };
+		FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */; };
+		19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,6 +413,23 @@
 		FB96EB91CONTLS02 /* ContinueListeningSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueListeningSection.swift; sourceTree = "<group>"; };
 		FB96EB91SLPTMR02 /* SleepContentTimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentTimerSheet.swift; sourceTree = "<group>"; };
 		FB96EB91MINPLY02 /* SleepContentMiniPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentMiniPlayer.swift; sourceTree = "<group>"; };
+		05CD4C86DDD10FA9A93DE98D /* OnboardingProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfile.swift; sourceTree = "<group>"; };
+		9C3C0B408C4BCCFBE34B44DB /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
+		3BEC6A0E896B561BC9D739CF /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		D0A1CE02E93CBD1D72F33CCE /* OnboardingWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeView.swift; sourceTree = "<group>"; };
+		D04938D4D27D2F50C08EA99B /* OnboardingQuizGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuizGoalView.swift; sourceTree = "<group>"; };
+		198EB7A609960D2EEFA697DD /* OnboardingQuizChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuizChallengesView.swift; sourceTree = "<group>"; };
+		CCBE6FA4AAD0B0DA9922B94F /* OnboardingAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAnalysisView.swift; sourceTree = "<group>"; };
+		3C8CE278D2BFA6E572C8936D /* OnboardingResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingResultsView.swift; sourceTree = "<group>"; };
+		67839140C998CAAFA11F5BFA /* OnboardingPainPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPainPointsView.swift; sourceTree = "<group>"; };
+		81AC0491AEB5AFEF2640A465 /* OnboardingBenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBenefitsView.swift; sourceTree = "<group>"; };
+		58F4C65670B6A8FFE90FFBF8 /* OnboardingReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingReviewsView.swift; sourceTree = "<group>"; };
+		19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeaturesView.swift; sourceTree = "<group>"; };
+		96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustomPlanView.swift; sourceTree = "<group>"; };
+		5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPaywallView.swift; sourceTree = "<group>"; };
+		7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
+		BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
+		EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +537,7 @@
 		FB96EB9100000047 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1AC91AA654E8D67F212FEBE6 /* Onboarding */,
 				FB96EB910000004F /* Sounds */,
 				FB96EB9100000050 /* Mixer */,
 				FB96EB91000000LL /* BinauralBeats */,
@@ -583,6 +618,7 @@
 		FB96EB9100000049 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				05CD4C86DDD10FA9A93DE98D /* OnboardingProfile.swift */,
 				FB96EB91000000B1 /* Sound.swift */,
 				FB96EB91000000E1 /* ActiveSound.swift */,
 				FB96EB91000000H2 /* SleepTimer.swift */,
@@ -722,6 +758,7 @@
 		FB96EB91000000F2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9C3C0B408C4BCCFBE34B44DB /* OnboardingService.swift */,
 				FB96EB91000000E3 /* AudioEngine.swift */,
 				FB96EB91000000H4 /* SleepTimerService.swift */,
 				FB96EB91000000I2 /* FavoritesService.swift */,
@@ -1018,6 +1055,44 @@
 			path = SoundScapeWidget;
 			sourceTree = "<group>";
 		};
+		EAFE0BC45AC7AC741D6FAC7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BEC6A0E896B561BC9D739CF /* OnboardingContainerView.swift */,
+				D0A1CE02E93CBD1D72F33CCE /* OnboardingWelcomeView.swift */,
+				D04938D4D27D2F50C08EA99B /* OnboardingQuizGoalView.swift */,
+				198EB7A609960D2EEFA697DD /* OnboardingQuizChallengesView.swift */,
+				CCBE6FA4AAD0B0DA9922B94F /* OnboardingAnalysisView.swift */,
+				3C8CE278D2BFA6E572C8936D /* OnboardingResultsView.swift */,
+				67839140C998CAAFA11F5BFA /* OnboardingPainPointsView.swift */,
+				81AC0491AEB5AFEF2640A465 /* OnboardingBenefitsView.swift */,
+				58F4C65670B6A8FFE90FFBF8 /* OnboardingReviewsView.swift */,
+				19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */,
+				96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */,
+				5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3C4DCE796F01306134F22BD5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */,
+				BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */,
+				EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1AC91AA654E8D67F212FEBE6 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EAFE0BC45AC7AC741D6FAC7D /* Views */,
+				3C4DCE796F01306134F22BD5 /* Components */
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1304,6 +1379,23 @@
 				FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */,
 				FB96EB91SLPTMR01 /* SleepContentTimerSheet.swift in Sources */,
 				FB96EB91MINPLY01 /* SleepContentMiniPlayer.swift in Sources */,
+				3F6DCBBDFFC5A40F917C9508 /* OnboardingProfile.swift in Sources */,
+				70DC78193E0FCB572E72415F /* OnboardingService.swift in Sources */,
+				C66B7F40B2557912223CF998 /* OnboardingContainerView.swift in Sources */,
+				779959174996A6AD40CDAA2B /* OnboardingWelcomeView.swift in Sources */,
+				643FDD53319FC09246E72F54 /* OnboardingQuizGoalView.swift in Sources */,
+				DE7C2A208ADBAF5A6C1165E8 /* OnboardingQuizChallengesView.swift in Sources */,
+				8BC6F81E8B954C75D2EB4EEF /* OnboardingAnalysisView.swift in Sources */,
+				8F91E9B0EE5C5921021ACA75 /* OnboardingResultsView.swift in Sources */,
+				5151D8253A55E710FDC5ECC2 /* OnboardingPainPointsView.swift in Sources */,
+				F3F82DC5B06A02E9BA93160A /* OnboardingBenefitsView.swift in Sources */,
+				867381D3D1D0DD6C5975FCC8 /* OnboardingReviewsView.swift in Sources */,
+				A07A6FA5F7EA66CD4D28EE21 /* OnboardingFeaturesView.swift in Sources */,
+				5C3BB79C6FDB277D788B7081 /* OnboardingCustomPlanView.swift in Sources */,
+				D53EC2E841C9BE2D2D805B3B /* OnboardingPaywallView.swift in Sources */,
+				F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */,
+				FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */,
+				19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

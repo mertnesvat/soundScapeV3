@@ -5,8 +5,10 @@ struct SettingsView: View {
     @Environment(AppearanceService.self) private var appearanceService
     @Environment(SleepBuddyService.self) private var sleepBuddyService
     @Environment(AnalyticsService.self) private var analyticsService
+    @Environment(OnboardingService.self) private var onboardingService
 
     @State private var sleepBuddyTapped = false
+    @State private var showResetOnboardingAlert = false
 
     var body: some View {
         NavigationStack {
@@ -72,6 +74,20 @@ struct SettingsView: View {
                 } header: {
                     Text("About")
                 }
+
+                #if DEBUG
+                Section {
+                    Button(role: .destructive) {
+                        showResetOnboardingAlert = true
+                    } label: {
+                        Label("Reset Onboarding", systemImage: "arrow.counterclockwise")
+                    }
+                } header: {
+                    Text("Developer")
+                } footer: {
+                    Text("Reset onboarding to test the onboarding flow again")
+                }
+                #endif
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
@@ -86,6 +102,15 @@ struct SettingsView: View {
             .onAppear {
                 analyticsService.logSettingsOpened()
             }
+            .alert("Reset Onboarding?", isPresented: $showResetOnboardingAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Reset", role: .destructive) {
+                    onboardingService.resetOnboarding()
+                    dismiss()
+                }
+            } message: {
+                Text("This will reset your onboarding progress and show the onboarding flow again on next app launch.")
+            }
         }
     }
 }
@@ -95,5 +120,6 @@ struct SettingsView: View {
         .environment(AppearanceService())
         .environment(SleepBuddyService())
         .environment(AnalyticsService())
+        .environment(OnboardingService())
         .preferredColorScheme(.dark)
 }

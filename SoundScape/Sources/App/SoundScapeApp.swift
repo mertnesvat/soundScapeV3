@@ -18,6 +18,7 @@ struct SoundScapeApp: App {
     @State private var motionService = MotionService()
     @State private var sleepBuddyService = SleepBuddyService()
     @State private var sleepContentPlayerService = SleepContentPlayerService()
+    @State private var onboardingService = OnboardingService()
 
     init() {
         configureAppearance()
@@ -25,23 +26,30 @@ struct SoundScapeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(audioEngine)
-                .environment(sleepTimerService ?? createSleepTimerService())
-                .environment(adaptiveSessionService ?? createAdaptiveSessionService())
-                .environment(favoritesService)
-                .environment(savedMixesService)
-                .environment(storyProgressService)
-                .environment(binauralBeatEngine)
-                .environment(alarmService)
-                .environment(insightsService)
-                .environment(analyticsService)
-                .environment(reviewPromptService)
-                .environment(appearanceService)
-                .environment(motionService)
-                .environment(sleepBuddyService)
-                .environment(sleepContentPlayerService)
-                .preferredColorScheme(.dark)
+            Group {
+                if onboardingService.hasCompletedOnboarding {
+                    ContentView()
+                } else {
+                    OnboardingContainerView()
+                }
+            }
+            .environment(audioEngine)
+            .environment(sleepTimerService ?? createSleepTimerService())
+            .environment(adaptiveSessionService ?? createAdaptiveSessionService())
+            .environment(favoritesService)
+            .environment(savedMixesService)
+            .environment(storyProgressService)
+            .environment(binauralBeatEngine)
+            .environment(alarmService)
+            .environment(insightsService)
+            .environment(analyticsService)
+            .environment(reviewPromptService)
+            .environment(appearanceService)
+            .environment(motionService)
+            .environment(sleepBuddyService)
+            .environment(sleepContentPlayerService)
+            .environment(onboardingService)
+            .preferredColorScheme(.dark)
                 .onAppear {
                     // Configure Firebase Analytics
                     analyticsService.configure()
