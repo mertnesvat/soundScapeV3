@@ -222,8 +222,9 @@ struct SavedMixesPlaceholderView: View {
 }
 
 #Preview {
-    let audioEngine = AudioEngine()
-    return ContentView()
+    @Previewable @State var audioEngine = AudioEngine()
+    @Previewable @State var onboardingService = OnboardingService()
+    ContentView()
         .environment(audioEngine)
         .environment(SleepTimerService(audioEngine: audioEngine))
         .environment(FavoritesService())
@@ -236,5 +237,6 @@ struct SavedMixesPlaceholderView: View {
         .environment(AnalyticsService())
         .environment(ReviewPromptService())
         .environment(AppearanceService())
+        .environment(onboardingService)
         .preferredColorScheme(.dark)
 }

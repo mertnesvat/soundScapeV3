@@ -1,6 +1,7 @@
 import XCTest
 @testable import SoundScape
 
+@MainActor
 final class SavedMixesServiceTests: XCTestCase {
 
     // MARK: - Setup and Teardown
