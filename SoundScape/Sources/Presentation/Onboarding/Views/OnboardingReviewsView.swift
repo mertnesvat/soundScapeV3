@@ -4,10 +4,10 @@ struct OnboardingReviewsView: View {
     let onContinue: () -> Void
     let onBack: () -> Void
 
-    private let reviews: [(text: String, author: String, duration: String)] = [
-        ("Finally found something that actually helps me sleep. The rain sounds are perfect for blocking out street noise.", "Sarah M.", "Using for 3 months"),
-        ("I've tried many sleep apps but this one is different. Love the sound mixing feature and the variety.", "James K.", "Using for 6 months"),
-        ("My anxiety is so much better at night. This app changed my bedtime routine completely.", "Emily R.", "Using for 2 months")
+    private let reviews: [(text: String, author: String, role: String)] = [
+        ("The rain sounds are perfect for blocking out noise. Finally sleeping better!", "Sarah M.", "Sleep enthusiast"),
+        ("Love mixing different sounds together. So relaxing!", "James K.", "Verified user"),
+        ("My bedtime routine is so much better now.", "Emily R.", "Verified user")
     ]
 
     var body: some View {
@@ -40,7 +40,7 @@ struct OnboardingReviewsView: View {
                         }
                     }
 
-                    Text("100,000+ happy sleepers")
+                    Text("Loved by sleepers everywhere")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
@@ -53,7 +53,7 @@ struct OnboardingReviewsView: View {
                         ReviewCard(
                             text: review.text,
                             author: review.author,
-                            duration: review.duration
+                            role: review.role
                         )
                     }
                 }
@@ -73,7 +73,7 @@ struct OnboardingReviewsView: View {
 struct ReviewCard: View {
     let text: String
     let author: String
-    let duration: String
+    let role: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -102,7 +102,7 @@ struct ReviewCard: View {
                 Text("•")
                     .foregroundColor(.gray)
 
-                Text(duration)
+                Text(role)
                     .font(.caption)
                     .foregroundColor(.gray)
             }
