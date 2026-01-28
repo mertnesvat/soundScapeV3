@@ -1,611 +1,339 @@
 ---
 base_branch: master
 max_retries: 2
-continue_on_failure: true
+continue_on_failure: false
 visual_gate_enabled: true
 visual_gate_threshold: 0.7
 bundle_id: com.StudioNext.SoundScape
 action_logging: true
+
+# Deep Quality Mode - Enabled for premium features (critical for monetization)
+deep_quality_mode: true
+deep_quality_max_retries: 5
+deep_quality_visual_threshold: 0.85
+deep_quality_min_test_coverage: 0.7
+deep_quality_review_gate: true
 ---
 
-# Feature Queue: SoundScape Wind Down Tab
+# Feature Queue: SoundScape Freemium/Premium System
 
-Transform the existing Stories tab into a comprehensive "Wind Down" tab that combines sleep stories, yoga nidra sessions, guided meditations, breathing exercises, sleep hypnosis, and bedtime affirmations into a unified sleep content experience.
+This queue implements a lightweight freemium model where ~50% of the app is free and premium features are gated behind Superwall paywalls. The system uses a centralized `PremiumManager` service for all entitlement checks.
 
-**Key Design Principle:** All audio content is bundled locally within the app (no downloads, no streaming, no network requests). Content without audio files displays a "Coming Soon" badge.
+## Architecture Overview
+
+- **PremiumManager**: New `@Observable` service that centralizes all premium feature logic
+- **PaywallService**: Already exists - triggers Superwall with `campaign_trigger` placement
+- **UI Pattern**: Lock icon + blur overlay on premium content, tap triggers paywall
 
 ---
 
-## Feature 1: Wind Down Tab Core Architecture
+### 1. Create PremiumManager Service
 
-Replace the existing Stories tab with a new "Wind Down" tab that serves as the home for all sleep-inducing audio content.
+Create a centralized `PremiumManager` service that defines which features are free vs premium and provides helper methods for checking entitlements throughout the app.
 
-**User Story:** As a user, I want to access all sleep content (stories, yoga nidra, meditations, breathing exercises) in one dedicated tab so I can easily find content to help me fall asleep.
+**User Story:** As a developer, I want a single source of truth for premium features so that entitlement checks are consistent across the app.
 
 **Acceptance Criteria:**
-- User sees "Wind Down" tab in the tab bar with moon icon (moon.zzz.fill)
-- User sees a welcoming header with personalized greeting based on time of day
-- User sees horizontal category sections for: Featured, Yoga Nidra, Sleep Stories, Meditations, Breathing, Hypnosis, Affirmations
-- User can scroll vertically through all content sections
-- Each section shows horizontal scrolling cards with content previews
-- Tab replaces the commented-out Stories tab in ContentView
-- Tab bar icon uses a calming indigo/purple color
+- New file at `Sources/Data/Services/PremiumManager.swift`
+- `@Observable` class with `@MainActor` attribute
+- Enum `PremiumFeature` listing all gated features:
+  - `.sound(id: String)` - Premium sounds
+  - `.unlimitedMixing` - More than 2 sounds in mixer
+  - `.binauralBeat(state: BrainwaveState)` - Premium brainwave states (all except Alpha)
+  - `.adaptiveMode` - Full Adaptive tab
+  - `.fullInsights` - Advanced analytics/charts
+  - `.windDownContent(id: String)` - Premium Wind Down content
+  - `.discoverSave` - Save community mixes
+- Property `freeSoundIds: Set<String>` with ~50% of sounds (one from each category minimum)
+- Property `freeWindDownIds: Set<String>` with ~50% of Wind Down content
+- Method `isPremiumRequired(for feature: PremiumFeature) -> Bool`
+- Method `checkAccessOrTriggerPaywall(for feature: PremiumFeature, paywallService: PaywallService, onGranted: @escaping () -> Void)`
+- Inject `PaywallService` to check `isPremium` status
+- Initialize in `SoundScapeApp.swift` and inject via `.environment()`
+
+**Free Sounds (14 of 34 total):**
+- Noise: `white_noise`, `brown_noise`
+- Nature: `morning_birds`, `calm_ocean`, `meadow`
+- Weather: `rain_storm`, `thunder`
+- Fire: `campfire`
+- Music: `creative_mind`, `ambient_melody`
+- ASMR: `page_turning`, `gentle_tapping`, `mechanical_keyboard`, `winter_forest_walk`
+
+**Free Wind Down Content (8 of 19 total):**
+- Yoga Nidra: `yoga_nidra_5min` (Quick Yoga Nidra)
+- Sleep Stories: `story_clockmakers_gift`, `story_garden_between_stars`
+- Sleep Hypnosis: `hypnosis_floating`
+- Affirmations: `affirmation_gratitude`, `affirmation_peace`, `affirmation_release`
+- Breathing: All (when available - free tier wellness feature)
 
 **Priority:** 1
 **Dependencies:** None
 
-**Technical Context:**
-- Enable and rename Stories tab to WindDown in ContentView.swift
-- Create new WindDownView.swift as the main tab view
-- Update Tab enum: change .stories case to .windDown with moon.zzz.fill icon
-- Remove commented-out Stories tab code and replace with active Wind Down tab
-- Keep existing StoryProgressService for progress tracking (rename later if needed)
-
 ---
 
-## Feature 2: Sleep Content Entity & Data Model
+### 2. Add Premium Lock UI Component
 
-Create a unified content model that can represent all types of sleep content (stories, yoga nidra, meditations, etc.).
+Create a reusable `PremiumLockOverlay` view modifier that shows a lock icon with blur effect on premium content, and triggers the paywall when tapped.
 
-**User Story:** As a user, I want content to be organized by type so I can quickly find the specific kind of sleep content I'm looking for.
-
-**Acceptance Criteria:**
-- User sees content categorized by type (Yoga Nidra, Stories, Meditations, Breathing, Hypnosis, Affirmations)
-- User sees duration displayed for each content item
-- User sees narrator/guide name for voiced content
-- User sees a visual indicator for content that has audio vs "Coming Soon"
-- User can distinguish between different content types by their icons and colors
-
-**Priority:** 1
-**Dependencies:** Feature 1
-
-**Technical Context:**
-- Create new SleepContent.swift entity in Sources/Domain/Entities/:
-  ```swift
-  struct SleepContent: Identifiable, Equatable {
-      let id: String
-      let title: String
-      let narrator: String
-      let duration: TimeInterval  // seconds
-      let contentType: SleepContentType
-      let description: String
-      let audioFileName: String?  // nil = Coming Soon
-  }
-
-  enum SleepContentType: String, CaseIterable {
-      case yogaNidra = "Yoga Nidra"
-      case sleepStory = "Sleep Stories"
-      case guidedMeditation = "Guided Meditation"
-      case breathingExercise = "Breathing"
-      case sleepHypnosis = "Sleep Hypnosis"
-      case affirmations = "Affirmations"
-
-      var icon: String { ... }  // SF Symbols
-      var color: Color { ... }  // Category colors
-  }
-  ```
-- Content type colors:
-  - Yoga Nidra: Deep Purple (#8B5CF6)
-  - Sleep Stories: Indigo (#6366F1)
-  - Guided Meditation: Purple (#A855F7)
-  - Breathing: Teal (#14B8A6)
-  - Sleep Hypnosis: Blue (#3B82F6)
-  - Affirmations: Pink (#EC4899)
-- audioFileName should be actual bundled file name (e.g., "yoga_nidra_sleep_5min.mp3") or nil for Coming Soon
-
----
-
-## Feature 3: Yoga Nidra Content Integration
-
-Add the yoga nidra sessions to the app with bundled audio files.
-
-**User Story:** As a user, I want to listen to yoga nidra guided meditations to help me relax deeply and fall asleep.
+**User Story:** As a free user, I want to see what premium content looks like (blurred with lock) so I understand what I'm missing and can tap to upgrade.
 
 **Acceptance Criteria:**
-- User sees 3 yoga nidra sessions: 5-minute, 8-minute, and 10-minute versions
-- User can tap on a yoga nidra session to open the player
-- User hears actual audio playback (bundled with app, no download needed)
-- User sees session progress tracked and saved
-- User can resume a yoga nidra session from where they left off
-
-**Priority:** 1
-**Dependencies:** Feature 2
-
-**Technical Context:**
-- CRITICAL: Copy yoga nidra MP3 files from /yoga_nidra/ folder to SoundScape/Resources/Sounds/:
-  - yoga_nidra_sleep_5min.mp3 (7 MB)
-  - yoga_nidra_sleep_8min.mp3 (10.5 MB)
-  - yoga_nidra_sleep_10min.mp3 (18.4 MB)
-- Add all 3 files to project.pbxproj:
-  - PBXBuildFile section
-  - PBXFileReference section
-  - Sounds group children
-  - PBXResourcesBuildPhase files
-- Create SleepContentDataSource.swift in Sources/Data/DataSources/ with yoga nidra entries:
-  ```swift
-  static let yogaNidraSessions: [SleepContent] = [
-      SleepContent(
-          id: "yoga_nidra_5min",
-          title: "Quick Yoga Nidra",
-          narrator: "Guided Voice",
-          duration: 300,  // 5 minutes
-          contentType: .yogaNidra,
-          description: "A brief but powerful yoga nidra session perfect for short breaks or when you need quick relaxation.",
-          audioFileName: "yoga_nidra_sleep_5min.mp3"
-      ),
-      SleepContent(
-          id: "yoga_nidra_8min",
-          title: "Extended Yoga Nidra",
-          narrator: "Guided Voice",
-          duration: 480,  // 8 minutes
-          contentType: .yogaNidra,
-          description: "A deeper yoga nidra experience with extended body scan and visualization.",
-          audioFileName: "yoga_nidra_sleep_8min.mp3"
-      ),
-      SleepContent(
-          id: "yoga_nidra_10min",
-          title: "Complete Yoga Nidra",
-          narrator: "Guided Voice",
-          duration: 600,  // 10 minutes
-          contentType: .yogaNidra,
-          description: "The full yoga nidra journey. Perfect for bedtime relaxation and deep restoration.",
-          audioFileName: "yoga_nidra_sleep_10min.mp3"
-      )
-  ]
-  ```
-
----
-
-## Feature 4: Sleep Content Player
-
-Create a unified audio player for all sleep content that supports real audio playback with progress tracking.
-
-**User Story:** As a user, I want a full-screen player that shows my progress and lets me control playback while listening to sleep content.
-
-**Acceptance Criteria:**
-- User sees full-screen player with calming gradient background (uses content type color)
-- User sees content title, narrator, and total duration
-- User sees and can interact with progress slider
-- User can play/pause playback
-- User can skip forward/backward 15 seconds
-- User can close the player and return to browsing
-- User's progress is saved when exiting (can resume later)
-- Playback continues when screen is locked
-- Now Playing info shows on lock screen with controls
-- Player shows disabled state with "Coming Soon" message for content without audio
-
-**Priority:** 1
-**Dependencies:** Feature 3
-
-**Technical Context:**
-- Create SleepContentPlayerView.swift in Sources/Presentation/WindDown/Views/
-- Create SleepContentPlayerService.swift (@Observable class) for playback:
-  - Uses AVAudioPlayer for single non-looping playback (numberOfLoops = 0)
-  - currentContent: SleepContent?
-  - isPlaying: Bool
-  - currentTime: TimeInterval
-  - duration: TimeInterval
-  - func play(content: SleepContent)
-  - func pause()
-  - func seek(to time: TimeInterval)
-  - func skipForward(seconds: TimeInterval = 15)
-  - func skipBackward(seconds: TimeInterval = 15)
-- Configure AVAudioSession for .playback category (same as AudioEngine)
-- Update Now Playing Info on lock screen (title, artist as narrator, artwork placeholder)
-- Use existing StoryProgressService to save/restore progress
-- Handle audio interruptions (phone calls, Siri)
-- Player should NOT use AudioEngine (sleep content is single-track, not mixable)
-
----
-
-## Feature 5: Sleep Stories Section with Coming Soon Badges
-
-Display sleep stories with proper "Coming Soon" badges for mock content.
-
-**User Story:** As a user, I want to see what sleep stories are available (or coming) so I know what content to look forward to.
-
-**Acceptance Criteria:**
-- User sees all 12 existing mock stories in the Stories section
-- User sees "Coming Soon" badge overlay on stories without audio
-- User can tap on "Coming Soon" stories to see details but play button is disabled
-- User sees story categories: Fiction, Nature Journeys, Meditation, ASMR
-- Stories are displayed in a horizontal scrolling section
-- Tapping a "Coming Soon" story shows a brief toast message
+- New file at `Sources/Presentation/Components/PremiumLockOverlay.swift`
+- View modifier `.premiumLocked(isPremium: Bool, feature: PremiumFeature, paywallService: PaywallService)`
+- When `isPremium == false` and feature requires premium:
+  - Apply subtle blur (radius ~6) to content
+  - Overlay lock icon (SF Symbol `lock.fill`) centered
+  - Add subtle gradient overlay for visibility
+  - Tap gesture triggers `paywallService.triggerPaywall(placement: "campaign_trigger")`
+- When `isPremium == true`, show content normally with no overlay
+- Lock icon should have a subtle animation on appear (scale or fade)
+- Support both card-style content and list rows
 
 **Priority:** 2
-**Dependencies:** Feature 4
-
-**Technical Context:**
-- Migrate stories from LocalStoryDataSource to SleepContentDataSource
-- Convert Story entities to SleepContent with contentType: .sleepStory
-- Keep all 12 existing stories (all with audioFileName: nil for Coming Soon)
-- Create ComingSoonBadge.swift component:
-  - Overlay with "Coming Soon" text
-  - Semi-transparent dark background
-  - Positioned at bottom of card
-- In player view, show overlay message: "This content is coming soon! We're working on bringing you amazing sleep stories."
-- Disable play controls when audioFileName is nil
+**Dependencies:** 1
 
 ---
 
-## Feature 6: Breathing Exercises Section
+### 3. Gate Premium Sounds in Sound Library
 
-Add guided breathing exercises for sleep preparation.
+Apply premium gating to sounds in the main Sounds tab. Premium sounds show the lock overlay, and tapping them triggers the paywall.
 
-**User Story:** As a user, I want to follow guided breathing exercises to calm my nervous system before sleep.
-
-**Acceptance Criteria:**
-- User sees breathing exercises section in Wind Down tab
-- User sees 4 breathing exercise entries: 4-7-8 Breath, Box Breathing, Deep Sleep Breath, Relaxing Exhale
-- User sees "Coming Soon" badges on exercises (no audio yet)
-- User can tap to view exercise description and technique details
-- Each breathing exercise card shows the breathing pattern
-
-**Priority:** 2
-**Dependencies:** Feature 2
-
-**Technical Context:**
-- Add breathing exercises to SleepContentDataSource:
-  ```swift
-  static let breathingExercises: [SleepContent] = [
-      SleepContent(
-          id: "breathing_478",
-          title: "4-7-8 Breath",
-          narrator: "Guided Voice",
-          duration: 300,  // 5 min
-          contentType: .breathingExercise,
-          description: "The relaxing breath technique. Inhale for 4 counts, hold for 7, exhale for 8. Known to promote deep relaxation.",
-          audioFileName: nil  // Coming Soon
-      ),
-      SleepContent(
-          id: "breathing_box",
-          title: "Box Breathing",
-          narrator: "Guided Voice",
-          duration: 420,  // 7 min
-          contentType: .breathingExercise,
-          description: "Equal counts of inhale, hold, exhale, hold. Used by Navy SEALs for stress relief and focus.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "breathing_deep_sleep",
-          title: "Deep Sleep Breath",
-          narrator: "Guided Voice",
-          duration: 600,  // 10 min
-          contentType: .breathingExercise,
-          description: "Extended exhale breathing designed specifically to activate your parasympathetic nervous system.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "breathing_relaxing",
-          title: "Relaxing Exhale",
-          narrator: "Guided Voice",
-          duration: 480,  // 8 min
-          contentType: .breathingExercise,
-          description: "Focus on long, slow exhales to release tension and prepare for restful sleep.",
-          audioFileName: nil
-      )
-  ]
-  ```
-- Color: Teal (#14B8A6)
-- Icon: lungs.fill
-
----
-
-## Feature 7: Guided Meditations Section
-
-Add guided sleep meditations separate from yoga nidra.
-
-**User Story:** As a user, I want to access various guided meditations designed specifically for falling asleep.
+**User Story:** As a free user, I can see all sounds in the library but premium ones are locked with a blur overlay. Tapping a locked sound shows the paywall.
 
 **Acceptance Criteria:**
-- User sees Guided Meditations section in Wind Down tab
-- User sees 4 meditation entries: Body Scan, Floating Clouds, Gratitude for Sleep, Peaceful Garden
-- User sees "Coming Soon" badges (no audio yet)
-- User sees meditation duration and guide name
-- Each meditation has a calming description
-
-**Priority:** 2
-**Dependencies:** Feature 2
-
-**Technical Context:**
-- Add meditations to SleepContentDataSource:
-  ```swift
-  static let guidedMeditations: [SleepContent] = [
-      SleepContent(
-          id: "meditation_body_scan",
-          title: "Body Scan Relaxation",
-          narrator: "Dr. Emily Chen",
-          duration: 1200,  // 20 min
-          contentType: .guidedMeditation,
-          description: "A progressive journey through each part of your body, releasing tension as you go deeper into relaxation.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "meditation_floating",
-          title: "Floating on Clouds",
-          narrator: "Maya Thompson",
-          duration: 900,  // 15 min
-          contentType: .guidedMeditation,
-          description: "Visualize yourself floating on soft clouds, drifting peacefully toward sleep.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "meditation_gratitude",
-          title: "Gratitude for Sleep",
-          narrator: "Dr. Emily Chen",
-          duration: 600,  // 10 min
-          contentType: .guidedMeditation,
-          description: "End your day with gratitude, reflecting on positive moments as you prepare for restful sleep.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "meditation_garden",
-          title: "Peaceful Garden Walk",
-          narrator: "James Rivers",
-          duration: 1080,  // 18 min
-          contentType: .guidedMeditation,
-          description: "Walk through a beautiful, serene garden as evening falls, finding your inner peace.",
-          audioFileName: nil
-      )
-  ]
-  ```
-- Color: Purple (#A855F7)
-- Icon: sparkles
-
----
-
-## Feature 8: Sleep Hypnosis Section
-
-Add sleep hypnosis content for deep relaxation.
-
-**User Story:** As a user, I want to try sleep hypnosis sessions to help with deeper, more restorative sleep.
-
-**Acceptance Criteria:**
-- User sees Sleep Hypnosis section in Wind Down tab
-- User sees 3 hypnosis sessions: Deep Sleep Hypnosis, Letting Go, Peaceful Dreams
-- User sees "Coming Soon" badges (no audio yet)
-- User sees session duration and hypnotist name
-- Section positioned after Meditations in the UI
+- Modify `SoundCardView.swift` to check `PremiumManager.isPremiumRequired(for: .sound(id:))`
+- Apply `PremiumLockOverlay` to premium sound cards
+- Tapping a locked sound triggers paywall via `campaign_trigger`
+- After successful purchase, sound becomes immediately playable (PaywallService updates `isPremium`)
+- Free sounds remain fully playable with no changes
+- Premium sounds show lock icon in bottom-right corner of card
+- Category sections show mix of free and locked sounds
+- Search results respect premium status
 
 **Priority:** 3
-**Dependencies:** Feature 2
-
-**Technical Context:**
-- Add hypnosis to SleepContentDataSource:
-  ```swift
-  static let sleepHypnosis: [SleepContent] = [
-      SleepContent(
-          id: "hypnosis_deep_sleep",
-          title: "Deep Sleep Hypnosis",
-          narrator: "Michael Waters",
-          duration: 1800,  // 30 min
-          contentType: .sleepHypnosis,
-          description: "Gentle hypnotic induction designed to guide you into the deepest, most restorative sleep.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "hypnosis_letting_go",
-          title: "Letting Go",
-          narrator: "Sarah Moon",
-          duration: 1500,  // 25 min
-          contentType: .sleepHypnosis,
-          description: "Release the worries of the day through soothing hypnotic suggestions for peaceful sleep.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "hypnosis_dreams",
-          title: "Peaceful Dreams",
-          narrator: "Michael Waters",
-          duration: 1200,  // 20 min
-          contentType: .sleepHypnosis,
-          description: "Prepare your mind for beautiful, peaceful dreams as you drift off to sleep.",
-          audioFileName: nil
-      )
-  ]
-  ```
-- Color: Blue (#3B82F6)
-- Icon: brain.head.profile.fill
+**Dependencies:** 1, 2
 
 ---
 
-## Feature 9: Bedtime Affirmations Section
+### 4. Gate Mixer to 2 Sounds for Free Users
 
-Add positive affirmation tracks for sleep mindset.
+Limit free users to mixing only 2 sounds simultaneously. Show paywall when attempting to add a 3rd sound.
 
-**User Story:** As a user, I want to listen to calming affirmations as I drift off to sleep to promote positive thoughts.
+**User Story:** As a free user, I can mix up to 2 sounds together. When I try to add a 3rd sound, I see the paywall to upgrade for unlimited mixing.
 
 **Acceptance Criteria:**
-- User sees Affirmations section in Wind Down tab
-- User sees 4 affirmation tracks: Self-Love, Peaceful Sleep, Tomorrow's Promise, Releasing Anxiety
-- User sees "Coming Soon" badges (no audio yet)
-- User sees track duration (shorter than other content, 5-10 min)
-- Section positioned at the end of the Wind Down tab
+- Modify `MixerView.swift` and `AudioEngine.swift`
+- Add check in `AudioEngine.playSound()` for active sound count
+- If `activeSounds.count >= 2` and `!isPremium`:
+  - Show alert or sheet explaining "Upgrade for unlimited mixing"
+  - Trigger paywall with `campaign_trigger`
+  - If user upgrades, allow adding the sound
+- Mixer UI shows subtle "PRO" badge on unlimited mixing feature
+- Free users see their 2-sound limit clearly (e.g., "2/2 sounds" vs premium's "2/∞")
 
-**Priority:** 3
-**Dependencies:** Feature 2
-
-**Technical Context:**
-- Add affirmations to SleepContentDataSource:
-  ```swift
-  static let affirmations: [SleepContent] = [
-      SleepContent(
-          id: "affirmation_self_love",
-          title: "Self-Love Affirmations",
-          narrator: "Sophie White",
-          duration: 420,  // 7 min
-          contentType: .affirmations,
-          description: "Gentle affirmations to remind yourself of your worth as you prepare for sleep.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "affirmation_peaceful",
-          title: "Peaceful Sleep Affirmations",
-          narrator: "Sophie White",
-          duration: 360,  // 6 min
-          contentType: .affirmations,
-          description: "Calming words to ease your mind and invite restful, peaceful sleep.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "affirmation_tomorrow",
-          title: "Tomorrow's Promise",
-          narrator: "Alex Kim",
-          duration: 480,  // 8 min
-          contentType: .affirmations,
-          description: "Positive affirmations about the new day ahead, releasing today's concerns.",
-          audioFileName: nil
-      ),
-      SleepContent(
-          id: "affirmation_releasing",
-          title: "Releasing Anxiety",
-          narrator: "Dr. Emily Chen",
-          duration: 600,  // 10 min
-          contentType: .affirmations,
-          description: "Soothing affirmations to help let go of anxious thoughts before sleep.",
-          audioFileName: nil
-      )
-  ]
-  ```
-- Color: Pink (#EC4899)
-- Icon: heart.text.square.fill
+**Priority:** 4
+**Dependencies:** 1
 
 ---
 
-## Feature 10: Featured Content & Continue Listening
+### 5. Gate Binaural Beat Brainwave States
 
-Show featured and recently played content at the top of Wind Down tab.
+Limit free users to Alpha brainwave state only. Other states (Delta, Theta, Beta, Gamma) show lock and trigger paywall.
 
-**User Story:** As a user, I want to quickly access featured content and resume my recent sessions without scrolling.
+**User Story:** As a free user, I can use Alpha binaural beats for free. When I tap other brainwave states, I see they're premium and can upgrade.
 
 **Acceptance Criteria:**
-- User sees "Featured Tonight" section at the top with a large highlighted content card
-- User sees "Continue Listening" section if they have unfinished content (progress > 0 and < 95%)
-- User sees progress bar on "Continue Listening" cards showing completion percentage
-- Featured content highlights yoga nidra (since it has real audio)
-- Time-of-day greeting: "Good Evening" before 9pm, "Ready for Sleep?" after 9pm
-- Continue Listening only shows if user has incomplete sessions
+- Modify `BinauralBeatsView.swift`
+- `PremiumManager` defines `freeBrainwaveStates: [BrainwaveState] = [.alpha]`
+- Premium states: Delta, Theta, Beta, Gamma
+- Apply `PremiumLockOverlay` to premium state buttons
+- Tapping locked state triggers paywall
+- Alpha state remains fully functional for all users
+- After upgrade, all states unlock immediately
+- State picker shows lock icon on premium options
 
-**Priority:** 2
-**Dependencies:** Feature 4
-
-**Technical Context:**
-- Use StoryProgressService to find incomplete sessions (filter where progress > 0 and < 0.95)
-- Featured content logic:
-  - Default to yoga_nidra_10min as featured
-  - Can be changed to rotation logic later
-- Greeting logic:
-  ```swift
-  var greeting: String {
-      let hour = Calendar.current.component(.hour, from: Date())
-      if hour >= 21 || hour < 5 {
-          return "Ready for Sleep?"
-      } else if hour >= 17 {
-          return "Good Evening"
-      } else {
-          return "Wind Down"
-      }
-  }
-  ```
-- Create FeaturedContentCard.swift - larger card with gradient background
-- Create ContinueListeningSection.swift - horizontal scroll with smaller cards showing progress
+**Priority:** 5
+**Dependencies:** 1, 2
 
 ---
 
-## Feature 11: Content Card Components
+### 6. Gate Wind Down Premium Content
 
-Create reusable card components for displaying sleep content in the tab.
+Apply premium gating to Wind Down content. About half the content is free, rest requires premium.
 
-**User Story:** As a user, I want content cards to be visually appealing and show me relevant information at a glance.
+**User Story:** As a free user, I can access some Wind Down content (basic yoga nidra, some stories) but premium content like full hypnosis sessions and advanced meditations are locked.
 
 **Acceptance Criteria:**
-- User sees content cards with title, duration, and narrator name
-- User sees content type icon and color coding
-- User sees progress indicator if content is partially complete
-- User sees "Coming Soon" overlay for content without audio
-- Cards have consistent sizing and smooth animations on tap
-- Cards match the existing app's visual style (OLED-friendly dark theme)
+- Modify `WindDownView.swift` and `SleepContentCardView.swift`
+- Check `PremiumManager.isPremiumRequired(for: .windDownContent(id:))`
+- Apply `PremiumLockOverlay` to premium content cards
+- Free content plays normally
+- Premium content shows lock overlay with blur
+- Tapping locked content triggers paywall
+- After upgrade, content unlocks immediately
+- Category headers may show "(X free / Y total)" count
 
-**Priority:** 1
-**Dependencies:** Feature 2
+**Free Content:**
+- Quick Yoga Nidra (5min)
+- 2 Sleep Stories (The Clockmaker's Final Gift, The Garden Between Stars)
+- 1 Sleep Hypnosis (Floating Into Dreams)
+- All 3 Affirmations (wellness feature stays free)
+- All Breathing exercises when available (wellness feature)
 
-**Technical Context:**
-- Create SleepContentCardView.swift in Sources/Presentation/WindDown/Components/:
-  - Standard horizontal card (140pt width) for section scrolling
-  - Shows: icon, title (max 2 lines), duration, narrator
-  - Progress bar at bottom if progress > 0
-  - Coming Soon badge overlay if audioFileName == nil
-  - Category color as accent/glow
-- Create LargeFeaturedCard.swift:
-  - Full-width card with gradient background
-  - Larger text, prominent play button
-  - Shows description text
-- Use existing app styling conventions (pure black background, category accent colors)
-- Tap animation: slight scale down (0.97) on press
+**Priority:** 6
+**Dependencies:** 1, 2
 
 ---
 
-## Feature 12: Sleep Timer Integration for Wind Down Content
+### 7. Gate Adaptive Mode Tab
 
-Allow users to set sleep timers while listening to wind down content.
+Make the entire Adaptive tab a premium feature. Free users see a preview with paywall CTA.
 
-**User Story:** As a user, I want to set a sleep timer so the content stops playing after I fall asleep.
+**User Story:** As a free user, I see the Adaptive tab but it shows a premium preview explaining the feature with a clear upgrade button.
 
 **Acceptance Criteria:**
-- User can access sleep timer from the content player (timer icon button)
-- User sees timer options: 15, 30, 45, 60 minutes, or "End of Content"
-- Timer shows countdown in player UI when active
-- Audio fades out gradually (over 30 seconds) when timer ends
-- Timer can be cancelled by tapping the timer button again
-- "End of Content" option plays full content then stops
+- Modify `AdaptiveView.swift`
+- If `!paywallService.isPremium`:
+  - Show `AdaptivePremiumPreview` view instead of full content
+  - Preview shows feature explanation with illustrations
+  - Prominent "Unlock Adaptive Mode" button triggers paywall
+  - Preview may show blurred glimpse of actual UI behind
+- If `isPremium`, show full Adaptive functionality
+- After upgrade, view immediately transitions to full content
 
-**Priority:** 2
-**Dependencies:** Feature 4
+**Priority:** 7
+**Dependencies:** 1
 
-**Technical Context:**
-- Integrate existing SleepTimerService with SleepContentPlayerView
-- Add timer button to player controls row (clock.fill icon)
-- Present timer picker as bottom sheet (same style as existing TimerView)
-- Add "End of Content" option that sets timer to remaining duration
-- Show remaining time in player header area (e.g., "15:32 remaining")
-- When timer ends:
-  - Begin 30-second fade out (animate volume from current to 0)
-  - Stop playback
-  - Save progress
-  - Optionally show gentle notification
+---
+
+### 8. Gate Full Insights Dashboard
+
+Limit free users to basic session count. Full analytics (charts, trends, recommendations) require premium.
+
+**User Story:** As a free user, I see my basic session count in Insights. Charts, sleep trends, and personalized recommendations show a premium lock prompting me to upgrade.
+
+**Acceptance Criteria:**
+- Modify `InsightsView.swift`
+- Free tier shows:
+  - Total sessions count
+  - Basic "sessions this week" number
+  - Premium upsell card for full analytics
+- Premium tier shows full dashboard:
+  - Weekly sleep chart
+  - Average duration, quality metrics
+  - Top sounds analytics
+  - Personalized recommendations
+  - Sleep goals
+- Premium sections show `PremiumLockOverlay` for free users
+- Tapping locked sections triggers paywall
+- After upgrade, full dashboard appears
+
+**Priority:** 8
+**Dependencies:** 1, 2
+
+---
+
+### 9. Gate Discover Mix Saving
+
+Free users can play community mixes but cannot save them. Saving triggers paywall.
+
+**User Story:** As a free user, I can browse and play Discover mixes but when I try to save one to my library, I'm prompted to upgrade.
+
+**Acceptance Criteria:**
+- Modify `DiscoverView.swift` and `CommunityMixDetailView.swift`
+- Free users can:
+  - Browse all community mixes
+  - View mix details
+  - Play mixes in full
+- Save button shows lock icon for free users
+- Tapping save triggers paywall with `campaign_trigger`
+- After upgrade, save functionality works normally
+- Consider showing "Save to unlock your collection" messaging
+
+**Priority:** 9
+**Dependencies:** 1
+
+---
+
+### 10. Add Premium Status Indicator to Settings
+
+Show premium status prominently in Settings with upgrade option for free users.
+
+**User Story:** As a user, I can see my premium status in Settings. Free users see an upgrade button, premium users see their subscription status.
+
+**Acceptance Criteria:**
+- Modify `SettingsView.swift`
+- Add premium status section at top:
+  - Free users: "Free Plan" with "Upgrade to Premium" button
+  - Premium users: "Premium" with checkmark and "Manage Subscription" link
+- Upgrade button triggers paywall via `campaign_trigger`
+- Premium badge/crown icon next to Premium status
+- Restore purchases option remains visible for all users
+- Consider showing what premium includes (bullet list)
+
+**Priority:** 10
+**Dependencies:** 1
 
 ---
 
 ## Summary
 
-| # | Feature | Priority | Dependencies | Has Audio |
-|---|---------|----------|--------------|-----------|
-| 1 | Wind Down Tab Core Architecture | P1 | None | - |
-| 2 | Sleep Content Entity & Data Model | P1 | F1 | - |
-| 3 | Yoga Nidra Content Integration | P1 | F2 | ✅ 3 MP3s |
-| 4 | Sleep Content Player | P1 | F3 | - |
-| 5 | Sleep Stories with Coming Soon | P2 | F4 | ❌ Coming Soon |
-| 6 | Breathing Exercises Section | P2 | F2 | ❌ Coming Soon |
-| 7 | Guided Meditations Section | P2 | F2 | ❌ Coming Soon |
-| 8 | Sleep Hypnosis Section | P3 | F2 | ❌ Coming Soon |
-| 9 | Bedtime Affirmations Section | P3 | F2 | ❌ Coming Soon |
-| 10 | Featured & Continue Listening | P2 | F4 | - |
-| 11 | Content Card Components | P1 | F2 | - |
-| 12 | Sleep Timer Integration | P2 | F4 | - |
+| # | Feature | Priority | Dependencies | Scope |
+|---|---------|----------|--------------|-------|
+| 1 | PremiumManager Service | P1 | None | Core |
+| 2 | Premium Lock UI Component | P2 | 1 | UI |
+| 3 | Gate Premium Sounds | P3 | 1, 2 | Sounds Tab |
+| 4 | Gate Mixer (2 sound limit) | P4 | 1 | Mixer |
+| 5 | Gate Binaural States | P5 | 1, 2 | Binaural Tab |
+| 6 | Gate Wind Down Content | P6 | 1, 2 | Wind Down Tab |
+| 7 | Gate Adaptive Mode | P7 | 1 | Adaptive Tab |
+| 8 | Gate Full Insights | P8 | 1, 2 | Insights Tab |
+| 9 | Gate Discover Saving | P9 | 1 | Discover Tab |
+| 10 | Settings Premium Status | P10 | 1 | Settings |
 
-**Total Features:** 12
-**P1 (Critical - Core Functionality):** 4 features
-**P2 (Important - Full Experience):** 5 features
-**P3 (Nice to Have - Future Content):** 3 features
+**Total Features:** 10
+**Estimated Scope:** Medium - All features build on the centralized PremiumManager
 
-**Audio Files to Bundle:**
-- yoga_nidra_sleep_5min.mp3 (7 MB)
-- yoga_nidra_sleep_8min.mp3 (10.5 MB)
-- yoga_nidra_sleep_10min.mp3 (18.4 MB)
-- Total additional bundle size: ~36 MB
+## Implementation Notes
 
-**Execution Order:** Night Agent will implement P1 features first (1→2→11→3→4), then P2 (5→6→7→10→12), then P3 (8→9).
+### Superwall Integration
+- All paywalls trigger via `PaywallService.triggerPaywall(placement: "campaign_trigger")`
+- PaywallService already tracks `isPremium` state via `Superwall.shared.subscriptionStatus`
+- After any paywall interaction, `updateSubscriptionStatus()` is called automatically
 
-**Note:** All "Coming Soon" content provides the infrastructure for future audio additions. When you have new audio files, simply:
-1. Add MP3 to Resources/Sounds/
-2. Add to project.pbxproj
-3. Update audioFileName in SleepContentDataSource
+### State Management
+- `PremiumManager` should observe `PaywallService.isPremium` for reactive updates
+- All views using premium features should react to `isPremium` changes
+- Use `@Environment(PremiumManager.self)` in views
+
+### Free vs Premium Split (~50/50)
+
+**Free Tier:**
+- 14 of 34 sounds (at least one per category)
+- 8 of 19 Wind Down content items
+- Alpha brainwave state only
+- 2-sound mixing limit
+- Basic session count in Insights
+- Play (but not save) Discover mixes
+- Full access: Timer, Favorites, Alarms
+
+**Premium Tier:**
+- All 34 sounds
+- All 19 Wind Down content items
+- All 5 brainwave states
+- Unlimited sound mixing
+- Full Insights dashboard
+- Save Discover mixes
+- Full Adaptive Mode
+
+### Testing Checklist
+- [ ] Test free user flow for each gated feature
+- [ ] Test upgrade flow mid-session (feature should unlock immediately)
+- [ ] Test restore purchases functionality
+- [ ] Test offline behavior (cached premium status)
+- [ ] Verify paywall triggers use `campaign_trigger` placement
+
+### Analytics
+- Log premium feature access attempts by free users
+- Track conversion from feature gates to successful purchases
+- Use existing `AnalyticsService` for event tracking
