@@ -3,7 +3,10 @@ import SwiftUI
 struct MixerView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SavedMixesService.self) private var mixesService
+    @Environment(PaywallService.self) private var paywallService
     @State private var showSaveMixSheet = false
+
+    private let freeSoundLimit = 6
 
     var body: some View {
         NavigationStack {
@@ -42,9 +45,23 @@ struct MixerView: View {
                                 )
                             }
                         } header: {
-                            Text(
-                                "\(audioEngine.activeSounds.count) sound\(audioEngine.activeSounds.count == 1 ? "" : "s") playing"
-                            )
+                            HStack {
+                                Text("\(audioEngine.activeSounds.count) sound\(audioEngine.activeSounds.count == 1 ? "" : "s") playing")
+                                Spacer()
+                                if paywallService.isPremium {
+                                    Text("\(audioEngine.activeSounds.count)/∞")
+                                        .foregroundColor(.green)
+                                } else {
+                                    HStack(spacing: 4) {
+                                        Text("\(audioEngine.activeSounds.count)/\(freeSoundLimit)")
+                                        if audioEngine.activeSounds.count >= freeSoundLimit {
+                                            Image(systemName: "lock.fill")
+                                                .font(.caption2)
+                                        }
+                                    }
+                                    .foregroundColor(audioEngine.activeSounds.count >= freeSoundLimit ? .orange : .secondary)
+                                }
+                            }
                             .textCase(nil)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -98,5 +115,6 @@ struct MixerView: View {
     MixerView()
         .environment(AudioEngine())
         .environment(SavedMixesService())
+        .environment(PaywallService())
         .preferredColorScheme(.dark)
 }

@@ -62,6 +62,8 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
 struct WindDownView: View {
     @Environment(StoryProgressService.self) private var progressService
     @Environment(SleepContentPlayerService.self) private var playerService
+    @Environment(PremiumManager.self) private var premiumManager
+    @Environment(PaywallService.self) private var paywallService
 
     @State private var selectedContent: SleepContent?
 
@@ -131,8 +133,19 @@ struct WindDownView: View {
                     ForEach(WindDownCategory.allCases) { category in
                         WindDownSectionView(
                             category: category,
-                            onContentTap: { playContent($0) },
-                            progressForContent: { progressFraction(for: $0) }
+                            onContentTap: { content in
+                                let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: content.id))
+                                if isLocked {
+                                    paywallService.triggerPaywall(placement: "campaign_trigger") {
+                                        playContent(content)
+                                    }
+                                } else {
+                                    playContent(content)
+                                }
+                            },
+                            progressForContent: { progressFraction(for: $0) },
+                            isContentLocked: { premiumManager.isPremiumRequired(for: .windDownContent(id: $0.id)) },
+                            onLockedTap: { paywallService.triggerPaywall(placement: "campaign_trigger") {} }
                         )
                     }
 
@@ -209,7 +222,18 @@ struct WindDownView: View {
             LargeFeaturedCard(
                 content: featuredContent,
                 progress: progressFraction(for: featuredContent),
-                onTap: { playContent(featuredContent) }
+                isLocked: premiumManager.isPremiumRequired(for: .windDownContent(id: featuredContent.id)),
+                onTap: {
+                    let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: featuredContent.id))
+                    if isLocked {
+                        paywallService.triggerPaywall(placement: "campaign_trigger") {
+                            playContent(featuredContent)
+                        }
+                    } else {
+                        playContent(featuredContent)
+                    }
+                },
+                onLockedTap: { paywallService.triggerPaywall(placement: "campaign_trigger") {} }
             )
         }
     }
@@ -240,6 +264,8 @@ struct WindDownSectionView: View {
     let category: WindDownCategory
     let onContentTap: (SleepContent) -> Void
     let progressForContent: (SleepContent) -> Double
+    let isContentLocked: (SleepContent) -> Bool
+    let onLockedTap: () -> Void
 
     private var contentForCategory: [SleepContent] {
         SleepContentDataSource.content(for: category.contentType)
@@ -276,7 +302,9 @@ struct WindDownSectionView: View {
                         SleepContentCardView(
                             content: content,
                             progress: progressForContent(content),
-                            onTap: { onContentTap(content) }
+                            isLocked: isContentLocked(content),
+                            onTap: { onContentTap(content) },
+                            onLockedTap: onLockedTap
                         )
                     }
                 }
@@ -289,9 +317,12 @@ struct WindDownSectionView: View {
 // MARK: - Preview
 
 #Preview {
+    let paywallService = PaywallService()
     WindDownView()
         .environment(StoryProgressService())
         .environment(SleepContentPlayerService())
         .environment(AppearanceService())
+        .environment(paywallService)
+        .environment(PremiumManager(paywallService: paywallService))
         .preferredColorScheme(.dark)
 }

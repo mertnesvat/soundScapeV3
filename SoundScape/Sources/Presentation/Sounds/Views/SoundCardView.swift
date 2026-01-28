@@ -4,8 +4,10 @@ struct SoundCardView: View {
     let sound: Sound
     let isPlaying: Bool
     let isFavorite: Bool
+    let isLocked: Bool
     let onTogglePlay: () -> Void
     let onToggleFavorite: () -> Void
+    let onLockedTap: () -> Void
 
     @Environment(AppearanceService.self) private var appearanceService
     @Environment(MotionService.self) private var motionService
@@ -108,6 +110,7 @@ struct SoundCardView: View {
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.3), value: isPlaying)
+        .premiumLocked(isLocked: isLocked, onTap: onLockedTap)
         .overlay(alignment: .topTrailing) {
             Button(action: {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
@@ -141,8 +144,10 @@ struct SoundCardView: View {
             ),
             isPlaying: false,
             isFavorite: false,
+            isLocked: true,
             onTogglePlay: {},
-            onToggleFavorite: {}
+            onToggleFavorite: {},
+            onLockedTap: {}
         )
 
         SoundCardView(
@@ -154,8 +159,10 @@ struct SoundCardView: View {
             ),
             isPlaying: true,
             isFavorite: true,
+            isLocked: false,
             onTogglePlay: {},
-            onToggleFavorite: {}
+            onToggleFavorite: {},
+            onLockedTap: {}
         )
     }
     .padding()

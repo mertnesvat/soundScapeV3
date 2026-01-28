@@ -20,6 +20,7 @@ struct SoundScapeApp: App {
     @State private var sleepContentPlayerService = SleepContentPlayerService()
     @State private var onboardingService = OnboardingService()
     @State private var paywallService = PaywallService()
+    @State private var premiumManager: PremiumManager?
 
     init() {
         configureAppearance()
@@ -51,6 +52,7 @@ struct SoundScapeApp: App {
             .environment(sleepContentPlayerService)
             .environment(onboardingService)
             .environment(paywallService)
+            .environment(premiumManager ?? createPremiumManager())
             .preferredColorScheme(.dark)
                 .onAppear {
                     // Configure Firebase Analytics
@@ -81,6 +83,11 @@ struct SoundScapeApp: App {
 
                     // Wire up PaywallService to AnalyticsService
                     paywallService.setAnalyticsService(analyticsService)
+
+                    // Initialize PremiumManager with PaywallService
+                    if premiumManager == nil {
+                        premiumManager = PremiumManager(paywallService: paywallService)
+                    }
                 }
         }
     }
@@ -93,6 +100,11 @@ struct SoundScapeApp: App {
     @MainActor
     private func createAdaptiveSessionService() -> AdaptiveSessionService {
         AdaptiveSessionService(audioEngine: audioEngine)
+    }
+
+    @MainActor
+    private func createPremiumManager() -> PremiumManager {
+        PremiumManager(paywallService: paywallService)
     }
 
     private func configureAppearance() {

@@ -3,6 +3,8 @@ import SwiftUI
 struct DiscoverView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SavedMixesService.self) private var savedMixesService
+    @Environment(PaywallService.self) private var paywallService
+    @Environment(PremiumManager.self) private var premiumManager
     @State private var selectedCategory: CommunityCategory? = nil
     @State private var showingSavedAlert = false
     @State private var savedMixName = ""
@@ -138,6 +140,19 @@ struct DiscoverView: View {
     }
 
     private func saveMix(_ mix: CommunityMix) {
+        // Check if premium is required
+        if premiumManager.isPremiumRequired(for: .discoverSave) {
+            paywallService.triggerPaywall(placement: "campaign_trigger") {
+                // After premium purchase, save the mix
+                performSaveMix(mix)
+            }
+            return
+        }
+
+        performSaveMix(mix)
+    }
+
+    private func performSaveMix(_ mix: CommunityMix) {
         // Convert to active sounds for saving
         var activeSounds: [ActiveSound] = []
         for mixSound in mix.sounds {
@@ -160,8 +175,11 @@ struct DiscoverView: View {
 }
 
 #Preview {
+    let paywallService = PaywallService()
     DiscoverView()
         .environment(AudioEngine())
         .environment(SavedMixesService())
+        .environment(paywallService)
+        .environment(PremiumManager(paywallService: paywallService))
         .preferredColorScheme(.dark)
 }

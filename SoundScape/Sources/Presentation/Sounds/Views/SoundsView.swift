@@ -5,6 +5,8 @@ struct SoundsView: View {
     @Environment(FavoritesService.self) private var favoritesService
     @Environment(AppearanceService.self) private var appearanceService
     @Environment(MotionService.self) private var motionService
+    @Environment(PremiumManager.self) private var premiumManager
+    @Environment(PaywallService.self) private var paywallService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
@@ -20,6 +22,22 @@ struct SoundsView: View {
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16),
     ]
+
+    private let freeSoundLimit = 6
+
+    /// Check if adding a new sound would exceed the free user limit
+    private func wouldExceedMixerLimit(for sound: Sound) -> Bool {
+        // If already playing, toggling won't add a new sound
+        if audioEngine.isPlaying(soundId: sound.id) {
+            return false
+        }
+        // If premium user, no limit
+        if paywallService.isPremium {
+            return false
+        }
+        // Check if at or over limit
+        return audioEngine.activeSounds.count >= freeSoundLimit
+    }
 
     var body: some View {
         NavigationStack {
@@ -147,15 +165,29 @@ struct SoundsView: View {
 
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(sounds) { sound in
+                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
                     SoundCardView(
                         sound: sound,
                         isPlaying: viewModel.isPlaying(sound),
                         isFavorite: favoritesService.isFavorite(sound.id),
+                        isLocked: isLocked,
                         onTogglePlay: {
-                            viewModel.togglePlay(for: sound)
+                            if isLocked {
+                                paywallService.triggerPaywall(placement: "campaign_trigger") {
+                                    viewModel.togglePlay(for: sound)
+                                }
+                            } else if wouldExceedMixerLimit(for: sound) {
+                                // Mixer limit reached for free users - show paywall without action
+                                paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                            } else {
+                                viewModel.togglePlay(for: sound)
+                            }
                         },
                         onToggleFavorite: {
                             favoritesService.toggleFavorite(sound.id, soundName: sound.name)
+                        },
+                        onLockedTap: {
+                            paywallService.triggerPaywall(placement: "campaign_trigger") {}
                         }
                     )
                 }
@@ -186,15 +218,30 @@ struct SoundsView: View {
             // Sound Grid
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(viewModel.filteredSounds) { sound in
+                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
                     SoundCardView(
                         sound: sound,
                         isPlaying: viewModel.isPlaying(sound),
                         isFavorite: favoritesService.isFavorite(sound.id),
+                        isLocked: isLocked,
                         onTogglePlay: {
-                            viewModel.togglePlay(for: sound)
+                            if isLocked {
+                                paywallService.triggerPaywall(placement: "campaign_trigger") {
+                                    viewModel.togglePlay(for: sound)
+                                }
+                            } else if wouldExceedMixerLimit(for: sound) {
+                                // Mixer limit reached for free users - show paywall without action
+                                // Sound will only play if user becomes premium
+                                paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                            } else {
+                                viewModel.togglePlay(for: sound)
+                            }
                         },
                         onToggleFavorite: {
                             favoritesService.toggleFavorite(sound.id, soundName: sound.name)
+                        },
+                        onLockedTap: {
+                            paywallService.triggerPaywall(placement: "campaign_trigger") {}
                         }
                     )
                 }
@@ -207,10 +254,13 @@ struct SoundsView: View {
 }
 
 #Preview {
+    let paywallService = PaywallService()
     SoundsView()
         .environment(AudioEngine())
         .environment(FavoritesService())
         .environment(AppearanceService())
         .environment(MotionService())
+        .environment(paywallService)
+        .environment(PremiumManager(paywallService: paywallService))
         .preferredColorScheme(.dark)
 }
