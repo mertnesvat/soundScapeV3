@@ -18,7 +18,7 @@ struct SoundsView: View {
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16)
+        GridItem(.flexible(), spacing: 16),
     ]
 
     var body: some View {
@@ -27,14 +27,17 @@ struct SoundsView: View {
                 VStack(spacing: 0) {
                     if let viewModel = viewModel {
                         // Category Filter
-                        CategoryFilterView(selectedCategory: Binding(
-                            get: { viewModel.selectedCategory },
-                            set: { viewModel.selectCategory($0) }
-                        ))
+                        CategoryFilterView(
+                            selectedCategory: Binding(
+                                get: { viewModel.selectedCategory },
+                                set: { viewModel.selectCategory($0) }
+                            ))
 
                         // Favorites Section (only when favorites exist and no category filter)
                         if viewModel.selectedCategory == nil {
-                            let favoriteSounds = viewModel.sounds.filter { favoritesService.isFavorite($0.id) }
+                            let favoriteSounds = viewModel.sounds.filter {
+                                favoritesService.isFavorite($0.id)
+                            }
                             if !favoriteSounds.isEmpty {
                                 favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
                             }
@@ -110,6 +113,11 @@ struct SoundsView: View {
                 if newValue == .asmr && !asmrInfoService.hasSeenInfo {
                     showASMRInfoSheet = true
                     asmrInfoService.markAsSeen()
+                }
+            }
+            .onChange(of: audioEngine.activeSounds.count) { oldCount, newCount in
+                if newCount == 0 && oldCount > 0 {
+                    showMixerSheet = false
                 }
             }
             .onAppear {

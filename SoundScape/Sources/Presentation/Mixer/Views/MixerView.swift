@@ -42,10 +42,12 @@ struct MixerView: View {
                                 )
                             }
                         } header: {
-                            Text("\(audioEngine.activeSounds.count) sound\(audioEngine.activeSounds.count == 1 ? "" : "s") playing")
-                                .textCase(nil)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                            Text(
+                                "\(audioEngine.activeSounds.count) sound\(audioEngine.activeSounds.count == 1 ? "" : "s") playing"
+                            )
+                            .textCase(nil)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
                         }
                     }
                     .listStyle(.insetGrouped)
@@ -60,10 +62,26 @@ struct MixerView: View {
                         }
                     }
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button("Stop All") {
-                            audioEngine.stopAll()
+                        HStack(spacing: 16) {
+                            Button {
+                                if audioEngine.isAnyPlaying {
+                                    audioEngine.pauseAll()
+                                } else {
+                                    audioEngine.resumeAll()
+                                }
+                            } label: {
+                                Image(
+                                    systemName: audioEngine.isAnyPlaying
+                                        ? "pause.fill" : "play.fill")
+                            }
+
+                            Button {
+                                audioEngine.stopAll()
+                            } label: {
+                                Image(systemName: "stop.fill")
+                                    .foregroundColor(.red)
+                            }
                         }
-                        .foregroundColor(.red)
                     }
                 }
             }

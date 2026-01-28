@@ -8,6 +8,7 @@ struct ContentView: View {
     @Environment(AppearanceService.self) private var appearanceService
     @State private var selectedTab: Tab = .sounds
     @State private var showingSleepContentPlayer = false
+    @State private var showMixerSheet = false
 
     enum Tab: String, CaseIterable {
         case sounds = "Sounds"
@@ -108,11 +109,16 @@ struct ContentView: View {
                 }
 
                 // Sound mixer now playing bar
-                NowPlayingBarView()
+                NowPlayingBarView(showMixer: $showMixerSheet)
             }
-            .padding(.bottom, 49) // Tab bar height
+            .padding(.bottom, 49)  // Tab bar height
             .animation(.spring(response: 0.3), value: audioEngine.activeSounds.isEmpty)
             .animation(.spring(response: 0.3), value: sleepContentPlayerService.currentContent?.id)
+            .onChange(of: audioEngine.activeSounds.count) { oldCount, newCount in
+                if newCount == 0 && oldCount > 0 {
+                    showMixerSheet = false
+                }
+            }
 
             // Sleep content player sheet
             .sheet(isPresented: $showingSleepContentPlayer) {
@@ -135,7 +141,8 @@ struct ContentView: View {
             appearance.backgroundColor = .black
 
             // Dim unselected items for OLED
-            appearance.stackedLayoutAppearance.normal.iconColor = UIColor.gray.withAlphaComponent(0.6)
+            appearance.stackedLayoutAppearance.normal.iconColor = UIColor.gray.withAlphaComponent(
+                0.6)
             appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
                 .foregroundColor: UIColor.gray.withAlphaComponent(0.6)
             ]
