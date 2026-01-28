@@ -45,6 +45,7 @@
 		FB96EB91000000H5 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000H6 /* SleepTimerView.swift */; };
 		FB96EB91000000I1 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I2 /* FavoritesService.swift */; };
 		FB96EB91PAYWAL01 /* PaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PAYWAL02 /* PaywallService.swift */; };
+		FB96EB91PREMM001 /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PREMM002 /* PremiumManager.swift */; };
 		FB96EB91000000I3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I4 /* FavoritesView.swift */; };
 		FB96EB91000000J1 /* SavedMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J2 /* SavedMix.swift */; };
 		FB96EB91000000J3 /* SavedMixesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J4 /* SavedMixesService.swift */; };
@@ -132,6 +133,7 @@
 		FB96EB91000000T7 /* AlarmServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U7 /* AlarmServiceTests.swift */; };
 		FB96EB91000000T8 /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U8 /* AlarmTests.swift */; };
 		FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */; };
+		PREMTST001 /* PremiumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PREMTST002 /* PremiumManagerTests.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
 		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
 		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
@@ -142,6 +144,7 @@
 		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
+		FB96EB91PLOCK001 /* PremiumLockOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PLOCK002 /* PremiumLockOverlay.swift */; };
 		FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0002 /* ServiceContainer.swift */; };
 		FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0004 /* StartSleepMixIntent.swift */; };
 		FB96EB91SIRI0005 /* SavedMixEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0006 /* SavedMixEntity.swift */; };
@@ -274,6 +277,7 @@
 		FB96EB91000000H6 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerView.swift; sourceTree = "<group>"; };
 		FB96EB91000000I2 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		FB96EB91PAYWAL02 /* PaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallService.swift; sourceTree = "<group>"; };
+		FB96EB91PREMM002 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
 		FB96EB91000000I4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		FB96EB91000000J2 /* SavedMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMix.swift; sourceTree = "<group>"; };
 		FB96EB91000000J4 /* SavedMixesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesService.swift; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 		FB96EB91000000U7 /* AlarmServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U8 /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
 		FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSourceTests.swift; sourceTree = "<group>"; };
+		PREMTST002 /* PremiumManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManagerTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
@@ -372,6 +377,7 @@
 		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
+		FB96EB91PLOCK002 /* PremiumLockOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumLockOverlay.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0002 /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0004 /* StartSleepMixIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSleepMixIntent.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0006 /* SavedMixEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixEntity.swift; sourceTree = "<group>"; };
@@ -727,6 +733,7 @@
 				FB96EB91000000G2 /* NowPlayingBarView.swift */,
 				FB96EB91000000S8 /* OLEDBackgroundModifier.swift */,
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
+				FB96EB91PLOCK002 /* PremiumLockOverlay.swift */,
 				FB96EB91ASMR0002 /* ASMRInfoView.swift */,
 				FB96EB91VIZ00009 /* Visualization */,
 			);
@@ -767,6 +774,7 @@
 				FB96EB91000000H4 /* SleepTimerService.swift */,
 				FB96EB91000000I2 /* FavoritesService.swift */,
 				FB96EB91PAYWAL02 /* PaywallService.swift */,
+				FB96EB91PREMM002 /* PremiumManager.swift */,
 				FB96EB91000000J4 /* SavedMixesService.swift */,
 				FB96EB91000000K6 /* StoryProgressService.swift */,
 				FB96EB91000000L4 /* BinauralBeatEngine.swift */,
@@ -968,6 +976,7 @@
 				FB96EB91000000U8 /* AlarmTests.swift */,
 				FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */,
 				ONBTEST002 /* OnboardingServiceTests.swift */,
+				PREMTST002 /* PremiumManagerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1301,6 +1310,7 @@
 				FB96EB91000000H5 /* SleepTimerView.swift in Sources */,
 				FB96EB91000000I1 /* FavoritesService.swift in Sources */,
 				FB96EB91PAYWAL01 /* PaywallService.swift in Sources */,
+				FB96EB91PREMM001 /* PremiumManager.swift in Sources */,
 				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
 				FB96EB91000000J1 /* SavedMix.swift in Sources */,
 				FB96EB91000000J3 /* SavedMixesService.swift in Sources */,
@@ -1357,6 +1367,7 @@
 				FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */,
 				FB96EB91MOTION01 /* MotionService.swift in Sources */,
 				FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */,
+				FB96EB91PLOCK001 /* PremiumLockOverlay.swift in Sources */,
 				FB96EB91VIZ00001 /* VisualizationType.swift in Sources */,
 				FB96EB91VIZ00003 /* WaveLayer.swift in Sources */,
 				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,
@@ -1422,6 +1433,7 @@
 				FB96EB91000000T8 /* AlarmTests.swift in Sources */,
 				FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */,
 				ONBTEST001 /* OnboardingServiceTests.swift in Sources */,
+				PREMTST001 /* PremiumManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

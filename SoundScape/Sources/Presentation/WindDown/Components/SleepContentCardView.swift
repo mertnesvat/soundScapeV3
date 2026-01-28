@@ -4,7 +4,9 @@ import SwiftUI
 struct SleepContentCardView: View {
     let content: SleepContent
     let progress: Double
+    let isLocked: Bool
     let onTap: () -> Void
+    let onLockedTap: () -> Void
 
     @Environment(AppearanceService.self) private var appearanceService
     @State private var isPressed = false
@@ -68,6 +70,7 @@ struct SleepContentCardView: View {
             .overlay(
                 comingSoonOverlay
             )
+            .premiumLocked(isLocked: isLocked, onTap: onLockedTap)
         }
         .buttonStyle(ScaleButtonStyle())
     }
@@ -171,7 +174,9 @@ struct ScaleButtonStyle: ButtonStyle {
                 coverImageName: nil
             ),
             progress: 0.0,
-            onTap: {}
+            isLocked: false,
+            onTap: {},
+            onLockedTap: {}
         )
 
         SleepContentCardView(
@@ -186,7 +191,9 @@ struct ScaleButtonStyle: ButtonStyle {
                 coverImageName: nil
             ),
             progress: 0.45,
-            onTap: {}
+            isLocked: true,
+            onTap: {},
+            onLockedTap: {}
         )
     }
     .padding()
@@ -208,7 +215,9 @@ struct ScaleButtonStyle: ButtonStyle {
             coverImageName: nil
         ),
         progress: 0.0,
-        onTap: {}
+        isLocked: false,
+        onTap: {},
+        onLockedTap: {}
     )
     .padding()
     .preferredColorScheme(.dark)

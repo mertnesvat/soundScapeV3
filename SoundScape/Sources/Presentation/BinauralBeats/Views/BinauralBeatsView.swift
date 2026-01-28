@@ -67,6 +67,8 @@ struct HeadphoneNoticeView: View {
 
 struct BrainwaveStateSelectorView: View {
     @Environment(BinauralBeatEngine.self) private var beatEngine
+    @Environment(PremiumManager.self) private var premiumManager
+    @Environment(PaywallService.self) private var paywallService
 
     private let columns = [
         GridItem(.flexible()),
@@ -80,13 +82,23 @@ struct BrainwaveStateSelectorView: View {
 
             LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(BrainwaveState.allCases) { state in
+                    let isLocked = premiumManager.isPremiumRequired(for: .binauralBeat(state: state))
                     BrainwaveStateCard(
                         state: state,
-                        isSelected: beatEngine.brainwaveState == state
+                        isSelected: beatEngine.brainwaveState == state,
+                        isLocked: isLocked
                     ) {
-                        @Bindable var engine = beatEngine
-                        engine.brainwaveState = state
-                        beatEngine.updateSettings()
+                        if isLocked {
+                            paywallService.triggerPaywall(placement: "campaign_trigger") {
+                                @Bindable var engine = beatEngine
+                                engine.brainwaveState = state
+                                beatEngine.updateSettings()
+                            }
+                        } else {
+                            @Bindable var engine = beatEngine
+                            engine.brainwaveState = state
+                            beatEngine.updateSettings()
+                        }
                     }
                 }
             }
@@ -97,6 +109,7 @@ struct BrainwaveStateSelectorView: View {
 struct BrainwaveStateCard: View {
     let state: BrainwaveState
     let isSelected: Bool
+    let isLocked: Bool
     let action: () -> Void
 
     private var stateColor: Color {
@@ -113,9 +126,21 @@ struct BrainwaveStateCard: View {
     var body: some View {
         Button(action: action) {
             VStack(spacing: 8) {
-                Image(systemName: state.icon)
-                    .font(.title)
-                    .foregroundStyle(isSelected ? .white : stateColor)
+                ZStack {
+                    Image(systemName: state.icon)
+                        .font(.title)
+                        .foregroundStyle(isSelected ? .white : stateColor)
+
+                    // Lock icon overlay for premium states
+                    if isLocked {
+                        Image(systemName: "lock.fill")
+                            .font(.caption)
+                            .foregroundStyle(.white)
+                            .padding(4)
+                            .background(Circle().fill(.black.opacity(0.6)))
+                            .offset(x: 16, y: -12)
+                    }
+                }
 
                 VStack(spacing: 2) {
                     Text(state.rawValue)
@@ -140,6 +165,7 @@ struct BrainwaveStateCard: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(isSelected ? stateColor : .clear, lineWidth: 2)
             )
+            .opacity(isLocked ? 0.7 : 1.0)
         }
         .buttonStyle(.plain)
     }
@@ -297,7 +323,10 @@ struct BinauralPlayButton: View {
 // MARK: - Preview
 
 #Preview {
+    let paywallService = PaywallService()
     BinauralBeatsView()
         .environment(BinauralBeatEngine())
+        .environment(paywallService)
+        .environment(PremiumManager(paywallService: paywallService))
         .preferredColorScheme(.dark)
 }

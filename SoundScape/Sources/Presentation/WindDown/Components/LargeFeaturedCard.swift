@@ -4,7 +4,9 @@ import SwiftUI
 struct LargeFeaturedCard: View {
     let content: SleepContent
     let progress: Double
+    let isLocked: Bool
     let onTap: () -> Void
+    let onLockedTap: () -> Void
 
     @Environment(AppearanceService.self) private var appearanceService
 
@@ -49,6 +51,7 @@ struct LargeFeaturedCard: View {
             .overlay(
                 comingSoonOverlay
             )
+            .premiumLocked(isLocked: isLocked, onTap: onLockedTap)
         }
         .buttonStyle(ScaleButtonStyle())
         .padding(.horizontal, 16)
@@ -229,7 +232,9 @@ struct LargeFeaturedCard: View {
                 coverImageName: nil
             ),
             progress: 0.0,
-            onTap: {}
+            isLocked: false,
+            onTap: {},
+            onLockedTap: {}
         )
 
         LargeFeaturedCard(
@@ -244,7 +249,9 @@ struct LargeFeaturedCard: View {
                 coverImageName: nil
             ),
             progress: 0.35,
-            onTap: {}
+            isLocked: true,
+            onTap: {},
+            onLockedTap: {}
         )
     }
     .preferredColorScheme(.dark)
@@ -265,7 +272,9 @@ struct LargeFeaturedCard: View {
             coverImageName: nil
         ),
         progress: 0.0,
-        onTap: {}
+        isLocked: false,
+        onTap: {},
+        onLockedTap: {}
     )
     .preferredColorScheme(.dark)
     .background(Color(.systemBackground))
