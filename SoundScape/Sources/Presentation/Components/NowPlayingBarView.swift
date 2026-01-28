@@ -4,7 +4,7 @@ struct NowPlayingBarView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SleepTimerService.self) private var timerService
     @Environment(AppearanceService.self) private var appearanceService
-    @State private var showMixer = false
+    @Binding var showMixer: Bool
     @State private var showTimer = false
 
     private var barBackgroundColor: Color {
@@ -29,9 +29,11 @@ struct NowPlayingBarView: View {
                         WaveformIndicator(isAnimating: audioEngine.isAnyPlaying)
 
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("\(audioEngine.activeSounds.count) sound\(audioEngine.activeSounds.count == 1 ? "" : "s") playing")
-                                .font(.subheadline)
-                                .fontWeight(.medium)
+                            Text(
+                                "\(audioEngine.activeSounds.count) sound\(audioEngine.activeSounds.count == 1 ? "" : "s") playing"
+                            )
+                            .font(.subheadline)
+                            .fontWeight(.medium)
 
                             Text("Tap to mix")
                                 .font(.caption)
@@ -67,9 +69,12 @@ struct NowPlayingBarView: View {
                         audioEngine.resumeAll()
                     }
                 }) {
-                    Image(systemName: audioEngine.isAnyPlaying ? "pause.circle.fill" : "play.circle.fill")
-                        .font(.title)
-                        .foregroundColor(.purple)
+                    Image(
+                        systemName: audioEngine.isAnyPlaying
+                            ? "pause.circle.fill" : "play.circle.fill"
+                    )
+                    .font(.title)
+                    .foregroundColor(.purple)
                 }
             }
             .padding(.horizontal, 20)
@@ -102,10 +107,10 @@ struct WaveformIndicator: View {
                     .fill(Color.purple)
                     .frame(width: 3, height: isAnimating ? 20 : 8)
                     .animation(
-                        isAnimating ?
-                            .easeInOut(duration: 0.4)
-                            .repeatForever()
-                            .delay(Double(index) * 0.1) : .default,
+                        isAnimating
+                            ? .easeInOut(duration: 0.4)
+                                .repeatForever()
+                                .delay(Double(index) * 0.1) : .default,
                         value: isAnimating
                     )
             }
@@ -115,8 +120,9 @@ struct WaveformIndicator: View {
 }
 
 #Preview {
+    @Previewable @State var showMixer = false
     let audioEngine = AudioEngine()
-    return NowPlayingBarView()
+    return NowPlayingBarView(showMixer: $showMixer)
         .environment(audioEngine)
         .environment(SleepTimerService(audioEngine: audioEngine))
         .environment(AppearanceService())
