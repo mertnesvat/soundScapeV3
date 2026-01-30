@@ -4,7 +4,16 @@ import SuperwallKit
 @Observable
 @MainActor
 final class PaywallService {
-    private(set) var isPremium: Bool = false
+    #if DEBUG
+        /// Debug override for testing premium features - set to true to simulate premium
+        var debugPremiumOverride: Bool = true
+
+        var isPremium: Bool {
+            debugPremiumOverride
+        }
+    #else
+        private(set) var isPremium: Bool = false
+    #endif
     private(set) var isLoading: Bool = false
 
     private var analyticsService: AnalyticsService?
@@ -23,14 +32,18 @@ final class PaywallService {
     }
 
     func updateSubscriptionStatus() {
-        switch Superwall.shared.subscriptionStatus {
-        case .active:
-            isPremium = true
-        case .inactive, .unknown:
-            isPremium = false
-        @unknown default:
-            isPremium = false
-        }
+        #if DEBUG
+            // In debug mode, isPremium is controlled by debugPremiumOverride
+        #else
+            switch Superwall.shared.subscriptionStatus {
+            case .active:
+                isPremium = true
+            case .inactive, .unknown:
+                isPremium = false
+            @unknown default:
+                isPremium = false
+            }
+        #endif
     }
 
     func triggerPaywall(placement: String = "campaign_trigger", completion: @escaping () -> Void) {
@@ -45,14 +58,16 @@ final class PaywallService {
 
         handler.onError { [weak self] error in
             print("Paywall error: \(error.localizedDescription)")
-            self?.analyticsService?.logPaywallError(placement: placement, error: error.localizedDescription)
+            self?.analyticsService?.logPaywallError(
+                placement: placement, error: error.localizedDescription)
         }
 
         handler.onSkip { [weak self] _ in
             self?.updateSubscriptionStatus()
         }
 
-        Superwall.shared.register(event: placement, params: nil, handler: handler, feature: completion)
+        Superwall.shared.register(
+            event: placement, params: nil, handler: handler, feature: completion)
     }
 
     func restorePurchases() async {
@@ -74,6 +89,6 @@ final class PaywallService {
 
     func showPaywallFromSettings() {
         // Using campaign_trigger - make sure this event is configured in Superwall dashboard
-        triggerPaywall(placement: "campaign_trigger") { }
+        triggerPaywall(placement: "campaign_trigger") {}
     }
 }
