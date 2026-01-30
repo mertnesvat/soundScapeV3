@@ -90,6 +90,19 @@ struct AppearanceSettingsView: View {
                     }
                 }
                 .foregroundColor(.primary)
+
+                Button(action: {
+                    openURL(URL(string: "https://studionext.co.uk/soundscape-terms.html")!)
+                }) {
+                    HStack {
+                        Label("Terms of Use", systemImage: "doc.text.fill")
+                        Spacer()
+                        Image(systemName: "arrow.up.right")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .foregroundColor(.primary)
             } header: {
                 Text("About")
             } footer: {

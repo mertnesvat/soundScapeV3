@@ -208,6 +208,19 @@ struct SettingsView: View {
                     }
                     .foregroundColor(.primary)
 
+                    Button {
+                        openURL(URL(string: "https://studionext.co.uk/soundscape-terms.html")!)
+                    } label: {
+                        HStack {
+                            Label("Terms of Use", systemImage: "doc.text.fill")
+                            Spacer()
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .foregroundColor(.primary)
+
                     HStack {
                         Text("Version")
                         Spacer()

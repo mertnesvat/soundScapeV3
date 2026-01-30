@@ -93,11 +93,22 @@ struct OnboardingPaywallView: View {
                     .padding(.top, 8)
 
                     // Terms
-                    Text("Cancel anytime. No commitment required.")
+                    VStack(spacing: 8) {
+                        Text("Cancel anytime. No commitment required.")
+                            .font(.caption)
+                            .foregroundColor(.gray.opacity(0.7))
+
+                        HStack(spacing: 4) {
+                            Link("Terms of Use", destination: URL(string: "https://studionext.co.uk/soundscape-terms.html")!)
+                            Text("and")
+                                .foregroundColor(.gray.opacity(0.7))
+                            Link("Privacy Policy", destination: URL(string: "https://studionext.co.uk/soundscape-privacy.html")!)
+                        }
                         .font(.caption)
-                        .foregroundColor(.gray.opacity(0.7))
-                        .padding(.top, 16)
-                        .padding(.bottom, 32)
+                        .tint(.gray)
+                    }
+                    .padding(.top, 16)
+                    .padding(.bottom, 32)
                 }
                 .padding(.horizontal, 24)
             }
