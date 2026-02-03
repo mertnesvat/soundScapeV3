@@ -106,7 +106,7 @@ struct SettingsView: View {
                         }
                     } label: {
                         HStack {
-                            Label("Restore Purchases", systemImage: "arrow.triangle.2.circlepath")
+                            Label(LocalizedStringKey("Restore Purchases"), systemImage: "arrow.triangle.2.circlepath")
                             Spacer()
                             if isRestoring {
                                 ProgressView()
@@ -171,7 +171,7 @@ struct SettingsView: View {
                     Button(role: .destructive) {
                         showResetOnboardingAlert = true
                     } label: {
-                        Label("Reset Onboarding", systemImage: "arrow.counterclockwise")
+                        Label(LocalizedStringKey("Reset Onboarding"), systemImage: "arrow.counterclockwise")
                     }
                 } header: {
                     Text("Developer")
@@ -186,7 +186,7 @@ struct SettingsView: View {
                         openURL(URL(string: "https://studionext.co.uk/")!)
                     } label: {
                         HStack {
-                            Label("Website", systemImage: "globe")
+                            Label(LocalizedStringKey("Website"), systemImage: "globe")
                             Spacer()
                             Image(systemName: "arrow.up.right")
                                 .font(.caption)
@@ -199,7 +199,7 @@ struct SettingsView: View {
                         openURL(URL(string: "https://studionext.co.uk/soundscape-privacy.html")!)
                     } label: {
                         HStack {
-                            Label("Privacy Policy", systemImage: "hand.raised.fill")
+                            Label(LocalizedStringKey("Privacy Policy"), systemImage: "hand.raised.fill")
                             Spacer()
                             Image(systemName: "arrow.up.right")
                                 .font(.caption)
@@ -212,7 +212,7 @@ struct SettingsView: View {
                         openURL(URL(string: "https://studionext.co.uk/soundscape-terms.html")!)
                     } label: {
                         HStack {
-                            Label("Terms of Use", systemImage: "doc.text.fill")
+                            Label(LocalizedStringKey("Terms of Use"), systemImage: "doc.text.fill")
                             Spacer()
                             Image(systemName: "arrow.up.right")
                                 .font(.caption)
@@ -241,7 +241,7 @@ struct SettingsView: View {
                     .padding(.top, 8)
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle(LocalizedStringKey("Settings"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -254,7 +254,7 @@ struct SettingsView: View {
             .onAppear {
                 analyticsService.logSettingsOpened()
             }
-            .alert("Reset Onboarding?", isPresented: $showResetOnboardingAlert) {
+            .alert(LocalizedStringKey("Reset Onboarding?"), isPresented: $showResetOnboardingAlert) {
                 Button("Cancel", role: .cancel) { }
                 Button("Reset", role: .destructive) {
                     onboardingService.resetOnboarding()

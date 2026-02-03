@@ -56,7 +56,7 @@ struct SoundPickerView: View {
                 Text("Tap play to preview, tap row to select")
             }
         }
-        .navigationTitle("Alarm Sound")
+        .navigationTitle(LocalizedStringKey("Alarm Sound"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

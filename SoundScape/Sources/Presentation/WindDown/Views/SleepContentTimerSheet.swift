@@ -70,7 +70,7 @@ struct SleepContentTimerSheet: View {
             }
             .padding(.horizontal, 20)
             .padding(.top, 24)
-            .navigationTitle("Sleep Timer")
+            .navigationTitle(LocalizedStringKey("Sleep Timer"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -101,7 +101,7 @@ struct SleepContentTimerSheet: View {
                 onTimerCancelled()
                 dismiss()
             }) {
-                Label("Cancel Timer", systemImage: "xmark.circle")
+                Label(LocalizedStringKey("Cancel Timer"), systemImage: "xmark.circle")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 16)

@@ -8,6 +8,15 @@ enum AdaptiveMode: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    var localizedName: String {
+        switch self {
+        case .sleepCycle: return String(localized: "Sleep Cycle")
+        case .dayNight: return String(localized: "Day & Night")
+        case .weatherSync: return String(localized: "Weather Sync")
+        case .focusSession: return String(localized: "Focus Session")
+        }
+    }
+
     var icon: String {
         switch self {
         case .sleepCycle: return "moon.stars.fill"
@@ -23,6 +32,15 @@ enum AdaptiveMode: String, CaseIterable, Identifiable {
         case .dayNight: return "Adapts to time of day"
         case .weatherSync: return "Matches weather patterns"
         case .focusSession: return "Pomodoro-style work sessions"
+        }
+    }
+
+    var localizedDescription: String {
+        switch self {
+        case .sleepCycle: return String(localized: "Sounds evolve through sleep stages")
+        case .dayNight: return String(localized: "Adapts to time of day")
+        case .weatherSync: return String(localized: "Matches weather patterns")
+        case .focusSession: return String(localized: "Pomodoro-style work sessions")
         }
     }
 

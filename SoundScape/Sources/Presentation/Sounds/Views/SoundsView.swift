@@ -67,7 +67,7 @@ struct SoundsView: View {
                 }
             }
             .oledBackground()
-            .navigationTitle("Sounds")
+            .navigationTitle(LocalizedStringKey("Sounds"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack(spacing: 16) {
@@ -157,7 +157,7 @@ struct SoundsView: View {
             HStack {
                 Image(systemName: "heart.fill")
                     .foregroundColor(.red)
-                Text("Favorites")
+                Text(LocalizedStringKey("Favorites"))
                     .font(.headline)
                     .foregroundColor(.primary)
             }
@@ -208,7 +208,7 @@ struct SoundsView: View {
             if viewModel.selectedCategory == nil {
                 let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
                 if hasFavorites {
-                    Text("All Sounds")
+                    Text(LocalizedStringKey("All Sounds"))
                         .font(.headline)
                         .foregroundColor(.primary)
                         .padding(.horizontal, 16)

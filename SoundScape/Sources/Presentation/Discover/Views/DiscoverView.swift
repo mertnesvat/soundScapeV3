@@ -39,8 +39,8 @@ struct DiscoverView: View {
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("Discover")
-            .alert("Saved!", isPresented: $showingSavedAlert) {
+            .navigationTitle(LocalizedStringKey("Discover"))
+            .alert(LocalizedStringKey("Saved!"), isPresented: $showingSavedAlert) {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text("\"\(savedMixName)\" has been saved to My Mixes")
@@ -52,7 +52,7 @@ struct DiscoverView: View {
     private var allSections: some View {
         // Trending section
         MixSectionView(
-            title: "Trending Now",
+            title: String(localized: "Trending Now"),
             mixes: dataSource.mixes(for: .trending),
             onPlayMix: playMix,
             onSaveMix: saveMix
@@ -60,7 +60,7 @@ struct DiscoverView: View {
 
         // Popular section
         MixSectionView(
-            title: "All-Time Popular",
+            title: String(localized: "All-Time Popular"),
             mixes: dataSource.mixes(for: .popular),
             onPlayMix: playMix,
             onSaveMix: saveMix
@@ -68,7 +68,7 @@ struct DiscoverView: View {
 
         // Sleep section
         MixSectionView(
-            title: "For Sleep",
+            title: String(localized: "For Sleep"),
             mixes: dataSource.mixes(for: .sleep),
             onPlayMix: playMix,
             onSaveMix: saveMix
@@ -76,7 +76,7 @@ struct DiscoverView: View {
 
         // Focus section
         MixSectionView(
-            title: "For Focus",
+            title: String(localized: "For Focus"),
             mixes: dataSource.mixes(for: .focus),
             onPlayMix: playMix,
             onSaveMix: saveMix
@@ -84,7 +84,7 @@ struct DiscoverView: View {
 
         // Nature section
         MixSectionView(
-            title: "Nature Soundscapes",
+            title: String(localized: "Nature Soundscapes"),
             mixes: dataSource.mixes(for: .nature),
             onPlayMix: playMix,
             onSaveMix: saveMix
@@ -98,7 +98,7 @@ struct DiscoverView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Image(systemName: category.icon)
-                Text(category.rawValue)
+                Text(category.localizedName)
                     .fontWeight(.bold)
                 Spacer()
                 Text("\(mixes.count) mixes")

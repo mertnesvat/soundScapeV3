@@ -79,7 +79,7 @@ struct StoriesView: View {
                 }
                 .padding(.top, 8)
             }
-            .navigationTitle("Stories")
+            .navigationTitle(LocalizedStringKey("Stories"))
         }
     }
 }

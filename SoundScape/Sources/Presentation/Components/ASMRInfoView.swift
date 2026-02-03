@@ -24,7 +24,7 @@ struct ASMRInfoView: View {
                 .padding()
             }
             .background(Color(.systemBackground))
-            .navigationTitle("What is ASMR?")
+            .navigationTitle(LocalizedStringKey("What is ASMR?"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -50,11 +50,11 @@ struct ASMRInfoView: View {
                         .foregroundColor(asmrColor)
                 }
 
-                Text("ASMR")
+                Text(LocalizedStringKey("ASMR"))
                     .font(.title2)
                     .fontWeight(.bold)
 
-                Text("Autonomous Sensory Meridian Response")
+                Text(LocalizedStringKey("Autonomous Sensory Meridian Response"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -65,14 +65,14 @@ struct ASMRInfoView: View {
 
     private var descriptionSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("What is ASMR?")
+            Text(LocalizedStringKey("What is ASMR?"))
                 .font(.headline)
 
-            Text("ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches.")
+            Text(LocalizedStringKey("ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches."))
                 .font(.body)
                 .foregroundColor(.secondary)
 
-            Text("Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety.")
+            Text(LocalizedStringKey("Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety."))
                 .font(.body)
                 .foregroundColor(.secondary)
         }
@@ -80,38 +80,38 @@ struct ASMRInfoView: View {
 
     private var triggersSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Common Triggers")
+            Text(LocalizedStringKey("Common Triggers"))
                 .font(.headline)
 
             VStack(spacing: 8) {
                 TriggerRowView(
                     icon: "book.pages",
-                    title: "Page Turning",
-                    description: "The gentle rustling of book pages"
+                    title: String(localized: "Page Turning"),
+                    description: String(localized: "The gentle rustling of book pages")
                 )
 
                 TriggerRowView(
                     icon: "mouth",
-                    title: "Soft Whispers",
-                    description: "Gentle, quiet speaking tones"
+                    title: String(localized: "Soft Whispers"),
+                    description: String(localized: "Gentle, quiet speaking tones")
                 )
 
                 TriggerRowView(
                     icon: "hand.tap",
-                    title: "Gentle Tapping",
-                    description: "Fingernails on various surfaces"
+                    title: String(localized: "Gentle Tapping"),
+                    description: String(localized: "Fingernails on various surfaces")
                 )
 
                 TriggerRowView(
                     icon: "paintbrush",
-                    title: "Soft Brushing",
-                    description: "Brush strokes on microphone or surfaces"
+                    title: String(localized: "Soft Brushing"),
+                    description: String(localized: "Brush strokes on microphone or surfaces")
                 )
 
                 TriggerRowView(
                     icon: "doc.text",
-                    title: "Paper Crinkle",
-                    description: "Crinkling paper, fabric, or packaging"
+                    title: String(localized: "Paper Crinkle"),
+                    description: String(localized: "Crinkling paper, fabric, or packaging")
                 )
             }
         }
@@ -119,14 +119,14 @@ struct ASMRInfoView: View {
 
     private var tipsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Tips for Best Experience")
+            Text(LocalizedStringKey("Tips for Best Experience"))
                 .font(.headline)
 
             VStack(alignment: .leading, spacing: 8) {
-                tipItem("Use headphones for the full immersive experience")
-                tipItem("Start with low volume - ASMR works best when subtle")
-                tipItem("Try mixing ASMR with ambient sounds for a layered effect")
-                tipItem("Different triggers work for different people - experiment!")
+                tipItem(String(localized: "Use headphones for the full immersive experience"))
+                tipItem(String(localized: "Start with low volume - ASMR works best when subtle"))
+                tipItem(String(localized: "Try mixing ASMR with ambient sounds for a layered effect"))
+                tipItem(String(localized: "Different triggers work for different people - experiment!"))
             }
         }
     }

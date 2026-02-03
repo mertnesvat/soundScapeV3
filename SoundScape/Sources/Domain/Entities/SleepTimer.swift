@@ -5,6 +5,19 @@ struct SleepTimerPreset: Identifiable {
     let minutes: Int
     let label: String
 
+    var localizedLabel: String {
+        switch minutes {
+        case 5: return String(localized: "5 min")
+        case 15: return String(localized: "15 min")
+        case 30: return String(localized: "30 min")
+        case 45: return String(localized: "45 min")
+        case 60: return String(localized: "1 hour")
+        case 90: return String(localized: "1.5 hours")
+        case 120: return String(localized: "2 hours")
+        default: return label
+        }
+    }
+
     static let presets: [SleepTimerPreset] = [
         SleepTimerPreset(minutes: 5, label: "5 min"),
         SleepTimerPreset(minutes: 15, label: "15 min"),

@@ -46,7 +46,7 @@ struct FavoritesView: View {
             Group {
                 if favoriteSounds.isEmpty {
                     ContentUnavailableView(
-                        "No Favorites",
+                        String(localized: "No Favorites"),
                         systemImage: "heart.slash",
                         description: Text("Tap the heart on sounds to add favorites")
                     )
@@ -85,7 +85,7 @@ struct FavoritesView: View {
                     }
                 }
             }
-            .navigationTitle("Favorites")
+            .navigationTitle(LocalizedStringKey("Favorites"))
             .background(Color(.systemBackground))
         }
     }

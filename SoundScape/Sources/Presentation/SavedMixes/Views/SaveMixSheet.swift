@@ -14,7 +14,7 @@ struct SaveMixSheet: View {
                     Text("Give your mix a memorable name")
                 }
             }
-            .navigationTitle("Save Mix")
+            .navigationTitle(LocalizedStringKey("Save Mix"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

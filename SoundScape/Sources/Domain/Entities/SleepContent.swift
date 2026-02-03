@@ -59,6 +59,17 @@ enum SleepContentType: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    var localizedName: String {
+        switch self {
+        case .yogaNidra: return String(localized: "Yoga Nidra")
+        case .sleepStory: return String(localized: "Sleep Stories")
+        case .guidedMeditation: return String(localized: "Guided Meditation")
+        case .breathingExercise: return String(localized: "Breathing")
+        case .sleepHypnosis: return String(localized: "Sleep Hypnosis")
+        case .affirmations: return String(localized: "Affirmations")
+        }
+    }
+
     /// SF Symbol icon for this content type
     var icon: String {
         switch self {
@@ -110,6 +121,17 @@ enum SleepContentType: String, CaseIterable, Identifiable {
             return "Subconscious relaxation"
         case .affirmations:
             return "Positive sleep intentions"
+        }
+    }
+
+    var localizedTagline: String {
+        switch self {
+        case .yogaNidra: return String(localized: "Deep relaxation practice")
+        case .sleepStory: return String(localized: "Calming bedtime narratives")
+        case .guidedMeditation: return String(localized: "Mindful sleep preparation")
+        case .breathingExercise: return String(localized: "Relaxing breath patterns")
+        case .sleepHypnosis: return String(localized: "Subconscious relaxation")
+        case .affirmations: return String(localized: "Positive sleep intentions")
         }
     }
 

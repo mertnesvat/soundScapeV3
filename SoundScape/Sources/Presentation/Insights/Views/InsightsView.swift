@@ -62,7 +62,7 @@ struct InsightsView: View {
                 .padding()
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Insights")
+            .navigationTitle(LocalizedStringKey("Insights"))
         }
     }
 
@@ -70,20 +70,20 @@ struct InsightsView: View {
 
     private var basicStatsSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Your Sleep Journey")
+            Text(LocalizedStringKey("Your Sleep Journey"))
                 .font(.headline)
                 .foregroundColor(.primary)
 
             HStack(spacing: 16) {
                 basicStatCard(
-                    title: "Total Sessions",
+                    title: String(localized: "Total Sessions"),
                     value: "\(insightsService.totalSessions)",
                     icon: "moon.zzz.fill",
                     color: .indigo
                 )
 
                 basicStatCard(
-                    title: "This Week",
+                    title: String(localized: "This Week"),
                     value: "\(insightsService.weeklyData.count)",
                     icon: "calendar",
                     color: .purple
@@ -125,11 +125,11 @@ struct InsightsView: View {
                         .foregroundColor(.white)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Unlock Full Analytics")
+                        Text(LocalizedStringKey("Unlock Full Analytics"))
                             .font(.headline)
                             .foregroundColor(.white)
 
-                        Text("Charts, trends, recommendations & more")
+                        Text(LocalizedStringKey("Charts, trends, recommendations & more"))
                             .font(.caption)
                             .foregroundColor(.white.opacity(0.8))
                     }
@@ -157,28 +157,28 @@ struct InsightsView: View {
 
     private var lockedWeeklyChartSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            sectionHeader("Weekly Sleep Trends", icon: "chart.bar.fill")
+            sectionHeader(String(localized: "Weekly Sleep Trends"), icon: "chart.bar.fill")
             lockedPlaceholder(height: 180)
         }
     }
 
     private var lockedMetricsSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            sectionHeader("Sleep Metrics", icon: "heart.fill")
+            sectionHeader(String(localized: "Sleep Metrics"), icon: "heart.fill")
             lockedPlaceholder(height: 100)
         }
     }
 
     private var lockedTopSoundsSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            sectionHeader("Top Sounds", icon: "waveform")
+            sectionHeader(String(localized: "Top Sounds"), icon: "waveform")
             lockedPlaceholder(height: 120)
         }
     }
 
     private var lockedRecommendationsSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            sectionHeader("Personalized Tips", icon: "lightbulb.fill")
+            sectionHeader(String(localized: "Personalized Tips"), icon: "lightbulb.fill")
             lockedPlaceholder(height: 100)
         }
     }
@@ -205,7 +205,7 @@ struct InsightsView: View {
                     Image(systemName: "lock.fill")
                         .font(.title2)
                         .foregroundColor(.secondary)
-                    Text("Premium Feature")
+                    Text(LocalizedStringKey("Premium Feature"))
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
