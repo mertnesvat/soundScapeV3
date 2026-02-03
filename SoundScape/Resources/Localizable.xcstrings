@@ -21,6 +21,12 @@
             "state": "translated",
             "value": "Sons"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm Thanh"
+          }
         }
       }
     },
@@ -40,6 +46,12 @@
           }
         },
         "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural"
+          }
+        },
+        "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Binaural"
@@ -67,6 +79,12 @@
             "state": "translated",
             "value": "Favoritos"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yêu Thích"
+          }
         }
       }
     },
@@ -89,6 +107,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Relaxar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thư Giãn"
           }
         }
       }
@@ -113,6 +137,12 @@
             "state": "translated",
             "value": "Alarmes"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Báo Thức"
+          }
         }
       }
     },
@@ -135,6 +165,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Descobrir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khám Phá"
           }
         }
       }
@@ -159,6 +195,12 @@
             "state": "translated",
             "value": "Adaptativo"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thích Ứng"
+          }
         }
       }
     },
@@ -181,6 +223,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Estatísticas"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thống Kê"
           }
         }
       }
@@ -205,6 +253,12 @@
             "state": "translated",
             "value": "Todos os Sons"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tất Cả Âm Thanh"
+          }
         }
       }
     },
@@ -227,6 +281,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pular"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bỏ Qua"
           }
         }
       }
@@ -251,6 +311,12 @@
             "state": "translated",
             "value": "Um Sono Melhor\nComeça Esta Noite"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giấc Ngủ Ngon Hơn\nBắt Đầu Tối Nay"
+          }
         }
       }
     },
@@ -273,6 +339,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Leve 30 segundos para personalizar sua\nexperiência de sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dành 30 giây để cá nhân hóa\ntrải nghiệm giấc ngủ của bạn"
           }
         }
       }
@@ -297,6 +369,12 @@
             "state": "translated",
             "value": "Começar"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt Đầu"
+          }
         }
       }
     },
@@ -319,6 +397,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Qual é seu principal\nobjetivo de sono?"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mục tiêu giấc ngủ\nchính của bạn là gì?"
           }
         }
       }
@@ -343,6 +427,12 @@
             "state": "translated",
             "value": "Continuar"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếp Tục"
+          }
         }
       }
     },
@@ -366,6 +456,12 @@
             "state": "translated",
             "value": "O que te impede de\ndormir bem?"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Điều gì khiến bạn\nkhông ngủ ngon?"
+          }
         }
       }
     },
@@ -388,6 +484,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Selecione todas que se aplicam"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chọn tất cả những gì phù hợp"
           }
         }
       }
@@ -456,6 +558,12 @@
             "state": "translated",
             "value": "Entendemos\nsuas necessidades"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chúng tôi hiểu\nnhu cầu của bạn"
+          }
         }
       }
     },
@@ -490,6 +598,12 @@
             "state": "translated",
             "value": "Veja Como Podemos Ajudar"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem Cách Chúng Tôi Có Thể Giúp"
+          }
         }
       }
     },
@@ -512,6 +626,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pensamentos acelerados e ansiedade são perturbadores comuns do sono. A terapia sonora pode ajudar a acalmar sua mente e criar uma transição tranquila para o sono."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suy nghĩ lan man và lo âu là những yếu tố gây mất ngủ phổ biến. Liệu pháp âm thanh có thể giúp làm dịu tâm trí và tạo sự chuyển tiếp êm đềm vào giấc ngủ."
           }
         }
       }
@@ -536,6 +656,12 @@
             "state": "translated",
             "value": "O estresse afeta significativamente a qualidade do sono. Nossos sons ambientes podem ajudá-lo a descomprimir e se preparar para um sono reparador."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Căng thẳng ảnh hưởng đáng kể đến chất lượng giấc ngủ. Âm thanh môi trường của chúng tôi có thể giúp bạn giải tỏa và chuẩn bị cho giấc ngủ ngon."
+          }
         }
       }
     },
@@ -558,6 +684,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ruídos externos podem perturbar seus padrões de sono. Ruído branco e sons ambientes podem mascarar perturbações efetivamente."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng ồn bên ngoài có thể làm gián đoạn nhịp ngủ của bạn. Tiếng ồn trắng và âm thanh môi trường có thể che lấp hiệu quả các phiền nhiễu."
           }
         }
       }
@@ -582,6 +714,12 @@
             "state": "translated",
             "value": "Analisamos suas necessidades e criamos uma abordagem personalizada para ajudá-lo a alcançar um sono melhor."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chúng tôi đã phân tích nhu cầu của bạn và tạo ra phương pháp cá nhân hóa để giúp bạn có giấc ngủ tốt hơn."
+          }
         }
       }
     },
@@ -604,6 +742,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Noites sem dormir\nesgotam sua energia"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Những đêm mất ngủ\nlàm cạn kiệt năng lượng"
           }
         }
       }
@@ -628,6 +772,12 @@
             "state": "translated",
             "value": "Virar de um lado para o outro afeta todo o seu dia, deixando você exausto e sem foco."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trằn trọc cả đêm ảnh hưởng đến cả ngày của bạn, khiến bạn kiệt sức và mất tập trung."
+          }
         }
       }
     },
@@ -650,6 +800,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pensamentos acelerados\nte mantêm acordado"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suy nghĩ lan man\ngiữ bạn thức"
           }
         }
       }
@@ -674,6 +830,12 @@
             "state": "translated",
             "value": "Sua mente não se acalma, repassando o dia e se preocupando com o amanhã."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tâm trí bạn không thể yên, lặp lại những việc trong ngày và lo lắng về ngày mai."
+          }
         }
       }
     },
@@ -696,6 +858,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Você merece\ndescanso tranquilo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn xứng đáng\nđược nghỉ ngơi yên bình"
           }
         }
       }
@@ -720,6 +888,12 @@
             "state": "translated",
             "value": "Sono de qualidade está ao seu alcance. Deixe-nos ajudá-lo a encontrar seu caminho para noites melhores."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giấc ngủ chất lượng nằm trong tầm tay. Hãy để chúng tôi giúp bạn tìm con đường đến những đêm tốt đẹp hơn."
+          }
         }
       }
     },
@@ -742,6 +916,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Veja Como Ajudamos"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem Cách Chúng Tôi Giúp"
           }
         }
       }
@@ -766,6 +946,12 @@
             "state": "translated",
             "value": "Sua jornada para\num sono melhor"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hành trình của bạn đến\ngiấc ngủ tốt hơn"
+          }
         }
       }
     },
@@ -788,6 +974,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sons cientificamente projetados"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm thanh được thiết kế khoa học"
           }
         }
       }
@@ -812,6 +1004,12 @@
             "state": "translated",
             "value": "Criados para promover relaxamento e sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Được tạo ra để thúc đẩy thư giãn và giấc ngủ"
+          }
         }
       }
     },
@@ -834,6 +1032,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Personalizado para você"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cá nhân hóa cho bạn"
           }
         }
       }
@@ -858,6 +1062,12 @@
             "state": "translated",
             "value": "Recomendações baseadas nas suas necessidades"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đề xuất dựa trên nhu cầu của bạn"
+          }
         }
       }
     },
@@ -880,6 +1090,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Adormecer mais rápido"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngủ nhanh hơn"
           }
         }
       }
@@ -904,6 +1120,12 @@
             "state": "translated",
             "value": "A maioria dos usuários relata melhora em dias"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hầu hết người dùng báo cáo cải thiện trong vài ngày"
+          }
         }
       }
     },
@@ -927,6 +1149,12 @@
             "state": "translated",
             "value": "Acompanhe seu progresso"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theo dõi tiến trình của bạn"
+          }
         }
       }
     },
@@ -949,6 +1177,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Veja como seu sono melhora com o tempo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem giấc ngủ của bạn cải thiện như thế nào theo thời gian"
           }
         }
       }
@@ -984,6 +1218,12 @@
             "state": "translated",
             "value": "Amado por quem dorme em todos os lugares"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Được yêu thích bởi mọi người khắp nơi"
+          }
         }
       }
     },
@@ -1007,6 +1247,12 @@
             "state": "translated",
             "value": "Os sons de chuva são perfeitos para bloquear ruídos. Finalmente dormindo melhor!"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng mưa rất hoàn hảo để chặn tiếng ồn. Cuối cùng cũng ngủ ngon hơn!"
+          }
         }
       }
     },
@@ -1029,6 +1275,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Entusiasta do sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Người yêu giấc ngủ"
           }
         }
       }
@@ -1086,6 +1338,12 @@
             "state": "translated",
             "value": "Tudo que você precisa\npara dormir melhor"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mọi thứ bạn cần\nđể ngủ ngon hơn"
+          }
         }
       }
     },
@@ -1108,6 +1366,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "27+ Sons Premium"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "27+ Âm Thanh Cao Cấp"
           }
         }
       }
@@ -1132,6 +1396,12 @@
             "state": "translated",
             "value": "Natureza, chuva, ruído branco e música relaxante"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiên nhiên, mưa, tiếng ồn trắng và nhạc thư giãn"
+          }
         }
       }
     },
@@ -1154,6 +1424,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mixagem de Sons Personalizada"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trộn Âm Thanh Tùy Chỉnh"
           }
         }
       }
@@ -1178,6 +1454,12 @@
             "state": "translated",
             "value": "Misture vários sons para criar sua mixagem perfeita"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết hợp nhiều âm thanh để tạo bản phối hoàn hảo"
+          }
         }
       }
     },
@@ -1200,6 +1482,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Timer de Sono Inteligente"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hẹn Giờ Ngủ Thông Minh"
           }
         }
       }
@@ -1224,6 +1512,12 @@
             "state": "translated",
             "value": "Desvanecimento suave enquanto você adormece"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm thanh mờ dần nhẹ nhàng khi bạn chìm vào giấc ngủ"
+          }
         }
       }
     },
@@ -1246,6 +1540,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Batidas Binaurais"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhịp Binaural"
           }
         }
       }
@@ -1270,6 +1570,12 @@
             "state": "translated",
             "value": "Sincronização de ondas cerebrais para relaxamento profundo"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đồng bộ sóng não để thư giãn sâu"
+          }
         }
       }
     },
@@ -1292,6 +1598,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Estatísticas de Sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thống Kê Giấc Ngủ"
           }
         }
       }
@@ -1316,6 +1628,12 @@
             "state": "translated",
             "value": "Acompanhe seus padrões e veja melhorias"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theo dõi các mẫu và xem sự cải thiện"
+          }
         }
       }
     },
@@ -1338,6 +1656,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ver Seu Plano"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem Kế Hoạch Của Bạn"
           }
         }
       }
@@ -1362,6 +1686,12 @@
             "state": "translated",
             "value": "Seu Plano Pessoal\nde Sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kế Hoạch Giấc Ngủ\nCá Nhân Của Bạn"
+          }
         }
       }
     },
@@ -1384,6 +1714,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Baseado nos seus objetivos e desafios"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dựa trên mục tiêu và thách thức của bạn"
           }
         }
       }
@@ -1408,6 +1744,12 @@
             "state": "translated",
             "value": "Recomendado para você"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Được đề xuất cho bạn"
+          }
         }
       }
     },
@@ -1430,6 +1772,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sua rotina de sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thói quen ngủ của bạn"
           }
         }
       }
@@ -1454,6 +1802,12 @@
             "state": "translated",
             "value": "Comece 30 minutos antes de dormir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt đầu 30 phút trước khi ngủ"
+          }
         }
       }
     },
@@ -1476,6 +1830,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dê tempo para sua mente relaxar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cho tâm trí bạn thời gian để thư giãn"
           }
         }
       }
@@ -1500,6 +1860,12 @@
             "state": "translated",
             "value": "Use o timer de sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sử dụng hẹn giờ ngủ"
+          }
         }
       }
     },
@@ -1522,6 +1888,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Os sons desvanecem enquanto você adormece"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm thanh mờ dần khi bạn chìm vào giấc ngủ"
           }
         }
       }
@@ -1546,6 +1918,12 @@
             "state": "translated",
             "value": "Veja melhorias nas Estatísticas"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem sự cải thiện trong Thống Kê"
+          }
         }
       }
     },
@@ -1568,6 +1946,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Começar Minha Jornada"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt Đầu Hành Trình"
           }
         }
       }
@@ -1790,6 +2174,12 @@
             "state": "translated",
             "value": "Termos de Uso"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Điều Khoản Sử Dụng"
+          }
         }
       }
     },
@@ -1824,6 +2214,12 @@
             "state": "translated",
             "value": "Política de Privacidade"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chính Sách Bảo Mật"
+          }
         }
       }
     },
@@ -1846,6 +2242,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Configurações"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cài Đặt"
           }
         }
       }
@@ -1881,6 +2283,12 @@
             "state": "translated",
             "value": "PRETO INTENSO"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ĐEN TUYỆT ĐỐI"
+          }
         }
       }
     },
@@ -1904,6 +2312,12 @@
             "state": "translated",
             "value": "Preto verdadeiro para telas OLED"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đen thực sự cho màn hình OLED"
+          }
         }
       }
     },
@@ -1926,6 +2340,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fundos pretos puros economizam bateria em telas OLED e reduzem a fadiga ocular à noite."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nền đen thuần tiết kiệm pin trên màn hình OLED và giảm mỏi mắt vào ban đêm."
           }
         }
       }
@@ -1961,6 +2381,12 @@
             "state": "translated",
             "value": "Premium Ativo"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cao Cấp Đang Hoạt Động"
+          }
         }
       }
     },
@@ -1984,6 +2410,12 @@
             "state": "translated",
             "value": "Atualizar para Premium"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nâng Cấp Lên Cao Cấp"
+          }
         }
       }
     },
@@ -2006,6 +2438,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Restaurar Compras"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khôi Phục Mua Hàng"
           }
         }
       }
@@ -2041,6 +2479,12 @@
             "state": "translated",
             "value": "Parceiro de Sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn Ngủ"
+          }
         }
       }
     },
@@ -2063,6 +2507,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Em Breve"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sắp Ra Mắt"
           }
         }
       }
@@ -2087,6 +2537,12 @@
             "state": "translated",
             "value": "Toque para saber mais"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạm để tìm hiểu thêm"
+          }
         }
       }
     },
@@ -2110,6 +2566,12 @@
             "state": "translated",
             "value": "Parceiro de Sono em breve! Conecte-se com um amigo para motivarem-se mutuamente com sequências de sono. Fique ligado para atualizações."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn Ngủ sắp ra mắt! Kết đôi với bạn bè để động viên nhau với chuỗi ngủ. Hãy theo dõi để cập nhật."
+          }
         }
       }
     },
@@ -2132,6 +2594,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Conecte-se com um amigo para motivarem-se mutuamente com sequências de sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết đôi với bạn bè để động viên nhau với chuỗi ngủ"
           }
         }
       }
@@ -2167,6 +2635,12 @@
             "state": "translated",
             "value": "Redefinir Introdução"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt Lại Hướng Dẫn"
+          }
         }
       }
     },
@@ -2189,6 +2663,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Redefina a introdução para testar o fluxo novamente"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt lại hướng dẫn để thử lại quy trình"
           }
         }
       }
@@ -2224,6 +2704,12 @@
             "state": "translated",
             "value": "Site"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trang Web"
+          }
         }
       }
     },
@@ -2246,6 +2732,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Versão"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên Bản"
           }
         }
       }
@@ -2270,6 +2762,12 @@
             "state": "translated",
             "value": "Feito com ♥ por Studio Next"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Được tạo với ♥ bởi Studio Next"
+          }
         }
       }
     },
@@ -2292,6 +2790,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pronto"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xong"
           }
         }
       }
@@ -2316,6 +2820,12 @@
             "state": "translated",
             "value": "Redefinir Introdução?"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt Lại Hướng Dẫn?"
+          }
         }
       }
     },
@@ -2338,6 +2848,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancelar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hủy"
           }
         }
       }
@@ -2362,6 +2878,12 @@
             "state": "translated",
             "value": "Redefinir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt Lại"
+          }
         }
       }
     },
@@ -2384,6 +2906,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Isso redefinirá seu progresso de introdução e mostrará o fluxo de introdução novamente no próximo lançamento do app."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Điều này sẽ đặt lại tiến trình hướng dẫn và hiển thị lại quy trình hướng dẫn khi khởi động app lần sau."
           }
         }
       }
@@ -2408,6 +2936,12 @@
             "state": "translated",
             "value": "Mixer"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ Trộn"
+          }
         }
       }
     },
@@ -2431,6 +2965,12 @@
             "state": "translated",
             "value": "Nenhum Som Tocando"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không Có Âm Thanh Đang Phát"
+          }
         }
       }
     },
@@ -2453,6 +2993,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comece a tocar sons da biblioteca"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt đầu phát âm thanh từ thư viện"
           }
         }
       }
@@ -2500,6 +3046,12 @@
             "state": "translated",
             "value": "Salvar Mix"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lưu Bản Phối"
+          }
         }
       }
     },
@@ -2522,6 +3074,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Timer de Sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hẹn Giờ Ngủ"
           }
         }
       }
@@ -2546,6 +3104,12 @@
             "state": "translated",
             "value": "Desvanecendo..."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đang mờ dần..."
+          }
         }
       }
     },
@@ -2568,6 +3132,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancelar Timer"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hủy Hẹn Giờ"
           }
         }
       }
@@ -2592,6 +3162,12 @@
             "state": "translated",
             "value": "Definir Timer de Sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt Hẹn Giờ Ngủ"
+          }
         }
       }
     },
@@ -2614,6 +3190,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "O áudio vai desvanecer gradualmente durante os últimos 30 segundos"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm thanh sẽ mờ dần trong 30 giây cuối"
           }
         }
       }
@@ -2638,6 +3220,12 @@
             "state": "translated",
             "value": "Mixes Salvos"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bản Phối Đã Lưu"
+          }
         }
       }
     },
@@ -2660,6 +3248,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nenhum Mix Salvo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không Có Bản Phối Đã Lưu"
           }
         }
       }
@@ -2695,6 +3289,12 @@
             "state": "translated",
             "value": "Nome do mix"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tên bản phối"
+          }
         }
       }
     },
@@ -2717,6 +3317,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dê ao seu mix um nome memorável"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt cho bản phối một cái tên đáng nhớ"
           }
         }
       }
@@ -2741,6 +3347,12 @@
             "state": "translated",
             "value": "Salvar"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lưu"
+          }
         }
       }
     },
@@ -2763,6 +3375,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sem Favoritos"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không Có Yêu Thích"
           }
         }
       }
@@ -2787,6 +3405,12 @@
             "state": "translated",
             "value": "Toque no coração nos sons para adicionar favoritos"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạm vào trái tim trên âm thanh để thêm yêu thích"
+          }
         }
       }
     },
@@ -2809,6 +3433,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fones de Ouvido Recomendados"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khuyến Nghị Dùng Tai Nghe"
           }
         }
       }
@@ -2833,6 +3463,12 @@
             "state": "translated",
             "value": "Batidas binaurais requerem fones de ouvido estéreo para funcionar efetivamente."
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhịp binaural cần tai nghe stereo để hoạt động hiệu quả."
+          }
         }
       }
     },
@@ -2856,6 +3492,12 @@
             "state": "translated",
             "value": "Estado de Ondas Cerebrais"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trạng Thái Sóng Não"
+          }
         }
       }
     },
@@ -2875,6 +3517,12 @@
           }
         },
         "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delta"
+          }
+        },
+        "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Delta"
@@ -2913,6 +3561,12 @@
             "state": "translated",
             "value": "Theta"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theta"
+          }
         }
       }
     },
@@ -2936,6 +3590,12 @@
             "state": "translated",
             "value": "Meditação"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiền định"
+          }
         }
       }
     },
@@ -2958,6 +3618,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Alfa"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alpha"
           }
         }
       }
@@ -2993,6 +3659,12 @@
             "state": "translated",
             "value": "Beta"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
         }
       }
     },
@@ -3015,6 +3687,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Foco"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tập Trung"
           }
         }
       }
@@ -3061,6 +3739,12 @@
             "state": "translated",
             "value": "Tipo de Tom"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loại Âm"
+          }
         }
       }
     },
@@ -3083,6 +3767,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Isocrônico"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isochronic"
           }
         }
       }
@@ -3129,6 +3819,12 @@
             "state": "translated",
             "value": "Frequência Base"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tần Số Cơ Bản"
+          }
         }
       }
     },
@@ -3151,6 +3847,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Frequências mais altas produzem tons mais brilhantes"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tần số cao hơn tạo ra âm sáng hơn"
           }
         }
       }
@@ -3175,6 +3877,12 @@
             "state": "translated",
             "value": "Volume"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm Lượng"
+          }
         }
       }
     },
@@ -3197,6 +3905,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Parar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dừng"
           }
         }
       }
@@ -3221,6 +3935,12 @@
             "state": "translated",
             "value": "Reproduzir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phát"
+          }
         }
       }
     },
@@ -3243,6 +3963,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sem Alarmes"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không Có Báo Thức"
           }
         }
       }
@@ -3267,6 +3993,12 @@
             "state": "translated",
             "value": "Toque + para criar seu primeiro alarme"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạm + để tạo báo thức đầu tiên"
+          }
         }
       }
     },
@@ -3289,6 +4021,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Adicionar Alarme"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thêm Báo Thức"
           }
         }
       }
@@ -3313,6 +4051,12 @@
             "state": "translated",
             "value": "Editar Alarme"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sửa Báo Thức"
+          }
         }
       }
     },
@@ -3335,6 +4079,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hora"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thời Gian"
           }
         }
       }
@@ -3359,6 +4109,12 @@
             "state": "translated",
             "value": "Etiqueta"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhãn"
+          }
         }
       }
     },
@@ -3381,6 +4137,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Repetir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lặp Lại"
           }
         }
       }
@@ -3405,6 +4167,12 @@
             "state": "translated",
             "value": "O alarme tocará uma vez"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Báo thức sẽ kêu một lần"
+          }
         }
       }
     },
@@ -3427,6 +4195,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todos os dias"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mỗi ngày"
           }
         }
       }
@@ -3451,6 +4225,12 @@
             "state": "translated",
             "value": "Apenas fins de semana"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chỉ cuối tuần"
+          }
         }
       }
     },
@@ -3473,6 +4253,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apenas dias úteis"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chỉ ngày trong tuần"
           }
         }
       }
@@ -3497,6 +4283,12 @@
             "state": "translated",
             "value": "Som"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm Thanh"
+          }
         }
       }
     },
@@ -3519,6 +4311,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Som do Alarme"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm Thanh Báo Thức"
           }
         }
       }
@@ -3543,6 +4341,12 @@
             "state": "translated",
             "value": "Acordar Gradualmente"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thức Dậy Từ Từ"
+          }
         }
       }
     },
@@ -3565,6 +4369,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aumento de Volume"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tăng Âm Lượng"
           }
         }
       }
@@ -3600,6 +4410,12 @@
             "state": "translated",
             "value": "Duração da Soneca"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thời Gian Báo Lại"
+          }
         }
       }
     },
@@ -3623,6 +4439,12 @@
             "state": "translated",
             "value": "Soneca"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Báo Lại"
+          }
         }
       }
     },
@@ -3645,6 +4467,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Excluir Alarme"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xóa Báo Thức"
           }
         }
       }
@@ -3691,6 +4519,12 @@
             "state": "translated",
             "value": "Pronto para Dormir?"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sẵn Sàng Ngủ?"
+          }
         }
       }
     },
@@ -3713,6 +4547,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Boa Noite"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chào Buổi Tối"
           }
         }
       }
@@ -3737,6 +4577,12 @@
             "state": "translated",
             "value": "Boa Tarde"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chào Buổi Chiều"
+          }
         }
       }
     },
@@ -3759,6 +4605,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bom Dia"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chào Buổi Sáng"
           }
         }
       }
@@ -3783,6 +4635,12 @@
             "state": "translated",
             "value": "Vamos ajudá-lo a adormecer tranquilamente"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hãy để chúng tôi giúp bạn chìm vào giấc ngủ yên bình"
+          }
         }
       }
     },
@@ -3805,6 +4663,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Prepare-se para um sono reparador"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chuẩn bị cho giấc ngủ ngon"
           }
         }
       }
@@ -3829,6 +4693,12 @@
             "state": "translated",
             "value": "Tire um momento para relaxar"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dành một chút thời gian để thư giãn"
+          }
         }
       }
     },
@@ -3851,6 +4721,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comece seu dia com intenção"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt đầu ngày mới với mục đích"
           }
         }
       }
@@ -3875,6 +4751,12 @@
             "state": "translated",
             "value": "Destaque Esta Noite"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nổi Bật Tối Nay"
+          }
         }
       }
     },
@@ -3898,6 +4780,12 @@
             "state": "translated",
             "value": "Continuar Ouvindo"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếp Tục Nghe"
+          }
         }
       }
     },
@@ -3917,6 +4805,12 @@
           }
         },
         "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yoga Nidra"
+          }
+        },
+        "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "Yoga Nidra"
@@ -3944,6 +4838,12 @@
             "state": "translated",
             "value": "Histórias para Dormir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Truyện Ngủ"
+          }
         }
       }
     },
@@ -3966,6 +4866,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Meditações"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiền"
           }
         }
       }
@@ -3990,6 +4896,12 @@
             "state": "translated",
             "value": "Respiração"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hít Thở"
+          }
         }
       }
     },
@@ -4012,6 +4924,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hipnose"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thôi Miên"
           }
         }
       }
@@ -4036,6 +4954,12 @@
             "state": "translated",
             "value": "Afirmações"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khẳng Định"
+          }
         }
       }
     },
@@ -4058,6 +4982,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Prática de relaxamento profundo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thực hành thư giãn sâu"
           }
         }
       }
@@ -4082,6 +5012,12 @@
             "state": "translated",
             "value": "Contos relaxantes para dormir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Truyện ru ngủ êm dịu"
+          }
         }
       }
     },
@@ -4104,6 +5040,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Meditação guiada para dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiền ngủ có hướng dẫn"
           }
         }
       }
@@ -4128,6 +5070,12 @@
             "state": "translated",
             "value": "Exercícios de respiração calmantes"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bài tập thở làm dịu"
+          }
         }
       }
     },
@@ -4150,6 +5098,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hipnose suave para dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thôi miên ngủ nhẹ nhàng"
           }
         }
       }
@@ -4174,6 +5128,12 @@
             "state": "translated",
             "value": "Afirmações positivas para dormir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khẳng định tích cực cho giấc ngủ"
+          }
         }
       }
     },
@@ -4196,6 +5156,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ver Tudo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xem Tất Cả"
           }
         }
       }
@@ -4220,6 +5186,12 @@
             "state": "translated",
             "value": "Salvo!"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã Lưu!"
+          }
         }
       }
     },
@@ -4239,6 +5211,12 @@
           }
         },
         "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
@@ -4277,6 +5255,12 @@
             "state": "translated",
             "value": "Em Alta Agora"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xu Hướng Hiện Tại"
+          }
         }
       }
     },
@@ -4299,6 +5283,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sempre Popular"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phổ Biến Mọi Thời Đại"
           }
         }
       }
@@ -4323,6 +5313,12 @@
             "state": "translated",
             "value": "Para Dormir"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Để Ngủ"
+          }
         }
       }
     },
@@ -4346,6 +5342,12 @@
             "state": "translated",
             "value": "Para Focar"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Để Tập Trung"
+          }
         }
       }
     },
@@ -4368,6 +5370,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Paisagens Sonoras da Natureza"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phong Cảnh Âm Thanh Thiên Nhiên"
           }
         }
       }
@@ -4403,6 +5411,12 @@
             "state": "translated",
             "value": "Escolha um Modo Adaptativo"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chọn Chế Độ Thích Ứng"
+          }
         }
       }
     },
@@ -4426,6 +5440,12 @@
             "state": "translated",
             "value": "Paisagens Sonoras Adaptativas"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phong Cảnh Âm Thanh Thích Ứng"
+          }
         }
       }
     },
@@ -4448,6 +5468,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ambientes sonoros conscientes do contexto que se adaptam às suas atividades"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Môi trường âm thanh nhận biết ngữ cảnh thích ứng với hoạt động của bạn"
           }
         }
       }
@@ -4515,6 +5541,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Desbloquear Modo Adaptativo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mở Khóa Chế Độ Thích Ứng"
           }
         }
       }
@@ -4649,6 +5681,12 @@
             "state": "translated",
             "value": "Sua Jornada de Sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hành Trình Giấc Ngủ Của Bạn"
+          }
         }
       }
     },
@@ -4671,6 +5709,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sessões Totais"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tổng Số Phiên"
           }
         }
       }
@@ -4695,6 +5739,12 @@
             "state": "translated",
             "value": "Esta Semana"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuần Này"
+          }
         }
       }
     },
@@ -4717,6 +5767,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Desbloquear Análises Completas"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mở Khóa Phân Tích Đầy Đủ"
           }
         }
       }
@@ -4741,6 +5797,12 @@
             "state": "translated",
             "value": "Gráficos, tendências, recomendações e mais"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biểu đồ, xu hướng, đề xuất và hơn thế nữa"
+          }
         }
       }
     },
@@ -4763,6 +5825,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tendências de Sono Semanais"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xu Hướng Giấc Ngủ Hàng Tuần"
           }
         }
       }
@@ -4787,6 +5855,12 @@
             "state": "translated",
             "value": "Métricas de Sono"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Số Liệu Giấc Ngủ"
+          }
         }
       }
     },
@@ -4809,6 +5883,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sons Principais"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm Thanh Hàng Đầu"
           }
         }
       }
@@ -4833,6 +5913,12 @@
             "state": "translated",
             "value": "Dicas Personalizadas"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mẹo Cá Nhân Hóa"
+          }
         }
       }
     },
@@ -4856,6 +5942,12 @@
             "state": "translated",
             "value": "Recurso Premium"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tính Năng Cao Cấp"
+          }
         }
       }
     },
@@ -4878,6 +5970,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Toque para mixar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạm để trộn"
           }
         }
       }
@@ -4909,6 +6007,12 @@
           }
         },
         "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR"
+          }
+        },
+        "vi": {
           "stringUnit": {
             "state": "translated",
             "value": "ASMR"
@@ -4980,6 +6084,12 @@
             "state": "translated",
             "value": "Virando Páginas"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lật Trang"
+          }
         }
       }
     },
@@ -5035,6 +6145,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Batidas Suaves"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gõ Nhẹ"
           }
         }
       }
@@ -5169,6 +6285,12 @@
             "state": "translated",
             "value": "Dormir por mais tempo"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngủ lâu hơn"
+          }
         }
       }
     },
@@ -5191,6 +6313,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Acordar renovado"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thức dậy tươi mới"
           }
         }
       }
@@ -5215,6 +6343,12 @@
             "state": "translated",
             "value": "Relaxamento e alívio do estresse"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thư giãn và giảm căng thẳng"
+          }
         }
       }
     },
@@ -5237,6 +6371,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Foco e produtividade"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tập trung và năng suất"
           }
         }
       }
@@ -5261,6 +6401,12 @@
             "state": "translated",
             "value": "Meditação e atenção plena"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiền định và chánh niệm"
+          }
         }
       }
     },
@@ -5283,6 +6429,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pensamentos acelerados"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suy nghĩ lan man"
           }
         }
       }
@@ -5307,6 +6459,12 @@
             "state": "translated",
             "value": "Ansiedade e preocupação"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo âu và lo lắng"
+          }
         }
       }
     },
@@ -5329,6 +6487,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Perturbações de ruído"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng ồn gây phiền"
           }
         }
       }
@@ -5353,6 +6517,12 @@
             "state": "translated",
             "value": "Estresse do trabalho/vida"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Căng thẳng từ công việc/cuộc sống"
+          }
         }
       }
     },
@@ -5376,6 +6546,12 @@
             "state": "translated",
             "value": "Horário irregular"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lịch trình không đều"
+          }
         }
       }
     },
@@ -5398,6 +6574,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tempo de tela antes de dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sử dụng màn hình trước khi ngủ"
           }
         }
       }
