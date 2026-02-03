@@ -7518,6 +7518,30 @@
             "state": "translated",
             "value": "What is ASMR?"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué es ASMR?"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que é ASMR?"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR là gì?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR คืออะไร?"
+          }
         }
       }
     },
@@ -7564,6 +7588,30 @@
             "state": "translated",
             "value": "Autonomous Sensory Meridian Response"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respuesta Sensorial Meridiana Autónoma"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resposta Sensorial Meridiana Autônoma"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phản Ứng Cực Khoái Cảm Giác Tự Động"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การตอบสนองทางประสาทสัมผัสอัตโนมัติ"
+          }
         }
       }
     },
@@ -7574,6 +7622,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR es una sensación calmante y placentera a menudo descrita como \"cosquilleos\" que típicamente comienza en el cuero cabelludo y baja por la nuca y la columna. Se activa por sonidos específicos, visuales o toques suaves."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR é uma sensação calmante e prazerosa frequentemente descrita como \"formigamentos\" que tipicamente começa no couro cabeludo e desce pela nuca e coluna. É ativada por sons específicos, visuais ou toques suaves."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR là một cảm giác êm dịu, dễ chịu thường được mô tả như \"cảm giác ngứa râm ran\" thường bắt đầu từ da đầu và lan xuống gáy và cột sống. Nó được kích hoạt bởi các âm thanh cụ thể, hình ảnh hoặc sự chạm nhẹ."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR เป็นความรู้สึกผ่อนคลายและเป็นสุขที่มักอธิบายว่าเป็น \"ความรู้สึกซ่าๆ\" ซึ่งโดยทั่วไปเริ่มที่หนังศีรษะและเคลื่อนลงไปที่หลังคอและกระดูกสันหลัง มันถูกกระตุ้นโดยเสียง ภาพ หรือการสัมผัสเบาๆ เฉพาะ"
           }
         }
       }
@@ -7586,6 +7658,30 @@
             "state": "translated",
             "value": "Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muchas personas encuentran que el ASMR es útil para la relajación, conciliar el sueño o reducir el estrés y la ansiedad."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muitas pessoas acham o ASMR útil para relaxamento, adormecer ou reduzir estresse e ansiedade."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhiều người thấy ASMR hữu ích cho việc thư giãn, đi vào giấc ngủ hoặc giảm căng thẳng và lo âu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หลายคนพบว่า ASMR มีประโยชน์ในการผ่อนคลาย การเข้านอน หรือลดความเครียดและความวิตกกังวล"
+          }
         }
       }
     },
@@ -7596,6 +7692,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Common Triggers"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disparadores Comunes"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gatilhos Comuns"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Các Kích Thích Phổ Biến"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัวกระตุ้นทั่วไป"
           }
         }
       }
@@ -7643,6 +7763,30 @@
             "state": "translated",
             "value": "The gentle rustling of book pages"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El suave susurro de las páginas del libro"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O suave farfalhar das páginas do livro"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng xào xạc nhẹ của trang sách"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียงกรอบแกรบเบาๆ ของหน้าหนังสือ"
+          }
         }
       }
     },
@@ -7654,6 +7798,30 @@
             "state": "translated",
             "value": "Soft Whispers"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Susurros Suaves"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sussurros Suaves"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thì Thầm Nhẹ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กระซิบเบาๆ"
+          }
         }
       }
     },
@@ -7664,6 +7832,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Gentle, quiet speaking tones"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonos de voz suaves y silenciosos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tons de fala suaves e silenciosos"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giọng nói nhẹ nhàng, yên tĩnh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำเสียงพูดเบาๆ เงียบๆ"
           }
         }
       }
@@ -7711,6 +7903,30 @@
             "state": "translated",
             "value": "Fingernails on various surfaces"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uñas sobre varias superficies"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unhas em várias superfícies"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Móng tay trên các bề mặt khác nhau"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เล็บบนพื้นผิวต่างๆ"
+          }
         }
       }
     },
@@ -7721,6 +7937,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Soft Brushing"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cepillado Suave"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escovação Suave"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chải Nhẹ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แปรงเบาๆ"
           }
         }
       }
@@ -7733,6 +7973,30 @@
             "state": "translated",
             "value": "Brush strokes on microphone or surfaces"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinceladas sobre micrófono o superficies"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinceladas no microfone ou superfícies"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nét cọ trên micro hoặc bề mặt"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลากแปรงบนไมโครโฟนหรือพื้นผิว"
+          }
         }
       }
     },
@@ -7743,6 +8007,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Paper Crinkle"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrugar Papel"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amassar Papel"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng Giấy Xào Xạc"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียงกระดาษยับ"
           }
         }
       }
@@ -7755,6 +8043,30 @@
             "state": "translated",
             "value": "Crinkling paper, fabric, or packaging"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrugar papel, tela o empaques"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amassar papel, tecido ou embalagem"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng giấy, vải hoặc bao bì xào xạc"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียงยับของกระดาษ ผ้า หรือบรรจุภัณฑ์"
+          }
         }
       }
     },
@@ -7765,6 +8077,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tips for Best Experience"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consejos para la Mejor Experiencia"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dicas para a Melhor Experiência"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mẹo Để Có Trải Nghiệm Tốt Nhất"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เคล็ดลับเพื่อประสบการณ์ที่ดีที่สุด"
           }
         }
       }
@@ -7777,6 +8113,30 @@
             "state": "translated",
             "value": "Use headphones for the full immersive experience"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa auriculares para la experiencia inmersiva completa"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use fones de ouvido para a experiência imersiva completa"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sử dụng tai nghe để có trải nghiệm đắm chìm đầy đủ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้หูฟังเพื่อประสบการณ์แบบเต็มอิ่ม"
+          }
         }
       }
     },
@@ -7787,6 +8147,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Start with low volume - ASMR works best when subtle"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comienza con volumen bajo - ASMR funciona mejor cuando es sutil"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comece com volume baixo - ASMR funciona melhor quando sutil"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt đầu với âm lượng thấp - ASMR hoạt động tốt nhất khi tinh tế"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เริ่มด้วยเสียงเบา - ASMR ทำงานได้ดีที่สุดเมื่อเบาๆ"
           }
         }
       }
@@ -7799,6 +8183,30 @@
             "state": "translated",
             "value": "Try mixing ASMR with ambient sounds for a layered effect"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intenta mezclar ASMR con sonidos ambientales para un efecto en capas"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tente misturar ASMR com sons ambientes para um efeito em camadas"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thử kết hợp ASMR với âm thanh môi trường để có hiệu ứng lớp"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลองผสม ASMR กับเสียงบรรยากาศเพื่อเอฟเฟกต์หลายชั้น"
+          }
         }
       }
     },
@@ -7809,6 +8217,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Different triggers work for different people - experiment!"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Diferentes disparadores funcionan para diferentes personas - experimenta!"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gatilhos diferentes funcionam para pessoas diferentes - experimente!"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Các kích thích khác nhau phù hợp với người khác nhau - hãy thử nghiệm!"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัวกระตุ้นต่างๆ ได้ผลกับคนต่างกัน - ลองทดลองดู!"
           }
         }
       }
