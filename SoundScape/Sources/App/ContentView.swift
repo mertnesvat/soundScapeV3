@@ -6,6 +6,7 @@ struct ContentView: View {
     @Environment(SleepContentPlayerService.self) private var sleepContentPlayerService
     @Environment(AnalyticsService.self) private var analyticsService
     @Environment(AppearanceService.self) private var appearanceService
+    @Environment(PaywallService.self) private var paywallService
     @State private var selectedTab: Tab = .sounds
     @State private var showingSleepContentPlayer = false
     @State private var showMixerSheet = false
@@ -142,6 +143,14 @@ struct ContentView: View {
                     )
                     .presentationDragIndicator(.visible)
                 }
+            }
+            // Paywall sheet
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { paywallService.showPaywall = $0 }
+            )) {
+                PaywallView()
+                    .presentationDragIndicator(.visible)
             }
         }
     }
