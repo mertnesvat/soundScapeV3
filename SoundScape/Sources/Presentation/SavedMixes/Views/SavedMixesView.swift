@@ -11,7 +11,7 @@ struct SavedMixesView: View {
             Group {
                 if mixesService.mixes.isEmpty {
                     ContentUnavailableView(
-                        "No Saved Mixes",
+                        String(localized: "No Saved Mixes"),
                         systemImage: "folder.badge.plus",
                         description: Text("Save your current sound mix from the Mixer")
                     )
@@ -32,7 +32,7 @@ struct SavedMixesView: View {
                     .listStyle(.insetGrouped)
                 }
             }
-            .navigationTitle("Saved Mixes")
+            .navigationTitle(LocalizedStringKey("Saved Mixes"))
         }
     }
 

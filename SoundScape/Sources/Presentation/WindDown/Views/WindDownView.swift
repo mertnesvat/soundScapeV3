@@ -156,7 +156,7 @@ struct WindDownView: View {
                 .padding(.top, 8)
             }
             .background(Color(.systemBackground))
-            .navigationTitle("Wind Down")
+            .navigationTitle(LocalizedStringKey("Wind Down"))
             .navigationBarTitleDisplayMode(.large)
             .sheet(item: $selectedContent) { content in
                 SleepContentPlayerView(

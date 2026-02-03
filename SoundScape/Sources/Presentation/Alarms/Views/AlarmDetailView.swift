@@ -129,7 +129,7 @@ struct AlarmDetailView: View {
                 }
             }
         }
-        .navigationTitle(isNew ? "Add Alarm" : "Edit Alarm")
+        .navigationTitle(isNew ? LocalizedStringKey("Add Alarm") : LocalizedStringKey("Edit Alarm"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if isNew {

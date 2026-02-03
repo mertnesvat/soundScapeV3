@@ -20,7 +20,7 @@ struct SleepBuddyView: View {
                 .padding()
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Sleep Buddy")
+            .navigationTitle(LocalizedStringKey("Sleep Buddy"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -32,7 +32,7 @@ struct SleepBuddyView: View {
             .sheet(isPresented: $showingInviteSheet) {
                 InviteBuddyView()
             }
-            .alert("Unpair Buddy", isPresented: $showingUnpairAlert) {
+            .alert(LocalizedStringKey("Unpair Buddy"), isPresented: $showingUnpairAlert) {
                 Button("Cancel", role: .cancel) { }
                 Button("Unpair", role: .destructive) {
                     buddyService.unpair()
@@ -129,7 +129,7 @@ struct SleepBuddyView: View {
                 Button {
                     showingInviteSheet = true
                 } label: {
-                    Label("Invite a Friend", systemImage: "person.badge.plus")
+                    Label(LocalizedStringKey("Invite a Friend"), systemImage: "person.badge.plus")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -141,7 +141,7 @@ struct SleepBuddyView: View {
                 Button {
                     showingInviteSheet = true
                 } label: {
-                    Label("Enter Invite Code", systemImage: "number")
+                    Label(LocalizedStringKey("Enter Invite Code"), systemImage: "number")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()

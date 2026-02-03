@@ -14,7 +14,7 @@ struct MixerView: View {
                 if audioEngine.activeSounds.isEmpty {
                     // Empty state
                     ContentUnavailableView(
-                        "No Sounds Playing",
+                        String(localized: "No Sounds Playing"),
                         systemImage: "speaker.slash",
                         description: Text("Start playing sounds from the library")
                     )
@@ -70,7 +70,7 @@ struct MixerView: View {
                     .listStyle(.insetGrouped)
                 }
             }
-            .navigationTitle("Mixer")
+            .navigationTitle(LocalizedStringKey("Mixer"))
             .toolbar {
                 if !audioEngine.activeSounds.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {

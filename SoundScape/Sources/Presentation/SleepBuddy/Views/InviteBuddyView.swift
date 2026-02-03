@@ -31,7 +31,7 @@ struct InviteBuddyView: View {
                 Spacer()
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Pair with Buddy")
+            .navigationTitle(LocalizedStringKey("Pair with Buddy"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -40,12 +40,12 @@ struct InviteBuddyView: View {
                     }
                 }
             }
-            .alert("Pairing Error", isPresented: $showingError) {
+            .alert(LocalizedStringKey("Pairing Error"), isPresented: $showingError) {
                 Button("OK", role: .cancel) { }
             } message: {
                 Text(errorMessage)
             }
-            .alert("Paired Successfully!", isPresented: $isPairingSuccessful) {
+            .alert(LocalizedStringKey("Paired Successfully!"), isPresented: $isPairingSuccessful) {
                 Button("Done") {
                     dismiss()
                 }
@@ -101,7 +101,7 @@ struct InviteBuddyView: View {
 
             // Share Button
             ShareLink(item: "Join me as a Sleep Buddy in SoundScape! Enter code: \(inviteCode)") {
-                Label("Share Code", systemImage: "square.and.arrow.up")
+                Label(LocalizedStringKey("Share Code"), systemImage: "square.and.arrow.up")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -115,7 +115,7 @@ struct InviteBuddyView: View {
             Button {
                 UIPasteboard.general.string = inviteCode
             } label: {
-                Label("Copy Code", systemImage: "doc.on.doc")
+                Label(LocalizedStringKey("Copy Code"), systemImage: "doc.on.doc")
                     .font(.subheadline)
                     .foregroundStyle(.purple)
             }

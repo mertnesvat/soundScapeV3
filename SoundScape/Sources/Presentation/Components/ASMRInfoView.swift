@@ -24,7 +24,7 @@ struct ASMRInfoView: View {
                 .padding()
             }
             .background(Color(.systemBackground))
-            .navigationTitle("What is ASMR?")
+            .navigationTitle(LocalizedStringKey("What is ASMR?"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

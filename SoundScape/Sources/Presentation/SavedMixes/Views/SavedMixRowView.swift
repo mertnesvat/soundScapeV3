@@ -51,7 +51,7 @@ struct SavedMixRowView: View {
             Button(role: .destructive) {
                 // Delete handled by onDelete in parent
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label(LocalizedStringKey("Delete"), systemImage: "trash")
             }
         }
         .swipeActions(edge: .leading, allowsFullSwipe: false) {
@@ -59,11 +59,11 @@ struct SavedMixRowView: View {
                 newName = mix.name
                 showRename = true
             } label: {
-                Label("Rename", systemImage: "pencil")
+                Label(LocalizedStringKey("Rename"), systemImage: "pencil")
             }
             .tint(.blue)
         }
-        .alert("Rename Mix", isPresented: $showRename) {
+        .alert(LocalizedStringKey("Rename Mix"), isPresented: $showRename) {
             TextField("Mix name", text: $newName)
             Button("Cancel", role: .cancel) {}
             Button("Save") {

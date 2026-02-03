@@ -31,7 +31,7 @@ struct MixDetailView: View {
         }
         .navigationTitle(mix.name)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Saved!", isPresented: $showingSavedAlert) {
+        .alert(LocalizedStringKey("Saved!"), isPresented: $showingSavedAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text("\"\(mix.name)\" has been saved to My Mixes")

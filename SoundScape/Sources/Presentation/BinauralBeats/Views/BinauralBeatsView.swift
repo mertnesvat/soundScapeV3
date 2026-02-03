@@ -31,7 +31,7 @@ struct BinauralBeatsView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Binaural Beats")
+            .navigationTitle(LocalizedStringKey("Binaural Beats"))
             .background(Color(.systemGroupedBackground))
         }
     }

@@ -9,7 +9,7 @@ struct AlarmsView: View {
             Group {
                 if alarmService.alarms.isEmpty {
                     ContentUnavailableView(
-                        "No Alarms",
+                        String(localized: "No Alarms"),
                         systemImage: "alarm",
                         description: Text("Tap + to create your first alarm")
                     )
@@ -33,7 +33,7 @@ struct AlarmsView: View {
                     .listStyle(.insetGrouped)
                 }
             }
-            .navigationTitle("Alarms")
+            .navigationTitle(LocalizedStringKey("Alarms"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {

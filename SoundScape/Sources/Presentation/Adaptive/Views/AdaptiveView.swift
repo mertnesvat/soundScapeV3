@@ -28,7 +28,7 @@ struct AdaptiveView: View {
                     }
                 }
             }
-            .navigationTitle("Adaptive")
+            .navigationTitle(LocalizedStringKey("Adaptive"))
             .background(Color(.systemBackground))
         }
     }

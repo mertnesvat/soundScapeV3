@@ -39,8 +39,8 @@ struct DiscoverView: View {
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("Discover")
-            .alert("Saved!", isPresented: $showingSavedAlert) {
+            .navigationTitle(LocalizedStringKey("Discover"))
+            .alert(LocalizedStringKey("Saved!"), isPresented: $showingSavedAlert) {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text("\"\(savedMixName)\" has been saved to My Mixes")

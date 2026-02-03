@@ -69,7 +69,7 @@ struct AppearanceSettingsView: View {
                     openURL(URL(string: "https://studionext.co.uk/")!)
                 }) {
                     HStack {
-                        Label("Website", systemImage: "globe")
+                        Label(LocalizedStringKey("Website"), systemImage: "globe")
                         Spacer()
                         Image(systemName: "arrow.up.right")
                             .font(.caption)
@@ -82,7 +82,7 @@ struct AppearanceSettingsView: View {
                     openURL(URL(string: "https://studionext.co.uk/soundscape-privacy.html")!)
                 }) {
                     HStack {
-                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                        Label(LocalizedStringKey("Privacy Policy"), systemImage: "hand.raised.fill")
                         Spacer()
                         Image(systemName: "arrow.up.right")
                             .font(.caption)
@@ -95,7 +95,7 @@ struct AppearanceSettingsView: View {
                     openURL(URL(string: "https://studionext.co.uk/soundscape-terms.html")!)
                 }) {
                     HStack {
-                        Label("Terms of Use", systemImage: "doc.text.fill")
+                        Label(LocalizedStringKey("Terms of Use"), systemImage: "doc.text.fill")
                         Spacer()
                         Image(systemName: "arrow.up.right")
                             .font(.caption)
@@ -117,7 +117,7 @@ struct AppearanceSettingsView: View {
                 .padding(.top, 8)
             }
         }
-        .navigationTitle("Appearance")
+        .navigationTitle(LocalizedStringKey("Appearance"))
         .navigationBarTitleDisplayMode(.inline)
         .oledBackground()
     }

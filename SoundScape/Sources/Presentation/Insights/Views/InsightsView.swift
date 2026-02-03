@@ -62,7 +62,7 @@ struct InsightsView: View {
                 .padding()
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Insights")
+            .navigationTitle(LocalizedStringKey("Insights"))
         }
     }
 

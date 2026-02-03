@@ -22,7 +22,7 @@ struct SleepTimerView: View {
                 Spacer()
             }
             .padding(.top, 40)
-            .navigationTitle("Sleep Timer")
+            .navigationTitle(LocalizedStringKey("Sleep Timer"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
@@ -71,7 +71,7 @@ struct SleepTimerView: View {
             Button(action: {
                 timerService.cancel()
             }) {
-                Label("Cancel Timer", systemImage: "xmark.circle")
+                Label(LocalizedStringKey("Cancel Timer"), systemImage: "xmark.circle")
                     .font(.headline)
             }
             .foregroundColor(.red)

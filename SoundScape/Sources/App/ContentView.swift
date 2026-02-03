@@ -11,14 +11,14 @@ struct ContentView: View {
     @State private var showMixerSheet = false
 
     enum Tab: String, CaseIterable {
-        case sounds = "Sounds"
-        case binaural = "Binaural"
-        case favorites = "Favorites"
-        case windDown = "Wind Down"
-        case alarms = "Alarms"
-        case discover = "Discover"
-        case adaptive = "Adaptive"
-        case insights = "Insights"
+        case sounds
+        case binaural
+        case favorites
+        case windDown
+        case alarms
+        case discover
+        case adaptive
+        case insights
 
         var icon: String {
             switch self {
@@ -32,6 +32,19 @@ struct ContentView: View {
             case .insights: return "chart.bar.fill"
             }
         }
+
+        var localizedName: LocalizedStringKey {
+            switch self {
+            case .sounds: return "Sounds"
+            case .binaural: return "Binaural"
+            case .favorites: return "Favorites"
+            case .windDown: return "Wind Down"
+            case .alarms: return "Alarms"
+            case .discover: return "Discover"
+            case .adaptive: return "Adaptive"
+            case .insights: return "Insights"
+            }
+        }
     }
 
     var body: some View {
@@ -39,49 +52,49 @@ struct ContentView: View {
             TabView(selection: $selectedTab) {
                 SoundsView()
                     .tabItem {
-                        Label(Tab.sounds.rawValue, systemImage: Tab.sounds.icon)
+                        Label(Tab.sounds.localizedName, systemImage: Tab.sounds.icon)
                     }
                     .tag(Tab.sounds)
 
                 BinauralBeatsView()
                     .tabItem {
-                        Label(Tab.binaural.rawValue, systemImage: Tab.binaural.icon)
+                        Label(Tab.binaural.localizedName, systemImage: Tab.binaural.icon)
                     }
                     .tag(Tab.binaural)
 
                 FavoritesView()
                     .tabItem {
-                        Label(Tab.favorites.rawValue, systemImage: Tab.favorites.icon)
+                        Label(Tab.favorites.localizedName, systemImage: Tab.favorites.icon)
                     }
                     .tag(Tab.favorites)
 
                 WindDownView()
                     .tabItem {
-                        Label(Tab.windDown.rawValue, systemImage: Tab.windDown.icon)
+                        Label(Tab.windDown.localizedName, systemImage: Tab.windDown.icon)
                     }
                     .tag(Tab.windDown)
 
                 AlarmsView()
                     .tabItem {
-                        Label(Tab.alarms.rawValue, systemImage: Tab.alarms.icon)
+                        Label(Tab.alarms.localizedName, systemImage: Tab.alarms.icon)
                     }
                     .tag(Tab.alarms)
 
                 DiscoverView()
                     .tabItem {
-                        Label(Tab.discover.rawValue, systemImage: Tab.discover.icon)
+                        Label(Tab.discover.localizedName, systemImage: Tab.discover.icon)
                     }
                     .tag(Tab.discover)
 
                 AdaptiveView()
                     .tabItem {
-                        Label(Tab.adaptive.rawValue, systemImage: Tab.adaptive.icon)
+                        Label(Tab.adaptive.localizedName, systemImage: Tab.adaptive.icon)
                     }
                     .tag(Tab.adaptive)
 
                 InsightsView()
                     .tabItem {
-                        Label(Tab.insights.rawValue, systemImage: Tab.insights.icon)
+                        Label(Tab.insights.localizedName, systemImage: Tab.insights.icon)
                     }
                     .tag(Tab.insights)
             }
@@ -167,11 +180,11 @@ struct SoundsPlaceholderView: View {
     var body: some View {
         NavigationStack {
             ContentUnavailableView(
-                "Sound Library",
+                String(localized: "Sound Library"),
                 systemImage: "waveform",
                 description: Text("Browse ambient sounds here")
             )
-            .navigationTitle("Sounds")
+            .navigationTitle(LocalizedStringKey("Sounds"))
         }
     }
 }
@@ -180,11 +193,11 @@ struct MixerPlaceholderView: View {
     var body: some View {
         NavigationStack {
             ContentUnavailableView(
-                "Sound Mixer",
+                String(localized: "Sound Mixer"),
                 systemImage: "slider.horizontal.3",
                 description: Text("Mix sounds and adjust volumes")
             )
-            .navigationTitle("Mixer")
+            .navigationTitle(LocalizedStringKey("Mixer"))
         }
     }
 }
@@ -193,11 +206,11 @@ struct TimerPlaceholderView: View {
     var body: some View {
         NavigationStack {
             ContentUnavailableView(
-                "Sleep Timer",
+                String(localized: "Sleep Timer"),
                 systemImage: "moon.zzz",
                 description: Text("Set a timer to stop playback")
             )
-            .navigationTitle("Timer")
+            .navigationTitle(LocalizedStringKey("Timer"))
         }
     }
 }
@@ -206,11 +219,11 @@ struct FavoritesPlaceholderView: View {
     var body: some View {
         NavigationStack {
             ContentUnavailableView(
-                "Favorites",
+                String(localized: "Favorites"),
                 systemImage: "heart",
                 description: Text("Your favorite sounds")
             )
-            .navigationTitle("Favorites")
+            .navigationTitle(LocalizedStringKey("Favorites"))
         }
     }
 }
@@ -219,11 +232,11 @@ struct SavedMixesPlaceholderView: View {
     var body: some View {
         NavigationStack {
             ContentUnavailableView(
-                "Saved Mixes",
+                String(localized: "Saved Mixes"),
                 systemImage: "folder",
                 description: Text("Your saved sound combinations")
             )
-            .navigationTitle("Saved Mixes")
+            .navigationTitle(LocalizedStringKey("Saved Mixes"))
         }
     }
 }

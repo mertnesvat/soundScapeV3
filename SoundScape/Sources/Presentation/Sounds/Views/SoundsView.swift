@@ -67,7 +67,7 @@ struct SoundsView: View {
                 }
             }
             .oledBackground()
-            .navigationTitle("Sounds")
+            .navigationTitle(LocalizedStringKey("Sounds"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack(spacing: 16) {
