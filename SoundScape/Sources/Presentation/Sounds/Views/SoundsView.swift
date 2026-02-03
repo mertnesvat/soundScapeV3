@@ -173,12 +173,10 @@ struct SoundsView: View {
                         isLocked: isLocked,
                         onTogglePlay: {
                             if isLocked {
-                                paywallService.triggerPaywall(placement: "campaign_trigger") {
-                                    viewModel.togglePlay(for: sound)
-                                }
+                                paywallService.triggerPaywall(placement: "premium_sound")
                             } else if wouldExceedMixerLimit(for: sound) {
                                 // Mixer limit reached for free users - show paywall without action
-                                paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                                paywallService.triggerPaywall(placement: "mixer_limit")
                             } else {
                                 viewModel.togglePlay(for: sound)
                             }
@@ -187,7 +185,7 @@ struct SoundsView: View {
                             favoritesService.toggleFavorite(sound.id, soundName: sound.name)
                         },
                         onLockedTap: {
-                            paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                            paywallService.triggerPaywall(placement: "mixer_limit")
                         }
                     )
                 }
@@ -226,13 +224,11 @@ struct SoundsView: View {
                         isLocked: isLocked,
                         onTogglePlay: {
                             if isLocked {
-                                paywallService.triggerPaywall(placement: "campaign_trigger") {
-                                    viewModel.togglePlay(for: sound)
-                                }
+                                paywallService.triggerPaywall(placement: "premium_sound")
                             } else if wouldExceedMixerLimit(for: sound) {
                                 // Mixer limit reached for free users - show paywall without action
                                 // Sound will only play if user becomes premium
-                                paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                                paywallService.triggerPaywall(placement: "mixer_limit")
                             } else {
                                 viewModel.togglePlay(for: sound)
                             }
@@ -241,7 +237,7 @@ struct SoundsView: View {
                             favoritesService.toggleFavorite(sound.id, soundName: sound.name)
                         },
                         onLockedTap: {
-                            paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                            paywallService.triggerPaywall(placement: "mixer_limit")
                         }
                     )
                 }

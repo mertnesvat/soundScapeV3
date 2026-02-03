@@ -158,10 +158,9 @@ final class PremiumManager {
 
         // Feature requires premium - show paywall
         let placement = placementName(for: feature)
-        paywallService.triggerPaywall(placement: placement) {
-            // This callback is invoked if the user purchases or is already premium
-            onGranted()
-        }
+        paywallService.triggerPaywall(placement: placement)
+        // Note: onGranted will no longer be called automatically after purchase
+        // The view should observe isPremium status and allow the action on retry
     }
 
     // MARK: - Convenience Methods

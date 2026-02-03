@@ -12,7 +12,7 @@ struct AdaptiveView: View {
                     // Premium preview for free users
                     AdaptivePremiumPreview(
                         onUnlock: {
-                            paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                            paywallService.triggerPaywall(placement: "adaptive_mode")
                         }
                     )
                 } else {

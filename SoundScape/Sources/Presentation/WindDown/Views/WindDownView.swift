@@ -158,16 +158,14 @@ struct WindDownView: View {
                             onContentTap: { content in
                                 let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: content.id))
                                 if isLocked {
-                                    paywallService.triggerPaywall(placement: "campaign_trigger") {
-                                        playContent(content)
-                                    }
+                                    paywallService.triggerPaywall(placement: "premium_winddown")
                                 } else {
                                     playContent(content)
                                 }
                             },
                             progressForContent: { progressFraction(for: $0) },
                             isContentLocked: { premiumManager.isPremiumRequired(for: .windDownContent(id: $0.id)) },
-                            onLockedTap: { paywallService.triggerPaywall(placement: "campaign_trigger") {} }
+                            onLockedTap: { paywallService.triggerPaywall(placement: "premium_winddown") }
                         )
                     }
 
@@ -248,14 +246,12 @@ struct WindDownView: View {
                 onTap: {
                     let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: featuredContent.id))
                     if isLocked {
-                        paywallService.triggerPaywall(placement: "campaign_trigger") {
-                            playContent(featuredContent)
-                        }
+                        paywallService.triggerPaywall(placement: "premium_winddown")
                     } else {
                         playContent(featuredContent)
                     }
                 },
-                onLockedTap: { paywallService.triggerPaywall(placement: "campaign_trigger") {} }
+                onLockedTap: { paywallService.triggerPaywall(placement: "premium_winddown") }
             )
         }
     }

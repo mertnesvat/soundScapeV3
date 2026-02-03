@@ -201,6 +201,7 @@
 		A07A6FA5F7EA66CD4D28EE21 /* OnboardingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */; };
 		5C3BB79C6FDB277D788B7081 /* OnboardingCustomPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */; };
 		D53EC2E841C9BE2D2D805B3B /* OnboardingPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */; };
+		PAYWALL00003 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = PAYWALL00002 /* PaywallView.swift */; };
 		F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */; };
 		FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */; };
 		19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */; };
@@ -438,6 +439,7 @@
 		19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeaturesView.swift; sourceTree = "<group>"; };
 		96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustomPlanView.swift; sourceTree = "<group>"; };
 		5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPaywallView.swift; sourceTree = "<group>"; };
+		PAYWALL00002 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
 		EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
@@ -565,9 +567,18 @@
 				FB96EB91000000PJ /* Insights */,
 				FB96EB91000000SA /* Settings */,
 				FB96EB91BUDDY00B /* SleepBuddy */,
+				PAYWALL00001 /* Paywall */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		PAYWALL00001 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				PAYWALL00002 /* PaywallView.swift */,
+			);
+			path = Paywall;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000048 /* Sounds */ = {
@@ -1131,7 +1142,6 @@
 			name = SoundScape;
 			packageProductDependencies = (
 				FB96EB91000000AF /* FirebaseAnalytics */,
-				FB96EB91000000SX /* SuperwallKit */,
 			);
 			productName = SoundScape;
 			productReference = FB96EB9100000020 /* SoundScape.app */;
@@ -1204,7 +1214,6 @@
 			mainGroup = FB96EB9100000040;
 			packageReferences = (
 				FB96EB91000000AG /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				FB96EB91000000SW /* XCRemoteSwiftPackageReference "Superwall-iOS" */,
 			);
 			productRefGroup = FB96EB9100000043 /* Products */;
 			projectDirPath = "";
@@ -1417,6 +1426,7 @@
 				A07A6FA5F7EA66CD4D28EE21 /* OnboardingFeaturesView.swift in Sources */,
 				5C3BB79C6FDB277D788B7081 /* OnboardingCustomPlanView.swift in Sources */,
 				D53EC2E841C9BE2D2D805B3B /* OnboardingPaywallView.swift in Sources */,
+				PAYWALL00003 /* PaywallView.swift in Sources */,
 				F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */,
 				FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */,
 				19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */,
@@ -1807,14 +1817,6 @@
 				minimumVersion = 11.0.0;
 			};
 		};
-		FB96EB91000000SW /* XCRemoteSwiftPackageReference "Superwall-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/superwall/Superwall-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1822,11 +1824,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB96EB91000000AG /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
-		};
-		FB96EB91000000SX /* SuperwallKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FB96EB91000000SW /* XCRemoteSwiftPackageReference "Superwall-iOS" */;
-			productName = SuperwallKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

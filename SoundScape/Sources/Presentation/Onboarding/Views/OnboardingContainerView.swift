@@ -4,6 +4,7 @@ struct OnboardingContainerView: View {
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(PaywallService.self) private var paywallService
     @State private var currentStep: OnboardingStep = .welcome
+    @State private var showPaywallSheet = false
 
     enum OnboardingStep: Int, CaseIterable {
         case welcome = 0
@@ -100,6 +101,11 @@ struct OnboardingContainerView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .sheet(isPresented: $showPaywallSheet) {
+            OnboardingPaywallView(onComplete: {
+                showPaywallSheet = false
+            })
+        }
     }
 
     private func nextStep() {
@@ -123,9 +129,7 @@ struct OnboardingContainerView: View {
     }
 
     private func showPaywallAndComplete() {
-        paywallService.triggerPaywall(placement: "campaign_trigger") {
-            onboardingService.completeOnboarding()
-        }
+        showPaywallSheet = true
     }
 }
 
