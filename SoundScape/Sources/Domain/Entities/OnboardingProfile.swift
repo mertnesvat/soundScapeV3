@@ -35,6 +35,17 @@ enum OnboardingSleepGoal: String, Codable, CaseIterable {
         }
     }
 
+    var localizedTitle: String {
+        switch self {
+        case .fallAsleep: return String(localized: "Fall asleep faster")
+        case .stayAsleep: return String(localized: "Stay asleep longer")
+        case .wakeRefreshed: return String(localized: "Wake up refreshed")
+        case .relaxation: return String(localized: "Relaxation & stress relief")
+        case .focus: return String(localized: "Focus & productivity")
+        case .meditation: return String(localized: "Meditation & mindfulness")
+        }
+    }
+
     var icon: String {
         switch self {
         case .fallAsleep: return "moon.zzz.fill"
@@ -63,6 +74,17 @@ enum OnboardingSleepChallenge: String, Codable, CaseIterable, Hashable {
         case .stress: return "Stress from work/life"
         case .irregularSchedule: return "Irregular schedule"
         case .screenTime: return "Screen time before bed"
+        }
+    }
+
+    var localizedTitle: String {
+        switch self {
+        case .racingThoughts: return String(localized: "Racing thoughts")
+        case .anxiety: return String(localized: "Anxiety & worry")
+        case .noise: return String(localized: "Noise disturbances")
+        case .stress: return String(localized: "Stress from work/life")
+        case .irregularSchedule: return String(localized: "Irregular schedule")
+        case .screenTime: return String(localized: "Screen time before bed")
         }
     }
 

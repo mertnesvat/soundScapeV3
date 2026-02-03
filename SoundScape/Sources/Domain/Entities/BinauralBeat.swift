@@ -19,6 +19,16 @@ enum BrainwaveState: String, CaseIterable, Identifiable {
         }
     }
 
+    var localizedName: String {
+        switch self {
+        case .delta: return String(localized: "Delta")
+        case .theta: return String(localized: "Theta")
+        case .alpha: return String(localized: "Alpha")
+        case .beta: return String(localized: "Beta")
+        case .gamma: return String(localized: "Gamma")
+        }
+    }
+
     var description: String {
         switch self {
         case .delta: return "Deep Sleep"
@@ -26,6 +36,16 @@ enum BrainwaveState: String, CaseIterable, Identifiable {
         case .alpha: return "Relaxation"
         case .beta: return "Focus"
         case .gamma: return "Creativity"
+        }
+    }
+
+    var localizedDescription: String {
+        switch self {
+        case .delta: return String(localized: "Deep sleep")
+        case .theta: return String(localized: "Meditation")
+        case .alpha: return String(localized: "Relaxed focus")
+        case .beta: return String(localized: "Alertness")
+        case .gamma: return String(localized: "Creativity")
         }
     }
 
@@ -56,10 +76,24 @@ enum ToneType: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    var localizedName: String {
+        switch self {
+        case .binaural: return String(localized: "Binaural")
+        case .isochronic: return String(localized: "Isochronic")
+        }
+    }
+
     var description: String {
         switch self {
         case .binaural: return "Requires headphones - different frequencies in each ear"
         case .isochronic: return "Works with speakers - rhythmic pulses"
+        }
+    }
+
+    var localizedDescription: String {
+        switch self {
+        case .binaural: return String(localized: "Requires headphones - different frequencies in each ear")
+        case .isochronic: return String(localized: "Works with speakers - rhythmic pulses")
         }
     }
 }

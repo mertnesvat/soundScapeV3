@@ -1293,7 +1293,7 @@
         "es-419": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duerme más rápido"
+            "value": "Dormirme más rápido"
           }
         },
         "pt-BR": {
@@ -3860,6 +3860,30 @@
             "state": "translated",
             "value": "Save your current sound mix from the Mixer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guarda tu mezcla actual desde el Mezclador"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salve seu mix atual do Mixer"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lưu bản phối hiện tại từ Bộ Trộn"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึกมิกซ์ปัจจุบันจากมิกเซอร์"
+          }
         }
       }
     },
@@ -4383,6 +4407,30 @@
             "state": "translated",
             "value": "Gamma"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gamma"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gama"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gamma"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แกมม่า"
+          }
         }
       }
     },
@@ -4393,6 +4441,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Creativity"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creatividad"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Criatividade"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sáng tạo"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความคิดสร้างสรรค์"
           }
         }
       }
@@ -4475,6 +4547,30 @@
             "state": "translated",
             "value": "Requires headphones - different frequencies in each ear"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requiere auriculares - diferentes frecuencias en cada oído"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requer fones de ouvido - frequências diferentes em cada ouvido"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cần tai nghe - tần số khác nhau ở mỗi tai"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต้องใช้หูฟัง - ความถี่ต่างกันในแต่ละหู"
+          }
         }
       }
     },
@@ -4485,6 +4581,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Works with speakers - rhythmic pulses"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Funciona con altavoces - pulsos rítmicos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Funciona com alto-falantes - pulsos rítmicos"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoạt động với loa - nhịp xung"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้กับลำโพงได้ - พัลส์จังหวะ"
           }
         }
       }
@@ -6512,6 +6632,30 @@
             "state": "translated",
             "value": "Sleep Mode - Calming sounds for bedtime"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Sueño - Sonidos relajantes para dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Sono - Sons calmantes para dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chế Độ Ngủ - Âm thanh êm dịu cho giờ ngủ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหมดนอน - เสียงผ่อนคลายสำหรับเวลานอน"
+          }
         }
       }
     },
@@ -6522,6 +6666,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Focus Mode - Concentration-enhancing audio"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Enfoque - Audio para mejorar la concentración"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Foco - Áudio para melhorar a concentração"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chế Độ Tập Trung - Âm thanh tăng cường tập trung"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหมดโฟกัส - เสียงเพิ่มสมาธิ"
           }
         }
       }
@@ -6534,6 +6702,30 @@
             "state": "translated",
             "value": "Relax Mode - Stress-relieving soundscapes"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Relajación - Paisajes sonoros para aliviar el estrés"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Relaxar - Paisagens sonoras para aliviar o estresse"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chế Độ Thư Giãn - Phong cảnh âm thanh giảm căng thẳng"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหมดผ่อนคลาย - เสียงบรรเทาความเครียด"
+          }
         }
       }
     },
@@ -6544,6 +6736,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Meditate Mode - Deep mindfulness support"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Meditación - Apoyo profundo para la atención plena"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo Meditar - Suporte profundo para atenção plena"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chế Độ Thiền - Hỗ trợ chánh niệm sâu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหมดทำสมาธิ - การสนับสนุนการมีสติอย่างลึกซึ้ง"
           }
         }
       }
@@ -6591,6 +6807,30 @@
             "state": "translated",
             "value": "Sleep Cycle"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciclo de Sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciclo de Sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chu Kỳ Ngủ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รอบการนอน"
+          }
         }
       }
     },
@@ -6601,6 +6841,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sounds evolve through sleep stages"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los sonidos evolucionan a través de las etapas del sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os sons evoluem através das fases do sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm thanh thay đổi qua các giai đoạn ngủ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียงเปลี่ยนไปตามระยะการนอน"
           }
         }
       }
@@ -6613,6 +6877,30 @@
             "state": "translated",
             "value": "Day & Night"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Día y Noche"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dia e Noite"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngày và Đêm"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลางวันและกลางคืน"
+          }
         }
       }
     },
@@ -6623,6 +6911,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Adapts to time of day"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se adapta a la hora del día"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adapta-se à hora do dia"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thích ứng theo thời gian trong ngày"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปรับตามเวลาของวัน"
           }
         }
       }
@@ -6635,6 +6947,30 @@
             "state": "translated",
             "value": "Weather Sync"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronización Climática"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronização Climática"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đồng Bộ Thời Tiết"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซิงค์สภาพอากาศ"
+          }
         }
       }
     },
@@ -6645,6 +6981,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Matches weather patterns"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coincide con patrones climáticos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Combina com padrões climáticos"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khớp với kiểu thời tiết"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตรงกับรูปแบบสภาพอากาศ"
           }
         }
       }
@@ -6657,6 +7017,30 @@
             "state": "translated",
             "value": "Focus Session"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesión de Enfoque"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sessão de Foco"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên Tập Trung"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เซสชันโฟกัส"
+          }
         }
       }
     },
@@ -6667,6 +7051,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pomodoro-style work sessions"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesiones de trabajo estilo Pomodoro"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sessões de trabalho estilo Pomodoro"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên làm việc kiểu Pomodoro"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เซสชันทำงานแบบโปโมโดโร"
           }
         }
       }
@@ -6689,6 +7097,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "Start Session"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar Sesión"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar Sessão"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt Đầu Phiên"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เริ่มเซสชัน"
           }
         }
       }
@@ -7850,6 +8282,881 @@
           "stringUnit": {
             "state": "translated",
             "value": "Timer"
+          }
+        }
+      }
+    },
+    "5 min": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 min"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 min"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 min"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 phút"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 นาที"
+          }
+        }
+      }
+    },
+    "15 min": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 min"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 min"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 min"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 phút"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "15 นาที"
+          }
+        }
+      }
+    },
+    "30 min": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 min"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 min"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 min"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 phút"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 นาที"
+          }
+        }
+      }
+    },
+    "45 min": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "45 min"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "45 min"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "45 min"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "45 phút"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "45 นาที"
+          }
+        }
+      }
+    },
+    "1 hour": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 hour"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 hora"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 hora"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 giờ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 ชั่วโมง"
+          }
+        }
+      }
+    },
+    "1.5 hours": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.5 hours"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.5 horas"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,5 horas"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1,5 giờ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.5 ชั่วโมง"
+          }
+        }
+      }
+    },
+    "2 hours": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 hours"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 horas"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 horas"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 giờ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Deep sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deep sleep"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sueño profundo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono profundo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngủ sâu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นอนหลับลึก"
+          }
+        }
+      }
+    },
+    "Relaxed focus": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxed focus"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enfoque relajado"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco relaxado"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tập trung thư giãn"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โฟกัสผ่อนคลาย"
+          }
+        }
+      }
+    },
+    "Alertness": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alertness"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alerta"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alerta"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tỉnh táo"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตื่นตัว"
+          }
+        }
+      }
+    },
+    "Noise": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noise"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruido"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruído"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếng Ồn"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียงรบกวน"
+          }
+        }
+      }
+    },
+    "Nature": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nature"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naturaleza"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Natureza"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiên Nhiên"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ธรรมชาติ"
+          }
+        }
+      }
+    },
+    "Weather": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weather"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clima"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clima"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thời Tiết"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สภาพอากาศ"
+          }
+        }
+      }
+    },
+    "Fire": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fire"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuego"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fogo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lửa"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ"
+          }
+        }
+      }
+    },
+    "Music": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Music"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Música"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Música"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhạc"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพลง"
+          }
+        }
+      }
+    },
+    "All": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tất Cả"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทั้งหมด"
+          }
+        }
+      }
+    },
+    "Guided Meditation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guided Meditation"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditación Guiada"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditação Guiada"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thiền Có Hướng Dẫn"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การทำสมาธิแบบมีไกด์"
+          }
+        }
+      }
+    },
+    "Calming bedtime narratives": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calming bedtime narratives"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Narrativas relajantes para dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Narrativas calmantes para dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Truyện ru ngủ êm dịu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นิทานก่อนนอนที่ผ่อนคลาย"
+          }
+        }
+      }
+    },
+    "Mindful sleep preparation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mindful sleep preparation"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparación consciente para dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparação consciente para dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chuẩn bị ngủ có ý thức"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การเตรียมตัวนอนอย่างมีสติ"
+          }
+        }
+      }
+    },
+    "Relaxing breath patterns": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxing breath patterns"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Patrones de respiración relajantes"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padrões de respiração relaxantes"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mẫu thở thư giãn"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปแบบการหายใจผ่อนคลาย"
+          }
+        }
+      }
+    },
+    "Subconscious relaxation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subconscious relaxation"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relajación subconsciente"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxamento subconsciente"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thư giãn tiềm thức"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การผ่อนคลายจิตใต้สำนึก"
+          }
+        }
+      }
+    },
+    "Positive sleep intentions": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Positive sleep intentions"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intenciones positivas para dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intenções positivas para dormir"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ý định ngủ tích cực"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความตั้งใจเชิงบวกสำหรับการนอน"
+          }
+        }
+      }
+    },
+    "Trending": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trending"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendencias"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em Alta"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xu Hướng"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังเป็นที่นิยม"
+          }
+        }
+      }
+    },
+    "Popular": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Popular"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Popular"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Popular"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phổ Biến"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยอดนิยม"
+          }
+        }
+      }
+    },
+    "Sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngủ"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นอน"
           }
         }
       }

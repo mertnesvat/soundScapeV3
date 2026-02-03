@@ -35,7 +35,7 @@ struct AdaptiveView: View {
 
     private var modeSelectionView: some View {
         VStack(spacing: 20) {
-            Text("Choose an Adaptive Mode")
+            Text(LocalizedStringKey("Choose an Adaptive Mode"))
                 .font(.headline)
                 .foregroundColor(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -82,11 +82,11 @@ struct AdaptivePremiumPreview: View {
             }
 
             VStack(spacing: 12) {
-                Text("Adaptive Soundscapes")
+                Text(LocalizedStringKey("Adaptive Soundscapes"))
                     .font(.title)
                     .fontWeight(.bold)
 
-                Text("Context-aware sound environments that adapt to your activities")
+                Text(LocalizedStringKey("Context-aware sound environments that adapt to your activities"))
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -95,10 +95,10 @@ struct AdaptivePremiumPreview: View {
 
             // Features list
             VStack(alignment: .leading, spacing: 16) {
-                featureRow(icon: "moon.stars.fill", text: "Sleep Mode - Calming sounds for bedtime")
-                featureRow(icon: "brain.head.profile", text: "Focus Mode - Concentration-enhancing audio")
-                featureRow(icon: "leaf.fill", text: "Relax Mode - Stress-relieving soundscapes")
-                featureRow(icon: "figure.mind.and.body", text: "Meditate Mode - Deep mindfulness support")
+                featureRow(icon: "moon.stars.fill", text: String(localized: "Sleep Mode - Calming sounds for bedtime"))
+                featureRow(icon: "brain.head.profile", text: String(localized: "Focus Mode - Concentration-enhancing audio"))
+                featureRow(icon: "leaf.fill", text: String(localized: "Relax Mode - Stress-relieving soundscapes"))
+                featureRow(icon: "figure.mind.and.body", text: String(localized: "Meditate Mode - Deep mindfulness support"))
             }
             .padding(.horizontal, 24)
 
@@ -108,7 +108,7 @@ struct AdaptivePremiumPreview: View {
             Button(action: onUnlock) {
                 HStack {
                     Image(systemName: "lock.open.fill")
-                    Text("Unlock Adaptive Mode")
+                    Text(LocalizedStringKey("Unlock Adaptive Mode"))
                         .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)

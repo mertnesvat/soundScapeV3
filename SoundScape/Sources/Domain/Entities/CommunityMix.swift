@@ -24,6 +24,16 @@ enum CommunityCategory: String, CaseIterable, Codable {
     case focus = "Focus"
     case nature = "Nature"
 
+    var localizedName: String {
+        switch self {
+        case .trending: return String(localized: "Trending")
+        case .popular: return String(localized: "Popular")
+        case .sleep: return String(localized: "Sleep")
+        case .focus: return String(localized: "Focus")
+        case .nature: return String(localized: "Nature")
+        }
+    }
+
     var icon: String {
         switch self {
         case .trending: return "flame.fill"

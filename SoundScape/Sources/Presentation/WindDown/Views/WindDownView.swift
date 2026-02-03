@@ -12,6 +12,17 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    var localizedName: String {
+        switch self {
+        case .yogaNidra: return String(localized: "Yoga Nidra")
+        case .sleepStories: return String(localized: "Sleep Stories")
+        case .meditations: return String(localized: "Meditations")
+        case .breathing: return String(localized: "Breathing")
+        case .hypnosis: return String(localized: "Hypnosis")
+        case .affirmations: return String(localized: "Affirmations")
+        }
+    }
+
     var icon: String {
         switch self {
         case .yogaNidra: return "figure.mind.and.body"
@@ -42,6 +53,17 @@ enum WindDownCategory: String, CaseIterable, Identifiable {
         case .breathing: return "Calming breath exercises"
         case .hypnosis: return "Gentle sleep hypnosis"
         case .affirmations: return "Positive sleep affirmations"
+        }
+    }
+
+    var localizedDescription: String {
+        switch self {
+        case .yogaNidra: return String(localized: "Deep relaxation practice")
+        case .sleepStories: return String(localized: "Soothing bedtime tales")
+        case .meditations: return String(localized: "Guided sleep meditation")
+        case .breathing: return String(localized: "Calming breath exercises")
+        case .hypnosis: return String(localized: "Gentle sleep hypnosis")
+        case .affirmations: return String(localized: "Positive sleep affirmations")
         }
     }
 
@@ -89,26 +111,26 @@ struct WindDownView: View {
     private var greeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
         if hour >= 21 || hour < 5 {
-            return "Ready for Sleep?"
+            return String(localized: "Ready for Sleep?")
         } else if hour >= 17 {
-            return "Good Evening"
+            return String(localized: "Good Evening")
         } else if hour >= 12 {
-            return "Good Afternoon"
+            return String(localized: "Good Afternoon")
         } else {
-            return "Good Morning"
+            return String(localized: "Good Morning")
         }
     }
 
     private var greetingSubtitle: String {
         let hour = Calendar.current.component(.hour, from: Date())
         if hour >= 21 || hour < 5 {
-            return "Let's help you drift off peacefully"
+            return String(localized: "Let's help you drift off peacefully")
         } else if hour >= 17 {
-            return "Prepare for restful sleep"
+            return String(localized: "Prepare for restful sleep")
         } else if hour >= 12 {
-            return "Take a moment to relax"
+            return String(localized: "Take a moment to relax")
         } else {
-            return "Start your day with intention"
+            return String(localized: "Start your day with intention")
         }
     }
 
@@ -211,7 +233,7 @@ struct WindDownView: View {
                     .font(.title3)
                     .foregroundColor(.yellow)
 
-                Text("Featured Tonight")
+                Text(LocalizedStringKey("Featured Tonight"))
                     .font(.title3)
                     .fontWeight(.bold)
 
@@ -279,7 +301,7 @@ struct WindDownSectionView: View {
                     .font(.title3)
                     .foregroundColor(category.color)
 
-                Text(category.rawValue)
+                Text(category.localizedName)
                     .font(.title3)
                     .fontWeight(.bold)
 
@@ -287,7 +309,7 @@ struct WindDownSectionView: View {
 
                 if contentForCategory.count > 4 {
                     Button(action: {}) {
-                        Text("See All")
+                        Text(LocalizedStringKey("See All"))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }

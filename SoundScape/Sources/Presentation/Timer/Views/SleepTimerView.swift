@@ -60,7 +60,7 @@ struct SleepTimerView: View {
                         .foregroundColor(.purple)
 
                     if timerService.remainingSeconds <= 30 {
-                        Text("Fading out...")
+                        Text(LocalizedStringKey("Fading out..."))
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -88,7 +88,7 @@ struct SleepTimerView: View {
                 .font(.system(size: 60))
                 .foregroundColor(.purple.opacity(0.7))
 
-            Text("Set Sleep Timer")
+            Text(LocalizedStringKey("Set Sleep Timer"))
                 .font(.headline)
                 .foregroundColor(.secondary)
 
@@ -97,7 +97,7 @@ struct SleepTimerView: View {
                     Button(action: {
                         timerService.start(minutes: preset.minutes)
                     }) {
-                        Text(preset.label)
+                        Text(preset.localizedLabel)
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 20)
@@ -109,7 +109,7 @@ struct SleepTimerView: View {
             }
             .padding(.horizontal)
 
-            Text("Audio will gradually fade out during the last 30 seconds")
+            Text(LocalizedStringKey("Audio will gradually fade out during the last 30 seconds"))
                 .font(.caption)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

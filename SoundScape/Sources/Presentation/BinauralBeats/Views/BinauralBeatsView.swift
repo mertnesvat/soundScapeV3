@@ -47,10 +47,10 @@ struct HeadphoneNoticeView: View {
                 .foregroundStyle(.blue)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("Headphones Recommended")
+                Text(LocalizedStringKey("Headphones Recommended"))
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                Text("Binaural beats require stereo headphones to work effectively.")
+                Text(LocalizedStringKey("Binaural beats require stereo headphones to work effectively."))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -77,7 +77,7 @@ struct BrainwaveStateSelectorView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Brainwave State")
+            Text(LocalizedStringKey("Brainwave State"))
                 .font(.headline)
 
             LazyVGrid(columns: columns, spacing: 12) {
@@ -143,11 +143,11 @@ struct BrainwaveStateCard: View {
                 }
 
                 VStack(spacing: 2) {
-                    Text(state.rawValue)
+                    Text(state.localizedName)
                         .font(.subheadline)
                         .fontWeight(.semibold)
 
-                    Text(state.description)
+                    Text(state.localizedDescription)
                         .font(.caption2)
                         .foregroundStyle(isSelected ? .white.opacity(0.8) : .secondary)
 
@@ -178,14 +178,14 @@ struct ToneTypePickerView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Tone Type")
+            Text(LocalizedStringKey("Tone Type"))
                 .font(.headline)
 
             @Bindable var engine = beatEngine
 
             Picker("Tone Type", selection: $engine.toneType) {
                 ForEach(ToneType.allCases) { type in
-                    Text(type.rawValue).tag(type)
+                    Text(type.localizedName).tag(type)
                 }
             }
             .pickerStyle(.segmented)
@@ -193,7 +193,7 @@ struct ToneTypePickerView: View {
                 beatEngine.updateSettings()
             }
 
-            Text(beatEngine.toneType.description)
+            Text(beatEngine.toneType.localizedDescription)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -211,7 +211,7 @@ struct BaseFrequencySelectorView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Base Frequency")
+                Text(LocalizedStringKey("Base Frequency"))
                     .font(.headline)
 
                 Spacer()
@@ -233,7 +233,7 @@ struct BaseFrequencySelectorView: View {
                 beatEngine.updateSettings()
             }
 
-            Text("Higher frequencies produce brighter tones")
+            Text(LocalizedStringKey("Higher frequencies produce brighter tones"))
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -251,7 +251,7 @@ struct BinauralVolumeSliderView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Volume")
+                Text(LocalizedStringKey("Volume"))
                     .font(.headline)
 
                 Spacer()
@@ -305,7 +305,7 @@ struct BinauralPlayButton: View {
                 Image(systemName: beatEngine.isPlaying ? "stop.fill" : "play.fill")
                     .font(.title2)
 
-                Text(beatEngine.isPlaying ? "Stop" : "Play")
+                Text(beatEngine.isPlaying ? LocalizedStringKey("Stop") : LocalizedStringKey("Play"))
                     .font(.title3)
                     .fontWeight(.semibold)
             }

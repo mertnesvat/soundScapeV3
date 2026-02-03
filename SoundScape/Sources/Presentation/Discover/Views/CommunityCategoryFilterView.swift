@@ -8,7 +8,7 @@ struct CommunityCategoryFilterView: View {
             HStack(spacing: 12) {
                 // All option
                 CategoryPill(
-                    title: "All",
+                    title: String(localized: "All"),
                     icon: "square.grid.2x2.fill",
                     isSelected: selected == nil
                 ) {
@@ -17,7 +17,7 @@ struct CommunityCategoryFilterView: View {
 
                 ForEach(CommunityCategory.allCases, id: \.self) { category in
                     CategoryPill(
-                        title: category.rawValue,
+                        title: category.localizedName,
                         icon: category.icon,
                         isSelected: selected == category
                     ) {

@@ -25,11 +25,11 @@ struct AdaptiveModeCardView: View {
 
                     // Text content
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(mode.rawValue)
+                        Text(mode.localizedName)
                             .font(.headline)
                             .foregroundColor(.primary)
 
-                        Text(mode.description)
+                        Text(mode.localizedDescription)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .lineLimit(2)
@@ -60,7 +60,7 @@ struct AdaptiveModeCardView: View {
                     HStack {
                         Image(systemName: "clock")
                             .foregroundColor(.secondary)
-                        Text("Total Duration: \(totalDurationFormatted)")
+                        Text("Total Duration: \(totalDurationFormatted)", comment: "Shows the total duration of an adaptive session")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                         Spacer()
@@ -71,7 +71,7 @@ struct AdaptiveModeCardView: View {
                     Button {
                         onStart()
                     } label: {
-                        Text("Start Session")
+                        Text(LocalizedStringKey("Start Session"))
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)

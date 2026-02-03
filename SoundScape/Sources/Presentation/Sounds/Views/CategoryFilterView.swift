@@ -7,7 +7,7 @@ struct CategoryFilterView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
                 CategoryChip(
-                    title: "All",
+                    title: String(localized: "All"),
                     icon: "square.grid.2x2.fill",
                     isSelected: selectedCategory == nil
                 ) {
@@ -16,7 +16,7 @@ struct CategoryFilterView: View {
 
                 ForEach(SoundCategory.allCases, id: \.self) { category in
                     CategoryChip(
-                        title: category.rawValue,
+                        title: category.localizedName,
                         icon: category.icon,
                         isSelected: selectedCategory == category
                     ) {

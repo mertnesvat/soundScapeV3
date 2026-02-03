@@ -16,6 +16,17 @@ enum SoundCategory: String, CaseIterable {
     case music = "Music"
     case asmr = "ASMR"
 
+    var localizedName: String {
+        switch self {
+        case .noise: return String(localized: "Noise")
+        case .nature: return String(localized: "Nature")
+        case .weather: return String(localized: "Weather")
+        case .fire: return String(localized: "Fire")
+        case .music: return String(localized: "Music")
+        case .asmr: return String(localized: "ASMR")
+        }
+    }
+
     var icon: String {
         switch self {
         case .noise: return "waveform.path"
