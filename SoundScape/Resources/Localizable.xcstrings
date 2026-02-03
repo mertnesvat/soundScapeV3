@@ -15,6 +15,12 @@
             "state": "translated",
             "value": "Sonidos"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sons"
+          }
         }
       }
     },
@@ -28,6 +34,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Binaural"
@@ -49,6 +61,12 @@
             "state": "translated",
             "value": "Favoritos"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favoritos"
+          }
         }
       }
     },
@@ -65,6 +83,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Relajación"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxar"
           }
         }
       }
@@ -83,6 +107,12 @@
             "state": "translated",
             "value": "Alarmas"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alarmes"
+          }
         }
       }
     },
@@ -100,6 +130,12 @@
             "state": "translated",
             "value": "Descubrir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descobrir"
+          }
         }
       }
     },
@@ -113,6 +149,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptativo"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Adaptativo"
@@ -134,6 +176,12 @@
             "state": "translated",
             "value": "Estadísticas"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estatísticas"
+          }
         }
       }
     },
@@ -150,6 +198,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todos los Sonidos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos os Sons"
           }
         }
       }
@@ -168,6 +222,12 @@
             "state": "translated",
             "value": "Omitir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular"
+          }
         }
       }
     },
@@ -184,6 +244,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Un Mejor Sueño\nComienza Esta Noche"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um Sono Melhor\nComeça Esta Noite"
           }
         }
       }
@@ -202,6 +268,12 @@
             "state": "translated",
             "value": "Toma 30 segundos para personalizar tu\nexperiencia de sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leve 30 segundos para personalizar sua\nexperiência de sono"
+          }
         }
       }
     },
@@ -218,6 +290,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comenzar"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Começar"
           }
         }
       }
@@ -236,6 +314,12 @@
             "state": "translated",
             "value": "¿Cuál es tu principal\nobjetivo de sueño?"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qual é seu principal\nobjetivo de sono?"
+          }
         }
       }
     },
@@ -249,6 +333,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Continuar"
@@ -270,6 +360,12 @@
             "state": "translated",
             "value": "¿Qué te impide\ndormir bien?"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que te impede de\ndormir bem?"
+          }
         }
       }
     },
@@ -286,6 +382,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Selecciona todas las que apliquen"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecione todas que se aplicam"
           }
         }
       }
@@ -348,6 +450,12 @@
             "state": "translated",
             "value": "Entendemos\ntus necesidades"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entendemos\nsuas necessidades"
+          }
         }
       }
     },
@@ -376,6 +484,12 @@
             "state": "translated",
             "value": "Descubre Cómo Podemos Ayudar"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja Como Podemos Ajudar"
+          }
         }
       }
     },
@@ -392,6 +506,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Los pensamientos acelerados y la ansiedad son alteradores comunes del sueño. La terapia de sonido puede ayudar a calmar tu mente y crear una transición tranquila hacia el sueño."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pensamentos acelerados e ansiedade são perturbadores comuns do sono. A terapia sonora pode ajudar a acalmar sua mente e criar uma transição tranquila para o sono."
           }
         }
       }
@@ -410,6 +530,12 @@
             "state": "translated",
             "value": "El estrés afecta significativamente la calidad del sueño. Nuestros sonidos ambientales pueden ayudarte a descomprimirte y prepararte para un sueño reparador."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O estresse afeta significativamente a qualidade do sono. Nossos sons ambientes podem ajudá-lo a descomprimir e se preparar para um sono reparador."
+          }
         }
       }
     },
@@ -426,6 +552,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "El ruido externo puede alterar tus patrones de sueño. El ruido blanco y los sonidos ambientales pueden enmascarar las molestias efectivamente."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruídos externos podem perturbar seus padrões de sono. Ruído branco e sons ambientes podem mascarar perturbações efetivamente."
           }
         }
       }
@@ -444,6 +576,12 @@
             "state": "translated",
             "value": "Hemos analizado tus necesidades y creado un enfoque personalizado para ayudarte a lograr un mejor sueño."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analisamos suas necessidades e criamos uma abordagem personalizada para ajudá-lo a alcançar um sono melhor."
+          }
         }
       }
     },
@@ -460,6 +598,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Las noches sin dormir\nagotan tu energía"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noites sem dormir\nesgotam sua energia"
           }
         }
       }
@@ -478,6 +622,12 @@
             "state": "translated",
             "value": "Dar vueltas en la cama afecta todo tu día, dejándote agotado y sin concentración."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Virar de um lado para o outro afeta todo o seu dia, deixando você exausto e sem foco."
+          }
         }
       }
     },
@@ -494,6 +644,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Los pensamientos acelerados\nte mantienen despierto"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pensamentos acelerados\nte mantêm acordado"
           }
         }
       }
@@ -512,6 +668,12 @@
             "state": "translated",
             "value": "Tu mente no se calma, repasando el día y preocupándose por el mañana."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua mente não se acalma, repassando o dia e se preocupando com o amanhã."
+          }
         }
       }
     },
@@ -528,6 +690,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mereces\nun descanso tranquilo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você merece\ndescanso tranquilo"
           }
         }
       }
@@ -546,6 +714,12 @@
             "state": "translated",
             "value": "El sueño de calidad está a tu alcance. Déjanos ayudarte a encontrar tu camino hacia mejores noches."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono de qualidade está ao seu alcance. Deixe-nos ajudá-lo a encontrar seu caminho para noites melhores."
+          }
         }
       }
     },
@@ -562,6 +736,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Descubre Cómo Ayudamos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja Como Ajudamos"
           }
         }
       }
@@ -580,6 +760,12 @@
             "state": "translated",
             "value": "Tu camino hacia\nun mejor sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua jornada para\num sono melhor"
+          }
         }
       }
     },
@@ -596,6 +782,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sonidos diseñados científicamente"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sons cientificamente projetados"
           }
         }
       }
@@ -614,6 +806,12 @@
             "state": "translated",
             "value": "Creados para promover la relajación y el sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Criados para promover relaxamento e sono"
+          }
         }
       }
     },
@@ -630,6 +828,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Personalizado para ti"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizado para você"
           }
         }
       }
@@ -648,6 +852,12 @@
             "state": "translated",
             "value": "Recomendaciones basadas en tus necesidades"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendações baseadas nas suas necessidades"
+          }
         }
       }
     },
@@ -664,6 +874,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Duerme más rápido"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adormecer mais rápido"
           }
         }
       }
@@ -682,6 +898,12 @@
             "state": "translated",
             "value": "La mayoría de usuarios reportan mejoras en días"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A maioria dos usuários relata melhora em dias"
+          }
         }
       }
     },
@@ -699,6 +921,12 @@
             "state": "translated",
             "value": "Sigue tu progreso"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acompanhe seu progresso"
+          }
         }
       }
     },
@@ -715,6 +943,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Observa cómo mejora tu sueño con el tiempo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja como seu sono melhora com o tempo"
           }
         }
       }
@@ -744,6 +978,12 @@
             "state": "translated",
             "value": "Amado por quienes duermen en todas partes"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amado por quem dorme em todos os lugares"
+          }
         }
       }
     },
@@ -761,6 +1001,12 @@
             "state": "translated",
             "value": "¡Los sonidos de lluvia son perfectos para bloquear el ruido. Por fin duermo mejor!"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os sons de chuva são perfeitos para bloquear ruídos. Finalmente dormindo melhor!"
+          }
         }
       }
     },
@@ -777,6 +1023,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Entusiasta del sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entusiasta do sono"
           }
         }
       }
@@ -828,6 +1080,12 @@
             "state": "translated",
             "value": "Todo lo que necesitas\npara dormir mejor"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo que você precisa\npara dormir melhor"
+          }
         }
       }
     },
@@ -844,6 +1102,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "27+ Sonidos Premium"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "27+ Sons Premium"
           }
         }
       }
@@ -862,6 +1126,12 @@
             "state": "translated",
             "value": "Naturaleza, lluvia, ruido blanco y música relajante"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Natureza, chuva, ruído branco e música relaxante"
+          }
         }
       }
     },
@@ -878,6 +1148,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mezcla de Sonidos Personalizada"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mixagem de Sons Personalizada"
           }
         }
       }
@@ -896,6 +1172,12 @@
             "state": "translated",
             "value": "Combina múltiples sonidos para crear tu mezcla perfecta"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misture vários sons para criar sua mixagem perfeita"
+          }
         }
       }
     },
@@ -912,6 +1194,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Temporizador Inteligente"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer de Sono Inteligente"
           }
         }
       }
@@ -930,6 +1218,12 @@
             "state": "translated",
             "value": "Desvanecimiento suave mientras te duermes"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desvanecimento suave enquanto você adormece"
+          }
         }
       }
     },
@@ -946,6 +1240,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sonidos Binaurales"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batidas Binaurais"
           }
         }
       }
@@ -964,6 +1264,12 @@
             "state": "translated",
             "value": "Sincronización de ondas cerebrales para relajación profunda"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronização de ondas cerebrais para relaxamento profundo"
+          }
         }
       }
     },
@@ -980,6 +1286,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Estadísticas de Sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estatísticas de Sono"
           }
         }
       }
@@ -998,6 +1310,12 @@
             "state": "translated",
             "value": "Rastrea tus patrones y observa mejoras"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acompanhe seus padrões e veja melhorias"
+          }
         }
       }
     },
@@ -1014,6 +1332,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ver Tu Plan"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Seu Plano"
           }
         }
       }
@@ -1032,6 +1356,12 @@
             "state": "translated",
             "value": "Tu Plan Personal\nde Sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu Plano Pessoal\nde Sono"
+          }
         }
       }
     },
@@ -1048,6 +1378,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Basado en tus objetivos y desafíos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baseado nos seus objetivos e desafios"
           }
         }
       }
@@ -1066,6 +1402,12 @@
             "state": "translated",
             "value": "Recomendado para ti"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendado para você"
+          }
         }
       }
     },
@@ -1082,6 +1424,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tu rutina de sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua rotina de sono"
           }
         }
       }
@@ -1100,6 +1448,12 @@
             "state": "translated",
             "value": "Comienza 30 minutos antes de dormir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comece 30 minutos antes de dormir"
+          }
         }
       }
     },
@@ -1116,6 +1470,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dale tiempo a tu mente para relajarse"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dê tempo para sua mente relaxar"
           }
         }
       }
@@ -1134,6 +1494,12 @@
             "state": "translated",
             "value": "Usa el temporizador de sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use o timer de sono"
+          }
         }
       }
     },
@@ -1150,6 +1516,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Los sonidos se desvanecen mientras te duermes"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os sons desvanecem enquanto você adormece"
           }
         }
       }
@@ -1168,6 +1540,12 @@
             "state": "translated",
             "value": "Observa mejoras en Estadísticas"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veja melhorias nas Estatísticas"
+          }
         }
       }
     },
@@ -1184,6 +1562,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comenzar Mi Camino"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Começar Minha Jornada"
           }
         }
       }
@@ -1400,6 +1784,12 @@
             "state": "translated",
             "value": "Términos de Uso"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termos de Uso"
+          }
         }
       }
     },
@@ -1428,6 +1818,12 @@
             "state": "translated",
             "value": "Política de Privacidad"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de Privacidade"
+          }
         }
       }
     },
@@ -1444,6 +1840,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Configuración"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configurações"
           }
         }
       }
@@ -1473,6 +1875,12 @@
             "state": "translated",
             "value": "NEGRO INTENSO"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRETO INTENSO"
+          }
         }
       }
     },
@@ -1490,6 +1898,12 @@
             "state": "translated",
             "value": "Negro verdadero para pantallas OLED"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preto verdadeiro para telas OLED"
+          }
         }
       }
     },
@@ -1506,6 +1920,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Los fondos negros puros ahorran batería en pantallas OLED y reducen la fatiga visual por la noche."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fundos pretos puros economizam bateria em telas OLED e reduzem a fadiga ocular à noite."
           }
         }
       }
@@ -1535,6 +1955,12 @@
             "state": "translated",
             "value": "Premium Activo"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium Ativo"
+          }
         }
       }
     },
@@ -1552,6 +1978,12 @@
             "state": "translated",
             "value": "Actualizar a Premium"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar para Premium"
+          }
         }
       }
     },
@@ -1565,6 +1997,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar Compras"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Restaurar Compras"
@@ -1597,6 +2035,12 @@
             "state": "translated",
             "value": "Compañero de Sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parceiro de Sono"
+          }
         }
       }
     },
@@ -1613,6 +2057,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Próximamente"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em Breve"
           }
         }
       }
@@ -1631,6 +2081,12 @@
             "state": "translated",
             "value": "Toca para saber más"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque para saber mais"
+          }
         }
       }
     },
@@ -1648,6 +2104,12 @@
             "state": "translated",
             "value": "¡Compañero de Sueño viene pronto! Empareja con un amigo para motivarse mutuamente con rachas de sueño. Mantente atento a las actualizaciones."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parceiro de Sono em breve! Conecte-se com um amigo para motivarem-se mutuamente com sequências de sono. Fique ligado para atualizações."
+          }
         }
       }
     },
@@ -1664,6 +2126,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Empareja con un amigo para motivarse mutuamente con rachas de sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conecte-se com um amigo para motivarem-se mutuamente com sequências de sono"
           }
         }
       }
@@ -1693,6 +2161,12 @@
             "state": "translated",
             "value": "Reiniciar Introducción"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefinir Introdução"
+          }
         }
       }
     },
@@ -1709,6 +2183,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Reinicia la introducción para probar el flujo nuevamente"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefina a introdução para testar o fluxo novamente"
           }
         }
       }
@@ -1738,6 +2218,12 @@
             "state": "translated",
             "value": "Sitio Web"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site"
+          }
         }
       }
     },
@@ -1754,6 +2240,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Versión"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão"
           }
         }
       }
@@ -1772,6 +2264,12 @@
             "state": "translated",
             "value": "Hecho con ♥ por Studio Next"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feito com ♥ por Studio Next"
+          }
         }
       }
     },
@@ -1788,6 +2286,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Listo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronto"
           }
         }
       }
@@ -1806,6 +2310,12 @@
             "state": "translated",
             "value": "¿Reiniciar Introducción?"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefinir Introdução?"
+          }
         }
       }
     },
@@ -1819,6 +2329,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Cancelar"
@@ -1840,6 +2356,12 @@
             "state": "translated",
             "value": "Reiniciar"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redefinir"
+          }
         }
       }
     },
@@ -1856,6 +2378,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Esto reiniciará tu progreso de introducción y mostrará el flujo de introducción nuevamente en el próximo inicio de la app."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isso redefinirá seu progresso de introdução e mostrará o fluxo de introdução novamente no próximo lançamento do app."
           }
         }
       }
@@ -1874,6 +2402,12 @@
             "state": "translated",
             "value": "Mezclador"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mixer"
+          }
         }
       }
     },
@@ -1891,6 +2425,12 @@
             "state": "translated",
             "value": "Sin Sonidos Reproduciéndose"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum Som Tocando"
+          }
         }
       }
     },
@@ -1907,6 +2447,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comienza a reproducir sonidos de la biblioteca"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comece a tocar sons da biblioteca"
           }
         }
       }
@@ -1948,6 +2494,12 @@
             "state": "translated",
             "value": "Guardar Mezcla"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar Mix"
+          }
         }
       }
     },
@@ -1964,6 +2516,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Temporizador de Sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer de Sono"
           }
         }
       }
@@ -1982,6 +2540,12 @@
             "state": "translated",
             "value": "Desvaneciéndose..."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desvanecendo..."
+          }
         }
       }
     },
@@ -1998,6 +2562,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancelar Temporizador"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar Timer"
           }
         }
       }
@@ -2016,6 +2586,12 @@
             "state": "translated",
             "value": "Establecer Temporizador"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Definir Timer de Sono"
+          }
         }
       }
     },
@@ -2032,6 +2608,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "El audio se desvanecerá gradualmente durante los últimos 30 segundos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O áudio vai desvanecer gradualmente durante os últimos 30 segundos"
           }
         }
       }
@@ -2050,6 +2632,12 @@
             "state": "translated",
             "value": "Mezclas Guardadas"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mixes Salvos"
+          }
         }
       }
     },
@@ -2066,6 +2654,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sin Mezclas Guardadas"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum Mix Salvo"
           }
         }
       }
@@ -2095,6 +2689,12 @@
             "state": "translated",
             "value": "Nombre de la mezcla"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome do mix"
+          }
         }
       }
     },
@@ -2111,6 +2711,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dale a tu mezcla un nombre memorable"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dê ao seu mix um nome memorável"
           }
         }
       }
@@ -2129,6 +2735,12 @@
             "state": "translated",
             "value": "Guardar"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar"
+          }
         }
       }
     },
@@ -2145,6 +2757,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sin Favoritos"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem Favoritos"
           }
         }
       }
@@ -2163,6 +2781,12 @@
             "state": "translated",
             "value": "Toca el corazón en los sonidos para agregar favoritos"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque no coração nos sons para adicionar favoritos"
+          }
         }
       }
     },
@@ -2179,6 +2803,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se Recomiendan Auriculares"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fones de Ouvido Recomendados"
           }
         }
       }
@@ -2197,6 +2827,12 @@
             "state": "translated",
             "value": "Los sonidos binaurales requieren auriculares estéreo para funcionar efectivamente."
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batidas binaurais requerem fones de ouvido estéreo para funcionar efetivamente."
+          }
         }
       }
     },
@@ -2214,6 +2850,12 @@
             "state": "translated",
             "value": "Estado de Ondas Cerebrales"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado de Ondas Cerebrais"
+          }
         }
       }
     },
@@ -2227,6 +2869,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delta"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Delta"
@@ -2259,6 +2907,12 @@
             "state": "translated",
             "value": "Theta"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theta"
+          }
         }
       }
     },
@@ -2276,6 +2930,12 @@
             "state": "translated",
             "value": "Meditación"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditação"
+          }
         }
       }
     },
@@ -2289,6 +2949,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alfa"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Alfa"
@@ -2321,6 +2987,12 @@
             "state": "translated",
             "value": "Beta"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
         }
       }
     },
@@ -2337,6 +3009,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enfoque"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco"
           }
         }
       }
@@ -2377,6 +3055,12 @@
             "state": "translated",
             "value": "Tipo de Tono"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipo de Tom"
+          }
         }
       }
     },
@@ -2393,6 +3077,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Isocrónico"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isocrônico"
           }
         }
       }
@@ -2433,6 +3123,12 @@
             "state": "translated",
             "value": "Frecuencia Base"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequência Base"
+          }
         }
       }
     },
@@ -2449,6 +3145,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Las frecuencias más altas producen tonos más brillantes"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequências mais altas produzem tons mais brilhantes"
           }
         }
       }
@@ -2467,6 +3169,12 @@
             "state": "translated",
             "value": "Volumen"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volume"
+          }
         }
       }
     },
@@ -2483,6 +3191,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Detener"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parar"
           }
         }
       }
@@ -2501,6 +3215,12 @@
             "state": "translated",
             "value": "Reproducir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reproduzir"
+          }
         }
       }
     },
@@ -2517,6 +3237,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sin Alarmas"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem Alarmes"
           }
         }
       }
@@ -2535,6 +3261,12 @@
             "state": "translated",
             "value": "Toca + para crear tu primera alarma"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque + para criar seu primeiro alarme"
+          }
         }
       }
     },
@@ -2551,6 +3283,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Agregar Alarma"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar Alarme"
           }
         }
       }
@@ -2569,6 +3307,12 @@
             "state": "translated",
             "value": "Editar Alarma"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar Alarme"
+          }
         }
       }
     },
@@ -2582,6 +3326,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Hora"
@@ -2603,6 +3353,12 @@
             "state": "translated",
             "value": "Etiqueta"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etiqueta"
+          }
         }
       }
     },
@@ -2616,6 +3372,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repetir"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Repetir"
@@ -2637,6 +3399,12 @@
             "state": "translated",
             "value": "La alarma sonará una vez"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O alarme tocará uma vez"
+          }
         }
       }
     },
@@ -2653,6 +3421,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todos los días"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos os dias"
           }
         }
       }
@@ -2671,6 +3445,12 @@
             "state": "translated",
             "value": "Solo fines de semana"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apenas fins de semana"
+          }
         }
       }
     },
@@ -2687,6 +3467,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Solo días laborales"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apenas dias úteis"
           }
         }
       }
@@ -2705,6 +3491,12 @@
             "state": "translated",
             "value": "Sonido"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Som"
+          }
         }
       }
     },
@@ -2721,6 +3513,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sonido de Alarma"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Som do Alarme"
           }
         }
       }
@@ -2739,6 +3537,12 @@
             "state": "translated",
             "value": "Despertar Gradualmente"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acordar Gradualmente"
+          }
         }
       }
     },
@@ -2755,6 +3559,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aumento de Volumen"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aumento de Volume"
           }
         }
       }
@@ -2784,6 +3594,12 @@
             "state": "translated",
             "value": "Duración de Posponer"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duração da Soneca"
+          }
         }
       }
     },
@@ -2801,6 +3617,12 @@
             "state": "translated",
             "value": "Posponer"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soneca"
+          }
         }
       }
     },
@@ -2817,6 +3639,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eliminar Alarma"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluir Alarme"
           }
         }
       }
@@ -2857,6 +3685,12 @@
             "state": "translated",
             "value": "¿Listo para Dormir?"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronto para Dormir?"
+          }
         }
       }
     },
@@ -2873,6 +3707,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buenas Noches"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa Noite"
           }
         }
       }
@@ -2891,6 +3731,12 @@
             "state": "translated",
             "value": "Buenas Tardes"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa Tarde"
+          }
         }
       }
     },
@@ -2907,6 +3753,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buenos Días"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom Dia"
           }
         }
       }
@@ -2925,6 +3777,12 @@
             "state": "translated",
             "value": "Te ayudaremos a dormir tranquilamente"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vamos ajudá-lo a adormecer tranquilamente"
+          }
         }
       }
     },
@@ -2941,6 +3799,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Prepárate para un sueño reparador"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepare-se para um sono reparador"
           }
         }
       }
@@ -2959,6 +3823,12 @@
             "state": "translated",
             "value": "Toma un momento para relajarte"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tire um momento para relaxar"
+          }
         }
       }
     },
@@ -2975,6 +3845,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comienza tu día con intención"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comece seu dia com intenção"
           }
         }
       }
@@ -2993,6 +3869,12 @@
             "state": "translated",
             "value": "Destacado Esta Noche"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destaque Esta Noite"
+          }
         }
       }
     },
@@ -3010,6 +3892,12 @@
             "state": "translated",
             "value": "Continuar Escuchando"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar Ouvindo"
+          }
         }
       }
     },
@@ -3023,6 +3911,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yoga Nidra"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Yoga Nidra"
@@ -3044,6 +3938,12 @@
             "state": "translated",
             "value": "Historias para Dormir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Histórias para Dormir"
+          }
         }
       }
     },
@@ -3060,6 +3960,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Meditaciones"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditações"
           }
         }
       }
@@ -3078,6 +3984,12 @@
             "state": "translated",
             "value": "Respiración"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiração"
+          }
         }
       }
     },
@@ -3094,6 +4006,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hipnosis"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hipnose"
           }
         }
       }
@@ -3112,6 +4030,12 @@
             "state": "translated",
             "value": "Afirmaciones"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afirmações"
+          }
         }
       }
     },
@@ -3128,6 +4052,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Práctica de relajación profunda"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prática de relaxamento profundo"
           }
         }
       }
@@ -3146,6 +4076,12 @@
             "state": "translated",
             "value": "Cuentos relajantes para dormir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contos relaxantes para dormir"
+          }
         }
       }
     },
@@ -3162,6 +4098,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Meditación guiada para dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditação guiada para dormir"
           }
         }
       }
@@ -3180,6 +4122,12 @@
             "state": "translated",
             "value": "Ejercicios de respiración calmantes"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exercícios de respiração calmantes"
+          }
         }
       }
     },
@@ -3196,6 +4144,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hipnosis suave para dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hipnose suave para dormir"
           }
         }
       }
@@ -3214,6 +4168,12 @@
             "state": "translated",
             "value": "Afirmaciones positivas para dormir"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afirmações positivas para dormir"
+          }
         }
       }
     },
@@ -3230,6 +4190,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ver Todo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Tudo"
           }
         }
       }
@@ -3248,6 +4214,12 @@
             "state": "translated",
             "value": "¡Guardado!"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvo!"
+          }
         }
       }
     },
@@ -3261,6 +4233,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
@@ -3293,6 +4271,12 @@
             "state": "translated",
             "value": "Tendencia Ahora"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em Alta Agora"
+          }
         }
       }
     },
@@ -3310,6 +4294,12 @@
             "state": "translated",
             "value": "Siempre Popular"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sempre Popular"
+          }
         }
       }
     },
@@ -3323,6 +4313,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para Dormir"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Para Dormir"
@@ -3344,6 +4340,12 @@
             "state": "translated",
             "value": "Para Concentrarse"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para Focar"
+          }
         }
       }
     },
@@ -3360,6 +4362,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Paisajes Sonoros Naturales"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paisagens Sonoras da Natureza"
           }
         }
       }
@@ -3389,6 +4397,12 @@
             "state": "translated",
             "value": "Elige un Modo Adaptativo"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha um Modo Adaptativo"
+          }
         }
       }
     },
@@ -3406,6 +4420,12 @@
             "state": "translated",
             "value": "Paisajes Sonoros Adaptativos"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paisagens Sonoras Adaptativas"
+          }
         }
       }
     },
@@ -3422,6 +4442,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ambientes sonoros conscientes del contexto que se adaptan a tus actividades"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ambientes sonoros conscientes do contexto que se adaptam às suas atividades"
           }
         }
       }
@@ -3480,6 +4506,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear Modo Adaptativo"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Desbloquear Modo Adaptativo"
@@ -3611,6 +4643,12 @@
             "state": "translated",
             "value": "Tu Camino de Sueño"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua Jornada de Sono"
+          }
         }
       }
     },
@@ -3628,6 +4666,12 @@
             "state": "translated",
             "value": "Sesiones Totales"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sessões Totais"
+          }
         }
       }
     },
@@ -3641,6 +4685,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta Semana"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "Esta Semana"
@@ -3662,6 +4712,12 @@
             "state": "translated",
             "value": "Desbloquear Análisis Completo"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear Análises Completas"
+          }
         }
       }
     },
@@ -3678,6 +4734,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Gráficos, tendencias, recomendaciones y más"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gráficos, tendências, recomendações e mais"
           }
         }
       }
@@ -3696,6 +4758,12 @@
             "state": "translated",
             "value": "Tendencias de Sueño Semanales"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendências de Sono Semanais"
+          }
         }
       }
     },
@@ -3712,6 +4780,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Métricas de Sueño"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Métricas de Sono"
           }
         }
       }
@@ -3730,6 +4804,12 @@
             "state": "translated",
             "value": "Sonidos Principales"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sons Principais"
+          }
         }
       }
     },
@@ -3746,6 +4826,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Consejos Personalizados"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dicas Personalizadas"
           }
         }
       }
@@ -3764,6 +4850,12 @@
             "state": "translated",
             "value": "Función Premium"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recurso Premium"
+          }
         }
       }
     },
@@ -3780,6 +4872,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Toca para mezclar"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque para mixar"
           }
         }
       }
@@ -3805,6 +4903,12 @@
           }
         },
         "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR"
+          }
+        },
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "ASMR"
@@ -3870,6 +4974,12 @@
             "state": "translated",
             "value": "Pasar Páginas"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Virando Páginas"
+          }
         }
       }
     },
@@ -3919,6 +5029,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Golpecitos Suaves"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batidas Suaves"
           }
         }
       }
@@ -4047,6 +5163,12 @@
             "state": "translated",
             "value": "Mantenerme dormido más tiempo"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dormir por mais tempo"
+          }
         }
       }
     },
@@ -4063,6 +5185,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Despertar renovado"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acordar renovado"
           }
         }
       }
@@ -4081,6 +5209,12 @@
             "state": "translated",
             "value": "Relajación y alivio del estrés"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxamento e alívio do estresse"
+          }
         }
       }
     },
@@ -4097,6 +5231,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enfoque y productividad"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco e produtividade"
           }
         }
       }
@@ -4115,6 +5255,12 @@
             "state": "translated",
             "value": "Meditación y atención plena"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditação e atenção plena"
+          }
         }
       }
     },
@@ -4131,6 +5277,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pensamientos acelerados"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pensamentos acelerados"
           }
         }
       }
@@ -4149,6 +5301,12 @@
             "state": "translated",
             "value": "Ansiedad y preocupación"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ansiedade e preocupação"
+          }
         }
       }
     },
@@ -4165,6 +5323,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Molestias por ruido"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perturbações de ruído"
           }
         }
       }
@@ -4183,6 +5347,12 @@
             "state": "translated",
             "value": "Estrés del trabajo/vida"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estresse do trabalho/vida"
+          }
         }
       }
     },
@@ -4200,6 +5370,12 @@
             "state": "translated",
             "value": "Horario irregular"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horário irregular"
+          }
         }
       }
     },
@@ -4216,6 +5392,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tiempo de pantalla antes de dormir"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo de tela antes de dormir"
           }
         }
       }
