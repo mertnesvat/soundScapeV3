@@ -204,6 +204,7 @@
 		F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */; };
 		FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */; };
 		19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */; };
+		FB96EB91L10N0001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91L10N0002 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -440,6 +441,7 @@
 		7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
 		EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
+		FB96EB91L10N0002 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +500,7 @@
 				FB96EB9100000048 /* Sounds */,
 				FB96EB9100000014 /* GoogleService-Info.plist */,
 				FB96EB9100000021 /* Info.plist */,
+				FB96EB91L10N0002 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1272,6 +1275,7 @@
 				FB96EB91WIND0009 /* sleep_hypnosis_floating.mp3 in Resources */,
 				FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */,
 				FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */,
+				FB96EB91L10N0001 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
