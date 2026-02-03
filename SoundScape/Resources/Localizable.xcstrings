@@ -1,1386 +1,1932 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "Sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sounds"
+  "sourceLanguage": "en",
+  "strings": {
+    "Sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sounds"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonidos"
+          }
         }
       }
     },
-    "Binaural" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Binaural"
+    "Binaural": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural"
           }
         }
       }
     },
-    "Favorites" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorites"
+    "Favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favorites"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favoritos"
+          }
         }
       }
     },
-    "Wind Down" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wind Down"
+    "Wind Down": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wind Down"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relajación"
+          }
         }
       }
     },
-    "Alarms" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alarms"
+    "Alarms": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alarms"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alarmas"
           }
         }
       }
     },
-    "Discover" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Discover"
+    "Discover": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Discover"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descubrir"
+          }
         }
       }
     },
-    "Adaptive" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adaptive"
+    "Adaptive": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptive"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptativo"
+          }
         }
       }
     },
-    "Insights" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Insights"
+    "Insights": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insights"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estadísticas"
           }
         }
       }
     },
-    "All Sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All Sounds"
+    "All Sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Sounds"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos los Sonidos"
+          }
         }
       }
     },
-    "Skip" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skip"
+    "Skip": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omitir"
+          }
         }
       }
     },
-    "Better Sleep\nStarts Tonight" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Better Sleep\nStarts Tonight"
+    "Better Sleep\nStarts Tonight": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Better Sleep\nStarts Tonight"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un Mejor Sueño\nComienza Esta Noche"
           }
         }
       }
     },
-    "Take 30 seconds to personalize your\nsleep experience" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take 30 seconds to personalize your\nsleep experience"
+    "Take 30 seconds to personalize your\nsleep experience": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take 30 seconds to personalize your\nsleep experience"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toma 30 segundos para personalizar tu\nexperiencia de sueño"
+          }
         }
       }
     },
-    "Get Started" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Get Started"
+    "Get Started": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get Started"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comenzar"
           }
         }
       }
     },
-    "What's your main\nsleep goal?" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "What's your main\nsleep goal?"
+    "What's your main\nsleep goal?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What's your main\nsleep goal?"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Cuál es tu principal\nobjetivo de sueño?"
+          }
         }
       }
     },
-    "Continue" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue"
+    "Continue": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
         }
       }
     },
-    "What keeps you from\nsleeping well?" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "What keeps you from\nsleeping well?"
+    "What keeps you from\nsleeping well?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What keeps you from\nsleeping well?"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué te impide\ndormir bien?"
           }
         }
       }
     },
-    "Select all that apply" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select all that apply"
+    "Select all that apply": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select all that apply"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecciona todas las que apliquen"
+          }
         }
       }
     },
-    "Reviewing your sleep goals..." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reviewing your sleep goals..."
+    "Reviewing your sleep goals...": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reviewing your sleep goals..."
           }
         }
       }
     },
-    "Identifying your challenges..." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifying your challenges..."
+    "Identifying your challenges...": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifying your challenges..."
           }
         }
       }
     },
-    "Finding the perfect sounds..." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finding the perfect sounds..."
+    "Finding the perfect sounds...": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finding the perfect sounds..."
           }
         }
       }
     },
-    "Creating your personalized plan..." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Creating your personalized plan..."
+    "Creating your personalized plan...": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creating your personalized plan..."
           }
         }
       }
     },
-    "We understand\nyour needs" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We understand\nyour needs"
+    "We understand\nyour needs": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We understand\nyour needs"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entendemos\ntus necesidades"
+          }
         }
       }
     },
-    "Goal: %@" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Goal: %@"
+    "Goal: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Goal: %@"
           }
         }
       }
     },
-    "See How We Can Help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See How We Can Help"
+    "See How We Can Help": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See How We Can Help"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descubre Cómo Podemos Ayudar"
           }
         }
       }
     },
-    "Racing thoughts and anxiety are common sleep disruptors. Sound therapy can help calm your mind and create a peaceful transition to sleep." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Racing thoughts and anxiety are common sleep disruptors. Sound therapy can help calm your mind and create a peaceful transition to sleep."
+    "Racing thoughts and anxiety are common sleep disruptors. Sound therapy can help calm your mind and create a peaceful transition to sleep.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Racing thoughts and anxiety are common sleep disruptors. Sound therapy can help calm your mind and create a peaceful transition to sleep."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los pensamientos acelerados y la ansiedad son alteradores comunes del sueño. La terapia de sonido puede ayudar a calmar tu mente y crear una transición tranquila hacia el sueño."
+          }
         }
       }
     },
-    "Stress affects sleep quality significantly. Our ambient sounds can help you decompress and prepare for restful sleep." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stress affects sleep quality significantly. Our ambient sounds can help you decompress and prepare for restful sleep."
+    "Stress affects sleep quality significantly. Our ambient sounds can help you decompress and prepare for restful sleep.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stress affects sleep quality significantly. Our ambient sounds can help you decompress and prepare for restful sleep."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El estrés afecta significativamente la calidad del sueño. Nuestros sonidos ambientales pueden ayudarte a descomprimirte y prepararte para un sueño reparador."
+          }
         }
       }
     },
-    "External noise can disrupt your sleep patterns. White noise and ambient sounds can mask disturbances effectively." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "External noise can disrupt your sleep patterns. White noise and ambient sounds can mask disturbances effectively."
+    "External noise can disrupt your sleep patterns. White noise and ambient sounds can mask disturbances effectively.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "External noise can disrupt your sleep patterns. White noise and ambient sounds can mask disturbances effectively."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El ruido externo puede alterar tus patrones de sueño. El ruido blanco y los sonidos ambientales pueden enmascarar las molestias efectivamente."
           }
         }
       }
     },
-    "We've analyzed your needs and created a personalized approach to help you achieve better sleep." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We've analyzed your needs and created a personalized approach to help you achieve better sleep."
+    "We've analyzed your needs and created a personalized approach to help you achieve better sleep.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We've analyzed your needs and created a personalized approach to help you achieve better sleep."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hemos analizado tus necesidades y creado un enfoque personalizado para ayudarte a lograr un mejor sueño."
+          }
         }
       }
     },
-    "Sleepless nights\ndrain your energy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleepless nights\ndrain your energy"
+    "Sleepless nights\ndrain your energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleepless nights\ndrain your energy"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las noches sin dormir\nagotan tu energía"
           }
         }
       }
     },
-    "Tossing and turning affects your entire day, leaving you exhausted and unfocused." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tossing and turning affects your entire day, leaving you exhausted and unfocused."
+    "Tossing and turning affects your entire day, leaving you exhausted and unfocused.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tossing and turning affects your entire day, leaving you exhausted and unfocused."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dar vueltas en la cama afecta todo tu día, dejándote agotado y sin concentración."
+          }
         }
       }
     },
-    "Racing thoughts\nkeep you awake" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Racing thoughts\nkeep you awake"
+    "Racing thoughts\nkeep you awake": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Racing thoughts\nkeep you awake"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los pensamientos acelerados\nte mantienen despierto"
+          }
         }
       }
     },
-    "Your mind won't quiet down, replaying the day and worrying about tomorrow." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your mind won't quiet down, replaying the day and worrying about tomorrow."
+    "Your mind won't quiet down, replaying the day and worrying about tomorrow.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your mind won't quiet down, replaying the day and worrying about tomorrow."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu mente no se calma, repasando el día y preocupándose por el mañana."
           }
         }
       }
     },
-    "You deserve\npeaceful rest" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You deserve\npeaceful rest"
+    "You deserve\npeaceful rest": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You deserve\npeaceful rest"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mereces\nun descanso tranquilo"
+          }
         }
       }
     },
-    "Quality sleep is within reach. Let us help you find your path to better nights." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quality sleep is within reach. Let us help you find your path to better nights."
+    "Quality sleep is within reach. Let us help you find your path to better nights.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quality sleep is within reach. Let us help you find your path to better nights."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El sueño de calidad está a tu alcance. Déjanos ayudarte a encontrar tu camino hacia mejores noches."
+          }
         }
       }
     },
-    "See How We Help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See How We Help"
+    "See How We Help": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See How We Help"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descubre Cómo Ayudamos"
           }
         }
       }
     },
-    "Your journey to\nbetter sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your journey to\nbetter sleep"
+    "Your journey to\nbetter sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your journey to\nbetter sleep"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu camino hacia\nun mejor sueño"
+          }
         }
       }
     },
-    "Scientifically-designed sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scientifically-designed sounds"
+    "Scientifically-designed sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scientifically-designed sounds"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonidos diseñados científicamente"
+          }
         }
       }
     },
-    "Crafted to promote relaxation and sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crafted to promote relaxation and sleep"
+    "Crafted to promote relaxation and sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crafted to promote relaxation and sleep"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creados para promover la relajación y el sueño"
           }
         }
       }
     },
-    "Personalized for you" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personalized for you"
+    "Personalized for you": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalized for you"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizado para ti"
+          }
         }
       }
     },
-    "Recommendations based on your needs" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recommendations based on your needs"
+    "Recommendations based on your needs": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommendations based on your needs"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendaciones basadas en tus necesidades"
+          }
         }
       }
     },
-    "Fall asleep faster" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fall asleep faster"
+    "Fall asleep faster": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fall asleep faster"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duerme más rápido"
           }
         }
       }
     },
-    "Most users report improvement in days" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Most users report improvement in days"
+    "Most users report improvement in days": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most users report improvement in days"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La mayoría de usuarios reportan mejoras en días"
+          }
         }
       }
     },
-    "Track your progress" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Track your progress"
+    "Track your progress": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track your progress"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sigue tu progreso"
+          }
         }
       }
     },
-    "See how your sleep improves over time" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See how your sleep improves over time"
+    "See how your sleep improves over time": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See how your sleep improves over time"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Observa cómo mejora tu sueño con el tiempo"
           }
         }
       }
     },
-    "4.8" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "4.8"
+    "4.8": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "4.8"
           }
         }
       }
     },
-    "Loved by sleepers everywhere" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loved by sleepers everywhere"
+    "Loved by sleepers everywhere": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loved by sleepers everywhere"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amado por quienes duermen en todas partes"
+          }
         }
       }
     },
-    "The rain sounds are perfect for blocking out noise. Finally sleeping better!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The rain sounds are perfect for blocking out noise. Finally sleeping better!"
+    "The rain sounds are perfect for blocking out noise. Finally sleeping better!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The rain sounds are perfect for blocking out noise. Finally sleeping better!"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Los sonidos de lluvia son perfectos para bloquear el ruido. Por fin duermo mejor!"
+          }
         }
       }
     },
-    "Sleep enthusiast" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep enthusiast"
+    "Sleep enthusiast": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep enthusiast"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entusiasta del sueño"
           }
         }
       }
     },
-    "Love mixing different sounds together. So relaxing!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Love mixing different sounds together. So relaxing!"
+    "Love mixing different sounds together. So relaxing!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Love mixing different sounds together. So relaxing!"
           }
         }
       }
     },
-    "Verified user" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verified user"
+    "Verified user": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verified user"
           }
         }
       }
     },
-    "My bedtime routine is so much better now." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "My bedtime routine is so much better now."
+    "My bedtime routine is so much better now.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My bedtime routine is so much better now."
           }
         }
       }
     },
-    "Everything you need\nfor better sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Everything you need\nfor better sleep"
+    "Everything you need\nfor better sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything you need\nfor better sleep"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo lo que necesitas\npara dormir mejor"
+          }
         }
       }
     },
-    "27+ Premium Sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "27+ Premium Sounds"
+    "27+ Premium Sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "27+ Premium Sounds"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "27+ Sonidos Premium"
+          }
         }
       }
     },
-    "Nature, rain, white noise, and relaxing music" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nature, rain, white noise, and relaxing music"
+    "Nature, rain, white noise, and relaxing music": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nature, rain, white noise, and relaxing music"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naturaleza, lluvia, ruido blanco y música relajante"
           }
         }
       }
     },
-    "Custom Sound Mixing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Custom Sound Mixing"
+    "Custom Sound Mixing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom Sound Mixing"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mezcla de Sonidos Personalizada"
+          }
         }
       }
     },
-    "Blend multiple sounds to create your perfect mix" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Blend multiple sounds to create your perfect mix"
+    "Blend multiple sounds to create your perfect mix": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blend multiple sounds to create your perfect mix"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Combina múltiples sonidos para crear tu mezcla perfecta"
           }
         }
       }
     },
-    "Smart Sleep Timer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Smart Sleep Timer"
+    "Smart Sleep Timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Smart Sleep Timer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temporizador Inteligente"
+          }
         }
       }
     },
-    "Gentle fade-out as you drift off to sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gentle fade-out as you drift off to sleep"
+    "Gentle fade-out as you drift off to sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gentle fade-out as you drift off to sleep"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desvanecimiento suave mientras te duermes"
+          }
         }
       }
     },
-    "Binaural Beats" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Binaural Beats"
+    "Binaural Beats": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural Beats"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonidos Binaurales"
           }
         }
       }
     },
-    "Brainwave entrainment for deep relaxation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brainwave entrainment for deep relaxation"
+    "Brainwave entrainment for deep relaxation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brainwave entrainment for deep relaxation"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronización de ondas cerebrales para relajación profunda"
+          }
         }
       }
     },
-    "Sleep Insights" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Insights"
+    "Sleep Insights": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Insights"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estadísticas de Sueño"
+          }
         }
       }
     },
-    "Track your patterns and see improvement" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Track your patterns and see improvement"
+    "Track your patterns and see improvement": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track your patterns and see improvement"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rastrea tus patrones y observa mejoras"
           }
         }
       }
     },
-    "See Your Plan" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See Your Plan"
+    "See Your Plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See Your Plan"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Tu Plan"
+          }
         }
       }
     },
-    "Your Personal\nSleep Plan" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your Personal\nSleep Plan"
+    "Your Personal\nSleep Plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your Personal\nSleep Plan"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu Plan Personal\nde Sueño"
+          }
         }
       }
     },
-    "Based on your goals and challenges" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Based on your goals and challenges"
+    "Based on your goals and challenges": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Based on your goals and challenges"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Basado en tus objetivos y desafíos"
           }
         }
       }
     },
-    "Recommended for you" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recommended for you"
+    "Recommended for you": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommended for you"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendado para ti"
+          }
         }
       }
     },
-    "Your sleep routine" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your sleep routine"
+    "Your sleep routine": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your sleep routine"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu rutina de sueño"
+          }
         }
       }
     },
-    "Start 30 minutes before bed" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start 30 minutes before bed"
+    "Start 30 minutes before bed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start 30 minutes before bed"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comienza 30 minutos antes de dormir"
           }
         }
       }
     },
-    "Give your mind time to unwind" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Give your mind time to unwind"
+    "Give your mind time to unwind": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Give your mind time to unwind"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dale tiempo a tu mente para relajarse"
+          }
         }
       }
     },
-    "Use the sleep timer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Use the sleep timer"
+    "Use the sleep timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use the sleep timer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa el temporizador de sueño"
+          }
         }
       }
     },
-    "Sounds fade as you drift off" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sounds fade as you drift off"
+    "Sounds fade as you drift off": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sounds fade as you drift off"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los sonidos se desvanecen mientras te duermes"
           }
         }
       }
     },
-    "See improvement in Insights" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See improvement in Insights"
+    "See improvement in Insights": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See improvement in Insights"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Observa mejoras en Estadísticas"
+          }
         }
       }
     },
-    "Start My Journey" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start My Journey"
+    "Start My Journey": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start My Journey"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comenzar Mi Camino"
+          }
         }
       }
     },
-    "Your calming sounds are ready to help you drift off peacefully." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your calming sounds are ready to help you drift off peacefully."
+    "Your calming sounds are ready to help you drift off peacefully.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your calming sounds are ready to help you drift off peacefully."
           }
         }
       }
     },
-    "Consistent background sounds will help you maintain deep sleep all night." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Consistent background sounds will help you maintain deep sleep all night."
+    "Consistent background sounds will help you maintain deep sleep all night.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consistent background sounds will help you maintain deep sleep all night."
           }
         }
       }
     },
-    "Quality sleep leads to refreshed mornings. Let's get started." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quality sleep leads to refreshed mornings. Let's get started."
+    "Quality sleep leads to refreshed mornings. Let's get started.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quality sleep leads to refreshed mornings. Let's get started."
           }
         }
       }
     },
-    "Your stress-relief soundscape awaits. Time to unwind." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your stress-relief soundscape awaits. Time to unwind."
+    "Your stress-relief soundscape awaits. Time to unwind.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your stress-relief soundscape awaits. Time to unwind."
           }
         }
       }
     },
-    "Background sounds can boost concentration. Your focus mix is ready." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Background sounds can boost concentration. Your focus mix is ready."
+    "Background sounds can boost concentration. Your focus mix is ready.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Background sounds can boost concentration. Your focus mix is ready."
           }
         }
       }
     },
-    "Create the perfect atmosphere for mindfulness and inner peace." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create the perfect atmosphere for mindfulness and inner peace."
+    "Create the perfect atmosphere for mindfulness and inner peace.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create the perfect atmosphere for mindfulness and inner peace."
           }
         }
       }
     },
-    "Your personalized sleep experience is ready to begin." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your personalized sleep experience is ready to begin."
+    "Your personalized sleep experience is ready to begin.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your personalized sleep experience is ready to begin."
           }
         }
       }
     },
-    "Start Free Trial" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start Free Trial"
+    "Start Free Trial": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Free Trial"
           }
         }
       }
     },
-    "Start Your Free Trial" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start Your Free Trial"
+    "Start Your Free Trial": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Your Free Trial"
           }
         }
       }
     },
-    "7 days free, then $4.99/month" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7 days free, then $4.99/month"
+    "7 days free, then $4.99/month": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 days free, then $4.99/month"
           }
         }
       }
     },
-    "Unlimited access to all 27+ sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlimited access to all 27+ sounds"
+    "Unlimited access to all 27+ sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlimited access to all 27+ sounds"
           }
         }
       }
     },
-    "Custom sound mixing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Custom sound mixing"
+    "Custom sound mixing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom sound mixing"
           }
         }
       }
     },
-    "Sleep timer with gentle fade" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep timer with gentle fade"
+    "Sleep timer with gentle fade": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep timer with gentle fade"
           }
         }
       }
     },
-    "Binaural beats & brainwave audio" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Binaural beats & brainwave audio"
+    "Binaural beats & brainwave audio": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural beats & brainwave audio"
           }
         }
       }
     },
-    "Sleep insights & analytics" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep insights & analytics"
+    "Sleep insights & analytics": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep insights & analytics"
           }
         }
       }
     },
-    "Ad-free experience" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ad-free experience"
+    "Ad-free experience": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad-free experience"
           }
         }
       }
     },
-    "Continue with Limited Access" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue with Limited Access"
+    "Continue with Limited Access": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue with Limited Access"
           }
         }
       }
     },
-    "Cancel anytime. No commitment required." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel anytime. No commitment required."
+    "Cancel anytime. No commitment required.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel anytime. No commitment required."
           }
         }
       }
     },
-    "Terms of Use" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terms of Use"
+    "Terms of Use": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Use"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Términos de Uso"
           }
         }
       }
     },
-    "and" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "and"
+    "and": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "and"
           }
         }
       }
     },
-    "Privacy Policy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Privacy Policy"
+    "Privacy Policy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy Policy"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de Privacidad"
+          }
         }
       }
     },
-    "Settings" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
+    "Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configuración"
+          }
         }
       }
     },
-    "Display" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Display"
+    "Display": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Display"
           }
         }
       }
     },
-    "SUPER BLACK" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SUPER BLACK"
+    "SUPER BLACK": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SUPER BLACK"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NEGRO INTENSO"
           }
         }
       }
     },
-    "True black for OLED displays" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "True black for OLED displays"
+    "True black for OLED displays": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "True black for OLED displays"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Negro verdadero para pantallas OLED"
+          }
         }
       }
     },
-    "Pure black backgrounds save battery on OLED displays and reduce eye strain at night." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pure black backgrounds save battery on OLED displays and reduce eye strain at night."
+    "Pure black backgrounds save battery on OLED displays and reduce eye strain at night.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pure black backgrounds save battery on OLED displays and reduce eye strain at night."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los fondos negros puros ahorran batería en pantallas OLED y reducen la fatiga visual por la noche."
           }
         }
       }
     },
-    "Premium" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Premium"
+    "Premium": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium"
           }
         }
       }
     },
-    "Premium Active" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Premium Active"
+    "Premium Active": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium Active"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium Activo"
+          }
         }
       }
     },
-    "Upgrade to Premium" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upgrade to Premium"
+    "Upgrade to Premium": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upgrade to Premium"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar a Premium"
+          }
         }
       }
     },
-    "Restore Purchases" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Restore Purchases"
+    "Restore Purchases": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Purchases"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar Compras"
           }
         }
       }
     },
-    "Social" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Social"
+    "Social": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Social"
           }
         }
       }
     },
-    "Sleep Buddy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Buddy"
+    "Sleep Buddy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Buddy"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compañero de Sueño"
+          }
         }
       }
     },
-    "Coming Soon" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coming Soon"
+    "Coming Soon": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coming Soon"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximamente"
+          }
         }
       }
     },
-    "Tap to learn more" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap to learn more"
+    "Tap to learn more": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to learn more"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para saber más"
           }
         }
       }
     },
-    "Sleep Buddy is coming soon! Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Buddy is coming soon! Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates."
+    "Sleep Buddy is coming soon! Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Buddy is coming soon! Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Compañero de Sueño viene pronto! Empareja con un amigo para motivarse mutuamente con rachas de sueño. Mantente atento a las actualizaciones."
+          }
         }
       }
     },
-    "Pair with a friend to motivate each other with sleep streaks" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pair with a friend to motivate each other with sleep streaks"
+    "Pair with a friend to motivate each other with sleep streaks": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pair with a friend to motivate each other with sleep streaks"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empareja con un amigo para motivarse mutuamente con rachas de sueño"
+          }
         }
       }
     },
-    "Developer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Developer"
+    "Developer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Developer"
           }
         }
       }
     },
-    "Reset Onboarding" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset Onboarding"
+    "Reset Onboarding": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset Onboarding"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reiniciar Introducción"
           }
         }
       }
     },
-    "Reset onboarding to test the onboarding flow again" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset onboarding to test the onboarding flow again"
+    "Reset onboarding to test the onboarding flow again": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset onboarding to test the onboarding flow again"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reinicia la introducción para probar el flujo nuevamente"
+          }
         }
       }
     },
-    "About" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
+    "About": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
           }
         }
       }
     },
-    "Website" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Website"
+    "Website": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Website"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitio Web"
+          }
         }
       }
     },
-    "Version" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version"
+    "Version": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión"
           }
         }
       }
     },
-    "Made with ♥ by Studio Next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Made with ♥ by Studio Next"
+    "Made with ♥ by Studio Next": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Made with ♥ by Studio Next"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hecho con ♥ por Studio Next"
+          }
         }
       }
     },
-    "Done" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Done"
+    "Done": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
+          }
         }
       }
     },
-    "Reset Onboarding?" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset Onboarding?"
+    "Reset Onboarding?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset Onboarding?"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Reiniciar Introducción?"
           }
         }
       }
     },
-    "Cancel" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
+    "Cancel": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
         }
       }
     },
-    "Reset" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset"
+    "Reset": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reiniciar"
+          }
         }
       }
     },
-    "This will reset your onboarding progress and show the onboarding flow again on next app launch." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This will reset your onboarding progress and show the onboarding flow again on next app launch."
+    "This will reset your onboarding progress and show the onboarding flow again on next app launch.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This will reset your onboarding progress and show the onboarding flow again on next app launch."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto reiniciará tu progreso de introducción y mostrará el flujo de introducción nuevamente en el próximo inicio de la app."
           }
         }
       }
     },
-    "Mixer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mixer"
+    "Mixer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mixer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mezclador"
+          }
         }
       }
     },
-    "No Sounds Playing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No Sounds Playing"
+    "No Sounds Playing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Sounds Playing"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin Sonidos Reproduciéndose"
+          }
         }
       }
     },
-    "Start playing sounds from the library" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start playing sounds from the library"
+    "Start playing sounds from the library": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start playing sounds from the library"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comienza a reproducir sonidos de la biblioteca"
           }
         }
       }
     },
-    "%lld sound playing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld sound playing"
+    "%lld sound playing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld sound playing"
                 }
               },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld sounds playing"
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld sounds playing"
                 }
               }
             }
@@ -1388,1744 +1934,2380 @@
         }
       }
     },
-    "Save Mix" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save Mix"
+    "Save Mix": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save Mix"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar Mezcla"
+          }
         }
       }
     },
-    "Sleep Timer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Timer"
+    "Sleep Timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Timer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temporizador de Sueño"
+          }
         }
       }
     },
-    "Fading out..." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fading out..."
+    "Fading out...": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fading out..."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desvaneciéndose..."
           }
         }
       }
     },
-    "Cancel Timer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel Timer"
+    "Cancel Timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel Timer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar Temporizador"
+          }
         }
       }
     },
-    "Set Sleep Timer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Set Sleep Timer"
+    "Set Sleep Timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set Sleep Timer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Establecer Temporizador"
+          }
         }
       }
     },
-    "Audio will gradually fade out during the last 30 seconds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Audio will gradually fade out during the last 30 seconds"
+    "Audio will gradually fade out during the last 30 seconds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio will gradually fade out during the last 30 seconds"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El audio se desvanecerá gradualmente durante los últimos 30 segundos"
           }
         }
       }
     },
-    "Saved Mixes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saved Mixes"
+    "Saved Mixes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saved Mixes"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mezclas Guardadas"
+          }
         }
       }
     },
-    "No Saved Mixes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No Saved Mixes"
+    "No Saved Mixes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Saved Mixes"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin Mezclas Guardadas"
+          }
         }
       }
     },
-    "Save your current sound mix from the Mixer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save your current sound mix from the Mixer"
+    "Save your current sound mix from the Mixer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save your current sound mix from the Mixer"
           }
         }
       }
     },
-    "Mix name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mix name"
+    "Mix name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mix name"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombre de la mezcla"
           }
         }
       }
     },
-    "Give your mix a memorable name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Give your mix a memorable name"
+    "Give your mix a memorable name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Give your mix a memorable name"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dale a tu mezcla un nombre memorable"
+          }
         }
       }
     },
-    "Save" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save"
+    "Save": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
           }
         }
       }
     },
-    "No Favorites" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No Favorites"
+    "No Favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Favorites"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin Favoritos"
+          }
         }
       }
     },
-    "Tap the heart on sounds to add favorites" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap the heart on sounds to add favorites"
+    "Tap the heart on sounds to add favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap the heart on sounds to add favorites"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca el corazón en los sonidos para agregar favoritos"
           }
         }
       }
     },
-    "Headphones Recommended" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Headphones Recommended"
+    "Headphones Recommended": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Headphones Recommended"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se Recomiendan Auriculares"
+          }
         }
       }
     },
-    "Binaural beats require stereo headphones to work effectively." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Binaural beats require stereo headphones to work effectively."
+    "Binaural beats require stereo headphones to work effectively.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binaural beats require stereo headphones to work effectively."
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los sonidos binaurales requieren auriculares estéreo para funcionar efectivamente."
+          }
         }
       }
     },
-    "Brainwave State" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brainwave State"
+    "Brainwave State": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brainwave State"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado de Ondas Cerebrales"
           }
         }
       }
     },
-    "Delta" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delta"
+    "Delta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delta"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delta"
+          }
         }
       }
     },
-    "Deep Sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deep Sleep"
+    "Deep Sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deep Sleep"
           }
         }
       }
     },
-    "Theta" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Theta"
+    "Theta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theta"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theta"
+          }
         }
       }
     },
-    "Meditation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meditation"
+    "Meditation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditation"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditación"
           }
         }
       }
     },
-    "Alpha" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alpha"
+    "Alpha": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alpha"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alfa"
+          }
         }
       }
     },
-    "Relaxation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Relaxation"
+    "Relaxation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxation"
           }
         }
       }
     },
-    "Beta" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+    "Beta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
         }
       }
     },
-    "Focus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus"
+    "Focus": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Focus"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enfoque"
           }
         }
       }
     },
-    "Gamma" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gamma"
+    "Gamma": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gamma"
           }
         }
       }
     },
-    "Creativity" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Creativity"
+    "Creativity": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creativity"
           }
         }
       }
     },
-    "Tone Type" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tone Type"
+    "Tone Type": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tone Type"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipo de Tono"
+          }
         }
       }
     },
-    "Isochronic" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Isochronic"
+    "Isochronic": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isochronic"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isocrónico"
           }
         }
       }
     },
-    "Requires headphones - different frequencies in each ear" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Requires headphones - different frequencies in each ear"
+    "Requires headphones - different frequencies in each ear": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requires headphones - different frequencies in each ear"
           }
         }
       }
     },
-    "Works with speakers - rhythmic pulses" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Works with speakers - rhythmic pulses"
+    "Works with speakers - rhythmic pulses": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Works with speakers - rhythmic pulses"
           }
         }
       }
     },
-    "Base Frequency" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Base Frequency"
+    "Base Frequency": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Base Frequency"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frecuencia Base"
+          }
         }
       }
     },
-    "Higher frequencies produce brighter tones" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Higher frequencies produce brighter tones"
+    "Higher frequencies produce brighter tones": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Higher frequencies produce brighter tones"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las frecuencias más altas producen tonos más brillantes"
           }
         }
       }
     },
-    "Volume" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Volume"
+    "Volume": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volume"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volumen"
+          }
         }
       }
     },
-    "Stop" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stop"
+    "Stop": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detener"
+          }
         }
       }
     },
-    "Play" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Play"
+    "Play": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Play"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reproducir"
           }
         }
       }
     },
-    "No Alarms" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No Alarms"
+    "No Alarms": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Alarms"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin Alarmas"
+          }
         }
       }
     },
-    "Tap + to create your first alarm" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap + to create your first alarm"
+    "Tap + to create your first alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap + to create your first alarm"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca + para crear tu primera alarma"
+          }
         }
       }
     },
-    "Add Alarm" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add Alarm"
+    "Add Alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Alarm"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar Alarma"
           }
         }
       }
     },
-    "Edit Alarm" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit Alarm"
+    "Edit Alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Alarm"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar Alarma"
+          }
         }
       }
     },
-    "Time" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Time"
+    "Time": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora"
+          }
         }
       }
     },
-    "Label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Label"
+    "Label": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Label"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etiqueta"
           }
         }
       }
     },
-    "Repeat" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repeat"
+    "Repeat": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeat"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repetir"
+          }
         }
       }
     },
-    "Alarm will ring once" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alarm will ring once"
+    "Alarm will ring once": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alarm will ring once"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La alarma sonará una vez"
           }
         }
       }
     },
-    "Every day" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Every day"
+    "Every day": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every day"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos los días"
+          }
         }
       }
     },
-    "Weekends only" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weekends only"
+    "Weekends only": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekends only"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo fines de semana"
           }
         }
       }
     },
-    "Weekdays only" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weekdays only"
+    "Weekdays only": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekdays only"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo días laborales"
+          }
         }
       }
     },
-    "Sound" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sound"
+    "Sound": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sound"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonido"
+          }
         }
       }
     },
-    "Alarm Sound" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alarm Sound"
+    "Alarm Sound": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alarm Sound"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonido de Alarma"
           }
         }
       }
     },
-    "Wake Gradually" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wake Gradually"
+    "Wake Gradually": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wake Gradually"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Despertar Gradualmente"
+          }
         }
       }
     },
-    "Volume Ramp" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Volume Ramp"
+    "Volume Ramp": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volume Ramp"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aumento de Volumen"
           }
         }
       }
     },
-    "Gradually increase volume over %lld minutes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gradually increase volume over %lld minutes"
+    "Gradually increase volume over %lld minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gradually increase volume over %lld minutes"
           }
         }
       }
     },
-    "Snooze Duration" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snooze Duration"
+    "Snooze Duration": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Snooze Duration"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duración de Posponer"
+          }
         }
       }
     },
-    "Snooze" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snooze"
+    "Snooze": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Snooze"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posponer"
           }
         }
       }
     },
-    "Delete Alarm" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete Alarm"
+    "Delete Alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Alarm"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar Alarma"
+          }
         }
       }
     },
-    "%lld min" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
+    "%lld min": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
           }
         }
       }
     },
-    "Alarm" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alarm"
+    "Alarm": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alarm"
           }
         }
       }
     },
-    "Ready for Sleep?" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ready for Sleep?"
+    "Ready for Sleep?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ready for Sleep?"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Listo para Dormir?"
+          }
         }
       }
     },
-    "Good Evening" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Good Evening"
+    "Good Evening": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good Evening"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenas Noches"
           }
         }
       }
     },
-    "Good Afternoon" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Good Afternoon"
+    "Good Afternoon": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good Afternoon"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenas Tardes"
+          }
         }
       }
     },
-    "Good Morning" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Good Morning"
+    "Good Morning": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good Morning"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenos Días"
           }
         }
       }
     },
-    "Let's help you drift off peacefully" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Let's help you drift off peacefully"
+    "Let's help you drift off peacefully": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Let's help you drift off peacefully"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te ayudaremos a dormir tranquilamente"
+          }
         }
       }
     },
-    "Prepare for restful sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prepare for restful sleep"
+    "Prepare for restful sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepare for restful sleep"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepárate para un sueño reparador"
           }
         }
       }
     },
-    "Take a moment to relax" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take a moment to relax"
+    "Take a moment to relax": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take a moment to relax"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toma un momento para relajarte"
+          }
         }
       }
     },
-    "Start your day with intention" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start your day with intention"
+    "Start your day with intention": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start your day with intention"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comienza tu día con intención"
+          }
         }
       }
     },
-    "Featured Tonight" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Featured Tonight"
+    "Featured Tonight": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Featured Tonight"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destacado Esta Noche"
           }
         }
       }
     },
-    "Continue Listening" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue Listening"
+    "Continue Listening": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue Listening"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar Escuchando"
+          }
         }
       }
     },
-    "Yoga Nidra" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yoga Nidra"
+    "Yoga Nidra": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yoga Nidra"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yoga Nidra"
+          }
         }
       }
     },
-    "Sleep Stories" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Stories"
+    "Sleep Stories": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Stories"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historias para Dormir"
           }
         }
       }
     },
-    "Meditations" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meditations"
+    "Meditations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditations"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditaciones"
+          }
         }
       }
     },
-    "Breathing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Breathing"
+    "Breathing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Breathing"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiración"
+          }
         }
       }
     },
-    "Hypnosis" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hypnosis"
+    "Hypnosis": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hypnosis"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hipnosis"
           }
         }
       }
     },
-    "Affirmations" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Affirmations"
+    "Affirmations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affirmations"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afirmaciones"
+          }
         }
       }
     },
-    "Deep relaxation practice" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deep relaxation practice"
+    "Deep relaxation practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deep relaxation practice"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Práctica de relajación profunda"
           }
         }
       }
     },
-    "Soothing bedtime tales" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Soothing bedtime tales"
+    "Soothing bedtime tales": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soothing bedtime tales"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuentos relajantes para dormir"
+          }
         }
       }
     },
-    "Guided sleep meditation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guided sleep meditation"
+    "Guided sleep meditation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guided sleep meditation"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditación guiada para dormir"
           }
         }
       }
     },
-    "Calming breath exercises" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calming breath exercises"
+    "Calming breath exercises": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calming breath exercises"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejercicios de respiración calmantes"
+          }
         }
       }
     },
-    "Gentle sleep hypnosis" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gentle sleep hypnosis"
+    "Gentle sleep hypnosis": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gentle sleep hypnosis"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hipnosis suave para dormir"
+          }
         }
       }
     },
-    "Positive sleep affirmations" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Positive sleep affirmations"
+    "Positive sleep affirmations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Positive sleep affirmations"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afirmaciones positivas para dormir"
           }
         }
       }
     },
-    "See All" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See All"
+    "See All": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See All"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Todo"
+          }
         }
       }
     },
-    "Saved!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saved!"
+    "Saved!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saved!"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Guardado!"
+          }
         }
       }
     },
-    "OK" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
+    "OK": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
           }
         }
       }
     },
-    "\"%@\" has been saved to My Mixes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\"%@\" has been saved to My Mixes"
+    "\"%@\" has been saved to My Mixes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "\"%@\" has been saved to My Mixes"
           }
         }
       }
     },
-    "Trending Now" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trending Now"
+    "Trending Now": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trending Now"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendencia Ahora"
+          }
         }
       }
     },
-    "All-Time Popular" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All-Time Popular"
+    "All-Time Popular": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All-Time Popular"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siempre Popular"
+          }
         }
       }
     },
-    "For Sleep" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "For Sleep"
+    "For Sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For Sleep"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para Dormir"
           }
         }
       }
     },
-    "For Focus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "For Focus"
+    "For Focus": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For Focus"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para Concentrarse"
+          }
         }
       }
     },
-    "Nature Soundscapes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nature Soundscapes"
+    "Nature Soundscapes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nature Soundscapes"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paisajes Sonoros Naturales"
           }
         }
       }
     },
-    "%lld mixes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld mixes"
+    "%lld mixes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld mixes"
           }
         }
       }
     },
-    "Choose an Adaptive Mode" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose an Adaptive Mode"
+    "Choose an Adaptive Mode": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose an Adaptive Mode"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige un Modo Adaptativo"
+          }
         }
       }
     },
-    "Adaptive Soundscapes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adaptive Soundscapes"
+    "Adaptive Soundscapes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaptive Soundscapes"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paisajes Sonoros Adaptativos"
           }
         }
       }
     },
-    "Context-aware sound environments that adapt to your activities" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Context-aware sound environments that adapt to your activities"
+    "Context-aware sound environments that adapt to your activities": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Context-aware sound environments that adapt to your activities"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ambientes sonoros conscientes del contexto que se adaptan a tus actividades"
+          }
         }
       }
     },
-    "Sleep Mode - Calming sounds for bedtime" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Mode - Calming sounds for bedtime"
+    "Sleep Mode - Calming sounds for bedtime": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Mode - Calming sounds for bedtime"
           }
         }
       }
     },
-    "Focus Mode - Concentration-enhancing audio" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus Mode - Concentration-enhancing audio"
+    "Focus Mode - Concentration-enhancing audio": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Focus Mode - Concentration-enhancing audio"
           }
         }
       }
     },
-    "Relax Mode - Stress-relieving soundscapes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Relax Mode - Stress-relieving soundscapes"
+    "Relax Mode - Stress-relieving soundscapes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relax Mode - Stress-relieving soundscapes"
           }
         }
       }
     },
-    "Meditate Mode - Deep mindfulness support" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meditate Mode - Deep mindfulness support"
+    "Meditate Mode - Deep mindfulness support": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditate Mode - Deep mindfulness support"
           }
         }
       }
     },
-    "Unlock Adaptive Mode" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock Adaptive Mode"
+    "Unlock Adaptive Mode": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Adaptive Mode"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear Modo Adaptativo"
+          }
         }
       }
     },
-    "Sleep Cycle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Cycle"
+    "Sleep Cycle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Cycle"
           }
         }
       }
     },
-    "Sounds evolve through sleep stages" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sounds evolve through sleep stages"
+    "Sounds evolve through sleep stages": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sounds evolve through sleep stages"
           }
         }
       }
     },
-    "Day & Night" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Day & Night"
+    "Day & Night": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Day & Night"
           }
         }
       }
     },
-    "Adapts to time of day" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adapts to time of day"
+    "Adapts to time of day": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adapts to time of day"
           }
         }
       }
     },
-    "Weather Sync" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weather Sync"
+    "Weather Sync": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weather Sync"
           }
         }
       }
     },
-    "Matches weather patterns" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Matches weather patterns"
+    "Matches weather patterns": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matches weather patterns"
           }
         }
       }
     },
-    "Focus Session" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus Session"
+    "Focus Session": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Focus Session"
           }
         }
       }
     },
-    "Pomodoro-style work sessions" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pomodoro-style work sessions"
+    "Pomodoro-style work sessions": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pomodoro-style work sessions"
           }
         }
       }
     },
-    "Total Duration: %@" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Total Duration: %@"
+    "Total Duration: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total Duration: %@"
           }
         }
       }
     },
-    "Start Session" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start Session"
+    "Start Session": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Session"
           }
         }
       }
     },
-    "Your Sleep Journey" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your Sleep Journey"
+    "Your Sleep Journey": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your Sleep Journey"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu Camino de Sueño"
           }
         }
       }
     },
-    "Total Sessions" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Total Sessions"
+    "Total Sessions": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total Sessions"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesiones Totales"
+          }
         }
       }
     },
-    "This Week" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This Week"
+    "This Week": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Week"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta Semana"
+          }
         }
       }
     },
-    "Unlock Full Analytics" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock Full Analytics"
+    "Unlock Full Analytics": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Full Analytics"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear Análisis Completo"
           }
         }
       }
     },
-    "Charts, trends, recommendations & more" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Charts, trends, recommendations & more"
+    "Charts, trends, recommendations & more": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Charts, trends, recommendations & more"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gráficos, tendencias, recomendaciones y más"
+          }
         }
       }
     },
-    "Weekly Sleep Trends" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weekly Sleep Trends"
+    "Weekly Sleep Trends": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly Sleep Trends"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendencias de Sueño Semanales"
+          }
         }
       }
     },
-    "Sleep Metrics" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep Metrics"
+    "Sleep Metrics": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep Metrics"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Métricas de Sueño"
           }
         }
       }
     },
-    "Top Sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Top Sounds"
+    "Top Sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Top Sounds"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonidos Principales"
+          }
         }
       }
     },
-    "Personalized Tips" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personalized Tips"
+    "Personalized Tips": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalized Tips"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consejos Personalizados"
           }
         }
       }
     },
-    "Premium Feature" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Premium Feature"
+    "Premium Feature": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium Feature"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Función Premium"
+          }
         }
       }
     },
-    "Tap to mix" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap to mix"
+    "Tap to mix": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to mix"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para mezclar"
           }
         }
       }
     },
-    "What is ASMR?" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "What is ASMR?"
+    "What is ASMR?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What is ASMR?"
           }
         }
       }
     },
-    "ASMR" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ASMR"
+    "ASMR": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR"
+          }
         }
       }
     },
-    "Autonomous Sensory Meridian Response" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Autonomous Sensory Meridian Response"
+    "Autonomous Sensory Meridian Response": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autonomous Sensory Meridian Response"
           }
         }
       }
     },
-    "ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches."
+    "ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ASMR is a calming, pleasurable sensation often described as \"tingles\" that typically begins on the scalp and moves down the back of the neck and spine. It's triggered by specific sounds, visuals, or gentle touches."
           }
         }
       }
     },
-    "Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety."
+    "Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Many people find ASMR helpful for relaxation, falling asleep, or reducing stress and anxiety."
           }
         }
       }
     },
-    "Common Triggers" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Common Triggers"
+    "Common Triggers": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Common Triggers"
           }
         }
       }
     },
-    "Page Turning" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Page Turning"
+    "Page Turning": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Page Turning"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasar Páginas"
+          }
         }
       }
     },
-    "The gentle rustling of book pages" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The gentle rustling of book pages"
+    "The gentle rustling of book pages": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The gentle rustling of book pages"
           }
         }
       }
     },
-    "Soft Whispers" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Soft Whispers"
+    "Soft Whispers": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soft Whispers"
           }
         }
       }
     },
-    "Gentle, quiet speaking tones" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gentle, quiet speaking tones"
+    "Gentle, quiet speaking tones": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gentle, quiet speaking tones"
           }
         }
       }
     },
-    "Gentle Tapping" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gentle Tapping"
+    "Gentle Tapping": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gentle Tapping"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Golpecitos Suaves"
           }
         }
       }
     },
-    "Fingernails on various surfaces" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fingernails on various surfaces"
+    "Fingernails on various surfaces": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fingernails on various surfaces"
           }
         }
       }
     },
-    "Soft Brushing" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Soft Brushing"
+    "Soft Brushing": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soft Brushing"
           }
         }
       }
     },
-    "Brush strokes on microphone or surfaces" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brush strokes on microphone or surfaces"
+    "Brush strokes on microphone or surfaces": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brush strokes on microphone or surfaces"
           }
         }
       }
     },
-    "Paper Crinkle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paper Crinkle"
+    "Paper Crinkle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paper Crinkle"
           }
         }
       }
     },
-    "Crinkling paper, fabric, or packaging" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crinkling paper, fabric, or packaging"
+    "Crinkling paper, fabric, or packaging": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crinkling paper, fabric, or packaging"
           }
         }
       }
     },
-    "Tips for Best Experience" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tips for Best Experience"
+    "Tips for Best Experience": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tips for Best Experience"
           }
         }
       }
     },
-    "Use headphones for the full immersive experience" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Use headphones for the full immersive experience"
+    "Use headphones for the full immersive experience": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use headphones for the full immersive experience"
           }
         }
       }
     },
-    "Start with low volume - ASMR works best when subtle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start with low volume - ASMR works best when subtle"
+    "Start with low volume - ASMR works best when subtle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start with low volume - ASMR works best when subtle"
           }
         }
       }
     },
-    "Try mixing ASMR with ambient sounds for a layered effect" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Try mixing ASMR with ambient sounds for a layered effect"
+    "Try mixing ASMR with ambient sounds for a layered effect": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try mixing ASMR with ambient sounds for a layered effect"
           }
         }
       }
     },
-    "Different triggers work for different people - experiment!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Different triggers work for different people - experiment!"
+    "Different triggers work for different people - experiment!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Different triggers work for different people - experiment!"
           }
         }
       }
     },
-    "Stay asleep longer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stay asleep longer"
+    "Stay asleep longer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stay asleep longer"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantenerme dormido más tiempo"
+          }
         }
       }
     },
-    "Wake up refreshed" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wake up refreshed"
+    "Wake up refreshed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wake up refreshed"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Despertar renovado"
           }
         }
       }
     },
-    "Relaxation & stress relief" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Relaxation & stress relief"
+    "Relaxation & stress relief": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relaxation & stress relief"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relajación y alivio del estrés"
+          }
         }
       }
     },
-    "Focus & productivity" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus & productivity"
+    "Focus & productivity": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Focus & productivity"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enfoque y productividad"
           }
         }
       }
     },
-    "Meditation & mindfulness" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meditation & mindfulness"
+    "Meditation & mindfulness": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditation & mindfulness"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meditación y atención plena"
+          }
         }
       }
     },
-    "Racing thoughts" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Racing thoughts"
+    "Racing thoughts": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Racing thoughts"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pensamientos acelerados"
+          }
         }
       }
     },
-    "Anxiety & worry" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anxiety & worry"
+    "Anxiety & worry": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anxiety & worry"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ansiedad y preocupación"
           }
         }
       }
     },
-    "Noise disturbances" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Noise disturbances"
+    "Noise disturbances": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noise disturbances"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molestias por ruido"
+          }
         }
       }
     },
-    "Stress from work/life" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stress from work/life"
+    "Stress from work/life": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stress from work/life"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estrés del trabajo/vida"
           }
         }
       }
     },
-    "Irregular schedule" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Irregular schedule"
+    "Irregular schedule": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Irregular schedule"
           }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horario irregular"
+          }
         }
       }
     },
-    "Screen time before bed" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Screen time before bed"
+    "Screen time before bed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Screen time before bed"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempo de pantalla antes de dormir"
           }
         }
       }
     },
-    "Sound Library" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sound Library"
+    "Sound Library": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sound Library"
           }
         }
       }
     },
-    "Browse ambient sounds here" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Browse ambient sounds here"
+    "Browse ambient sounds here": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Browse ambient sounds here"
           }
         }
       }
     },
-    "Sound Mixer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sound Mixer"
+    "Sound Mixer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sound Mixer"
           }
         }
       }
     },
-    "Mix sounds and adjust volumes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mix sounds and adjust volumes"
+    "Mix sounds and adjust volumes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mix sounds and adjust volumes"
           }
         }
       }
     },
-    "Set a timer to stop playback" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Set a timer to stop playback"
+    "Set a timer to stop playback": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set a timer to stop playback"
           }
         }
       }
     },
-    "Your favorite sounds" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your favorite sounds"
+    "Your favorite sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your favorite sounds"
           }
         }
       }
     },
-    "Your saved sound combinations" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your saved sound combinations"
+    "Your saved sound combinations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your saved sound combinations"
           }
         }
       }
     },
-    "Timer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Timer"
+    "Timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer"
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }
