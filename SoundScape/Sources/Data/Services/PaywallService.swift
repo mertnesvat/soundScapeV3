@@ -5,7 +5,7 @@ import Foundation
 final class PaywallService {
     #if DEBUG
         /// Debug override for testing premium features - set to true to simulate premium
-        var debugPremiumOverride: Bool = true
+        var debugPremiumOverride: Bool = false
 
         var isPremium: Bool {
             debugPremiumOverride || (subscriptionService?.isPremium ?? false)
