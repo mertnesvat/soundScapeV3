@@ -8,10 +8,12 @@ struct SettingsView: View {
     @Environment(AnalyticsService.self) private var analyticsService
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(PaywallService.self) private var paywallService
+    @Environment(SubscriptionService.self) private var subscriptionService
 
     @State private var sleepBuddyTapped = false
     @State private var isRestoring = false
     @State private var showResetOnboardingAlert = false
+    @State private var showPaywallSheet = false
 
     var body: some View {
         NavigationStack {
@@ -80,7 +82,7 @@ struct SettingsView: View {
                         }
                     } else {
                         Button {
-                            paywallService.showPaywallFromSettings()
+                            showPaywallSheet = true
                         } label: {
                             HStack {
                                 Label {
@@ -263,6 +265,17 @@ struct SettingsView: View {
             } message: {
                 Text("This will reset your onboarding progress and show the onboarding flow again on next app launch.")
             }
+            .sheet(isPresented: $showPaywallSheet) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        showPaywallSheet = false
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
+            }
         }
     }
 }
@@ -274,5 +287,6 @@ struct SettingsView: View {
         .environment(AnalyticsService())
         .environment(OnboardingService())
         .environment(PaywallService())
+        .environment(SubscriptionService())
         .preferredColorScheme(.dark)
 }
