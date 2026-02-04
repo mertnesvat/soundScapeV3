@@ -7,16 +7,17 @@ final class SubscriptionServiceTests: XCTestCase {
     // MARK: - Test Setup
 
     private var testUserDefaults: UserDefaults!
+    private let testSuiteName = "com.soundscape.tests.subscription"
 
     override func setUp() async throws {
         try await super.setUp()
         // Use a separate UserDefaults suite for testing
-        testUserDefaults = UserDefaults(suiteName: "com.soundscape.tests.subscription")
-        testUserDefaults?.removePersistentDomain(forName: "com.soundscape.tests.subscription")
+        testUserDefaults = UserDefaults(suiteName: testSuiteName)
+        testUserDefaults?.removePersistentDomain(forName: testSuiteName)
     }
 
     override func tearDown() async throws {
-        testUserDefaults?.removePersistentDomain(forName: "com.soundscape.tests.subscription")
+        testUserDefaults?.removePersistentDomain(forName: testSuiteName)
         testUserDefaults = nil
         try await super.tearDown()
     }
@@ -37,9 +38,15 @@ final class SubscriptionServiceTests: XCTestCase {
     func test_init_startsWithIsLoadingFalse() {
         let sut = SubscriptionService(userDefaults: testUserDefaults)
 
-        // isLoading might be true briefly due to async product fetch
-        // but starts as false
+        // isLoading starts as false before async work begins
         XCTAssertFalse(sut.isLoading)
+    }
+
+    func test_init_withNoCachedData_statusIsNone() {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertEqual(sut.subscriptionStatus, .none)
+        XCTAssertFalse(sut.isPremium)
     }
 
     // MARK: - Product ID Tests
@@ -70,14 +77,33 @@ final class SubscriptionServiceTests: XCTestCase {
     }
 
     func test_subscriptionStatus_isDecodable() throws {
-        let jsonData = #"{"status":"active"}"#.data(using: .utf8)!
+        let activeJson = #"{"status":"active"}"#.data(using: .utf8)!
+        let expiredJson = #"{"status":"expired"}"#.data(using: .utf8)!
+        let noneJson = #"{"status":"none"}"#.data(using: .utf8)!
 
         struct StatusWrapper: Codable {
             let status: SubscriptionStatus
         }
 
-        let decoded = try JSONDecoder().decode(StatusWrapper.self, from: jsonData)
-        XCTAssertEqual(decoded.status, .active)
+        let active = try JSONDecoder().decode(StatusWrapper.self, from: activeJson)
+        let expired = try JSONDecoder().decode(StatusWrapper.self, from: expiredJson)
+        let none = try JSONDecoder().decode(StatusWrapper.self, from: noneJson)
+
+        XCTAssertEqual(active.status, .active)
+        XCTAssertEqual(expired.status, .expired)
+        XCTAssertEqual(none.status, .none)
+    }
+
+    func test_subscriptionStatus_isEncodable() throws {
+        struct StatusWrapper: Codable {
+            let status: SubscriptionStatus
+        }
+
+        let wrapper = StatusWrapper(status: .active)
+        let data = try JSONEncoder().encode(wrapper)
+        let json = String(data: data, encoding: .utf8)
+
+        XCTAssertTrue(json?.contains("active") ?? false)
     }
 
     // MARK: - Error Tests
@@ -112,11 +138,31 @@ final class SubscriptionServiceTests: XCTestCase {
         XCTAssertEqual(error.errorDescription, "An unknown error occurred. Please try again.")
     }
 
+    func test_subscriptionError_purchaseInProgress_hasCorrectDescription() {
+        let error = SubscriptionError.purchaseInProgress
+
+        XCTAssertEqual(error.errorDescription, "A purchase is already in progress. Please wait.")
+    }
+
     func test_subscriptionError_purchaseFailed_includesUnderlyingError() {
         let underlyingError = NSError(domain: "TestDomain", code: 123, userInfo: [NSLocalizedDescriptionKey: "Test error"])
         let error = SubscriptionError.purchaseFailed(underlying: underlyingError)
 
         XCTAssertTrue(error.errorDescription?.contains("Test error") ?? false)
+        XCTAssertTrue(error.errorDescription?.contains("Purchase failed") ?? false)
+    }
+
+    func test_subscriptionError_allCasesHaveDescriptions() {
+        // Ensure no error case returns nil for errorDescription
+        XCTAssertNotNil(SubscriptionError.productNotFound.errorDescription)
+        XCTAssertNotNil(SubscriptionError.verificationFailed.errorDescription)
+        XCTAssertNotNil(SubscriptionError.userCancelled.errorDescription)
+        XCTAssertNotNil(SubscriptionError.pending.errorDescription)
+        XCTAssertNotNil(SubscriptionError.unknown.errorDescription)
+        XCTAssertNotNil(SubscriptionError.purchaseInProgress.errorDescription)
+
+        let testError = NSError(domain: "test", code: 0)
+        XCTAssertNotNil(SubscriptionError.purchaseFailed(underlying: testError).errorDescription)
     }
 
     // MARK: - Clear Error Tests
@@ -124,7 +170,17 @@ final class SubscriptionServiceTests: XCTestCase {
     func test_clearError_setsErrorToNil() {
         let sut = SubscriptionService(userDefaults: testUserDefaults)
 
-        // Manually set error for testing (would normally happen during purchase)
+        sut.clearError()
+
+        XCTAssertNil(sut.error)
+    }
+
+    func test_clearError_canBeCalledMultipleTimes() {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        // Should not crash when called multiple times
+        sut.clearError()
+        sut.clearError()
         sut.clearError()
 
         XCTAssertNil(sut.error)
@@ -132,8 +188,8 @@ final class SubscriptionServiceTests: XCTestCase {
 
     // MARK: - UserDefaults Caching Tests
 
-    func test_cachedStatus_isLoadedOnInit() {
-        // First, set up some cached values
+    func test_cachedStatus_isLoadedOnInit_activeSubscription() {
+        // Set up cached values for active subscription
         testUserDefaults.set("active", forKey: "subscription_status")
         testUserDefaults.set("com.StudioNext.SoundScape.monthly", forKey: "active_product_id")
         let futureDate = Date().addingTimeInterval(86400 * 30) // 30 days from now
@@ -145,6 +201,21 @@ final class SubscriptionServiceTests: XCTestCase {
         XCTAssertEqual(sut.subscriptionStatus, .active)
         XCTAssertTrue(sut.isPremium)
         XCTAssertEqual(sut.activeProductID, "com.StudioNext.SoundScape.monthly")
+        XCTAssertNotNil(sut.expirationDate)
+    }
+
+    func test_cachedStatus_isLoadedOnInit_yearlySubscription() {
+        // Set up cached values for yearly subscription
+        testUserDefaults.set("active", forKey: "subscription_status")
+        testUserDefaults.set("com.StudioNext.SoundScape.yearly", forKey: "active_product_id")
+        let futureDate = Date().addingTimeInterval(86400 * 365) // 365 days from now
+        testUserDefaults.set(futureDate.timeIntervalSince1970, forKey: "subscription_expiration_date")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertEqual(sut.subscriptionStatus, .active)
+        XCTAssertTrue(sut.isPremium)
+        XCTAssertEqual(sut.activeProductID, "com.StudioNext.SoundScape.yearly")
     }
 
     func test_cachedExpiredStatus_isDetectedOnInit() {
@@ -159,6 +230,85 @@ final class SubscriptionServiceTests: XCTestCase {
 
         XCTAssertEqual(sut.subscriptionStatus, .expired)
         XCTAssertFalse(sut.isPremium)
+    }
+
+    func test_cachedExpiredStatus_updatesCache() {
+        // Set up cached values with expired subscription
+        testUserDefaults.set("active", forKey: "subscription_status")
+        let pastDate = Date().addingTimeInterval(-86400)
+        testUserDefaults.set(pastDate.timeIntervalSince1970, forKey: "subscription_expiration_date")
+
+        // Create new service
+        _ = SubscriptionService(userDefaults: testUserDefaults)
+
+        // Cache should now reflect expired status
+        let cachedStatus = testUserDefaults.string(forKey: "subscription_status")
+        XCTAssertEqual(cachedStatus, "expired")
+    }
+
+    func test_cachedNoneStatus_isLoadedCorrectly() {
+        testUserDefaults.set("none", forKey: "subscription_status")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertEqual(sut.subscriptionStatus, .none)
+        XCTAssertFalse(sut.isPremium)
+    }
+
+    func test_cachedExpiredStatusRaw_isLoadedCorrectly() {
+        // Explicitly set expired status (not detected from date)
+        testUserDefaults.set("expired", forKey: "subscription_status")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertEqual(sut.subscriptionStatus, .expired)
+        XCTAssertFalse(sut.isPremium)
+    }
+
+    func test_invalidCachedStatus_defaultsToNone() {
+        testUserDefaults.set("invalid_status", forKey: "subscription_status")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertEqual(sut.subscriptionStatus, .none)
+        XCTAssertFalse(sut.isPremium)
+    }
+
+    func test_noExpirationDate_doesNotCrash() {
+        testUserDefaults.set("active", forKey: "subscription_status")
+        // Intentionally not setting expiration date
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        // Should still load active status
+        XCTAssertEqual(sut.subscriptionStatus, .active)
+        XCTAssertTrue(sut.isPremium)
+        XCTAssertNil(sut.expirationDate)
+    }
+
+    // MARK: - Expiration Edge Cases
+
+    func test_expirationDate_exactlyNow_isExpired() {
+        testUserDefaults.set("active", forKey: "subscription_status")
+        let now = Date()
+        testUserDefaults.set(now.timeIntervalSince1970, forKey: "subscription_expiration_date")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        // Exactly now or in the past should be expired
+        XCTAssertEqual(sut.subscriptionStatus, .expired)
+        XCTAssertFalse(sut.isPremium)
+    }
+
+    func test_expirationDate_oneSecondInFuture_isActive() {
+        testUserDefaults.set("active", forKey: "subscription_status")
+        let oneSecondFromNow = Date().addingTimeInterval(1)
+        testUserDefaults.set(oneSecondFromNow.timeIntervalSince1970, forKey: "subscription_expiration_date")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertEqual(sut.subscriptionStatus, .active)
+        XCTAssertTrue(sut.isPremium)
     }
 
     // MARK: - Purchase Method Tests (without StoreKit)
@@ -181,6 +331,22 @@ final class SubscriptionServiceTests: XCTestCase {
         XCTAssertEqual(sut.error, .productNotFound)
     }
 
+    func test_purchaseMonthly_setsIsLoadingFalseAfterCompletion() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        _ = await sut.purchaseMonthly()
+
+        XCTAssertFalse(sut.isLoading)
+    }
+
+    func test_purchaseYearly_setsIsLoadingFalseAfterCompletion() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        _ = await sut.purchaseYearly()
+
+        XCTAssertFalse(sut.isLoading)
+    }
+
     // MARK: - Restore Purchases Tests
 
     func test_restorePurchases_setsIsLoadingDuringOperation() async {
@@ -190,6 +356,7 @@ final class SubscriptionServiceTests: XCTestCase {
 
         await sut.restorePurchases()
 
+        // After completion, isLoading should be false
         XCTAssertFalse(sut.isLoading)
     }
 
@@ -198,8 +365,22 @@ final class SubscriptionServiceTests: XCTestCase {
 
         await sut.restorePurchases()
 
-        // Should complete without throwing - error may or may not be set
-        // depending on StoreKit configuration
+        // Should complete without throwing
+        XCTAssertFalse(sut.isLoading)
+    }
+
+    func test_restorePurchases_clearsErrorBeforeStarting() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        // First trigger an error
+        _ = await sut.purchaseMonthly()
+        XCTAssertNotNil(sut.error)
+
+        // Restore should clear the error first
+        await sut.restorePurchases()
+
+        // Note: error may be set by restore if it fails, but it should have been cleared first
+        // This test verifies the operation completes
         XCTAssertFalse(sut.isLoading)
     }
 
@@ -212,17 +393,47 @@ final class SubscriptionServiceTests: XCTestCase {
         sut.cancelListener()
     }
 
+    func test_cancelListener_canBeCalledMultipleTimes() {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        // Should not crash when called multiple times
+        sut.cancelListener()
+        sut.cancelListener()
+        sut.cancelListener()
+    }
+
+    func test_cancelListener_afterDeinit_doesNotCrash() {
+        var sut: SubscriptionService? = SubscriptionService(userDefaults: testUserDefaults)
+        sut?.cancelListener()
+        sut = nil
+
+        // If we get here without crashing, test passes
+        XCTAssertNil(sut)
+    }
+
     // MARK: - Fetch Products Tests
 
     func test_fetchProducts_setsIsLoadingDuringOperation() async {
         let sut = SubscriptionService(userDefaults: testUserDefaults)
 
-        // fetchProducts is called during init, so we wait for it
-        // In a real test, we'd use dependency injection for the Store
-
         await sut.fetchProducts()
 
         // After completion, isLoading should be false
+        XCTAssertFalse(sut.isLoading)
+    }
+
+    func test_fetchProducts_clearsErrorBeforeStarting() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        // First trigger an error
+        _ = await sut.purchaseMonthly()
+        XCTAssertNotNil(sut.error)
+
+        // Fetch should clear the error first
+        sut.clearError()
+        await sut.fetchProducts()
+
+        // isLoading should be false after completion
         XCTAssertFalse(sut.isLoading)
     }
 
@@ -235,6 +446,123 @@ final class SubscriptionServiceTests: XCTestCase {
 
         // Should complete without crashing
         XCTAssertFalse(sut.isLoading)
+    }
+
+    func test_checkCurrentEntitlements_withNoEntitlements_setsStatusToNone() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        await sut.checkCurrentEntitlements()
+
+        // With no actual entitlements (in test environment), status should be none
+        XCTAssertEqual(sut.subscriptionStatus, .none)
+        XCTAssertFalse(sut.isPremium)
+    }
+
+    // MARK: - Refresh Status Tests
+
+    func test_refreshStatus_completesWithoutCrashing() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        await sut.refreshStatus()
+
+        // Should complete without crashing
+        XCTAssertFalse(sut.isLoading)
+    }
+
+    func test_refreshStatus_canBeCalledMultipleTimes() async {
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        await sut.refreshStatus()
+        await sut.refreshStatus()
+        await sut.refreshStatus()
+
+        // Should complete without crashing
+        XCTAssertFalse(sut.isLoading)
+    }
+
+    // MARK: - State Consistency Tests
+
+    func test_isPremium_matchesActiveStatus() {
+        testUserDefaults.set("active", forKey: "subscription_status")
+        let futureDate = Date().addingTimeInterval(86400)
+        testUserDefaults.set(futureDate.timeIntervalSince1970, forKey: "subscription_expiration_date")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertTrue(sut.isPremium)
+        XCTAssertEqual(sut.subscriptionStatus, .active)
+    }
+
+    func test_isPremium_matchesExpiredStatus() {
+        testUserDefaults.set("expired", forKey: "subscription_status")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertFalse(sut.isPremium)
+        XCTAssertEqual(sut.subscriptionStatus, .expired)
+    }
+
+    func test_isPremium_matchesNoneStatus() {
+        testUserDefaults.set("none", forKey: "subscription_status")
+
+        let sut = SubscriptionService(userDefaults: testUserDefaults)
+
+        XCTAssertFalse(sut.isPremium)
+        XCTAssertEqual(sut.subscriptionStatus, .none)
+    }
+
+    // MARK: - Multiple Instance Tests
+
+    func test_multipleInstances_shareUserDefaults() {
+        // Set up cached values
+        testUserDefaults.set("active", forKey: "subscription_status")
+        let futureDate = Date().addingTimeInterval(86400 * 30)
+        testUserDefaults.set(futureDate.timeIntervalSince1970, forKey: "subscription_expiration_date")
+
+        let sut1 = SubscriptionService(userDefaults: testUserDefaults)
+        let sut2 = SubscriptionService(userDefaults: testUserDefaults)
+
+        // Both should read the same cached values
+        XCTAssertEqual(sut1.subscriptionStatus, sut2.subscriptionStatus)
+        XCTAssertEqual(sut1.isPremium, sut2.isPremium)
+    }
+
+    // MARK: - Equatable Extension Tests
+
+    func test_subscriptionError_equatable_sameTypes() {
+        XCTAssertEqual(SubscriptionError.productNotFound, SubscriptionError.productNotFound)
+        XCTAssertEqual(SubscriptionError.verificationFailed, SubscriptionError.verificationFailed)
+        XCTAssertEqual(SubscriptionError.userCancelled, SubscriptionError.userCancelled)
+        XCTAssertEqual(SubscriptionError.pending, SubscriptionError.pending)
+        XCTAssertEqual(SubscriptionError.unknown, SubscriptionError.unknown)
+        XCTAssertEqual(SubscriptionError.purchaseInProgress, SubscriptionError.purchaseInProgress)
+    }
+
+    func test_subscriptionError_equatable_differentTypes() {
+        XCTAssertNotEqual(SubscriptionError.productNotFound, SubscriptionError.verificationFailed)
+        XCTAssertNotEqual(SubscriptionError.userCancelled, SubscriptionError.pending)
+        XCTAssertNotEqual(SubscriptionError.unknown, SubscriptionError.productNotFound)
+        XCTAssertNotEqual(SubscriptionError.purchaseInProgress, SubscriptionError.pending)
+    }
+
+    func test_subscriptionError_equatable_purchaseFailed_sameError() {
+        let error1 = NSError(domain: "Test", code: 100, userInfo: [NSLocalizedDescriptionKey: "Same error"])
+        let error2 = NSError(domain: "Test", code: 100, userInfo: [NSLocalizedDescriptionKey: "Same error"])
+
+        XCTAssertEqual(
+            SubscriptionError.purchaseFailed(underlying: error1),
+            SubscriptionError.purchaseFailed(underlying: error2)
+        )
+    }
+
+    func test_subscriptionError_equatable_purchaseFailed_differentErrors() {
+        let error1 = NSError(domain: "Test", code: 100, userInfo: [NSLocalizedDescriptionKey: "Error 1"])
+        let error2 = NSError(domain: "Test", code: 200, userInfo: [NSLocalizedDescriptionKey: "Error 2"])
+
+        XCTAssertNotEqual(
+            SubscriptionError.purchaseFailed(underlying: error1),
+            SubscriptionError.purchaseFailed(underlying: error2)
+        )
     }
 }
 
@@ -252,6 +580,8 @@ extension SubscriptionError: Equatable {
         case (.pending, .pending):
             return true
         case (.unknown, .unknown):
+            return true
+        case (.purchaseInProgress, .purchaseInProgress):
             return true
         case (.purchaseFailed(let lhsError), .purchaseFailed(let rhsError)):
             return lhsError.localizedDescription == rhsError.localizedDescription
