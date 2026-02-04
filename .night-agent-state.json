@@ -1,25 +1,20 @@
 {
-  "session_id": "night-20260124-221705",
-  "base_branch": "feature/sleep-1",
-  "accumulated_branch": "feature/sleep-1",
+  "session_id": "night-20260204-paywall",
+  "base_branch": "feature/po-check-2",
+  "accumulated_branch": "feature/po-check-2",
   "status": "completed",
-  "started_at": "2026-01-24T22:17:05Z",
-  "completed_at": "2026-01-24T22:45:00Z",
+  "started_at": "2026-02-04T10:00:00Z",
+  "completed_at": "2026-02-04T10:45:00Z",
+  "deep_quality_mode": true,
   "features": [
-    {"id": 1, "name": "Wind Down Tab Core Architecture", "status": "completed", "commit": "03eaf40"},
-    {"id": 2, "name": "Sleep Content Entity & Data Model", "status": "completed", "commit": "72ab689"},
-    {"id": 11, "name": "Content Card Components", "status": "completed", "commit": "c07f19b"},
-    {"id": 3, "name": "Yoga Nidra Content Integration", "status": "completed", "commit": "7f30e8a"},
-    {"id": 4, "name": "Sleep Content Player", "status": "completed", "commit": "1cc3d39"},
-    {"id": 6, "name": "Breathing Exercises Section", "status": "completed", "commit": "dc3c949"},
-    {"id": 7, "name": "Guided Meditations Section", "status": "completed", "commit": "dc3c949"},
-    {"id": 5, "name": "Sleep Stories Section", "status": "completed", "commit": "5fa04f3"},
-    {"id": 10, "name": "Featured Content & Continue Listening", "status": "completed", "commit": "66ec3cc"},
-    {"id": 12, "name": "Sleep Timer Integration", "status": "completed", "commit": "66ec3cc"},
-    {"id": 8, "name": "Sleep Hypnosis Section", "status": "completed", "commit": "87d30ee"},
-    {"id": 9, "name": "Bedtime Affirmations Section", "status": "completed", "commit": "87d30ee"}
+    {"id": 1, "name": "Complete Paywall View with Subscription Products", "status": "completed"},
+    {"id": 2, "name": "Integrate Paywall into Onboarding Flow", "status": "completed"},
+    {"id": 3, "name": "Review and Fix Subscription Service Business Logic", "status": "completed"},
+    {"id": 4, "name": "Add Comprehensive Subscription Service Tests", "status": "completed"},
+    {"id": 5, "name": "Add PaywallService Integration Tests", "status": "completed"},
+    {"id": 6, "name": "Implement Paywall Presentation from Settings", "status": "completed"}
   ],
-  "completed_features": 12,
+  "completed_features": 6,
   "failed_features": 0,
-  "total_commits": 9
+  "total_commits": 1
 }
