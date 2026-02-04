@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardingContainerView: View {
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(PaywallService.self) private var paywallService
+    @Environment(SubscriptionService.self) private var subscriptionService
     @State private var currentStep: OnboardingStep = .welcome
 
     enum OnboardingStep: Int, CaseIterable {
@@ -16,6 +17,7 @@ struct OnboardingContainerView: View {
         case reviews = 7
         case features = 8
         case customPlan = 9
+        case paywall = 10
 
         var progress: Double {
             Double(rawValue) / Double(OnboardingStep.allCases.count - 1)
@@ -27,8 +29,8 @@ struct OnboardingContainerView: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Progress bar (hidden on welcome)
-                if currentStep != .welcome {
+                // Progress bar (hidden on welcome and paywall)
+                if currentStep != .welcome && currentStep != .paywall {
                     OnboardingProgressView(progress: currentStep.progress)
                         .padding(.horizontal, 24)
                         .padding(.top, 8)
@@ -90,10 +92,16 @@ struct OnboardingContainerView: View {
                     .tag(OnboardingStep.features)
 
                     OnboardingCustomPlanView(
-                        onContinue: showPaywallAndComplete,
+                        onContinue: showPaywall,
                         onBack: previousStep
                     )
                     .tag(OnboardingStep.customPlan)
+
+                    OnboardingPaywallView(
+                        onComplete: completeOnboarding,
+                        isPresented: false
+                    )
+                    .tag(OnboardingStep.paywall)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: currentStep)
@@ -122,10 +130,21 @@ struct OnboardingContainerView: View {
         onboardingService.completeOnboarding()
     }
 
-    private func showPaywallAndComplete() {
-        paywallService.triggerPaywall(placement: "campaign_trigger") {
-            onboardingService.completeOnboarding()
+    private func showPaywall() {
+        // If already premium, skip paywall and complete onboarding
+        if subscriptionService.isPremium {
+            completeOnboarding()
+            return
         }
+
+        // Otherwise, show the paywall step
+        withAnimation {
+            currentStep = .paywall
+        }
+    }
+
+    private func completeOnboarding() {
+        onboardingService.completeOnboarding()
     }
 }
 
@@ -133,4 +152,5 @@ struct OnboardingContainerView: View {
     OnboardingContainerView()
         .environment(OnboardingService())
         .environment(PaywallService())
+        .environment(SubscriptionService())
 }
