@@ -56,7 +56,13 @@ struct SoundScapeApp: App {
             .environment(paywallService)
             .environment(premiumManager ?? createPremiumManager())
             .preferredColorScheme(.dark)
-                .onAppear {
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                // Refresh subscription status when app returns to foreground
+                Task {
+                    await subscriptionService.refreshStatus()
+                }
+            }
+            .onAppear {
                     // Configure Firebase Analytics
                     analyticsService.configure()
 

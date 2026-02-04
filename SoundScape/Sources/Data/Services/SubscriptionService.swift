@@ -16,6 +16,7 @@ enum SubscriptionError: LocalizedError {
     case userCancelled
     case pending
     case unknown
+    case purchaseInProgress
 
     var errorDescription: String? {
         switch self {
@@ -31,6 +32,8 @@ enum SubscriptionError: LocalizedError {
             return "Purchase is pending approval."
         case .unknown:
             return "An unknown error occurred. Please try again."
+        case .purchaseInProgress:
+            return "A purchase is already in progress. Please wait."
         }
     }
 }
@@ -70,6 +73,12 @@ final class SubscriptionService {
     private var updateListenerTask: Task<Void, Never>?
     private let userDefaults: UserDefaults
 
+    /// Flag to prevent concurrent purchase attempts
+    private var isPurchaseInProgress: Bool = false
+
+    /// Tracks the previous active status for detecting status changes
+    private var previouslyHadActiveSubscription: Bool = false
+
     // MARK: - Computed Properties
 
     var monthlyProduct: Product? {
@@ -85,6 +94,7 @@ final class SubscriptionService {
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
         loadCachedStatus()
+        previouslyHadActiveSubscription = isPremium
         startTransactionListener()
 
         Task {
@@ -128,8 +138,20 @@ final class SubscriptionService {
     /// - Returns: True if purchase was successful
     @discardableResult
     func purchase(_ product: Product) async -> Bool {
+        // CRITICAL: Prevent concurrent purchases to avoid double-charging
+        guard !isPurchaseInProgress else {
+            error = .purchaseInProgress
+            return false
+        }
+
+        isPurchaseInProgress = true
         isLoading = true
         error = nil
+
+        defer {
+            isPurchaseInProgress = false
+            isLoading = false
+        }
 
         do {
             let result = try await product.purchase()
@@ -139,31 +161,25 @@ final class SubscriptionService {
                 let transaction = try checkVerified(verification)
                 await updateSubscriptionStatus(from: transaction)
                 await transaction.finish()
-                isLoading = false
                 return true
 
             case .pending:
                 error = .pending
-                isLoading = false
                 return false
 
             case .userCancelled:
                 error = .userCancelled
-                isLoading = false
                 return false
 
             @unknown default:
                 error = .unknown
-                isLoading = false
                 return false
             }
         } catch _ as VerificationError {
             error = .verificationFailed
-            isLoading = false
             return false
         } catch {
             self.error = .purchaseFailed(underlying: error)
-            isLoading = false
             return false
         }
     }
@@ -209,10 +225,12 @@ final class SubscriptionService {
     // MARK: - Entitlement Checking
 
     /// Checks current subscription entitlements
+    /// Call this when app returns to foreground or after purchase
     func checkCurrentEntitlements() async {
         var hasActiveSubscription = false
         var foundProductID: String?
         var foundExpirationDate: Date?
+        var hadAnySubscriptionTransaction = false
 
         for await result in Transaction.currentEntitlements {
             do {
@@ -220,6 +238,8 @@ final class SubscriptionService {
 
                 // Check if this is one of our subscription products
                 if Self.productIDs.contains(transaction.productID) {
+                    hadAnySubscriptionTransaction = true
+
                     // Check if subscription is still valid
                     if let expirationDate = transaction.expirationDate,
                        expirationDate > Date() {
@@ -234,19 +254,35 @@ final class SubscriptionService {
             }
         }
 
+        // Update status based on findings
         if hasActiveSubscription {
             subscriptionStatus = .active
             isPremium = true
             activeProductID = foundProductID
             expirationDate = foundExpirationDate
+        } else if hadAnySubscriptionTransaction || previouslyHadActiveSubscription {
+            // User had a subscription but it's now expired
+            subscriptionStatus = .expired
+            isPremium = false
+            activeProductID = nil
+            expirationDate = nil
         } else {
+            // Never had a subscription
             subscriptionStatus = .none
             isPremium = false
             activeProductID = nil
             expirationDate = nil
         }
 
+        // Update tracking flag
+        previouslyHadActiveSubscription = hasActiveSubscription
+
         cacheStatus()
+    }
+
+    /// Refreshes subscription status - call when app returns to foreground
+    func refreshStatus() async {
+        await checkCurrentEntitlements()
     }
 
     // MARK: - Transaction Listener
@@ -268,8 +304,16 @@ final class SubscriptionService {
         }
     }
 
-    /// Handles a transaction update
+    /// Handles a transaction update (new purchase, renewal, revocation, etc.)
     private func handleTransactionUpdate(_ transaction: Transaction) async {
+        // Handle revocations (refunds, Family Sharing removal)
+        if transaction.revocationDate != nil {
+            // Subscription was revoked - immediately check entitlements
+            await checkCurrentEntitlements()
+            return
+        }
+
+        // Handle upgrades/downgrades/renewals
         await checkCurrentEntitlements()
     }
 
@@ -305,6 +349,8 @@ final class SubscriptionService {
             if date <= Date() && subscriptionStatus == .active {
                 subscriptionStatus = .expired
                 isPremium = false
+                // Update cache immediately to reflect expired status
+                cacheStatus()
             }
         }
     }
@@ -337,6 +383,7 @@ final class SubscriptionService {
                 isPremium = true
                 activeProductID = transaction.productID
                 self.expirationDate = expirationDate
+                previouslyHadActiveSubscription = true
             } else {
                 subscriptionStatus = .expired
                 isPremium = false
