@@ -19,6 +19,7 @@ struct SoundScapeApp: App {
     @State private var sleepBuddyService = SleepBuddyService()
     @State private var sleepContentPlayerService = SleepContentPlayerService()
     @State private var onboardingService = OnboardingService()
+    @State private var subscriptionService = SubscriptionService()
     @State private var paywallService = PaywallService()
     @State private var premiumManager: PremiumManager?
 
@@ -51,6 +52,7 @@ struct SoundScapeApp: App {
             .environment(sleepBuddyService)
             .environment(sleepContentPlayerService)
             .environment(onboardingService)
+            .environment(subscriptionService)
             .environment(paywallService)
             .environment(premiumManager ?? createPremiumManager())
             .preferredColorScheme(.dark)
@@ -81,7 +83,8 @@ struct SoundScapeApp: App {
                     // Wire up SleepBuddyService to InsightsService for streak calculation
                     sleepBuddyService.setInsightsService(insightsService)
 
-                    // Wire up PaywallService to AnalyticsService
+                    // Wire up PaywallService to AnalyticsService and SubscriptionService
+                    paywallService.setSubscriptionService(subscriptionService)
                     paywallService.setAnalyticsService(analyticsService)
 
                     // Initialize PremiumManager with PaywallService
