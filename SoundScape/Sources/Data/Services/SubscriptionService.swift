@@ -69,7 +69,6 @@ final class SubscriptionService {
 
     private var updateListenerTask: Task<Void, Never>?
     private let userDefaults: UserDefaults
-    private var purchaseInProgress = false
 
     // MARK: - Computed Properties
 
@@ -129,11 +128,6 @@ final class SubscriptionService {
     /// - Returns: True if purchase was successful
     @discardableResult
     func purchase(_ product: Product) async -> Bool {
-        // Prevent concurrent purchases
-        guard !purchaseInProgress else {
-            return false
-        }
-        purchaseInProgress = true
         isLoading = true
         error = nil
 
@@ -145,36 +139,30 @@ final class SubscriptionService {
                 let transaction = try checkVerified(verification)
                 await updateSubscriptionStatus(from: transaction)
                 await transaction.finish()
-                purchaseInProgress = false
                 isLoading = false
                 return true
 
             case .pending:
                 error = .pending
-                purchaseInProgress = false
                 isLoading = false
                 return false
 
             case .userCancelled:
                 error = .userCancelled
-                purchaseInProgress = false
                 isLoading = false
                 return false
 
             @unknown default:
                 error = .unknown
-                purchaseInProgress = false
                 isLoading = false
                 return false
             }
         } catch _ as VerificationError {
             error = .verificationFailed
-            purchaseInProgress = false
             isLoading = false
             return false
         } catch {
             self.error = .purchaseFailed(underlying: error)
-            purchaseInProgress = false
             isLoading = false
             return false
         }
@@ -317,8 +305,6 @@ final class SubscriptionService {
             if date <= Date() && subscriptionStatus == .active {
                 subscriptionStatus = .expired
                 isPremium = false
-                // Persist the expiration status change
-                cacheStatus()
             }
         }
     }

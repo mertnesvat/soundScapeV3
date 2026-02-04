@@ -16,7 +16,6 @@ struct OnboardingContainerView: View {
         case reviews = 7
         case features = 8
         case customPlan = 9
-        case paywall = 10
 
         var progress: Double {
             Double(rawValue) / Double(OnboardingStep.allCases.count - 1)
@@ -28,8 +27,8 @@ struct OnboardingContainerView: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Progress bar (hidden on welcome and paywall)
-                if currentStep != .welcome && currentStep != .paywall {
+                // Progress bar (hidden on welcome)
+                if currentStep != .welcome {
                     OnboardingProgressView(progress: currentStep.progress)
                         .padding(.horizontal, 24)
                         .padding(.top, 8)
@@ -91,26 +90,16 @@ struct OnboardingContainerView: View {
                     .tag(OnboardingStep.features)
 
                     OnboardingCustomPlanView(
-                        onContinue: showPaywall,
+                        onContinue: showPaywallAndComplete,
                         onBack: previousStep
                     )
                     .tag(OnboardingStep.customPlan)
-
-                    OnboardingPaywallView(
-                        onComplete: completeOnboarding,
-                        showCloseButton: true
-                    )
-                    .tag(OnboardingStep.paywall)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: currentStep)
             }
         }
         .preferredColorScheme(.dark)
-        .onAppear {
-            // If user is already premium, skip to completion when reaching paywall
-            checkPremiumStatus()
-        }
     }
 
     private func nextStep() {
@@ -133,22 +122,10 @@ struct OnboardingContainerView: View {
         onboardingService.completeOnboarding()
     }
 
-    private func showPaywall() {
-        // If already premium, skip paywall and complete
-        if paywallService.isPremium {
-            completeOnboarding()
-        } else {
-            nextStep()
+    private func showPaywallAndComplete() {
+        paywallService.triggerPaywall(placement: "campaign_trigger") {
+            onboardingService.completeOnboarding()
         }
-    }
-
-    private func completeOnboarding() {
-        onboardingService.completeOnboarding()
-    }
-
-    private func checkPremiumStatus() {
-        // Refresh subscription status on appear
-        paywallService.updateSubscriptionStatus()
     }
 }
 
