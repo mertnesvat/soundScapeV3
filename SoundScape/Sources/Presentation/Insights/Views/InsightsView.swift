@@ -116,7 +116,7 @@ struct InsightsView: View {
 
     private var premiumUpsellCard: some View {
         Button {
-            paywallService.triggerPaywall(placement: "campaign_trigger") {}
+            paywallService.triggerPaywall(placement: "full_insights") {}
         } label: {
             VStack(spacing: 12) {
                 HStack {
@@ -211,7 +211,7 @@ struct InsightsView: View {
                 }
             )
             .onTapGesture {
-                paywallService.triggerPaywall(placement: "campaign_trigger") {}
+                paywallService.triggerPaywall(placement: "full_insights") {}
             }
     }
 }

@@ -89,7 +89,7 @@ struct BrainwaveStateSelectorView: View {
                         isLocked: isLocked
                     ) {
                         if isLocked {
-                            paywallService.triggerPaywall(placement: "campaign_trigger") {
+                            paywallService.triggerPaywall(placement: "premium_binaural") {
                                 @Bindable var engine = beatEngine
                                 engine.brainwaveState = state
                                 beatEngine.updateSettings()

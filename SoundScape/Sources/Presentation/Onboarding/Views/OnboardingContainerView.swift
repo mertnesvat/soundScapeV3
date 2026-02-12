@@ -137,6 +137,9 @@ struct OnboardingContainerView: View {
             return
         }
 
+        // Set placement context for analytics
+        paywallService.setPaywallPlacement("onboarding")
+
         // Otherwise, show the paywall step
         withAnimation {
             currentStep = .paywall

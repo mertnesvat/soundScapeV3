@@ -211,9 +211,13 @@ final class PaywallServiceTests: XCTestCase {
         let placements = [
             "onboarding",
             "settings",
-            "premium_feature",
-            "campaign_trigger",
-            "special_offer"
+            "premium_sound",
+            "unlimited_mixing",
+            "premium_binaural",
+            "adaptive_mode",
+            "full_insights",
+            "premium_winddown",
+            "discover_save"
         ]
 
         for placement in placements {
@@ -379,7 +383,7 @@ final class PaywallServiceTests: XCTestCase {
         sut.debugPremiumOverride = true
         #endif
 
-        // Should not crash and uses campaign_trigger placement
+        // Should not crash and uses "settings" placement
         sut.showPaywallFromSettings()
     }
 
@@ -541,5 +545,94 @@ final class PaywallServiceTests: XCTestCase {
         // Both purchases fail (no products), restore completes
         XCTAssertFalse(results.0)
         XCTAssertFalse(results.1)
+    }
+
+    // MARK: - handlePaywallDismissed Tests
+
+    func test_handlePaywallDismissed_withoutTrigger_doesNotCrash() {
+        let sut = PaywallService()
+
+        sut.handlePaywallDismissed()
+        // Should not crash when no paywall was triggered
+    }
+
+    func test_handlePaywallDismissed_clearsPaywallContext() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "premium_sound") {}
+        XCTAssertEqual(sut.currentPaywallPlacement, "premium_sound")
+
+        sut.handlePaywallDismissed()
+        XCTAssertNil(sut.currentPaywallPlacement)
+    }
+
+    func test_handlePaywallDismissed_logsAnalytics() {
+        let sut = PaywallService()
+        let analyticsService = AnalyticsService()
+        sut.setAnalyticsService(analyticsService)
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "full_insights") {}
+        sut.handlePaywallDismissed()
+
+        // Analytics logging happens internally — verify no crash
+        XCTAssertNil(sut.currentPaywallPlacement)
+    }
+
+    // MARK: - setPaywallPlacement Tests
+
+    func test_setPaywallPlacement_setsPlacement() {
+        let sut = PaywallService()
+
+        sut.setPaywallPlacement("onboarding")
+        XCTAssertEqual(sut.currentPaywallPlacement, "onboarding")
+    }
+
+    func test_setPaywallPlacement_logsPaywallShown() {
+        let sut = PaywallService()
+        let analyticsService = AnalyticsService()
+        sut.setAnalyticsService(analyticsService)
+
+        sut.setPaywallPlacement("onboarding")
+
+        // Analytics logging happens internally — verify no crash
+        XCTAssertEqual(sut.currentPaywallPlacement, "onboarding")
+    }
+
+    func test_setPaywallPlacement_canBeDismissedAfterwards() {
+        let sut = PaywallService()
+
+        sut.setPaywallPlacement("onboarding")
+        XCTAssertEqual(sut.currentPaywallPlacement, "onboarding")
+
+        sut.handlePaywallDismissed()
+        XCTAssertNil(sut.currentPaywallPlacement)
+    }
+
+    // MARK: - Placement String Tests
+
+    func test_showPaywallFromSettings_usesSettingsPlacement() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.showPaywallFromSettings()
+        XCTAssertEqual(sut.currentPaywallPlacement, "settings")
+    }
+
+    func test_triggerPaywall_defaultPlacement_isUnknown() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall {}
+        XCTAssertEqual(sut.currentPaywallPlacement, "unknown")
     }
 }

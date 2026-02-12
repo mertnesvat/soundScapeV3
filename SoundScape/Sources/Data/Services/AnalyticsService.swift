@@ -70,6 +70,8 @@ final class AnalyticsService {
 
         // Paywall events
         case paywallShown = "paywall_shown"
+        case paywallDismissed = "paywall_dismissed"
+        case paywallConverted = "paywall_converted"
         case purchaseCompleted = "purchase_completed"
         case purchaseRestored = "purchase_restored"
         case paywallError = "paywall_error"
@@ -338,6 +340,18 @@ final class AnalyticsService {
 
     func logPaywallShown(placement: String) {
         logEvent(.paywallShown, parameters: [
+            .placement: placement
+        ])
+    }
+
+    func logPaywallDismissed(placement: String) {
+        logEvent(.paywallDismissed, parameters: [
+            .placement: placement
+        ])
+    }
+
+    func logPaywallConverted(placement: String) {
+        logEvent(.paywallConverted, parameters: [
             .placement: placement
         ])
     }

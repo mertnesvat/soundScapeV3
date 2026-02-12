@@ -432,6 +432,7 @@ struct OnboardingPaywallView: View {
     }
 
     private func handleLimitedAccess() {
+        paywallService.handlePaywallDismissed()
         if isPresented {
             // When presented as sheet, just dismiss
             onComplete()

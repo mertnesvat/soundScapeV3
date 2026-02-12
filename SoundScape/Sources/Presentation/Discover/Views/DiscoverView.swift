@@ -142,7 +142,7 @@ struct DiscoverView: View {
     private func saveMix(_ mix: CommunityMix) {
         // Check if premium is required
         if premiumManager.isPremiumRequired(for: .discoverSave) {
-            paywallService.triggerPaywall(placement: "campaign_trigger") {
+            paywallService.triggerPaywall(placement: "discover_save") {
                 // After premium purchase, save the mix
                 performSaveMix(mix)
             }
