@@ -51,10 +51,18 @@ struct SoundsView: View {
                             selectedCategory: Binding(
                                 get: { viewModel.selectedCategory },
                                 set: { viewModel.selectCategory($0) }
-                            ))
+                            ),
+                            showingFavorites: viewModel.showingFavorites,
+                            onSelectFavorites: {
+                                viewModel.selectFavorites()
+                            },
+                            onSelectCategory: { category in
+                                viewModel.selectCategory(category)
+                            }
+                        )
 
                         // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil {
+                        if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
                             let favoriteSounds = viewModel.sounds.filter {
                                 favoritesService.isFavorite($0.id)
                             }
@@ -160,7 +168,7 @@ struct SoundsView: View {
             }
             .onAppear {
                 if viewModel == nil {
-                    viewModel = SoundsViewModel(audioEngine: audioEngine)
+                    viewModel = SoundsViewModel(audioEngine: audioEngine, favoritesService: favoritesService)
                 }
                 viewModel?.loadSounds()
                 motionService.startUpdates()
@@ -225,7 +233,7 @@ struct SoundsView: View {
     private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             // Show header only when favorites exist and no category filter
-            if viewModel.selectedCategory == nil {
+            if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
                 let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
                 if hasFavorites {
                     Text(LocalizedStringKey("All Sounds"))

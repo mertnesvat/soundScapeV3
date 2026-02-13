@@ -7,8 +7,13 @@ final class SoundsViewModel {
     // MARK: - State
     private(set) var sounds: [Sound] = []
     var selectedCategory: SoundCategory? = nil
+    var showingFavorites: Bool = false
 
     var filteredSounds: [Sound] {
+        if showingFavorites {
+            guard let favoritesService = favoritesService else { return [] }
+            return sounds.filter { favoritesService.isFavorite($0.id) }
+        }
         if let category = selectedCategory {
             return sounds.filter { $0.category == category }
         }
@@ -18,10 +23,16 @@ final class SoundsViewModel {
     // MARK: - Dependencies
     private let repository: SoundRepositoryProtocol
     private let audioEngine: AudioEngine
+    private var favoritesService: FavoritesService?
 
-    init(repository: SoundRepositoryProtocol = SoundRepository(), audioEngine: AudioEngine) {
+    init(repository: SoundRepositoryProtocol = SoundRepository(), audioEngine: AudioEngine, favoritesService: FavoritesService? = nil) {
         self.repository = repository
         self.audioEngine = audioEngine
+        self.favoritesService = favoritesService
+    }
+
+    func setFavoritesService(_ service: FavoritesService) {
+        self.favoritesService = service
     }
 
     // MARK: - Actions
@@ -31,6 +42,12 @@ final class SoundsViewModel {
 
     func selectCategory(_ category: SoundCategory?) {
         selectedCategory = category
+        showingFavorites = false
+    }
+
+    func selectFavorites() {
+        selectedCategory = nil
+        showingFavorites = true
     }
 
     func togglePlay(for sound: Sound) {

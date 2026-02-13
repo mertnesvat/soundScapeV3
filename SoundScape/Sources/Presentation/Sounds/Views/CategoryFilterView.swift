@@ -2,6 +2,9 @@ import SwiftUI
 
 struct CategoryFilterView: View {
     @Binding var selectedCategory: SoundCategory?
+    var showingFavorites: Bool = false
+    var onSelectFavorites: (() -> Void)? = nil
+    var onSelectCategory: ((SoundCategory?) -> Void)? = nil
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -9,18 +12,35 @@ struct CategoryFilterView: View {
                 CategoryChip(
                     title: String(localized: "All"),
                     icon: "square.grid.2x2.fill",
-                    isSelected: selectedCategory == nil
+                    isSelected: selectedCategory == nil && !showingFavorites
                 ) {
-                    selectedCategory = nil
+                    if let onSelectCategory {
+                        onSelectCategory(nil)
+                    } else {
+                        selectedCategory = nil
+                    }
+                }
+
+                // Favorites chip
+                CategoryChip(
+                    title: String(localized: "Favorites"),
+                    icon: "heart.fill",
+                    isSelected: showingFavorites
+                ) {
+                    onSelectFavorites?()
                 }
 
                 ForEach(SoundCategory.allCases, id: \.self) { category in
                     CategoryChip(
                         title: category.localizedName,
                         icon: category.icon,
-                        isSelected: selectedCategory == category
+                        isSelected: selectedCategory == category && !showingFavorites
                     ) {
-                        selectedCategory = category
+                        if let onSelectCategory {
+                            onSelectCategory(category)
+                        } else {
+                            selectedCategory = category
+                        }
                     }
                 }
             }
