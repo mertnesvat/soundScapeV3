@@ -14,6 +14,7 @@ struct SettingsView: View {
     @State private var isRestoring = false
     @State private var showResetOnboardingAlert = false
     @State private var showPaywallSheet = false
+    @State private var showScienceSheet = false
 
     var body: some View {
         NavigationStack {
@@ -167,6 +168,31 @@ struct SettingsView: View {
                     }
                 }
 
+                // MARK: - Sound Science
+                Section {
+                    Button {
+                        showScienceSheet = true
+                    } label: {
+                        HStack {
+                            Label {
+                                Text(LocalizedStringKey("Sound Science"))
+                            } icon: {
+                                Image(systemName: "book.fill")
+                                    .foregroundStyle(.purple)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .foregroundStyle(.primary)
+                } header: {
+                    Text(LocalizedStringKey("Learn"))
+                } footer: {
+                    Text(LocalizedStringKey("Learn about the science behind binaural beats, brainwave states, and noise types"))
+                }
+
                 #if DEBUG
                 // MARK: - Developer
                 Section {
@@ -264,6 +290,9 @@ struct SettingsView: View {
                 }
             } message: {
                 Text("This will reset your onboarding progress and show the onboarding flow again on next app launch.")
+            }
+            .sheet(isPresented: $showScienceSheet) {
+                SoundScienceView()
             }
             .sheet(isPresented: $showPaywallSheet) {
                 OnboardingPaywallView(
