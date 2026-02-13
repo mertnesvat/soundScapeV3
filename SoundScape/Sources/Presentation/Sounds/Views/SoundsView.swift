@@ -71,8 +71,18 @@ struct SoundsView: View {
                             }
                         }
 
-                        // All Sounds Section
-                        allSoundsSection(viewModel: viewModel)
+                        // Favorites empty state
+                        if viewModel.showingFavorites && viewModel.filteredSounds.isEmpty {
+                            ContentUnavailableView(
+                                String(localized: "No Favorites"),
+                                systemImage: "heart.slash",
+                                description: Text("Tap the heart on sounds to add favorites")
+                            )
+                            .padding(.top, 60)
+                        } else {
+                            // All Sounds Section
+                            allSoundsSection(viewModel: viewModel)
+                        }
                     }
                 }
             }
