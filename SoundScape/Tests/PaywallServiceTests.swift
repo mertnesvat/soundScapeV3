@@ -635,4 +635,172 @@ final class PaywallServiceTests: XCTestCase {
         sut.triggerPaywall {}
         XCTAssertEqual(sut.currentPaywallPlacement, "unknown")
     }
+
+    // MARK: - showPaywall Reactive State Tests
+
+    func test_showPaywall_initiallyFalse() {
+        let sut = PaywallService()
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_triggerPaywall_nonPremiumUser_setsShowPaywallTrue() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "test") {}
+
+        XCTAssertTrue(sut.showPaywall)
+    }
+
+    func test_triggerPaywall_premiumUser_showPaywallStaysFalse() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = true
+        #endif
+
+        sut.triggerPaywall(placement: "test") {}
+
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_triggerPaywall_premiumUser_callsCompletionImmediately() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = true
+        #endif
+        var completionCalled = false
+
+        sut.triggerPaywall(placement: "test") {
+            completionCalled = true
+        }
+
+        XCTAssertTrue(completionCalled)
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_handlePaywallDismissed_resetsShowPaywall() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "test") {}
+        XCTAssertTrue(sut.showPaywall)
+
+        sut.handlePaywallDismissed()
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_handlePurchaseSuccess_resetsShowPaywall() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "test") {}
+        XCTAssertTrue(sut.showPaywall)
+
+        sut.handlePurchaseSuccess()
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_handlePurchaseSuccess_callsCompletionHandler() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+        var completionCalled = false
+
+        sut.triggerPaywall(placement: "test") {
+            completionCalled = true
+        }
+
+        sut.handlePurchaseSuccess()
+        XCTAssertTrue(completionCalled)
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_handlePaywallDismissed_doesNotCallCompletion() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+        var completionCalled = false
+
+        sut.triggerPaywall(placement: "test") {
+            completionCalled = true
+        }
+
+        sut.handlePaywallDismissed()
+        XCTAssertFalse(completionCalled)
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_handlePurchaseError_resetsShowPaywall() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "test") {}
+        XCTAssertTrue(sut.showPaywall)
+
+        sut.handlePurchaseError(NSError(domain: "test", code: 0))
+        XCTAssertFalse(sut.showPaywall)
+    }
+
+    func test_multipleTriggerPaywallCalls_showPaywallRemainsTrue() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.triggerPaywall(placement: "first") {}
+        sut.triggerPaywall(placement: "second") {}
+        sut.triggerPaywall(placement: "third") {}
+
+        XCTAssertTrue(sut.showPaywall)
+        XCTAssertEqual(sut.currentPaywallPlacement, "third")
+    }
+
+    func test_showPaywallFromSettings_setsShowPaywallForNonPremium() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        sut.showPaywallFromSettings()
+
+        XCTAssertTrue(sut.showPaywall)
+        XCTAssertEqual(sut.currentPaywallPlacement, "settings")
+    }
+
+    func test_showPaywall_fullLifecycle_triggerDismissTriggerSuccess() {
+        let sut = PaywallService()
+        #if DEBUG
+        sut.debugPremiumOverride = false
+        #endif
+
+        // Trigger -> Dismiss
+        sut.triggerPaywall(placement: "first") {}
+        XCTAssertTrue(sut.showPaywall)
+
+        sut.handlePaywallDismissed()
+        XCTAssertFalse(sut.showPaywall)
+        XCTAssertNil(sut.currentPaywallPlacement)
+
+        // Trigger again -> Purchase success
+        var completionCalled = false
+        sut.triggerPaywall(placement: "second") {
+            completionCalled = true
+        }
+        XCTAssertTrue(sut.showPaywall)
+
+        sut.handlePurchaseSuccess()
+        XCTAssertFalse(sut.showPaywall)
+        XCTAssertTrue(completionCalled)
+        XCTAssertNil(sut.currentPaywallPlacement)
+    }
 }
