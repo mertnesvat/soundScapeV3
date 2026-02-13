@@ -2,6 +2,10 @@ import SwiftUI
 
 struct BinauralBeatsView: View {
     @Environment(BinauralBeatEngine.self) private var beatEngine
+    @Environment(PaywallService.self) private var paywallService
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
+    @State private var showScienceSheet = false
 
     var body: some View {
         NavigationStack {
@@ -32,7 +36,38 @@ struct BinauralBeatsView: View {
                 .padding()
             }
             .navigationTitle(LocalizedStringKey("Binaural Beats"))
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showScienceSheet = true
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .sheet(isPresented: $showScienceSheet) {
+                SoundScienceView()
+            }
             .background(Color(.systemGroupedBackground))
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { newValue in
+                    if !newValue {
+                        paywallService.handlePaywallDismissed()
+                    }
+                }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.showPaywall = false
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
+            }
         }
     }
 }

@@ -7,6 +7,8 @@ struct SoundsView: View {
     @Environment(MotionService.self) private var motionService
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(PaywallService.self) private var paywallService
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
@@ -49,10 +51,18 @@ struct SoundsView: View {
                             selectedCategory: Binding(
                                 get: { viewModel.selectedCategory },
                                 set: { viewModel.selectCategory($0) }
-                            ))
+                            ),
+                            showingFavorites: viewModel.showingFavorites,
+                            onSelectFavorites: {
+                                viewModel.selectFavorites()
+                            },
+                            onSelectCategory: { category in
+                                viewModel.selectCategory(category)
+                            }
+                        )
 
                         // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil {
+                        if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
                             let favoriteSounds = viewModel.sounds.filter {
                                 favoritesService.isFavorite($0.id)
                             }
@@ -61,8 +71,18 @@ struct SoundsView: View {
                             }
                         }
 
-                        // All Sounds Section
-                        allSoundsSection(viewModel: viewModel)
+                        // Favorites empty state
+                        if viewModel.showingFavorites && viewModel.filteredSounds.isEmpty {
+                            ContentUnavailableView(
+                                String(localized: "No Favorites"),
+                                systemImage: "heart.slash",
+                                description: Text("Tap the heart on sounds to add favorites")
+                            )
+                            .padding(.top, 60)
+                        } else {
+                            // All Sounds Section
+                            allSoundsSection(viewModel: viewModel)
+                        }
                     }
                 }
             }
@@ -126,6 +146,24 @@ struct SoundsView: View {
             .sheet(isPresented: $showASMRInfoSheet) {
                 ASMRInfoView()
             }
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { newValue in
+                    if !newValue {
+                        paywallService.handlePaywallDismissed()
+                    }
+                }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.showPaywall = false
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
+            }
             .onChange(of: viewModel?.selectedCategory) { oldValue, newValue in
                 // Show ASMR info sheet on first visit to ASMR category
                 if newValue == .asmr && !asmrInfoService.hasSeenInfo {
@@ -140,7 +178,7 @@ struct SoundsView: View {
             }
             .onAppear {
                 if viewModel == nil {
-                    viewModel = SoundsViewModel(audioEngine: audioEngine)
+                    viewModel = SoundsViewModel(audioEngine: audioEngine, favoritesService: favoritesService)
                 }
                 viewModel?.loadSounds()
                 motionService.startUpdates()
@@ -205,7 +243,7 @@ struct SoundsView: View {
     private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             // Show header only when favorites exist and no category filter
-            if viewModel.selectedCategory == nil {
+            if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
                 let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
                 if hasFavorites {
                     Text(LocalizedStringKey("All Sounds"))

@@ -86,6 +86,8 @@ struct WindDownView: View {
     @Environment(SleepContentPlayerService.self) private var playerService
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(PaywallService.self) private var paywallService
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
 
     @State private var selectedContent: SleepContent?
 
@@ -186,6 +188,24 @@ struct WindDownView: View {
                     onDismiss: { selectedContent = nil }
                 )
                 .presentationDragIndicator(.visible)
+            }
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { newValue in
+                    if !newValue {
+                        paywallService.handlePaywallDismissed()
+                    }
+                }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.showPaywall = false
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
             }
         }
     }

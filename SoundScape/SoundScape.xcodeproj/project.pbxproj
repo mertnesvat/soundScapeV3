@@ -138,6 +138,7 @@
 		PAYWLLTST001 /* PaywallServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PAYWLLTST002 /* PaywallServiceTests.swift */; };
 		SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUBSCTST002 /* SubscriptionServiceTests.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
+		FB96EB91SCI00001 /* SoundScienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SCI00002 /* SoundScienceView.swift */; };
 		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
 		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
 		FB96EB91BUDDY005 /* SleepBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY006 /* SleepBuddyView.swift */; };
@@ -185,6 +186,7 @@
 		FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */; };
 		FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */; };
 		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
+		FB96EB91SDSCI01 /* SoundScienceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SDSCI02 /* SoundScienceContent.swift */; };
 		FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */; };
 		FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */; };
 		FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CONTLS02 /* ContinueListeningSection.swift */; };
@@ -375,6 +377,7 @@
 		SUBSCTST002 /* SubscriptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
+		FB96EB91SCI00002 /* SoundScienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScienceView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY004 /* SleepBuddyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyService.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY006 /* SleepBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyView.swift; sourceTree = "<group>"; };
@@ -425,6 +428,7 @@
 		FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_ocean.mp3; sourceTree = "<group>"; };
 		FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_staircase.mp3; sourceTree = "<group>"; };
 		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91SDSCI02 /* SoundScienceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScienceContent.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerService.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerView.swift; sourceTree = "<group>"; };
 		FB96EB91CONTLS02 /* ContinueListeningSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueListeningSection.swift; sourceTree = "<group>"; };
@@ -684,6 +688,7 @@
 				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
 				FB96EB91000000N4 /* LocalCommunityDataSource.swift */,
 				FB96EB91SLPCDS02 /* SleepContentDataSource.swift */,
+				FB96EB91SDSCI02 /* SoundScienceContent.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -744,6 +749,7 @@
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
 				FB96EB91PLOCK002 /* PremiumLockOverlay.swift */,
 				FB96EB91ASMR0002 /* ASMRInfoView.swift */,
+				FB96EB91SCI00002 /* SoundScienceView.swift */,
 				FB96EB91VIZ00009 /* Visualization */,
 			);
 			path = Components;
@@ -1385,6 +1391,7 @@
 				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,
 				FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */,
 				FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */,
+				FB96EB91SCI00001 /* SoundScienceView.swift in Sources */,
 				FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */,
 				FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */,
 				FB96EB91SIRI0005 /* SavedMixEntity.swift in Sources */,
@@ -1406,6 +1413,7 @@
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
 				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
+				FB96EB91SDSCI01 /* SoundScienceContent.swift in Sources */,
 				FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */,
 				FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */,
 				FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */,

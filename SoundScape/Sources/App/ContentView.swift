@@ -13,7 +13,6 @@ struct ContentView: View {
     enum Tab: String, CaseIterable {
         case sounds
         case binaural
-        case favorites
         case windDown
         case alarms
         case discover
@@ -24,7 +23,6 @@ struct ContentView: View {
             switch self {
             case .sounds: return "waveform"
             case .binaural: return "brain.head.profile"
-            case .favorites: return "heart"
             case .windDown: return "moon.zzz.fill"
             case .alarms: return "alarm"
             case .discover: return "globe"
@@ -37,7 +35,6 @@ struct ContentView: View {
             switch self {
             case .sounds: return "Sounds"
             case .binaural: return "Binaural"
-            case .favorites: return "Favorites"
             case .windDown: return "Wind Down"
             case .alarms: return "Alarms"
             case .discover: return "Discover"
@@ -61,12 +58,6 @@ struct ContentView: View {
                         Label(Tab.binaural.localizedName, systemImage: Tab.binaural.icon)
                     }
                     .tag(Tab.binaural)
-
-                FavoritesView()
-                    .tabItem {
-                        Label(Tab.favorites.localizedName, systemImage: Tab.favorites.icon)
-                    }
-                    .tag(Tab.favorites)
 
                 WindDownView()
                     .tabItem {
