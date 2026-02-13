@@ -186,6 +186,7 @@
 		FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */; };
 		FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */; };
 		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
+		FB96EB91SCIDS01 /* ScienceContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SCIDS02 /* ScienceContentDataSource.swift */; };
 		FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */; };
 		FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */; };
 		FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CONTLS02 /* ContinueListeningSection.swift */; };
@@ -427,6 +428,7 @@
 		FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_ocean.mp3; sourceTree = "<group>"; };
 		FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_staircase.mp3; sourceTree = "<group>"; };
 		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91SCIDS02 /* ScienceContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceContentDataSource.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerService.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerView.swift; sourceTree = "<group>"; };
 		FB96EB91CONTLS02 /* ContinueListeningSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueListeningSection.swift; sourceTree = "<group>"; };
@@ -686,6 +688,7 @@
 				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
 				FB96EB91000000N4 /* LocalCommunityDataSource.swift */,
 				FB96EB91SLPCDS02 /* SleepContentDataSource.swift */,
+				FB96EB91SCIDS02 /* ScienceContentDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -1409,6 +1412,7 @@
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
 				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
+				FB96EB91SCIDS01 /* ScienceContentDataSource.swift in Sources */,
 				FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */,
 				FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */,
 				FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */,
