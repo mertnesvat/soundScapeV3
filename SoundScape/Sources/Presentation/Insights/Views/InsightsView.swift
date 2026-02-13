@@ -4,6 +4,8 @@ struct InsightsView: View {
     @Environment(InsightsService.self) private var insightsService
     @Environment(PaywallService.self) private var paywallService
     @Environment(PremiumManager.self) private var premiumManager
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
 
     private var isPremiumRequired: Bool {
         premiumManager.isPremiumRequired(for: .fullInsights)
@@ -63,6 +65,24 @@ struct InsightsView: View {
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizedStringKey("Insights"))
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { newValue in
+                    if !newValue {
+                        paywallService.handlePaywallDismissed()
+                    }
+                }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.showPaywall = false
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
+            }
         }
     }
 
