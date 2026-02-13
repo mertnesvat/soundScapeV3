@@ -51,20 +51,40 @@ struct SoundsView: View {
                             selectedCategory: Binding(
                                 get: { viewModel.selectedCategory },
                                 set: { viewModel.selectCategory($0) }
-                            ))
+                            ),
+                            showingFavorites: viewModel.showingFavorites,
+                            onSelectFavorites: { viewModel.selectFavorites() }
+                        )
 
-                        // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil {
-                            let favoriteSounds = viewModel.sounds.filter {
+                        if viewModel.showingFavorites {
+                            // Favorites Filter: show only favorited sounds
+                            let favSounds = viewModel.sounds.filter {
                                 favoritesService.isFavorite($0.id)
                             }
-                            if !favoriteSounds.isEmpty {
-                                favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
+                            if favSounds.isEmpty {
+                                ContentUnavailableView(
+                                    String(localized: "No Favorites Yet"),
+                                    systemImage: "heart.slash",
+                                    description: Text(String(localized: "Tap the heart icon on any sound to add it to your favorites."))
+                                )
+                                .padding(.top, 40)
+                            } else {
+                                favoritesFilteredSection(sounds: favSounds, viewModel: viewModel)
                             }
-                        }
+                        } else {
+                            // Favorites Section (only when favorites exist and no category filter)
+                            if viewModel.selectedCategory == nil {
+                                let favoriteSounds = viewModel.sounds.filter {
+                                    favoritesService.isFavorite($0.id)
+                                }
+                                if !favoriteSounds.isEmpty {
+                                    favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
+                                }
+                            }
 
-                        // All Sounds Section
-                        allSoundsSection(viewModel: viewModel)
+                            // All Sounds Section
+                            allSoundsSection(viewModel: viewModel)
+                        }
                     }
                 }
             }
@@ -248,6 +268,43 @@ struct SoundsView: View {
                             } else if wouldExceedMixerLimit(for: sound) {
                                 // Mixer limit reached for free users - show paywall without action
                                 // Sound will only play if user becomes premium
+                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
+                            } else {
+                                viewModel.togglePlay(for: sound)
+                            }
+                        },
+                        onToggleFavorite: {
+                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
+                        },
+                        onLockedTap: {
+                            paywallService.triggerPaywall(placement: "premium_sound") {}
+                        }
+                    )
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 24)
+        }
+    }
+
+    @ViewBuilder
+    private func favoritesFilteredSection(sounds: [Sound], viewModel: SoundsViewModel) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(sounds) { sound in
+                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
+                    SoundCardView(
+                        sound: sound,
+                        isPlaying: viewModel.isPlaying(sound),
+                        isFavorite: favoritesService.isFavorite(sound.id),
+                        isLocked: isLocked,
+                        onTogglePlay: {
+                            if isLocked {
+                                paywallService.triggerPaywall(placement: "premium_sound") {
+                                    viewModel.togglePlay(for: sound)
+                                }
+                            } else if wouldExceedMixerLimit(for: sound) {
                                 paywallService.triggerPaywall(placement: "unlimited_mixing") {}
                             } else {
                                 viewModel.togglePlay(for: sound)
