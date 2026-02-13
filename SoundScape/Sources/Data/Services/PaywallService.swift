@@ -24,6 +24,9 @@ final class PaywallService {
     private(set) var subscriptionService: SubscriptionService?
 
     private var analyticsService: AnalyticsService?
+    /// Reactive flag for sheet presentation - views can observe this to show/hide paywall
+    var shouldShowPaywall: Bool = false
+
     private(set) var currentPaywallPlacement: String?
     private var paywallCompletionHandler: (() -> Void)?
 
@@ -60,8 +63,8 @@ final class PaywallService {
             return
         }
 
-        // Note: The actual paywall UI presentation should be handled by the view layer
-        // This service manages the purchase flow and state
+        // Signal the view layer to present the paywall sheet
+        shouldShowPaywall = true
     }
 
     /// Handles a successful purchase from the paywall
@@ -70,6 +73,7 @@ final class PaywallService {
             analyticsService?.logPurchaseCompleted(placement: placement)
             analyticsService?.logPaywallConverted(placement: placement)
         }
+        shouldShowPaywall = false
         paywallCompletionHandler?()
         clearPaywallContext()
     }
@@ -79,6 +83,7 @@ final class PaywallService {
         if let placement = currentPaywallPlacement {
             analyticsService?.logPaywallError(placement: placement, error: error.localizedDescription)
         }
+        shouldShowPaywall = false
         clearPaywallContext()
     }
 
@@ -87,6 +92,7 @@ final class PaywallService {
         if let placement = currentPaywallPlacement {
             analyticsService?.logPaywallDismissed(placement: placement)
         }
+        shouldShowPaywall = false
         clearPaywallContext()
     }
 
