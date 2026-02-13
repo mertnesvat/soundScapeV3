@@ -7,6 +7,8 @@ struct SoundsView: View {
     @Environment(MotionService.self) private var motionService
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(PaywallService.self) private var paywallService
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
@@ -125,6 +127,24 @@ struct SoundsView: View {
             }
             .sheet(isPresented: $showASMRInfoSheet) {
                 ASMRInfoView()
+            }
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { newValue in
+                    if !newValue {
+                        paywallService.handlePaywallDismissed()
+                    }
+                }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.showPaywall = false
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
             }
             .onChange(of: viewModel?.selectedCategory) { oldValue, newValue in
                 // Show ASMR info sheet on first visit to ASMR category
