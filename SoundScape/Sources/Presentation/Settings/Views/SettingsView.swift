@@ -14,6 +14,7 @@ struct SettingsView: View {
     @State private var isRestoring = false
     @State private var showResetOnboardingAlert = false
     @State private var showPaywallSheet = false
+    @State private var showScienceSheet = false
 
     var body: some View {
         NavigationStack {
@@ -167,6 +168,31 @@ struct SettingsView: View {
                     }
                 }
 
+                // MARK: - Sound Science
+                Section {
+                    Button {
+                        showScienceSheet = true
+                    } label: {
+                        HStack {
+                            Label {
+                                Text(LocalizedStringKey("Sound Science"))
+                            } icon: {
+                                Image(systemName: "brain.head.profile")
+                                    .foregroundStyle(.purple)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .foregroundStyle(.primary)
+                } header: {
+                    Text("Learn")
+                } footer: {
+                    Text("Explore the science behind binaural beats, white noise, and more")
+                }
+
                 #if DEBUG
                 // MARK: - Developer
                 Section {
@@ -275,6 +301,9 @@ struct SettingsView: View {
                 .environment(onboardingService)
                 .environment(paywallService)
                 .environment(subscriptionService)
+            }
+            .sheet(isPresented: $showScienceSheet) {
+                SoundScienceView()
             }
         }
     }
