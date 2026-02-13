@@ -2,6 +2,9 @@ import SwiftUI
 
 struct BinauralBeatsView: View {
     @Environment(BinauralBeatEngine.self) private var beatEngine
+    @Environment(PaywallService.self) private var paywallService
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
 
     var body: some View {
         NavigationStack {
@@ -33,6 +36,20 @@ struct BinauralBeatsView: View {
             }
             .navigationTitle(LocalizedStringKey("Binaural Beats"))
             .background(Color(.systemGroupedBackground))
+        }
+        .sheet(isPresented: Binding(
+            get: { paywallService.shouldShowPaywall },
+            set: { if !$0 { paywallService.handlePaywallDismissed() } }
+        )) {
+            OnboardingPaywallView(
+                onComplete: {
+                    paywallService.handlePaywallDismissed()
+                },
+                isPresented: true
+            )
+            .environment(onboardingService)
+            .environment(paywallService)
+            .environment(subscriptionService)
         }
     }
 }
@@ -328,5 +345,7 @@ struct BinauralPlayButton: View {
         .environment(BinauralBeatEngine())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(OnboardingService())
+        .environment(SubscriptionService())
         .preferredColorScheme(.dark)
 }
