@@ -5,6 +5,8 @@ struct DiscoverView: View {
     @Environment(SavedMixesService.self) private var savedMixesService
     @Environment(PaywallService.self) private var paywallService
     @Environment(PremiumManager.self) private var premiumManager
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
     @State private var selectedCategory: CommunityCategory? = nil
     @State private var showingSavedAlert = false
     @State private var savedMixName = ""
@@ -44,6 +46,20 @@ struct DiscoverView: View {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text("\"\(savedMixName)\" has been saved to My Mixes")
+            }
+            .sheet(isPresented: Binding(
+                get: { paywallService.shouldShowPaywall },
+                set: { if !$0 { paywallService.handlePaywallDismissed() } }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.handlePaywallDismissed()
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
             }
         }
     }
@@ -181,5 +197,7 @@ struct DiscoverView: View {
         .environment(SavedMixesService())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(OnboardingService())
+        .environment(SubscriptionService())
         .preferredColorScheme(.dark)
 }

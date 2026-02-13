@@ -7,6 +7,7 @@ final class SoundsViewModel {
     // MARK: - State
     private(set) var sounds: [Sound] = []
     var selectedCategory: SoundCategory? = nil
+    var showingFavorites: Bool = false
 
     var filteredSounds: [Sound] {
         if let category = selectedCategory {
@@ -31,6 +32,12 @@ final class SoundsViewModel {
 
     func selectCategory(_ category: SoundCategory?) {
         selectedCategory = category
+        showingFavorites = false
+    }
+
+    func selectFavorites() {
+        showingFavorites = true
+        selectedCategory = nil
     }
 
     func togglePlay(for sound: Sound) {

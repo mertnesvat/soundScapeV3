@@ -124,6 +124,7 @@
 		FB96EB91000000S1 /* AppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S2 /* AppearanceService.swift */; };
 		FB96EB91000000S3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S4 /* SettingsView.swift */; };
 		FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S6 /* AppearanceSettingsView.swift */; };
+		FB96EB91SCIV0001 /* SoundScienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SCIV0002 /* SoundScienceView.swift */; };
 		FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S8 /* OLEDBackgroundModifier.swift */; };
 		FB96EB91000000T1 /* SleepTimerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U1 /* SleepTimerServiceTests.swift */; };
 		FB96EB91000000T2 /* InsightsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U2 /* InsightsServiceTests.swift */; };
@@ -136,6 +137,7 @@
 		FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */; };
 		PREMTST001 /* PremiumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PREMTST002 /* PremiumManagerTests.swift */; };
 		PAYWLLTST001 /* PaywallServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PAYWLLTST002 /* PaywallServiceTests.swift */; };
+		PWPRSTST001 /* PaywallPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PWPRSTST002 /* PaywallPresentationTests.swift */; };
 		SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUBSCTST002 /* SubscriptionServiceTests.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
 		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
@@ -185,6 +187,7 @@
 		FB96EB91WIND000A /* sleep_hypnosis_ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */; };
 		FB96EB91WIND000B /* sleep_hypnosis_staircase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */; };
 		FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCDS02 /* SleepContentDataSource.swift */; };
+		FB96EB91SCIDS01 /* ScienceContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SCIDS02 /* ScienceContentDataSource.swift */; };
 		FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */; };
 		FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */; };
 		FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CONTLS02 /* ContinueListeningSection.swift */; };
@@ -360,6 +363,7 @@
 		FB96EB91000000S2 /* AppearanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceService.swift; sourceTree = "<group>"; };
 		FB96EB91000000S4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S6 /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
+		FB96EB91SCIV0002 /* SoundScienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScienceView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S8 /* OLEDBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEDBackgroundModifier.swift; sourceTree = "<group>"; };
 		FB96EB91000000U1 /* SleepTimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U2 /* InsightsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsServiceTests.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 		FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSourceTests.swift; sourceTree = "<group>"; };
 		PREMTST002 /* PremiumManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManagerTests.swift; sourceTree = "<group>"; };
 		PAYWLLTST002 /* PaywallServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallServiceTests.swift; sourceTree = "<group>"; };
+		PWPRSTST002 /* PaywallPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallPresentationTests.swift; sourceTree = "<group>"; };
 		SUBSCTST002 /* SubscriptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
@@ -425,6 +430,7 @@
 		FB96EB91WIND001A /* sleep_hypnosis_ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_ocean.mp3; sourceTree = "<group>"; };
 		FB96EB91WIND001B /* sleep_hypnosis_staircase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep_hypnosis_staircase.mp3; sourceTree = "<group>"; };
 		FB96EB91SLPCDS02 /* SleepContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentDataSource.swift; sourceTree = "<group>"; };
+		FB96EB91SCIDS02 /* ScienceContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceContentDataSource.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerService.swift; sourceTree = "<group>"; };
 		FB96EB91SLCPLR02 /* SleepContentPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentPlayerView.swift; sourceTree = "<group>"; };
 		FB96EB91CONTLS02 /* ContinueListeningSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueListeningSection.swift; sourceTree = "<group>"; };
@@ -684,6 +690,7 @@
 				FB96EB91000000K4 /* LocalStoryDataSource.swift */,
 				FB96EB91000000N4 /* LocalCommunityDataSource.swift */,
 				FB96EB91SLPCDS02 /* SleepContentDataSource.swift */,
+				FB96EB91SCIDS02 /* ScienceContentDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -969,6 +976,7 @@
 			children = (
 				FB96EB91000000S4 /* SettingsView.swift */,
 				FB96EB91000000S6 /* AppearanceSettingsView.swift */,
+				FB96EB91SCIV0002 /* SoundScienceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -988,6 +996,7 @@
 				ONBTEST002 /* OnboardingServiceTests.swift */,
 				PREMTST002 /* PremiumManagerTests.swift */,
 				PAYWLLTST002 /* PaywallServiceTests.swift */,
+				PWPRSTST002 /* PaywallPresentationTests.swift */,
 				SUBSCTST002 /* SubscriptionServiceTests.swift */,
 			);
 			path = Tests;
@@ -1376,6 +1385,7 @@
 				FB96EB91000000S1 /* AppearanceService.swift in Sources */,
 				FB96EB91000000S3 /* SettingsView.swift in Sources */,
 				FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */,
+				FB96EB91SCIV0001 /* SoundScienceView.swift in Sources */,
 				FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */,
 				FB96EB91MOTION01 /* MotionService.swift in Sources */,
 				FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */,
@@ -1406,6 +1416,7 @@
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
 				FB96EB91SLPCDS01 /* SleepContentDataSource.swift in Sources */,
+				FB96EB91SCIDS01 /* ScienceContentDataSource.swift in Sources */,
 				FB96EB91SLCPSR01 /* SleepContentPlayerService.swift in Sources */,
 				FB96EB91SLCPLR01 /* SleepContentPlayerView.swift in Sources */,
 				FB96EB91CONTLS01 /* ContinueListeningSection.swift in Sources */,
@@ -1447,6 +1458,7 @@
 				ONBTEST001 /* OnboardingServiceTests.swift in Sources */,
 				PREMTST001 /* PremiumManagerTests.swift in Sources */,
 				PAYWLLTST001 /* PaywallServiceTests.swift in Sources */,
+				PWPRSTST001 /* PaywallPresentationTests.swift in Sources */,
 				SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
