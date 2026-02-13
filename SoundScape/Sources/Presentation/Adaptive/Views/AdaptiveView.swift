@@ -4,6 +4,8 @@ struct AdaptiveView: View {
     @Environment(AdaptiveSessionService.self) private var adaptiveService
     @Environment(PaywallService.self) private var paywallService
     @Environment(PremiumManager.self) private var premiumManager
+    @Environment(OnboardingService.self) private var onboardingService
+    @Environment(SubscriptionService.self) private var subscriptionService
 
     var body: some View {
         NavigationStack {
@@ -30,6 +32,20 @@ struct AdaptiveView: View {
             }
             .navigationTitle(LocalizedStringKey("Adaptive"))
             .background(Color(.systemBackground))
+            .sheet(isPresented: Binding(
+                get: { paywallService.shouldShowPaywall },
+                set: { if !$0 { paywallService.handlePaywallDismissed() } }
+            )) {
+                OnboardingPaywallView(
+                    onComplete: {
+                        paywallService.handlePaywallDismissed()
+                    },
+                    isPresented: true
+                )
+                .environment(onboardingService)
+                .environment(paywallService)
+                .environment(subscriptionService)
+            }
         }
     }
 
@@ -151,6 +167,8 @@ struct AdaptivePremiumPreview: View {
         .environment(AdaptiveSessionService(audioEngine: audioEngine))
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(OnboardingService())
+        .environment(SubscriptionService())
         .preferredColorScheme(.dark)
 }
 
