@@ -5,6 +5,7 @@ struct BinauralBeatsView: View {
     @Environment(PaywallService.self) private var paywallService
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @State private var showScienceSheet = false
 
     var body: some View {
         NavigationStack {
@@ -36,6 +37,19 @@ struct BinauralBeatsView: View {
             }
             .navigationTitle(LocalizedStringKey("Binaural Beats"))
             .background(Color(.systemGroupedBackground))
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showScienceSheet = true
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
+                    }
+                }
+            }
+            .sheet(isPresented: $showScienceSheet) {
+                SoundScienceView()
+            }
         }
         .sheet(isPresented: Binding(
             get: { paywallService.shouldShowPaywall },
