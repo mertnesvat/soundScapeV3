@@ -27,6 +27,11 @@ final class PaywallService {
     private(set) var currentPaywallPlacement: String?
     private var paywallCompletionHandler: (() -> Void)?
 
+    /// Reactive flag for presenting the paywall sheet from views that observe PaywallService.
+    /// Becomes true when triggerPaywall() is called for a non-premium user.
+    /// Resets to false on dismiss, purchase success, or purchase error.
+    var showPaywall: Bool = false
+
     init() {
         // SubscriptionService will be injected via setSubscriptionService
     }
@@ -60,8 +65,8 @@ final class PaywallService {
             return
         }
 
-        // Note: The actual paywall UI presentation should be handled by the view layer
-        // This service manages the purchase flow and state
+        // Signal the view layer to present the paywall sheet
+        showPaywall = true
     }
 
     /// Handles a successful purchase from the paywall
@@ -101,6 +106,7 @@ final class PaywallService {
     private func clearPaywallContext() {
         currentPaywallPlacement = nil
         paywallCompletionHandler = nil
+        showPaywall = false
     }
 
     /// Purchases the monthly subscription
