@@ -136,6 +136,7 @@
 		FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */; };
 		PREMTST001 /* PremiumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PREMTST002 /* PremiumManagerTests.swift */; };
 		PAYWLLTST001 /* PaywallServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PAYWLLTST002 /* PaywallServiceTests.swift */; };
+		PWPRSTST001 /* PaywallPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PWPRSTST002 /* PaywallPresentationTests.swift */; };
 		SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUBSCTST002 /* SubscriptionServiceTests.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
 		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
@@ -372,6 +373,7 @@
 		FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSourceTests.swift; sourceTree = "<group>"; };
 		PREMTST002 /* PremiumManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManagerTests.swift; sourceTree = "<group>"; };
 		PAYWLLTST002 /* PaywallServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallServiceTests.swift; sourceTree = "<group>"; };
+		PWPRSTST002 /* PaywallPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallPresentationTests.swift; sourceTree = "<group>"; };
 		SUBSCTST002 /* SubscriptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
@@ -988,6 +990,7 @@
 				ONBTEST002 /* OnboardingServiceTests.swift */,
 				PREMTST002 /* PremiumManagerTests.swift */,
 				PAYWLLTST002 /* PaywallServiceTests.swift */,
+				PWPRSTST002 /* PaywallPresentationTests.swift */,
 				SUBSCTST002 /* SubscriptionServiceTests.swift */,
 			);
 			path = Tests;
@@ -1447,6 +1450,7 @@
 				ONBTEST001 /* OnboardingServiceTests.swift in Sources */,
 				PREMTST001 /* PremiumManagerTests.swift in Sources */,
 				PAYWLLTST001 /* PaywallServiceTests.swift in Sources */,
+				PWPRSTST001 /* PaywallPresentationTests.swift in Sources */,
 				SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
