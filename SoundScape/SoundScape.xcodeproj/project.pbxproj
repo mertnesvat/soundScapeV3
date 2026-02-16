@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */; };
+		FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0004 /* AppDelegateTests.swift */; };
 		ONBTEST001 /* OnboardingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBTEST002 /* OnboardingServiceTests.swift */; };
 		FB96EB9100000001 /* SoundScapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000011 /* SoundScapeApp.swift */; };
 		FB96EB9100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000012 /* ContentView.swift */; };
@@ -210,6 +212,9 @@
 		FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */; };
 		19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */; };
 		FB96EB91L10N0001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB91L10N0002 /* Localizable.xcstrings */; };
+		FB96EB91ALRM0001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0002 /* AppDelegate.swift */; };
+		FB96EB91ALRM0003 /* AlarmNotificationSoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */; };
+		FB96EB91ALRM0005 /* AlarmRingingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0006 /* AlarmRingingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +380,8 @@
 		PREMTST002 /* PremiumManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManagerTests.swift; sourceTree = "<group>"; };
 		PAYWLLTST002 /* PaywallServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallServiceTests.swift; sourceTree = "<group>"; };
 		SUBSCTST002 /* SubscriptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationSoundManagerTests.swift; sourceTree = "<group>"; };
+		FB96EB91ALRT0004 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
 		FB96EB91SCI00002 /* SoundScienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScienceView.swift; sourceTree = "<group>"; };
@@ -452,6 +459,9 @@
 		BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
 		EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
 		FB96EB91L10N0002 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		FB96EB91ALRM0002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationSoundManager.swift; sourceTree = "<group>"; };
+		FB96EB91ALRM0006 /* AlarmRingingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRingingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +540,7 @@
 			children = (
 				FB96EB9100000011 /* SoundScapeApp.swift */,
 				FB96EB9100000012 /* ContentView.swift */,
+				FB96EB91ALRM0002 /* AppDelegate.swift */,
 				FB96EB91SIRI0011 /* Intents */,
 			);
 			path = App;
@@ -804,6 +815,7 @@
 				FB96EB91WDGT0013 /* WidgetSharedState.swift */,
 				FB96EB91BUDDY004 /* SleepBuddyService.swift */,
 				FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */,
+				FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -896,6 +908,7 @@
 				FB96EB91000000MA /* AlarmDetailView.swift */,
 				FB96EB91000000MC /* WeekdaySelector.swift */,
 				FB96EB91000000ME /* SoundPickerView.swift */,
+				FB96EB91ALRM0006 /* AlarmRingingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -995,6 +1008,8 @@
 				PREMTST002 /* PremiumManagerTests.swift */,
 				PAYWLLTST002 /* PaywallServiceTests.swift */,
 				SUBSCTST002 /* SubscriptionServiceTests.swift */,
+				FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */,
+				FB96EB91ALRT0004 /* AppDelegateTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1308,6 +1323,9 @@
 			files = (
 				FB96EB9100000001 /* SoundScapeApp.swift in Sources */,
 				FB96EB9100000002 /* ContentView.swift in Sources */,
+				FB96EB91ALRM0001 /* AppDelegate.swift in Sources */,
+				FB96EB91ALRM0003 /* AlarmNotificationSoundManager.swift in Sources */,
+				FB96EB91ALRM0005 /* AlarmRingingView.swift in Sources */,
 				FB96EB91000000A1 /* Sound.swift in Sources */,
 				FB96EB91000000A2 /* SoundRepositoryProtocol.swift in Sources */,
 				FB96EB91000000A3 /* LocalSoundDataSource.swift in Sources */,
@@ -1456,6 +1474,8 @@
 				PREMTST001 /* PremiumManagerTests.swift in Sources */,
 				PAYWLLTST001 /* PaywallServiceTests.swift in Sources */,
 				SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */,
+				FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */,
+				FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1627,7 +1647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1661,7 +1681,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1682,7 +1702,7 @@
 				DEVELOPMENT_TEAM = 5C6693YG48;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScapeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1703,7 +1723,7 @@
 				DEVELOPMENT_TEAM = 5C6693YG48;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScapeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1733,7 +1753,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape.SoundScapeWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1763,7 +1783,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StudioNext.SoundScape.SoundScapeWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

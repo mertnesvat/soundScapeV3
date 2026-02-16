@@ -6,6 +6,7 @@ struct ContentView: View {
     @Environment(SleepContentPlayerService.self) private var sleepContentPlayerService
     @Environment(AnalyticsService.self) private var analyticsService
     @Environment(AppearanceService.self) private var appearanceService
+    @Environment(AlarmService.self) private var alarmService
     @State private var selectedTab: Tab = .sounds
     @State private var showingSleepContentPlayer = false
     @State private var showMixerSheet = false
@@ -45,6 +46,7 @@ struct ContentView: View {
     }
 
     var body: some View {
+        @Bindable var alarmService = alarmService
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 SoundsView()
@@ -134,6 +136,9 @@ struct ContentView: View {
                     .presentationDragIndicator(.visible)
                 }
             }
+        }
+        .fullScreenCover(item: $alarmService.ringingAlarm) { alarm in
+            AlarmRingingView(alarm: alarm)
         }
     }
 

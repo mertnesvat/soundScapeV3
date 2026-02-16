@@ -3,6 +3,7 @@ import UIKit
 
 @main
 struct SoundScapeApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var audioEngine = AudioEngine()
     @State private var sleepTimerService: SleepTimerService?
     @State private var adaptiveSessionService: AdaptiveSessionService?
@@ -96,6 +97,11 @@ struct SoundScapeApp: App {
                     // Initialize PremiumManager with PaywallService
                     if premiumManager == nil {
                         premiumManager = PremiumManager(paywallService: paywallService)
+                    }
+
+                    // Prepare alarm notification sounds on a background thread
+                    Task.detached(priority: .utility) {
+                        AlarmNotificationSoundManager.shared.prepareAllAlarmSounds()
                     }
                 }
         }
