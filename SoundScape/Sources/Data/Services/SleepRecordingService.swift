@@ -11,6 +11,7 @@ final class SleepRecordingService {
     private(set) var recordingDuration: TimeInterval = 0
     private(set) var recordings: [SleepRecording] = []
     var currentRecording: SleepRecording?
+    private(set) var delayRemaining: TimeInterval?
 
     private let fileURL: URL
     private let recordingsDirectory: URL
@@ -21,6 +22,8 @@ final class SleepRecordingService {
     private var recordingStartDate: Date?
     private var previousAudioCategory: AVAudioSession.Category?
     nonisolated(unsafe) private var interruptionObserver: Any?
+    private var delayTimer: Timer?
+    private var delayEndDate: Date?
 
     init() {
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -167,6 +170,46 @@ final class SleepRecordingService {
         if status == .complete {
             status = .idle
         }
+    }
+
+    // MARK: - Delayed Start
+
+    func startRecordingWithDelay(minutes: Int) {
+        guard status == .idle else { return }
+        let delaySeconds = TimeInterval(minutes * 60)
+        delayEndDate = Date().addingTimeInterval(delaySeconds)
+        delayRemaining = delaySeconds
+
+        delayTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+            Task { @MainActor in
+                guard let self = self, let endDate = self.delayEndDate else {
+                    timer.invalidate()
+                    return
+                }
+
+                let remaining = endDate.timeIntervalSinceNow
+                if remaining <= 0 {
+                    timer.invalidate()
+                    self.delayTimer = nil
+                    self.delayEndDate = nil
+                    self.delayRemaining = nil
+                    self.startRecording()
+                } else {
+                    self.delayRemaining = remaining
+                }
+            }
+        }
+    }
+
+    func cancelDelay() {
+        delayTimer?.invalidate()
+        delayTimer = nil
+        delayEndDate = nil
+        delayRemaining = nil
+    }
+
+    var isDelayActive: Bool {
+        delayRemaining != nil
     }
 
     // MARK: - Storage
