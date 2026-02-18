@@ -2,8 +2,10 @@ import SwiftUI
 
 struct SleepRecordingView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @Environment(SleepTimerService.self) private var sleepTimerService
 
     @State private var showingReport = false
+    @State private var selectedDelay: Int = 0
 
     var body: some View {
         NavigationStack {
@@ -60,17 +62,82 @@ struct SleepRecordingView: View {
         VStack(spacing: 24) {
             Spacer()
 
-            ContentUnavailableView(
-                String(localized: "No Recordings"),
-                systemImage: "mic.fill",
-                description: Text(String(localized: "Tap the record button to capture your sleep sounds and discover snoring patterns"))
-            )
+            if let remaining = sleepRecordingService.delayRemaining {
+                // Delay countdown
+                VStack(spacing: 16) {
+                    Text(String(localized: "Recording starts in"))
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Text(formatDelay(remaining))
+                        .font(.system(size: 48, weight: .light, design: .monospaced))
+                    Button(String(localized: "Cancel")) {
+                        sleepRecordingService.cancelDelay()
+                        selectedDelay = 0
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.red)
+                }
+            } else {
+                ContentUnavailableView(
+                    String(localized: "No Recordings"),
+                    systemImage: "mic.fill",
+                    description: Text(String(localized: "Tap the record button to capture your sleep sounds and discover snoring patterns"))
+                )
 
-            recordButtonLarge
-                .padding(.bottom, 48)
+                // Delay picker
+                delayPicker
+
+                recordButtonLarge
+            }
 
             Spacer()
         }
+        .padding(.bottom, 48)
+    }
+
+    private var delayPicker: some View {
+        VStack(spacing: 8) {
+            Text(String(localized: "Delay Start"))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    delayChip(label: String(localized: "None"), minutes: 0)
+                    delayChip(label: String(localized: "15 min"), minutes: 15)
+                    delayChip(label: String(localized: "30 min"), minutes: 30)
+                    delayChip(label: String(localized: "45 min"), minutes: 45)
+                    delayChip(label: String(localized: "1 hour"), minutes: 60)
+                    delayChip(label: String(localized: "1.5 hr"), minutes: 90)
+                    delayChip(label: String(localized: "2 hours"), minutes: 120)
+
+                    if sleepTimerService.isActive {
+                        delayChip(label: String(localized: "When sounds stop"), minutes: -1)
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
+    }
+
+    private func delayChip(label: String, minutes: Int) -> some View {
+        Button {
+            selectedDelay = minutes
+        } label: {
+            Text(label)
+                .font(.caption)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(selectedDelay == minutes ? Color.purple : Color.clear, in: Capsule())
+                .overlay(Capsule().stroke(Color.purple.opacity(0.5), lineWidth: 1))
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func formatDelay(_ seconds: TimeInterval) -> String {
+        let mins = Int(seconds) / 60
+        let secs = Int(seconds) % 60
+        return String(format: "%02d:%02d", mins, secs)
     }
 
     // MARK: - History Placeholder
@@ -145,6 +212,14 @@ struct SleepRecordingView: View {
             let granted = await sleepRecordingService.requestMicrophonePermission()
             guard granted else { return }
         }
-        sleepRecordingService.startRecording()
+
+        if selectedDelay == -1 {
+            // Start when sleep timer ends
+            sleepRecordingService.startRecordingWhenTimerEnds(sleepTimerService: sleepTimerService)
+        } else if selectedDelay > 0 {
+            sleepRecordingService.startRecordingWithDelay(minutes: selectedDelay)
+        } else {
+            sleepRecordingService.startRecording()
+        }
     }
 }

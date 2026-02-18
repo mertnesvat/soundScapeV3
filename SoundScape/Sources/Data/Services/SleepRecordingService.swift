@@ -13,8 +13,11 @@ final class SleepRecordingService {
     private(set) var recordingDuration: TimeInterval = 0
     private(set) var recordings: [SleepRecording] = []
     var currentRecording: SleepRecording?
+    private(set) var delayRemaining: TimeInterval?
 
     // MARK: - Private Properties
+
+    private var delayTimer: Timer?
 
     private var audioRecorder: AVAudioRecorder?
     private var meteringTimer: Timer?
@@ -155,6 +158,52 @@ final class SleepRecordingService {
 
         Task {
             await analyzeRecording(recording)
+        }
+    }
+
+    // MARK: - Delayed Recording
+
+    func startRecordingWithDelay(minutes: Int) {
+        guard status == .idle else { return }
+        delayRemaining = TimeInterval(minutes * 60)
+
+        delayTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let self = self else { return }
+                if let remaining = self.delayRemaining, remaining > 1 {
+                    self.delayRemaining = remaining - 1
+                } else {
+                    self.delayTimer?.invalidate()
+                    self.delayTimer = nil
+                    self.delayRemaining = nil
+                    self.startRecording()
+                }
+            }
+        }
+    }
+
+    func cancelDelay() {
+        delayTimer?.invalidate()
+        delayTimer = nil
+        delayRemaining = nil
+    }
+
+    func startRecordingWhenTimerEnds(sleepTimerService: SleepTimerService) {
+        guard status == .idle else { return }
+        delayRemaining = TimeInterval(sleepTimerService.remainingSeconds)
+
+        delayTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let self = self else { return }
+                if sleepTimerService.isActive {
+                    self.delayRemaining = TimeInterval(sleepTimerService.remainingSeconds)
+                } else {
+                    self.delayTimer?.invalidate()
+                    self.delayTimer = nil
+                    self.delayRemaining = nil
+                    self.startRecording()
+                }
+            }
         }
     }
 
