@@ -9,6 +9,13 @@ struct RecordingHistoryView: View {
 
     var body: some View {
         List {
+            // Trends section
+            Section {
+                SnoreTrendsView()
+            }
+            .listRowBackground(Color.clear)
+            .listRowInsets(EdgeInsets())
+
             ForEach(sleepRecordingService.recordings) { recording in
                 recordingRow(recording)
                     .onTapGesture {
