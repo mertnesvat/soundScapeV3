@@ -173,6 +173,7 @@
 		FB96EB91SLREC001 /* SleepRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC002 /* SleepRecording.swift */; };
 		FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLRECT02 /* SleepRecordingTests.swift */; };
 		FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */; };
+		FB96EB91SLRECT05 /* SoundEventDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLRECT06 /* SoundEventDetectorTests.swift */; };
 		FB96EB91SLREC003 /* SleepRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC004 /* SleepRecordingService.swift */; };
 		FB96EB91SLREC005 /* SoundEventDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC006 /* SoundEventDetector.swift */; };
 		FB96EB91SLREC011 /* SleepRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC012 /* SleepRecordingView.swift */; };
@@ -181,6 +182,7 @@
 		FB96EB91SLREC017 /* SleepTimelineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC018 /* SleepTimelineChart.swift */; };
 		FB96EB91SLREC019 /* RecordingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC020 /* RecordingHistoryView.swift */; };
 		FB96EB91SLREC021 /* AudioHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC022 /* AudioHighlightsView.swift */; };
+		FB96EB91SLREC023 /* SnoreTrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC024 /* SnoreTrendsView.swift */; };
 		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
 		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
 		FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CMSN0002 /* ComingSoonBadge.swift */; };
@@ -431,6 +433,7 @@
 		FB96EB91SLREC002 /* SleepRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecording.swift; sourceTree = "<group>"; };
 		FB96EB91SLRECT02 /* SleepRecordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingTests.swift; sourceTree = "<group>"; };
 		FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91SLRECT06 /* SoundEventDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEventDetectorTests.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC004 /* SleepRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingService.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC006 /* SoundEventDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEventDetector.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC012 /* SleepRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingView.swift; sourceTree = "<group>"; };
@@ -439,6 +442,7 @@
 		FB96EB91SLREC018 /* SleepTimelineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimelineChart.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC020 /* RecordingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryView.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC022 /* AudioHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHighlightsView.swift; sourceTree = "<group>"; };
+		FB96EB91SLREC024 /* SnoreTrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoreTrendsView.swift; sourceTree = "<group>"; };
 		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
 		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
 		FB96EB91CMSN0002 /* ComingSoonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonBadge.swift; sourceTree = "<group>"; };
@@ -956,6 +960,7 @@
 				FB96EB91SLREC018 /* SleepTimelineChart.swift */,
 				FB96EB91SLREC020 /* RecordingHistoryView.swift */,
 				FB96EB91SLREC022 /* AudioHighlightsView.swift */,
+				FB96EB91SLREC024 /* SnoreTrendsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1059,6 +1064,7 @@
 				FB96EB91ALRT0004 /* AppDelegateTests.swift */,
 				FB96EB91SLRECT02 /* SleepRecordingTests.swift */,
 				FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */,
+				FB96EB91SLRECT06 /* SoundEventDetectorTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1485,6 +1491,7 @@
 				FB96EB91SLREC017 /* SleepTimelineChart.swift in Sources */,
 				FB96EB91SLREC019 /* RecordingHistoryView.swift in Sources */,
 				FB96EB91SLREC021 /* AudioHighlightsView.swift in Sources */,
+				FB96EB91SLREC023 /* SnoreTrendsView.swift in Sources */,
 				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
@@ -1536,6 +1543,7 @@
 				FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */,
 				FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */,
 				FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */,
+				FB96EB91SLRECT05 /* SoundEventDetectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

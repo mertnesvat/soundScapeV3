@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SleepRecordingView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @State private var selectedSegment = 0
 
     var body: some View {
         NavigationStack {
@@ -11,7 +12,21 @@ struct SleepRecordingView: View {
                     if sleepRecordingService.recordings.isEmpty {
                         emptyStateView
                     } else {
-                        RecordingHistoryView()
+                        VStack(spacing: 0) {
+                            Picker(String(localized: "View"), selection: $selectedSegment) {
+                                Text(String(localized: "Recordings")).tag(0)
+                                Text(String(localized: "Trends")).tag(1)
+                            }
+                            .pickerStyle(.segmented)
+                            .padding(.horizontal)
+                            .padding(.top, 8)
+
+                            if selectedSegment == 0 {
+                                RecordingHistoryView()
+                            } else {
+                                SnoreTrendsView()
+                            }
+                        }
                     }
                 case .recording:
                     RecordingControlsView()
