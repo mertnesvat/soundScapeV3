@@ -21,6 +21,25 @@ struct SleepReportView: View {
                     .frame(height: 200)
                     .padding(.horizontal)
 
+                // Listen to highlights button
+                if !recording.events.filter({ $0.type != .silence }).isEmpty {
+                    NavigationLink {
+                        AudioHighlightsView(recording: recording)
+                    } label: {
+                        HStack {
+                            Image(systemName: "headphones")
+                            Text(String(localized: "Listen to Highlights"))
+                        }
+                        .font(.headline)
+                        .foregroundStyle(.purple)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.purple.opacity(0.15))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    .padding(.horizontal)
+                }
+
                 // Events list
                 eventsListSection
 
