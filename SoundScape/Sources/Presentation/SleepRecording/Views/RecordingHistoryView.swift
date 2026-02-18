@@ -80,7 +80,7 @@ struct RecordingHistoryView: View {
                 }
             }
             .padding(.trailing, 20)
-            .padding(.bottom, 20)
+            .padding(.bottom, audioEngine.activeSounds.isEmpty ? 20 : 88)
         }
         .sheet(item: $selectedRecording) { recording in
             NavigationStack {

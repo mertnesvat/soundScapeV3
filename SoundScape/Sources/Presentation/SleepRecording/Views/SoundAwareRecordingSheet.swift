@@ -5,8 +5,8 @@ struct SoundAwareRecordingSheet: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(\.dismiss) private var dismiss
 
-    @State private var selectedMinutes: Int = 30
-    private let timerOptions = [15, 30, 45, 60, 90, 120]
+    @State private var selectedMinutes: Int = 15
+    private let timerOptions = [5, 10, 15, 30, 45, 60, 90, 120]
 
     var body: some View {
         NavigationStack {

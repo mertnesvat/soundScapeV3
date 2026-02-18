@@ -440,12 +440,8 @@ final class AudioEngine: AudioPlayerProtocol {
     // MARK: - Toggle Convenience
 
     func togglePlayback(for sound: Sound) {
-        if let activeSound = activeSounds.first(where: { $0.id == sound.id }) {
-            if activeSound.isPlaying {
-                pause(soundId: sound.id)
-            } else {
-                resume(soundId: sound.id)
-            }
+        if activeSounds.contains(where: { $0.id == sound.id }) {
+            stop(soundId: sound.id)
         } else {
             play(sound: sound)
         }
