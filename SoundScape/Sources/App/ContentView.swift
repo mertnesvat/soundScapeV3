@@ -6,7 +6,7 @@ struct ContentView: View {
     @Environment(SleepContentPlayerService.self) private var sleepContentPlayerService
     @Environment(AnalyticsService.self) private var analyticsService
     @Environment(AppearanceService.self) private var appearanceService
-    @Environment(AlarmService.self) private var alarmService
+    @Environment(SleepRecordingService.self) private var sleepRecordingService
     @State private var selectedTab: Tab = .sounds
     @State private var showingSleepContentPlayer = false
     @State private var showMixerSheet = false
@@ -15,7 +15,7 @@ struct ContentView: View {
         case sounds
         case binaural
         case windDown
-        case alarms
+        case sleepRecording
         case discover
         case adaptive
         case insights
@@ -25,7 +25,7 @@ struct ContentView: View {
             case .sounds: return "waveform"
             case .binaural: return "brain.head.profile"
             case .windDown: return "moon.zzz.fill"
-            case .alarms: return "alarm"
+            case .sleepRecording: return "mic.fill"
             case .discover: return "globe"
             case .adaptive: return "waveform.path.ecg"
             case .insights: return "chart.bar.fill"
@@ -37,7 +37,7 @@ struct ContentView: View {
             case .sounds: return "Sounds"
             case .binaural: return "Binaural"
             case .windDown: return "Wind Down"
-            case .alarms: return "Alarms"
+            case .sleepRecording: return "Sleep Rec"
             case .discover: return "Discover"
             case .adaptive: return "Adaptive"
             case .insights: return "Insights"
@@ -46,7 +46,6 @@ struct ContentView: View {
     }
 
     var body: some View {
-        @Bindable var alarmService = alarmService
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 SoundsView()
@@ -67,11 +66,11 @@ struct ContentView: View {
                     }
                     .tag(Tab.windDown)
 
-                AlarmsView()
+                SleepRecordingView()
                     .tabItem {
-                        Label(Tab.alarms.localizedName, systemImage: Tab.alarms.icon)
+                        Label(Tab.sleepRecording.localizedName, systemImage: Tab.sleepRecording.icon)
                     }
-                    .tag(Tab.alarms)
+                    .tag(Tab.sleepRecording)
 
                 DiscoverView()
                     .tabItem {
@@ -136,9 +135,6 @@ struct ContentView: View {
                     .presentationDragIndicator(.visible)
                 }
             }
-        }
-        .fullScreenCover(item: $alarmService.ringingAlarm) { alarm in
-            AlarmRingingView(alarm: alarm)
         }
     }
 
@@ -248,6 +244,7 @@ struct SavedMixesPlaceholderView: View {
         .environment(StoryProgressService())
         .environment(BinauralBeatEngine())
         .environment(AlarmService())
+        .environment(SleepRecordingService())
         .environment(AdaptiveSessionService(audioEngine: audioEngine))
         .environment(InsightsService())
         .environment(AnalyticsService())
