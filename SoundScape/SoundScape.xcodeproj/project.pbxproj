@@ -172,6 +172,9 @@
 		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
 		FB96EB91SLREC001 /* SleepRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC002 /* SleepRecording.swift */; };
 		FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLRECT02 /* SleepRecordingTests.swift */; };
+		FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */; };
+		FB96EB91SLREC003 /* SleepRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC004 /* SleepRecordingService.swift */; };
+		FB96EB91SLREC005 /* SoundEventDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC006 /* SoundEventDetector.swift */; };
 		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
 		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
 		FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CMSN0002 /* ComingSoonBadge.swift */; };
@@ -421,6 +424,9 @@
 		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC002 /* SleepRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecording.swift; sourceTree = "<group>"; };
 		FB96EB91SLRECT02 /* SleepRecordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingTests.swift; sourceTree = "<group>"; };
+		FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingServiceTests.swift; sourceTree = "<group>"; };
+		FB96EB91SLREC004 /* SleepRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingService.swift; sourceTree = "<group>"; };
+		FB96EB91SLREC006 /* SoundEventDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEventDetector.swift; sourceTree = "<group>"; };
 		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
 		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
 		FB96EB91CMSN0002 /* ComingSoonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonBadge.swift; sourceTree = "<group>"; };
@@ -821,6 +827,8 @@
 				FB96EB91BUDDY004 /* SleepBuddyService.swift */,
 				FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */,
 				FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */,
+				FB96EB91SLREC004 /* SleepRecordingService.swift */,
+				FB96EB91SLREC006 /* SoundEventDetector.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1016,6 +1024,7 @@
 				FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */,
 				FB96EB91ALRT0004 /* AppDelegateTests.swift */,
 				FB96EB91SLRECT02 /* SleepRecordingTests.swift */,
+				FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1434,6 +1443,8 @@
 				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
 				FB96EB91SLREC001 /* SleepRecording.swift in Sources */,
+				FB96EB91SLREC003 /* SleepRecordingService.swift in Sources */,
+				FB96EB91SLREC005 /* SoundEventDetector.swift in Sources */,
 				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
@@ -1484,6 +1495,7 @@
 				FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */,
 				FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */,
 				FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */,
+				FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

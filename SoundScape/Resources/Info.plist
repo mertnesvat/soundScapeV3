@@ -46,5 +46,7 @@
 	<string>Dark</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>SoundScape needs microphone access to record your sleep audio and detect snoring patterns.</string>
 </dict>
 </plist>
