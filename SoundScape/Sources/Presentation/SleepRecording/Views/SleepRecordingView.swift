@@ -2,7 +2,9 @@ import SwiftUI
 
 struct SleepRecordingView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @Environment(AudioEngine.self) private var audioEngine
     @State private var selectedSegment = 0
+    @State private var showSoundWarning = false
 
     var body: some View {
         NavigationStack {
@@ -89,10 +91,14 @@ struct SleepRecordingView: View {
 
     private var recordButton: some View {
         Button {
-            Task {
-                let granted = await sleepRecordingService.requestMicrophonePermission()
-                if granted {
-                    sleepRecordingService.startRecording()
+            if audioEngine.isAnyPlaying {
+                showSoundWarning = true
+            } else {
+                Task {
+                    let granted = await sleepRecordingService.requestMicrophonePermission()
+                    if granted {
+                        sleepRecordingService.startRecording()
+                    }
                 }
             }
         } label: {
@@ -107,11 +113,38 @@ struct SleepRecordingView: View {
                     .foregroundStyle(.white)
             }
         }
+        .confirmationDialog(
+            String(localized: "Sounds Are Playing"),
+            isPresented: $showSoundWarning,
+            titleVisibility: .visible
+        ) {
+            Button(String(localized: "Stop Sounds & Record")) {
+                audioEngine.stopAll()
+                Task {
+                    let granted = await sleepRecordingService.requestMicrophonePermission()
+                    if granted {
+                        sleepRecordingService.startRecording()
+                    }
+                }
+            }
+            Button(String(localized: "Record Anyway")) {
+                Task {
+                    let granted = await sleepRecordingService.requestMicrophonePermission()
+                    if granted {
+                        sleepRecordingService.startRecording()
+                    }
+                }
+            }
+            Button(String(localized: "Cancel"), role: .cancel) { }
+        } message: {
+            Text(String(localized: "Playing sounds through the speaker can interfere with snore detection. For best results, stop sounds before recording."))
+        }
     }
 }
 
 #Preview {
     SleepRecordingView()
         .environment(SleepRecordingService())
+        .environment(AudioEngine())
         .preferredColorScheme(.dark)
 }

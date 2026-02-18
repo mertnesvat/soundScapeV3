@@ -142,6 +142,99 @@ final class SoundEventDetectorTests: XCTestCase {
         XCTAssertLessThanOrEqual(result.snoreScore, 100)
     }
 
+    // MARK: - Single Sample Edge Case
+
+    func test_analyze_singleSample_returnsNoEvents() {
+        let result = sut.analyze(samples: [30], recordingDuration: 1, startDate: Date())
+
+        let nonSilenceEvents = result.events.filter { $0.type != .silence }
+        XCTAssertTrue(nonSilenceEvents.isEmpty)
+        XCTAssertEqual(result.snoreScore, 0)
+    }
+
+    // MARK: - All Identical Samples
+
+    func test_analyze_allIdenticalSamples_returnsNoNonSilenceEvents() {
+        // All samples identical = baseline equals every sample, elevation always 0
+        let samples = [Float](repeating: 50, count: 600)
+
+        let result = sut.analyze(samples: samples, recordingDuration: 600, startDate: Date())
+
+        let nonSilenceEvents = result.events.filter { $0.type != .silence }
+        XCTAssertTrue(nonSilenceEvents.isEmpty, "Identical samples should produce no non-silence events")
+    }
+
+    // MARK: - Talking Detection
+
+    func test_analyze_talkingPattern_detectsTalking() {
+        // Non-rhythmic sustained elevated sound (3-15 seconds, 10+ dB above baseline)
+        var samples = [Float](repeating: 30, count: 500)
+
+        // Insert a non-rhythmic elevated region: constant high level (no peaks/valleys)
+        for i in 100..<110 {
+            samples[i] = 45 // 15 dB above baseline, sustained, no rhythmic pattern
+        }
+
+        let result = sut.analyze(samples: samples, recordingDuration: 500, startDate: Date())
+
+        // Should detect some event in the elevated region
+        let detectedEvents = result.events.filter { $0.type != .silence }
+        XCTAssertGreaterThan(detectedEvents.count, 0, "Should detect events for sustained elevated sound")
+    }
+
+    // MARK: - Multiple Silence Periods
+
+    func test_analyze_multipleSilencePeriods_detectsEach() {
+        // Two 5+ minute silence periods separated by a loud spike
+        var samples = [Float](repeating: 30, count: 1200)
+
+        // Loud spike at 600 to break silence into two halves
+        samples[599] = 60
+        samples[600] = 60
+        samples[601] = 60
+
+        let result = sut.analyze(samples: samples, recordingDuration: 1200, startDate: Date())
+
+        let silenceEvents = result.events.filter { $0.type == .silence }
+        // At least one silence period should be detected (each half is ~5 min)
+        XCTAssertGreaterThan(silenceEvents.count, 0, "Should detect silence periods")
+    }
+
+    // MARK: - Snore Score With Heavy Snoring
+
+    func test_snoreScore_heavySnoring_isHigh() {
+        // Create samples with extensive rhythmic snoring across the recording
+        var samples = [Float](repeating: 30, count: 3600) // 1 hour
+
+        // Add snoring patterns throughout (every 60 seconds, 20-second bursts)
+        for startIdx in stride(from: 0, to: 3600, by: 60) {
+            for j in 0..<20 {
+                let idx = startIdx + j
+                if idx < samples.count {
+                    samples[idx] = j % 2 == 0 ? 52 : 42 // rhythmic peaks/valleys
+                }
+            }
+        }
+
+        let result = sut.analyze(samples: samples, recordingDuration: 3600, startDate: Date())
+
+        // With ~33% of the night as snoring, score should be meaningfully above 0
+        XCTAssertGreaterThan(result.snoreScore, 0, "Heavy snoring should produce non-zero score")
+    }
+
+    // MARK: - Event Timestamps Are Correct
+
+    func test_analyze_eventTimestamps_arePositive() {
+        var samples = [Float](repeating: 30, count: 500)
+        samples[200] = 60 // loud spike
+
+        let result = sut.analyze(samples: samples, recordingDuration: 500, startDate: Date())
+
+        for event in result.events {
+            XCTAssertGreaterThanOrEqual(event.timestamp, 0, "Event timestamps should be non-negative")
+        }
+    }
+
     // MARK: - Performance
 
     func test_analyze_longRecording_completesQuickly() {

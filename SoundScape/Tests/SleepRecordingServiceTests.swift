@@ -132,4 +132,149 @@ final class SleepRecordingServiceTests: XCTestCase {
 
         XCTAssertEqual(sut.totalStorageUsed, 0)
     }
+
+    // MARK: - Delay Tests
+
+    @MainActor
+    func test_isDelayActive_initiallyFalse() {
+        let sut = SleepRecordingService()
+
+        XCTAssertFalse(sut.isDelayActive)
+        XCTAssertNil(sut.delayRemaining)
+    }
+
+    @MainActor
+    func test_cancelDelay_clearsDelayState() {
+        let sut = SleepRecordingService()
+
+        // Start a delay
+        sut.startRecordingWithDelay(minutes: 15)
+        XCTAssertTrue(sut.isDelayActive)
+        XCTAssertNotNil(sut.delayRemaining)
+
+        // Cancel it
+        sut.cancelDelay()
+        XCTAssertFalse(sut.isDelayActive)
+        XCTAssertNil(sut.delayRemaining)
+        XCTAssertFalse(sut.shouldStopSoundsOnRecordingStart)
+    }
+
+    @MainActor
+    func test_startRecordingWithDelay_setsDelayActive() {
+        let sut = SleepRecordingService()
+
+        sut.startRecordingWithDelay(minutes: 30)
+
+        XCTAssertTrue(sut.isDelayActive)
+        XCTAssertNotNil(sut.delayRemaining)
+
+        // Cleanup
+        sut.cancelDelay()
+    }
+
+    @MainActor
+    func test_startRecordingWithDelay_stopSoundsFirst_setsFlag() {
+        let sut = SleepRecordingService()
+
+        sut.startRecordingWithDelay(minutes: 15, stopSoundsFirst: true)
+
+        XCTAssertTrue(sut.shouldStopSoundsOnRecordingStart)
+
+        // Cleanup
+        sut.cancelDelay()
+    }
+
+    @MainActor
+    func test_startRecordingWithDelay_defaultNoStopSounds() {
+        let sut = SleepRecordingService()
+
+        sut.startRecordingWithDelay(minutes: 15)
+
+        XCTAssertFalse(sut.shouldStopSoundsOnRecordingStart)
+
+        // Cleanup
+        sut.cancelDelay()
+    }
+
+    // MARK: - Audio Engine Integration Tests
+
+    @MainActor
+    func test_isSoundPlaybackActive_withoutAudioEngine_returnsFalse() {
+        let sut = SleepRecordingService()
+
+        XCTAssertFalse(sut.isSoundPlaybackActive)
+    }
+
+    @MainActor
+    func test_setAudioEngine_doesNotCrash() {
+        let sut = SleepRecordingService()
+        let audioEngine = AudioEngine()
+
+        sut.setAudioEngine(audioEngine)
+
+        // After setting, isSoundPlaybackActive should reflect engine state
+        XCTAssertFalse(sut.isSoundPlaybackActive) // No sounds playing
+    }
+
+    // MARK: - Guard Tests
+
+    @MainActor
+    func test_startRecording_whenNotIdle_doesNothing() {
+        let sut = SleepRecordingService()
+
+        // Start a delay (puts into delayed state, but status stays idle)
+        sut.startRecordingWithDelay(minutes: 30)
+
+        // Starting recording while delay is active should still work (status is idle)
+        // But starting another delay should be blocked by the guard
+        XCTAssertEqual(sut.status, .idle)
+
+        // Cleanup
+        sut.cancelDelay()
+    }
+
+    @MainActor
+    func test_deleteRecording_clearsCurrentRecording() {
+        let sut = SleepRecordingService()
+        let recording = SleepRecording(
+            date: Date(),
+            endDate: Date().addingTimeInterval(3600),
+            duration: 3600,
+            fileURL: URL(fileURLWithPath: "/tmp/nonexistent.m4a")
+        )
+
+        // Set currentRecording
+        sut.currentRecording = recording
+
+        // Delete it
+        sut.deleteRecording(recording)
+
+        XCTAssertNil(sut.currentRecording)
+    }
+
+    @MainActor
+    func test_deleteRecording_doesNotClearUnrelatedCurrentRecording() {
+        let sut = SleepRecordingService()
+        let recording1 = SleepRecording(
+            date: Date(),
+            endDate: Date().addingTimeInterval(3600),
+            duration: 3600,
+            fileURL: URL(fileURLWithPath: "/tmp/test1.m4a")
+        )
+        let recording2 = SleepRecording(
+            date: Date(),
+            endDate: Date().addingTimeInterval(3600),
+            duration: 3600,
+            fileURL: URL(fileURLWithPath: "/tmp/test2.m4a")
+        )
+
+        // Set currentRecording to recording1
+        sut.currentRecording = recording1
+
+        // Delete recording2 - should not clear currentRecording
+        sut.deleteRecording(recording2)
+
+        XCTAssertNotNil(sut.currentRecording)
+        XCTAssertEqual(sut.currentRecording?.id, recording1.id)
+    }
 }

@@ -2,9 +2,11 @@ import SwiftUI
 
 struct RecordingHistoryView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @Environment(AudioEngine.self) private var audioEngine
     @State private var selectedRecording: SleepRecording?
     @State private var showDeleteConfirmation = false
     @State private var recordingToDelete: SleepRecording?
+    @State private var showSoundWarning = false
     @State private var exportText: String = ""
 
     var body: some View {
@@ -55,10 +57,14 @@ struct RecordingHistoryView: View {
 
             // Floating record button
             Button {
-                Task {
-                    let granted = await sleepRecordingService.requestMicrophonePermission()
-                    if granted {
-                        sleepRecordingService.startRecording()
+                if audioEngine.isAnyPlaying {
+                    showSoundWarning = true
+                } else {
+                    Task {
+                        let granted = await sleepRecordingService.requestMicrophonePermission()
+                        if granted {
+                            sleepRecordingService.startRecording()
+                        }
                     }
                 }
             } label: {
@@ -93,6 +99,32 @@ struct RecordingHistoryView: View {
             }
         } message: {
             Text(String(localized: "Delete this recording? The audio file will be permanently removed."))
+        }
+        .confirmationDialog(
+            String(localized: "Sounds Are Playing"),
+            isPresented: $showSoundWarning,
+            titleVisibility: .visible
+        ) {
+            Button(String(localized: "Stop Sounds & Record")) {
+                audioEngine.stopAll()
+                Task {
+                    let granted = await sleepRecordingService.requestMicrophonePermission()
+                    if granted {
+                        sleepRecordingService.startRecording()
+                    }
+                }
+            }
+            Button(String(localized: "Record Anyway")) {
+                Task {
+                    let granted = await sleepRecordingService.requestMicrophonePermission()
+                    if granted {
+                        sleepRecordingService.startRecording()
+                    }
+                }
+            }
+            Button(String(localized: "Cancel"), role: .cancel) { }
+        } message: {
+            Text(String(localized: "Playing sounds through the speaker can interfere with snore detection. For best results, stop sounds before recording."))
         }
     }
 
@@ -183,6 +215,7 @@ struct RecordingHistoryView: View {
     NavigationStack {
         RecordingHistoryView()
             .environment(SleepRecordingService())
+            .environment(AudioEngine())
     }
     .preferredColorScheme(.dark)
 }

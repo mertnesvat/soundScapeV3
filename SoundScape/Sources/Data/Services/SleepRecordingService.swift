@@ -24,6 +24,8 @@ final class SleepRecordingService {
     nonisolated(unsafe) private var interruptionObserver: Any?
     private var delayTimer: Timer?
     private var delayEndDate: Date?
+    private var audioEngine: AudioEngine?
+    private(set) var shouldStopSoundsOnRecordingStart = false
 
     init() {
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -38,6 +40,16 @@ final class SleepRecordingService {
         if let observer = interruptionObserver {
             NotificationCenter.default.removeObserver(observer)
         }
+    }
+
+    // MARK: - AudioEngine Integration
+
+    func setAudioEngine(_ engine: AudioEngine) {
+        self.audioEngine = engine
+    }
+
+    var isSoundPlaybackActive: Bool {
+        audioEngine?.isAnyPlaying ?? false
     }
 
     // MARK: - Microphone Permission
@@ -174,8 +186,9 @@ final class SleepRecordingService {
 
     // MARK: - Delayed Start
 
-    func startRecordingWithDelay(minutes: Int) {
+    func startRecordingWithDelay(minutes: Int, stopSoundsFirst: Bool = false) {
         guard status == .idle else { return }
+        shouldStopSoundsOnRecordingStart = stopSoundsFirst
         let delaySeconds = TimeInterval(minutes * 60)
         delayEndDate = Date().addingTimeInterval(delaySeconds)
         delayRemaining = delaySeconds
@@ -193,6 +206,10 @@ final class SleepRecordingService {
                     self.delayTimer = nil
                     self.delayEndDate = nil
                     self.delayRemaining = nil
+                    if self.shouldStopSoundsOnRecordingStart {
+                        self.audioEngine?.stopAll()
+                        self.shouldStopSoundsOnRecordingStart = false
+                    }
                     self.startRecording()
                 } else {
                     self.delayRemaining = remaining
@@ -206,6 +223,7 @@ final class SleepRecordingService {
         delayTimer = nil
         delayEndDate = nil
         delayRemaining = nil
+        shouldStopSoundsOnRecordingStart = false
     }
 
     var isDelayActive: Bool {
