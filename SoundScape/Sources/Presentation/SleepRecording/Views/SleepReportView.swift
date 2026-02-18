@@ -23,6 +23,27 @@ struct SleepReportView: View {
                         .frame(height: 200)
                         .padding(.horizontal)
 
+                    // Listen to Highlights button
+                    if !recording.events.isEmpty {
+                        NavigationLink {
+                            AudioHighlightsView(recording: recording)
+                        } label: {
+                            HStack {
+                                Image(systemName: "play.circle.fill")
+                                    .font(.title2)
+                                Text(String(localized: "Listen to Highlights"))
+                                    .font(.headline)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding()
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+                        }
+                        .padding(.horizontal)
+                    }
+
                     // Events list
                     eventsSection
 
