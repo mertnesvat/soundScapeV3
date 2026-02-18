@@ -183,6 +183,7 @@
 		FB96EB91SLREC019 /* RecordingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC020 /* RecordingHistoryView.swift */; };
 		FB96EB91SLREC021 /* AudioHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC022 /* AudioHighlightsView.swift */; };
 		FB96EB91SLREC023 /* SnoreTrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC024 /* SnoreTrendsView.swift */; };
+		FB96EB91SLREC025 /* SoundAwareRecordingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC026 /* SoundAwareRecordingSheet.swift */; };
 		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
 		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
 		FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CMSN0002 /* ComingSoonBadge.swift */; };
@@ -443,6 +444,7 @@
 		FB96EB91SLREC020 /* RecordingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryView.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC022 /* AudioHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHighlightsView.swift; sourceTree = "<group>"; };
 		FB96EB91SLREC024 /* SnoreTrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoreTrendsView.swift; sourceTree = "<group>"; };
+		FB96EB91SLREC026 /* SoundAwareRecordingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAwareRecordingSheet.swift; sourceTree = "<group>"; };
 		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
 		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
 		FB96EB91CMSN0002 /* ComingSoonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonBadge.swift; sourceTree = "<group>"; };
@@ -961,6 +963,7 @@
 				FB96EB91SLREC020 /* RecordingHistoryView.swift */,
 				FB96EB91SLREC022 /* AudioHighlightsView.swift */,
 				FB96EB91SLREC024 /* SnoreTrendsView.swift */,
+				FB96EB91SLREC026 /* SoundAwareRecordingSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1492,6 +1495,7 @@
 				FB96EB91SLREC019 /* RecordingHistoryView.swift in Sources */,
 				FB96EB91SLREC021 /* AudioHighlightsView.swift in Sources */,
 				FB96EB91SLREC023 /* SnoreTrendsView.swift in Sources */,
+				FB96EB91SLREC025 /* SoundAwareRecordingSheet.swift in Sources */,
 				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,

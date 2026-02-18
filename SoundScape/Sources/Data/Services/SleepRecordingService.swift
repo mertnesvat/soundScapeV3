@@ -209,8 +209,13 @@ final class SleepRecordingService {
                     if self.shouldStopSoundsOnRecordingStart {
                         self.audioEngine?.stopAll()
                         self.shouldStopSoundsOnRecordingStart = false
+                        // Wait for audio fade-out to complete before starting recording
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.startRecording()
+                        }
+                    } else {
+                        self.startRecording()
                     }
-                    self.startRecording()
                 } else {
                     self.delayRemaining = remaining
                 }

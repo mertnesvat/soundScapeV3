@@ -5,9 +5,8 @@ struct RecordingControlsView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @State private var showStopConfirmation = false
     @State private var showPermissionAlert = false
-    @State private var showSoundWarning = false
+    @State private var showSoundRecordingOptions = false
     @State private var selectedDelay: Int = 0
-    @State private var stopSoundsBeforeRecording = false
 
     private let delayOptions = [0, 15, 30, 45, 60, 90, 120]
 
@@ -117,12 +116,10 @@ struct RecordingControlsView: View {
                     .foregroundStyle(.secondary)
             }
 
-            // Delay picker (only when idle and not already delaying)
-            if sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive {
+            // Delay picker (only when idle, not delaying, and no sounds playing)
+            if sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive && !audioEngine.isAnyPlaying {
                 VStack(spacing: 8) {
-                    Text(audioEngine.isAnyPlaying
-                         ? String(localized: "Wind-down Timer")
-                         : String(localized: "Delay Start"))
+                    Text(String(localized: "Delay Start"))
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
@@ -131,9 +128,6 @@ struct RecordingControlsView: View {
                             ForEach(delayOptions, id: \.self) { minutes in
                                 Button {
                                     selectedDelay = minutes
-                                    if minutes == 0 {
-                                        stopSoundsBeforeRecording = false
-                                    }
                                 } label: {
                                     Text(delayLabel(minutes))
                                         .font(.caption)
@@ -146,18 +140,6 @@ struct RecordingControlsView: View {
                             }
                         }
                         .padding(.horizontal)
-                    }
-
-                    // Stop sounds toggle (only when sounds are playing and delay > 0)
-                    if audioEngine.isAnyPlaying && selectedDelay > 0 {
-                        Toggle(isOn: $stopSoundsBeforeRecording) {
-                            Label(String(localized: "Stop sounds when recording starts"), systemImage: "speaker.slash.fill")
-                                .font(.caption)
-                        }
-                        .toggleStyle(.switch)
-                        .tint(.purple)
-                        .padding(.horizontal)
-                        .padding(.top, 4)
                     }
                 }
             }
@@ -182,21 +164,8 @@ struct RecordingControlsView: View {
         } message: {
             Text(String(localized: "SoundScape needs microphone access to record your sleep. Please enable it in Settings."))
         }
-        .confirmationDialog(
-            String(localized: "Sounds Are Playing"),
-            isPresented: $showSoundWarning,
-            titleVisibility: .visible
-        ) {
-            Button(String(localized: "Stop Sounds & Record")) {
-                audioEngine.stopAll()
-                startRecordingFlow()
-            }
-            Button(String(localized: "Record Anyway")) {
-                startRecordingFlow()
-            }
-            Button(String(localized: "Cancel"), role: .cancel) { }
-        } message: {
-            Text(String(localized: "Playing sounds through the speaker can interfere with snore detection. For best results, stop sounds before recording."))
+        .sheet(isPresented: $showSoundRecordingOptions) {
+            SoundAwareRecordingSheet()
         }
     }
 
@@ -212,7 +181,7 @@ struct RecordingControlsView: View {
                     .foregroundStyle(.orange)
             }
 
-            Text(String(localized: "Sound playback may interfere with snore detection accuracy. Use the wind-down timer to stop sounds automatically, or stop them before recording."))
+            Text(String(localized: "Tap record to see options for stopping sounds and starting sleep recording."))
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -236,24 +205,22 @@ struct RecordingControlsView: View {
         } else if sleepRecordingService.status == .recording {
             showStopConfirmation = true
         } else {
-            // If sounds are playing and no delay set, show warning
-            if audioEngine.isAnyPlaying && selectedDelay == 0 {
-                showSoundWarning = true
+            // If sounds are playing, show the chain timer sheet
+            if audioEngine.isAnyPlaying {
+                showSoundRecordingOptions = true
             } else {
                 startRecordingFlow()
             }
         }
     }
 
+    @MainActor
     private func startRecordingFlow() {
         Task {
             let granted = await sleepRecordingService.requestMicrophonePermission()
             if granted {
                 if selectedDelay > 0 {
-                    sleepRecordingService.startRecordingWithDelay(
-                        minutes: selectedDelay,
-                        stopSoundsFirst: stopSoundsBeforeRecording
-                    )
+                    sleepRecordingService.startRecordingWithDelay(minutes: selectedDelay)
                 } else {
                     sleepRecordingService.startRecording()
                 }
