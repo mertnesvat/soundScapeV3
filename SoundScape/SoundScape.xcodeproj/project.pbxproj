@@ -170,6 +170,8 @@
 		FB96EB91WDGT0004 /* WidgetSharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0013 /* WidgetSharedState.swift */; };
 		FB96EB91WDGT0005 /* SoundScapeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB96EB91SLPC0001 /* SleepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPC0002 /* SleepContent.swift */; };
+		FB96EB91SLREC001 /* SleepRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLREC002 /* SleepRecording.swift */; };
+		FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLRECT02 /* SleepRecordingTests.swift */; };
 		FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPCARD2 /* SleepContentCardView.swift */; };
 		FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */; };
 		FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CMSN0002 /* ComingSoonBadge.swift */; };
@@ -417,6 +419,8 @@
 		FB96EB91WDGT0016 /* SoundScape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundScape.entitlements; sourceTree = "<group>"; };
 		FB96EB91WDGT0020 /* SoundScapeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoundScapeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91SLPC0002 /* SleepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContent.swift; sourceTree = "<group>"; };
+		FB96EB91SLREC002 /* SleepRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecording.swift; sourceTree = "<group>"; };
+		FB96EB91SLRECT02 /* SleepRecordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingTests.swift; sourceTree = "<group>"; };
 		FB96EB91SLPCARD2 /* SleepContentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentCardView.swift; sourceTree = "<group>"; };
 		FB96EB91LGFTRD02 /* LargeFeaturedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFeaturedCard.swift; sourceTree = "<group>"; };
 		FB96EB91CMSN0002 /* ComingSoonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonBadge.swift; sourceTree = "<group>"; };
@@ -665,6 +669,7 @@
 				FB96EB91000000P2 /* SleepInsight.swift */,
 				FB96EB91BUDDY002 /* SleepBuddy.swift */,
 				FB96EB91SLPC0002 /* SleepContent.swift */,
+				FB96EB91SLREC002 /* SleepRecording.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1010,6 +1015,7 @@
 				SUBSCTST002 /* SubscriptionServiceTests.swift */,
 				FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */,
 				FB96EB91ALRT0004 /* AppDelegateTests.swift */,
+				FB96EB91SLRECT02 /* SleepRecordingTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1427,6 +1433,7 @@
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
 				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
+				FB96EB91SLREC001 /* SleepRecording.swift in Sources */,
 				FB96EB91SLPCARD1 /* SleepContentCardView.swift in Sources */,
 				FB96EB91LGFTRD01 /* LargeFeaturedCard.swift in Sources */,
 				FB96EB91CMSN0001 /* ComingSoonBadge.swift in Sources */,
@@ -1476,6 +1483,7 @@
 				SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */,
 				FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */,
 				FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */,
+				FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
