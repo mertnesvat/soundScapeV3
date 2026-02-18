@@ -1,0 +1,138 @@
+name: PR Quality Assessment
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      compare_pr_numbers:
+        description: 'Comma-separated PR numbers to compare (e.g., 123,124)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  analyze-pr:
+    runs-on: ubuntu-latest
+    name: Comprehensive PR Analysis
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better analysis
+          
+      - name: Checkout base branch
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install analysis dependencies
+        run: |
+          pip install --upgrade pip
+          pip install lizard  # Cyclomatic complexity
+          pip install radon   # Code metrics
+          pip install pygments  # Syntax highlighting
+          pip install jinja2   # Report templating
+          pip install GitPython  # Git operations
+          
+      - name: Install Swift tools (for deeper analysis)
+        run: |
+          # SwiftLint for code quality
+          wget https://github.com/realm/SwiftLint/releases/download/0.54.0/swiftlint_linux.zip
+          unzip swiftlint_linux.zip
+          chmod +x swiftlint
+          sudo mv swiftlint /usr/local/bin/
+          
+      - name: Analyze current PR
+        id: analyze
+        run: |
+          python .github/scripts/analyze_pr.py \
+            --pr-number ${{ github.event.pull_request.number || 'manual' }} \
+            --base-ref ${{ github.base_ref || github.ref_name }} \
+            --head-ref ${{ github.head_ref || github.ref_name }} \
+            --output-dir ./analysis-results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          
+      - name: Compare with other PRs (if specified)
+        if: github.event.inputs.compare_pr_numbers != ''
+        run: |
+          python .github/scripts/compare_prs.py \
+            --current-pr ${{ github.event.pull_request.number }} \
+            --compare-prs "${{ github.event.inputs.compare_pr_numbers }}" \
+            --output-dir ./analysis-results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          
+      - name: Generate comprehensive report
+        run: |
+          python .github/scripts/generate_report.py \
+            --analysis-dir ./analysis-results \
+            --output-file ./pr-quality-report.md
+            
+      - name: Upload analysis artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-quality-assessment-${{ github.event.pull_request.number || github.run_number }}
+          path: |
+            ./analysis-results/**/*
+            ./pr-quality-report.md
+          retention-days: 90
+          
+      - name: Post report as PR comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('./pr-quality-report.md', 'utf8');
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('# 📊 PR Quality Assessment Report')
+            );
+            
+            const commentBody = report;
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: commentBody
+              });
+            }
+            
+      - name: Check quality thresholds
+        run: |
+          python .github/scripts/check_quality_thresholds.py \
+            --analysis-dir ./analysis-results \
+            --fail-on-regression true
