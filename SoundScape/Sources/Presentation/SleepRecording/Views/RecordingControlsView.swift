@@ -2,8 +2,10 @@ import SwiftUI
 
 struct RecordingControlsView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @Environment(AudioEngine.self) private var audioEngine
     @State private var showStopConfirmation = false
     @State private var showPermissionAlert = false
+    @State private var showSoundRecordingOptions = false
     @State private var selectedDelay: Int = 0
 
     private let delayOptions = [0, 15, 30, 45, 60, 90, 120]
@@ -12,8 +14,13 @@ struct RecordingControlsView: View {
         VStack(spacing: 24) {
             Spacer()
 
+            // Sound playback warning
+            if audioEngine.isAnyPlaying && sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive {
+                soundPlaybackWarning
+            }
+
             // Instructional text
-            if sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive {
+            if sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive && !audioEngine.isAnyPlaying {
                 Text(String(localized: "Place your phone on the nightstand with the microphone facing you"))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -24,9 +31,16 @@ struct RecordingControlsView: View {
             // Delay countdown
             if sleepRecordingService.isDelayActive, let remaining = sleepRecordingService.delayRemaining {
                 VStack(spacing: 12) {
-                    Text(String(localized: "Recording starts in"))
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    if sleepRecordingService.shouldStopSoundsOnRecordingStart {
+                        Text(String(localized: "Sounds will stop & recording begins in"))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                    } else {
+                        Text(String(localized: "Recording starts in"))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
 
                     Text(formatDuration(remaining))
                         .font(.system(size: 48, weight: .light, design: .monospaced))
@@ -102,8 +116,8 @@ struct RecordingControlsView: View {
                     .foregroundStyle(.secondary)
             }
 
-            // Delay picker (only when idle and not already delaying)
-            if sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive {
+            // Delay picker (only when idle, not delaying, and no sounds playing)
+            if sleepRecordingService.status == .idle && !sleepRecordingService.isDelayActive && !audioEngine.isAnyPlaying {
                 VStack(spacing: 8) {
                     Text(String(localized: "Delay Start"))
                         .font(.caption)
@@ -150,6 +164,32 @@ struct RecordingControlsView: View {
         } message: {
             Text(String(localized: "SoundScape needs microphone access to record your sleep. Please enable it in Settings."))
         }
+        .sheet(isPresented: $showSoundRecordingOptions) {
+            SoundAwareRecordingSheet()
+        }
+    }
+
+    // MARK: - Sound Warning
+
+    private var soundPlaybackWarning: some View {
+        VStack(spacing: 8) {
+            HStack(spacing: 8) {
+                Image(systemName: "speaker.wave.2.fill")
+                    .foregroundStyle(.orange)
+                Text(String(localized: "Sounds are playing"))
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.orange)
+            }
+
+            Text(String(localized: "Tap record to see options for stopping sounds and starting sleep recording."))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding()
+        .background(Color.orange.opacity(0.1))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(.horizontal)
     }
 
     // MARK: - Helpers
@@ -165,17 +205,27 @@ struct RecordingControlsView: View {
         } else if sleepRecordingService.status == .recording {
             showStopConfirmation = true
         } else {
-            Task {
-                let granted = await sleepRecordingService.requestMicrophonePermission()
-                if granted {
-                    if selectedDelay > 0 {
-                        sleepRecordingService.startRecordingWithDelay(minutes: selectedDelay)
-                    } else {
-                        sleepRecordingService.startRecording()
-                    }
+            // If sounds are playing, show the chain timer sheet
+            if audioEngine.isAnyPlaying {
+                showSoundRecordingOptions = true
+            } else {
+                startRecordingFlow()
+            }
+        }
+    }
+
+    @MainActor
+    private func startRecordingFlow() {
+        Task {
+            let granted = await sleepRecordingService.requestMicrophonePermission()
+            if granted {
+                if selectedDelay > 0 {
+                    sleepRecordingService.startRecordingWithDelay(minutes: selectedDelay)
                 } else {
-                    showPermissionAlert = true
+                    sleepRecordingService.startRecording()
                 }
+            } else {
+                showPermissionAlert = true
             }
         }
     }
@@ -201,6 +251,7 @@ struct RecordingControlsView: View {
     NavigationStack {
         RecordingControlsView()
             .environment(SleepRecordingService())
+            .environment(AudioEngine())
     }
     .preferredColorScheme(.dark)
 }

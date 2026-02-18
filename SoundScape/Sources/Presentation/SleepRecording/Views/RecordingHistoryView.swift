@@ -2,9 +2,11 @@ import SwiftUI
 
 struct RecordingHistoryView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @Environment(AudioEngine.self) private var audioEngine
     @State private var selectedRecording: SleepRecording?
     @State private var showDeleteConfirmation = false
     @State private var recordingToDelete: SleepRecording?
+    @State private var showSoundRecordingOptions = false
     @State private var exportText: String = ""
 
     var body: some View {
@@ -55,10 +57,14 @@ struct RecordingHistoryView: View {
 
             // Floating record button
             Button {
-                Task {
-                    let granted = await sleepRecordingService.requestMicrophonePermission()
-                    if granted {
-                        sleepRecordingService.startRecording()
+                if audioEngine.isAnyPlaying {
+                    showSoundRecordingOptions = true
+                } else {
+                    Task {
+                        let granted = await sleepRecordingService.requestMicrophonePermission()
+                        if granted {
+                            sleepRecordingService.startRecording()
+                        }
                     }
                 }
             } label: {
@@ -74,7 +80,7 @@ struct RecordingHistoryView: View {
                 }
             }
             .padding(.trailing, 20)
-            .padding(.bottom, 20)
+            .padding(.bottom, audioEngine.activeSounds.isEmpty ? 20 : 88)
         }
         .sheet(item: $selectedRecording) { recording in
             NavigationStack {
@@ -93,6 +99,9 @@ struct RecordingHistoryView: View {
             }
         } message: {
             Text(String(localized: "Delete this recording? The audio file will be permanently removed."))
+        }
+        .sheet(isPresented: $showSoundRecordingOptions) {
+            SoundAwareRecordingSheet()
         }
     }
 
@@ -183,6 +192,7 @@ struct RecordingHistoryView: View {
     NavigationStack {
         RecordingHistoryView()
             .environment(SleepRecordingService())
+            .environment(AudioEngine())
     }
     .preferredColorScheme(.dark)
 }

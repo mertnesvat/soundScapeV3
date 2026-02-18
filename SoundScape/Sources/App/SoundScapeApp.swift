@@ -92,6 +92,9 @@ struct SoundScapeApp: App {
                     // Wire up SleepBuddyService to InsightsService for streak calculation
                     sleepBuddyService.setInsightsService(insightsService)
 
+                    // Wire up SleepRecordingService to AudioEngine for sound-aware recording
+                    sleepRecordingService.setAudioEngine(audioEngine)
+
                     // Wire up PaywallService to AnalyticsService and SubscriptionService
                     paywallService.setSubscriptionService(subscriptionService)
                     paywallService.setAnalyticsService(analyticsService)

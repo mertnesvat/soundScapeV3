@@ -2,41 +2,48 @@ import SwiftUI
 
 struct SleepRecordingView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
+    @Environment(AudioEngine.self) private var audioEngine
     @State private var selectedSegment = 0
+    @State private var showSoundRecordingOptions = false
 
     var body: some View {
         NavigationStack {
             Group {
-                switch sleepRecordingService.status {
-                case .idle:
-                    if sleepRecordingService.recordings.isEmpty {
-                        emptyStateView
-                    } else {
-                        VStack(spacing: 0) {
-                            Picker(String(localized: "View"), selection: $selectedSegment) {
-                                Text(String(localized: "Recordings")).tag(0)
-                                Text(String(localized: "Trends")).tag(1)
-                            }
-                            .pickerStyle(.segmented)
-                            .padding(.horizontal)
-                            .padding(.top, 8)
+                if sleepRecordingService.isDelayActive {
+                    // Show countdown during wind-down timer
+                    RecordingControlsView()
+                } else {
+                    switch sleepRecordingService.status {
+                    case .idle:
+                        if sleepRecordingService.recordings.isEmpty {
+                            emptyStateView
+                        } else {
+                            VStack(spacing: 0) {
+                                Picker(String(localized: "View"), selection: $selectedSegment) {
+                                    Text(String(localized: "Recordings")).tag(0)
+                                    Text(String(localized: "Trends")).tag(1)
+                                }
+                                .pickerStyle(.segmented)
+                                .padding(.horizontal)
+                                .padding(.top, 8)
 
-                            if selectedSegment == 0 {
-                                RecordingHistoryView()
-                            } else {
-                                SnoreTrendsView()
+                                if selectedSegment == 0 {
+                                    RecordingHistoryView()
+                                } else {
+                                    SnoreTrendsView()
+                                }
                             }
                         }
-                    }
-                case .recording:
-                    RecordingControlsView()
-                case .analyzing:
-                    analyzingView
-                case .complete:
-                    if sleepRecordingService.recordings.isEmpty {
-                        emptyStateView
-                    } else {
-                        RecordingHistoryView()
+                    case .recording:
+                        RecordingControlsView()
+                    case .analyzing:
+                        analyzingView
+                    case .complete:
+                        if sleepRecordingService.recordings.isEmpty {
+                            emptyStateView
+                        } else {
+                            RecordingHistoryView()
+                        }
                     }
                 }
             }
@@ -89,10 +96,14 @@ struct SleepRecordingView: View {
 
     private var recordButton: some View {
         Button {
-            Task {
-                let granted = await sleepRecordingService.requestMicrophonePermission()
-                if granted {
-                    sleepRecordingService.startRecording()
+            if audioEngine.isAnyPlaying {
+                showSoundRecordingOptions = true
+            } else {
+                Task {
+                    let granted = await sleepRecordingService.requestMicrophonePermission()
+                    if granted {
+                        sleepRecordingService.startRecording()
+                    }
                 }
             }
         } label: {
@@ -107,11 +118,15 @@ struct SleepRecordingView: View {
                     .foregroundStyle(.white)
             }
         }
+        .sheet(isPresented: $showSoundRecordingOptions) {
+            SoundAwareRecordingSheet()
+        }
     }
 }
 
 #Preview {
     SleepRecordingView()
         .environment(SleepRecordingService())
+        .environment(AudioEngine())
         .preferredColorScheme(.dark)
 }

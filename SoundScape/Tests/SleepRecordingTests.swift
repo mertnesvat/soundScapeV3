@@ -257,4 +257,124 @@ final class SleepRecordingTests: XCTestCase {
         XCTAssertEqual(recording.peakDecibels, 0)
         XCTAssertEqual(recording.snoreScore, 0)
     }
+
+    // MARK: - formattedDuration Edge Cases
+
+    func test_formattedDuration_zeroDuration() {
+        let recording = makeRecording(duration: 0)
+
+        XCTAssertEqual(recording.formattedDuration, "0m")
+    }
+
+    func test_formattedDuration_lessThanOneMinute() {
+        let recording = makeRecording(duration: 30) // 30 seconds
+
+        XCTAssertEqual(recording.formattedDuration, "0m")
+    }
+
+    // MARK: - formattedDate Tests
+
+    func test_formattedDate_returnsNonEmptyString() {
+        let recording = makeRecording()
+
+        XCTAssertFalse(recording.formattedDate.isEmpty)
+    }
+
+    // MARK: - formattedTimeRange Tests
+
+    func test_formattedTimeRange_returnsRangeWithDash() {
+        let recording = makeRecording(duration: 3600) // 1 hour
+
+        let range = recording.formattedTimeRange
+        XCTAssertTrue(range.contains("-"), "Time range should contain a dash separator")
+    }
+
+    // MARK: - SoundEvent formattedTimestamp Tests
+
+    func test_soundEvent_formattedTimestamp_returnsNonEmpty() {
+        let event = makeEvent(timestamp: 7200) // 2 hours in
+
+        XCTAssertFalse(event.formattedTimestamp.isEmpty)
+    }
+
+    func test_soundEvent_formattedDuration_zeroSeconds() {
+        let event = makeEvent(duration: 0)
+
+        XCTAssertEqual(event.formattedDuration, "0s")
+    }
+
+    // MARK: - SnoreScoreCategory Tests
+
+    func test_snoreScoreCategory_displayNames_notEmpty() {
+        for category in [SnoreScoreCategory.quiet, .moderate, .loud] {
+            XCTAssertFalse(category.displayName.isEmpty)
+        }
+    }
+
+    func test_snoreScoreCategory_colors_areDifferent() {
+        let quiet = SnoreScoreCategory.quiet.color
+        let moderate = SnoreScoreCategory.moderate.color
+        let loud = SnoreScoreCategory.loud.color
+
+        XCTAssertNotEqual(quiet, moderate)
+        XCTAssertNotEqual(moderate, loud)
+        XCTAssertNotEqual(quiet, loud)
+    }
+
+    // MARK: - SoundEventType Color Tests
+
+    func test_soundEventType_colors_areDifferent() {
+        let colors = SoundEventType.allCases.map { $0.color }
+        // All 4 types should have distinct colors
+        for i in 0..<colors.count {
+            for j in (i + 1)..<colors.count {
+                XCTAssertNotEqual(colors[i], colors[j], "Colors for \(SoundEventType.allCases[i]) and \(SoundEventType.allCases[j]) should differ")
+            }
+        }
+    }
+
+    // MARK: - Boundary Score Tests
+
+    func test_snoreScoreCategory_boundaryValues() {
+        // Exact boundary at 30
+        XCTAssertEqual(makeRecording(snoreScore: 30).snoreScoreCategory, .quiet)
+        // Exact boundary at 31
+        XCTAssertEqual(makeRecording(snoreScore: 31).snoreScoreCategory, .moderate)
+        // Exact boundary at 60
+        XCTAssertEqual(makeRecording(snoreScore: 60).snoreScoreCategory, .moderate)
+        // Exact boundary at 61
+        XCTAssertEqual(makeRecording(snoreScore: 61).snoreScoreCategory, .loud)
+    }
+
+    // MARK: - Multiple Snoring Events Duration
+
+    func test_snoringMinutes_fractionalMinutes() {
+        let events = [
+            makeEvent(type: .snoring, duration: 90) // 1.5 minutes
+        ]
+        let recording = makeRecording(events: events)
+
+        XCTAssertEqual(recording.snoringMinutes, 1.5, accuracy: 0.01)
+    }
+
+    // MARK: - Event Count Edge Cases
+
+    func test_eventCount_noEvents() {
+        let recording = makeRecording(events: [])
+
+        XCTAssertEqual(recording.eventCount, 0)
+    }
+
+    func test_eventCount_mixedWithMultipleSilence() {
+        let events = [
+            makeEvent(type: .snoring),
+            makeEvent(type: .silence),
+            makeEvent(type: .silence),
+            makeEvent(type: .silence),
+            makeEvent(type: .talking)
+        ]
+        let recording = makeRecording(events: events)
+
+        XCTAssertEqual(recording.eventCount, 2) // only snoring + talking
+    }
 }
