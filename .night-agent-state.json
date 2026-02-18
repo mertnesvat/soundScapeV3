@@ -1,20 +1,24 @@
 {
-  "session_id": "night-20260204-paywall",
-  "base_branch": "master",
-  "accumulated_branch": "feature/po-check-1",
+  "session_id": "night-20260218-sleepRecording",
+  "base_branch": "feature/sleepRecord-3",
   "status": "completed",
-  "started_at": "2026-02-04T10:00:00Z",
-  "completed_at": "2026-02-04T11:30:00Z",
+  "started_at": "2026-02-18T00:00:00Z",
+  "completed_at": "2026-02-18T01:15:00Z",
   "deep_quality_mode": true,
   "features": [
-    {"id": 1, "name": "Complete Paywall View with Subscription Products", "status": "completed", "commit": "3865a3f"},
-    {"id": 2, "name": "Integrate Paywall into Onboarding Flow", "status": "completed", "commit": "eab21c4"},
-    {"id": 3, "name": "Review and Fix Subscription Service Business Logic", "status": "completed", "commit": "d15d897"},
-    {"id": 4, "name": "Add Comprehensive Subscription Service Tests", "status": "completed", "commit": "50c6cb1"},
-    {"id": 5, "name": "Add PaywallService Integration Tests", "status": "completed", "commit": "75a6972"},
-    {"id": 6, "name": "Implement Paywall Presentation from Settings", "status": "completed", "commit": "ccc003b"}
+    {"id": 1, "name": "Sleep Recording Domain Entities", "status": "completed", "commit": "8305de9"},
+    {"id": 2, "name": "Sleep Recording Service - Core Audio Recording", "status": "completed", "commit": "f9b06e6"},
+    {"id": 3, "name": "Replace Alarms Tab with Sleep Recording Tab", "status": "completed", "commit": "0100a0c"},
+    {"id": 4, "name": "Recording Controls UI", "status": "completed", "commit": "0100a0c"},
+    {"id": 5, "name": "Sound Event Detection Engine", "status": "completed", "commit": "711689b"},
+    {"id": 6, "name": "Sleep Report View", "status": "completed", "commit": "684f33a"},
+    {"id": 7, "name": "Audio Highlights Playback", "status": "completed", "commit": "684f33a"},
+    {"id": 8, "name": "Recording History List", "status": "completed", "commit": "0100a0c"},
+    {"id": 9, "name": "Export & Share Recordings", "status": "completed", "commit": "57ef9fe"},
+    {"id": 10, "name": "Timer-Delayed Recording Start", "status": "completed", "commit": "180536d"},
+    {"id": 11, "name": "Snore Trends Dashboard", "status": "completed", "commit": "730a75c"}
   ],
-  "completed_features": 6,
+  "completed_features": 11,
   "failed_features": 0,
-  "total_commits": 6
+  "total_commits": 8
 }

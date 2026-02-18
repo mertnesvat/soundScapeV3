@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		SLPREC00001 /* SleepRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00002 /* SleepRecording.swift */; };
+		SLPREC00003 /* SleepRecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00004 /* SleepRecordingTests.swift */; };
+		SLPREC00005 /* SleepRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00006 /* SleepRecordingService.swift */; };
+		SLPREC00007 /* SleepRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00008 /* SleepRecordingView.swift */; };
+		SLPREC0000B /* RecordingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC0000C /* RecordingControlsView.swift */; };
+		SLPREC0000D /* SoundEventDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC0000E /* SoundEventDetector.swift */; };
+		SLPREC00011 /* SleepReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00012 /* SleepReportView.swift */; };
+		SLPREC00013 /* SleepTimelineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00014 /* SleepTimelineChart.swift */; };
+		SLPREC00017 /* RecordingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00018 /* RecordingHistoryView.swift */; };
+		SLPREC0000F /* SoundEventDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00010 /* SoundEventDetectorTests.swift */; };
+		SLPREC00015 /* AudioHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC00016 /* AudioHighlightsView.swift */; };
+		SLPREC00019 /* SnoreTrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPREC0001A /* SnoreTrendsView.swift */; };
 		FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */; };
 		FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0004 /* AppDelegateTests.swift */; };
 		ONBTEST001 /* OnboardingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBTEST002 /* OnboardingServiceTests.swift */; };
@@ -382,6 +394,18 @@
 		SUBSCTST002 /* SubscriptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationSoundManagerTests.swift; sourceTree = "<group>"; };
 		FB96EB91ALRT0004 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		SLPREC00002 /* SleepRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecording.swift; sourceTree = "<group>"; };
+		SLPREC00004 /* SleepRecordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingTests.swift; sourceTree = "<group>"; };
+		SLPREC00006 /* SleepRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingService.swift; sourceTree = "<group>"; };
+		SLPREC00008 /* SleepRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRecordingView.swift; sourceTree = "<group>"; };
+		SLPREC0000C /* RecordingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingControlsView.swift; sourceTree = "<group>"; };
+		SLPREC0000E /* SoundEventDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEventDetector.swift; sourceTree = "<group>"; };
+		SLPREC00012 /* SleepReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepReportView.swift; sourceTree = "<group>"; };
+		SLPREC00014 /* SleepTimelineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimelineChart.swift; sourceTree = "<group>"; };
+		SLPREC00018 /* RecordingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryView.swift; sourceTree = "<group>"; };
+		SLPREC00010 /* SoundEventDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEventDetectorTests.swift; sourceTree = "<group>"; };
+		SLPREC00016 /* AudioHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHighlightsView.swift; sourceTree = "<group>"; };
+		SLPREC0001A /* SnoreTrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoreTrendsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
 		FB96EB91SCI00002 /* SoundScienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScienceView.swift; sourceTree = "<group>"; };
@@ -581,6 +605,7 @@
 				FB96EB91000000KJ /* Stories */,
 				FB96EB91WNDWN003 /* WindDown */,
 				FB96EB91000000MF /* Alarms */,
+				SLPREC00009 /* SleepRecording */,
 				FB96EB91000000NH /* Discover */,
 				FB96EB91000000OD /* Adaptive */,
 				FB96EB91000000PJ /* Insights */,
@@ -665,6 +690,7 @@
 				FB96EB91000000P2 /* SleepInsight.swift */,
 				FB96EB91BUDDY002 /* SleepBuddy.swift */,
 				FB96EB91SLPC0002 /* SleepContent.swift */,
+				SLPREC00002 /* SleepRecording.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -816,6 +842,8 @@
 				FB96EB91BUDDY004 /* SleepBuddyService.swift */,
 				FB96EB91SLCPSR02 /* SleepContentPlayerService.swift */,
 				FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */,
+				SLPREC00006 /* SleepRecordingService.swift */,
+				SLPREC0000E /* SoundEventDetector.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -909,6 +937,28 @@
 				FB96EB91000000MC /* WeekdaySelector.swift */,
 				FB96EB91000000ME /* SoundPickerView.swift */,
 				FB96EB91ALRM0006 /* AlarmRingingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		SLPREC00009 /* SleepRecording */ = {
+			isa = PBXGroup;
+			children = (
+				SLPREC0000A /* Views */,
+			);
+			path = SleepRecording;
+			sourceTree = "<group>";
+		};
+		SLPREC0000A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				SLPREC00008 /* SleepRecordingView.swift */,
+				SLPREC0000C /* RecordingControlsView.swift */,
+				SLPREC00012 /* SleepReportView.swift */,
+				SLPREC00014 /* SleepTimelineChart.swift */,
+				SLPREC00018 /* RecordingHistoryView.swift */,
+				SLPREC00016 /* AudioHighlightsView.swift */,
+				SLPREC0001A /* SnoreTrendsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1010,6 +1060,8 @@
 				SUBSCTST002 /* SubscriptionServiceTests.swift */,
 				FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */,
 				FB96EB91ALRT0004 /* AppDelegateTests.swift */,
+				SLPREC00004 /* SleepRecordingTests.swift */,
+				SLPREC00010 /* SoundEventDetectorTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1366,6 +1418,16 @@
 				FB96EB91000000L3 /* BinauralBeatEngine.swift in Sources */,
 				FB96EB91000000L5 /* BinauralBeatsView.swift in Sources */,
 				FB96EB91000000M1 /* Alarm.swift in Sources */,
+				SLPREC00001 /* SleepRecording.swift in Sources */,
+				SLPREC00005 /* SleepRecordingService.swift in Sources */,
+				SLPREC0000D /* SoundEventDetector.swift in Sources */,
+				SLPREC00007 /* SleepRecordingView.swift in Sources */,
+				SLPREC0000B /* RecordingControlsView.swift in Sources */,
+				SLPREC00011 /* SleepReportView.swift in Sources */,
+				SLPREC00013 /* SleepTimelineChart.swift in Sources */,
+				SLPREC00017 /* RecordingHistoryView.swift in Sources */,
+				SLPREC00015 /* AudioHighlightsView.swift in Sources */,
+				SLPREC00019 /* SnoreTrendsView.swift in Sources */,
 				FB96EB91000000M3 /* AlarmService.swift in Sources */,
 				FB96EB91000000M5 /* AlarmsView.swift in Sources */,
 				FB96EB91000000M7 /* AlarmRowView.swift in Sources */,
@@ -1476,6 +1538,8 @@
 				SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */,
 				FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */,
 				FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */,
+				SLPREC00003 /* SleepRecordingTests.swift in Sources */,
+				SLPREC0000F /* SoundEventDetectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
