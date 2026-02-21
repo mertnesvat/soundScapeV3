@@ -6,6 +6,7 @@ struct OnboardingProfile: Codable, Equatable {
     var preferredCategories: Set<String>
     var hasCompletedOnboarding: Bool
     var completedAt: Date?
+    var userIntent: UserIntent?
 
     init() {
         self.sleepGoal = nil
@@ -13,6 +14,41 @@ struct OnboardingProfile: Codable, Equatable {
         self.preferredCategories = []
         self.hasCompletedOnboarding = false
         self.completedAt = nil
+        self.userIntent = nil
+    }
+}
+
+enum UserIntent: String, Codable, CaseIterable {
+    case sleep
+    case focus
+    case relax
+    case meditate
+
+    var localizedTitle: String {
+        switch self {
+        case .sleep: return String(localized: "Sleep")
+        case .focus: return String(localized: "Focus")
+        case .relax: return String(localized: "Relax")
+        case .meditate: return String(localized: "Meditate")
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .sleep: return "moon.zzz.fill"
+        case .focus: return "brain.head.profile"
+        case .relax: return "leaf.fill"
+        case .meditate: return "figure.mind.and.body"
+        }
+    }
+
+    var soundIds: [String] {
+        switch self {
+        case .sleep: return ["brown_noise", "rain_storm"]
+        case .focus: return ["deep_focus_flow", "white_noise"]
+        case .relax: return ["calm_ocean", "campfire"]
+        case .meditate: return ["night_wildlife", "ambient_melody"]
+        }
     }
 }
 

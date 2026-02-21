@@ -290,4 +290,147 @@ final class OnboardingServiceTests: XCTestCase {
         let uniqueCount = Set(recommended).count
         XCTAssertEqual(recommended.count, uniqueCount)
     }
+
+    // MARK: - User Intent Tests
+
+    func test_setUserIntent_updatesProfile() {
+        let sut = OnboardingService()
+
+        sut.setUserIntent(.sleep)
+
+        XCTAssertEqual(sut.profile.userIntent, .sleep)
+    }
+
+    func test_setUserIntent_canChangeIntent() {
+        let sut = OnboardingService()
+
+        sut.setUserIntent(.sleep)
+        XCTAssertEqual(sut.profile.userIntent, .sleep)
+
+        sut.setUserIntent(.focus)
+        XCTAssertEqual(sut.profile.userIntent, .focus)
+    }
+
+    func test_setUserIntent_persistsAcrossInstances() {
+        let sut1 = OnboardingService()
+        sut1.setUserIntent(.meditate)
+
+        let sut2 = OnboardingService()
+
+        XCTAssertEqual(sut2.profile.userIntent, .meditate)
+    }
+
+    func test_setUserIntent_allCases() {
+        let sut = OnboardingService()
+
+        for intent in UserIntent.allCases {
+            sut.setUserIntent(intent)
+            XCTAssertEqual(sut.profile.userIntent, intent)
+        }
+    }
+
+    // MARK: - Sounds For Intent Tests
+
+    func test_soundsForIntent_sleep_returnsSounds() {
+        let sut = OnboardingService()
+
+        let sounds = sut.soundsForIntent(.sleep)
+
+        XCTAssertEqual(sounds.count, 2)
+        XCTAssertTrue(sounds.contains { $0.id == "brown_noise" })
+        XCTAssertTrue(sounds.contains { $0.id == "rain_storm" })
+    }
+
+    func test_soundsForIntent_focus_returnsSounds() {
+        let sut = OnboardingService()
+
+        let sounds = sut.soundsForIntent(.focus)
+
+        XCTAssertEqual(sounds.count, 2)
+        XCTAssertTrue(sounds.contains { $0.id == "deep_focus_flow" })
+        XCTAssertTrue(sounds.contains { $0.id == "white_noise" })
+    }
+
+    func test_soundsForIntent_relax_returnsSounds() {
+        let sut = OnboardingService()
+
+        let sounds = sut.soundsForIntent(.relax)
+
+        XCTAssertEqual(sounds.count, 2)
+        XCTAssertTrue(sounds.contains { $0.id == "calm_ocean" })
+        XCTAssertTrue(sounds.contains { $0.id == "campfire" })
+    }
+
+    func test_soundsForIntent_meditate_returnsSounds() {
+        let sut = OnboardingService()
+
+        let sounds = sut.soundsForIntent(.meditate)
+
+        XCTAssertEqual(sounds.count, 2)
+        XCTAssertTrue(sounds.contains { $0.id == "night_wildlife" })
+        XCTAssertTrue(sounds.contains { $0.id == "ambient_melody" })
+    }
+
+    func test_soundsForIntent_allCases_returnNonEmpty() {
+        let sut = OnboardingService()
+
+        for intent in UserIntent.allCases {
+            let sounds = sut.soundsForIntent(intent)
+            XCTAssertFalse(sounds.isEmpty, "Sounds for \(intent.rawValue) should not be empty")
+        }
+    }
+
+    // MARK: - User Intent Entity Tests
+
+    func test_userIntent_localizedTitle_notEmpty() {
+        for intent in UserIntent.allCases {
+            XCTAssertFalse(intent.localizedTitle.isEmpty)
+        }
+    }
+
+    func test_userIntent_icon_notEmpty() {
+        for intent in UserIntent.allCases {
+            XCTAssertFalse(intent.icon.isEmpty)
+        }
+    }
+
+    func test_userIntent_soundIds_notEmpty() {
+        for intent in UserIntent.allCases {
+            XCTAssertFalse(intent.soundIds.isEmpty)
+        }
+    }
+
+    // MARK: - Onboarding Profile Tests
+
+    func test_onboardingProfile_defaultInit() {
+        let profile = OnboardingProfile()
+
+        XCTAssertNil(profile.userIntent)
+        XCTAssertFalse(profile.hasCompletedOnboarding)
+        XCTAssertNil(profile.completedAt)
+    }
+
+    func test_onboardingProfile_codable() throws {
+        var profile = OnboardingProfile()
+        profile.userIntent = .relax
+        profile.hasCompletedOnboarding = true
+        profile.completedAt = Date()
+
+        let data = try JSONEncoder().encode(profile)
+        let decoded = try JSONDecoder().decode(OnboardingProfile.self, from: data)
+
+        XCTAssertEqual(decoded.userIntent, .relax)
+        XCTAssertTrue(decoded.hasCompletedOnboarding)
+        XCTAssertNotNil(decoded.completedAt)
+    }
+
+    func test_resetOnboarding_clearsUserIntent() {
+        let sut = OnboardingService()
+        sut.setUserIntent(.focus)
+        XCTAssertEqual(sut.profile.userIntent, .focus)
+
+        sut.resetOnboarding()
+
+        XCTAssertNil(sut.profile.userIntent)
+    }
 }

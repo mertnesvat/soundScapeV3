@@ -2,25 +2,17 @@ import SwiftUI
 
 struct OnboardingContainerView: View {
     @Environment(OnboardingService.self) private var onboardingService
-    @Environment(PaywallService.self) private var paywallService
-    @Environment(SubscriptionService.self) private var subscriptionService
-    @State private var currentStep: OnboardingStep = .welcome
+    @State private var currentStep: OnboardingStep = .intent
+    @State private var selectedIntent: UserIntent?
+    @State private var hasTrackedStart = false
 
     enum OnboardingStep: Int, CaseIterable {
-        case welcome = 0
-        case quizGoal = 1
-        case quizChallenges = 2
-        case analysis = 3
-        case results = 4
-        case painPoints = 5
-        case benefits = 6
-        case reviews = 7
-        case features = 8
-        case customPlan = 9
-        case paywall = 10
+        case intent = 0
+        case soundPreview = 1
+        case complete = 2
 
         var progress: Double {
-            Double(rawValue) / Double(OnboardingStep.allCases.count - 1)
+            Double(rawValue + 1) / Double(OnboardingStep.allCases.count)
         }
     }
 
@@ -29,85 +21,50 @@ struct OnboardingContainerView: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Progress bar (hidden on welcome and paywall)
-                if currentStep != .welcome && currentStep != .paywall {
-                    OnboardingProgressView(progress: currentStep.progress)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 8)
-                }
+                OnboardingProgressView(progress: currentStep.progress)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 8)
 
-                // Content
                 TabView(selection: $currentStep) {
-                    OnboardingWelcomeView(
-                        onGetStarted: nextStep,
-                        onSkip: skipOnboarding
+                    OnboardingIntentView(
+                        onContinue: { intent in
+                            selectedIntent = intent
+                            onboardingService.trackIntentSelected(category: intent.rawValue)
+                            onboardingService.trackStepCompleted(OnboardingStep.intent.rawValue + 1)
+                            nextStep()
+                        },
+                        onSkip: { skipOnboarding(atStep: OnboardingStep.intent.rawValue + 1) }
                     )
-                    .tag(OnboardingStep.welcome)
+                    .tag(OnboardingStep.intent)
 
-                    OnboardingQuizGoalView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.quizGoal)
+                    if let intent = selectedIntent {
+                        OnboardingSoundPreviewView(
+                            intent: intent,
+                            onContinue: {
+                                onboardingService.trackStepCompleted(OnboardingStep.soundPreview.rawValue + 1)
+                                nextStep()
+                            },
+                            onSkip: { skipOnboarding(atStep: OnboardingStep.soundPreview.rawValue + 1) }
+                        )
+                        .tag(OnboardingStep.soundPreview)
+                    }
 
-                    OnboardingQuizChallengesView(
-                        onContinue: nextStep,
-                        onBack: previousStep
+                    OnboardingCompleteView(
+                        onExplore: completeOnboarding
                     )
-                    .tag(OnboardingStep.quizChallenges)
-
-                    OnboardingAnalysisView(
-                        isActive: currentStep == .analysis,
-                        onComplete: nextStep
-                    )
-                    .tag(OnboardingStep.analysis)
-
-                    OnboardingResultsView(
-                        onContinue: nextStep
-                    )
-                    .tag(OnboardingStep.results)
-
-                    OnboardingPainPointsView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.painPoints)
-
-                    OnboardingBenefitsView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.benefits)
-
-                    OnboardingReviewsView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.reviews)
-
-                    OnboardingFeaturesView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.features)
-
-                    OnboardingCustomPlanView(
-                        onContinue: showPaywall,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.customPlan)
-
-                    OnboardingPaywallView(
-                        onComplete: completeOnboarding,
-                        isPresented: false
-                    )
-                    .tag(OnboardingStep.paywall)
+                    .tag(OnboardingStep.complete)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: currentStep)
             }
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            if !hasTrackedStart {
+                hasTrackedStart = true
+                onboardingService.trackOnboardingStarted()
+            }
+        }
     }
 
     private func nextStep() {
@@ -118,35 +75,13 @@ struct OnboardingContainerView: View {
         }
     }
 
-    private func previousStep() {
-        withAnimation {
-            if let prev = OnboardingStep(rawValue: currentStep.rawValue - 1) {
-                currentStep = prev
-            }
-        }
-    }
-
-    private func skipOnboarding() {
+    private func skipOnboarding(atStep step: Int) {
+        onboardingService.trackOnboardingSkipped(atStep: step)
         onboardingService.completeOnboarding()
     }
 
-    private func showPaywall() {
-        // If already premium, skip paywall and complete onboarding
-        if subscriptionService.isPremium {
-            completeOnboarding()
-            return
-        }
-
-        // Set placement context for analytics
-        paywallService.setPaywallPlacement("onboarding")
-
-        // Otherwise, show the paywall step
-        withAnimation {
-            currentStep = .paywall
-        }
-    }
-
     private func completeOnboarding() {
+        onboardingService.trackStepCompleted(OnboardingStep.complete.rawValue + 1)
         onboardingService.completeOnboarding()
     }
 }
@@ -154,6 +89,5 @@ struct OnboardingContainerView: View {
 #Preview {
     OnboardingContainerView()
         .environment(OnboardingService())
-        .environment(PaywallService())
-        .environment(SubscriptionService())
+        .environment(AudioEngine())
 }

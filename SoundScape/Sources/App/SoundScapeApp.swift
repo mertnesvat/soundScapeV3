@@ -23,6 +23,7 @@ struct SoundScapeApp: App {
     @State private var subscriptionService = SubscriptionService()
     @State private var paywallService = PaywallService()
     @State private var sleepRecordingService = SleepRecordingService()
+    @State private var quickStartPresetsService = QuickStartPresetsService()
     @State private var premiumManager: PremiumManager?
 
     init() {
@@ -57,6 +58,7 @@ struct SoundScapeApp: App {
             .environment(subscriptionService)
             .environment(paywallService)
             .environment(sleepRecordingService)
+            .environment(quickStartPresetsService)
             .environment(premiumManager ?? createPremiumManager())
             .preferredColorScheme(.dark)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
@@ -95,9 +97,17 @@ struct SoundScapeApp: App {
                     // Wire up SleepRecordingService to AudioEngine for sound-aware recording
                     sleepRecordingService.setAudioEngine(audioEngine)
 
+                    // Wire up OnboardingService and QuickStartPresetsService to AnalyticsService
+                    onboardingService.setAnalyticsService(analyticsService)
+                    quickStartPresetsService.setAnalyticsService(analyticsService)
+                    audioEngine.setOnboardingService(onboardingService)
+
                     // Wire up PaywallService to AnalyticsService and SubscriptionService
                     paywallService.setSubscriptionService(subscriptionService)
                     paywallService.setAnalyticsService(analyticsService)
+
+                    // Record session for delayed smart paywall tracking
+                    paywallService.recordSession()
 
                     // Initialize PremiumManager with PaywallService
                     if premiumManager == nil {

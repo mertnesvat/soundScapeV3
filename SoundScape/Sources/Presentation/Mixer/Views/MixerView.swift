@@ -4,6 +4,7 @@ struct MixerView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SavedMixesService.self) private var mixesService
     @Environment(PaywallService.self) private var paywallService
+    @Environment(SubscriptionService.self) private var subscriptionService
     @State private var showSaveMixSheet = false
 
     private let freeSoundLimit = 6
@@ -75,7 +76,13 @@ struct MixerView: View {
                 if !audioEngine.activeSounds.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Save Mix") {
-                            showSaveMixSheet = true
+                            if mixesService.mixes.count >= PaywallService.freeSavedMixesLimit {
+                                paywallService.triggerSmartPaywall(source: "saved_mixes_limit") {
+                                    showSaveMixSheet = true
+                                }
+                            } else {
+                                showSaveMixSheet = true
+                            }
                         }
                     }
                     ToolbarItem(placement: .topBarTrailing) {
@@ -107,6 +114,18 @@ struct MixerView: View {
                     mixesService.saveMix(name: name, sounds: audioEngine.activeSounds)
                 }
             }
+            .sheet(isPresented: Binding(
+                get: { paywallService.showPaywall },
+                set: { newValue in
+                    if !newValue {
+                        paywallService.handlePaywallDismissed()
+                    }
+                }
+            )) {
+                SmartPaywallView()
+                    .environment(paywallService)
+                    .environment(subscriptionService)
+            }
         }
     }
 }
@@ -116,5 +135,6 @@ struct MixerView: View {
         .environment(AudioEngine())
         .environment(SavedMixesService())
         .environment(PaywallService())
+        .environment(SubscriptionService())
         .preferredColorScheme(.dark)
 }

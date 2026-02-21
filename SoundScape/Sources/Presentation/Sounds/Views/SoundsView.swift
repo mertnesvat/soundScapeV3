@@ -9,6 +9,7 @@ struct SoundsView: View {
     @Environment(PaywallService.self) private var paywallService
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(QuickStartPresetsService.self) private var quickStartPresetsService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
@@ -46,6 +47,9 @@ struct SoundsView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     if let viewModel = viewModel {
+                        // Quick Start Presets
+                        QuickStartPresetsView(allSounds: viewModel.sounds)
+
                         // Category Filter
                         CategoryFilterView(
                             selectedCategory: Binding(
@@ -174,6 +178,7 @@ struct SoundsView: View {
             .onChange(of: audioEngine.activeSounds.count) { oldCount, newCount in
                 if newCount == 0 && oldCount > 0 {
                     showMixerSheet = false
+                    quickStartPresetsService.clearActivePreset()
                 }
             }
             .onAppear {
@@ -300,5 +305,6 @@ struct SoundsView: View {
         .environment(MotionService())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(QuickStartPresetsService())
         .preferredColorScheme(.dark)
 }
