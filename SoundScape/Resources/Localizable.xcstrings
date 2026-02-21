@@ -10740,6 +10740,61 @@
           }
         }
       }
+    },
+    "What brings you here?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What brings you here?"
+          }
+        }
+      }
+    },
+    "Your %@ Mix" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your %@ Mix"
+          }
+        }
+      }
+    },
+    "This is your soundscape" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is your soundscape"
+          }
+        }
+      }
+    },
+    "Adjust volumes, explore more sounds, or save this mix for later." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adjust volumes, explore more sounds, or save this mix for later."
+          }
+        }
+      }
+    },
+    "Start Exploring" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Exploring"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"

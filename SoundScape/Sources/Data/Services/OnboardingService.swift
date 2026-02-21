@@ -38,6 +38,18 @@ final class OnboardingService {
         saveProfile()
     }
 
+    func setUserIntent(_ intent: UserIntent) {
+        profile.userIntent = intent
+        saveProfile()
+    }
+
+    func soundsForIntent(_ intent: UserIntent) -> [Sound] {
+        let allSounds = LocalSoundDataSource.shared.getAllSounds()
+        return intent.soundIds.compactMap { id in
+            allSounds.first { $0.id == id }
+        }
+    }
+
     func completeOnboarding() {
         profile.hasCompletedOnboarding = true
         profile.completedAt = Date()

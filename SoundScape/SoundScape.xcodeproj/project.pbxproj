@@ -211,6 +211,9 @@
 		3F6DCBBDFFC5A40F917C9508 /* OnboardingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD4C86DDD10FA9A93DE98D /* OnboardingProfile.swift */; };
 		70DC78193E0FCB572E72415F /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C0B408C4BCCFBE34B44DB /* OnboardingService.swift */; };
 		C66B7F40B2557912223CF998 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEC6A0E896B561BC9D739CF /* OnboardingContainerView.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* OnboardingIntentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C60718293A4B5D /* OnboardingIntentView.swift */; };
+		A2B3C4D5E6F70829304B5C6D /* OnboardingSoundPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3F4A5B6C70829304B5C6E /* OnboardingSoundPreviewView.swift */; };
+		A3B4C5D6E7F8093A415C6D7E /* OnboardingCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4F5A6B7C8093A415C6D7F /* OnboardingCompleteView.swift */; };
 		779959174996A6AD40CDAA2B /* OnboardingWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1CE02E93CBD1D72F33CCE /* OnboardingWelcomeView.swift */; };
 		643FDD53319FC09246E72F54 /* OnboardingQuizGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04938D4D27D2F50C08EA99B /* OnboardingQuizGoalView.swift */; };
 		DE7C2A208ADBAF5A6C1165E8 /* OnboardingQuizChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EB7A609960D2EEFA697DD /* OnboardingQuizChallengesView.swift */; };
@@ -472,6 +475,9 @@
 		05CD4C86DDD10FA9A93DE98D /* OnboardingProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfile.swift; sourceTree = "<group>"; };
 		9C3C0B408C4BCCFBE34B44DB /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		3BEC6A0E896B561BC9D739CF /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		D1E2F3A4B5C60718293A4B5D /* OnboardingIntentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntentView.swift; sourceTree = "<group>"; };
+		D2E3F4A5B6C70829304B5C6E /* OnboardingSoundPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSoundPreviewView.swift; sourceTree = "<group>"; };
+		D3E4F5A6B7C8093A415C6D7F /* OnboardingCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteView.swift; sourceTree = "<group>"; };
 		D0A1CE02E93CBD1D72F33CCE /* OnboardingWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeView.swift; sourceTree = "<group>"; };
 		D04938D4D27D2F50C08EA99B /* OnboardingQuizGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuizGoalView.swift; sourceTree = "<group>"; };
 		198EB7A609960D2EEFA697DD /* OnboardingQuizChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuizChallengesView.swift; sourceTree = "<group>"; };
@@ -1175,7 +1181,10 @@
 				58F4C65670B6A8FFE90FFBF8 /* OnboardingReviewsView.swift */,
 				19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */,
 				96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */,
-				5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */
+				5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */,
+				D1E2F3A4B5C60718293A4B5D /* OnboardingIntentView.swift */,
+				D2E3F4A5B6C70829304B5C6E /* OnboardingSoundPreviewView.swift */,
+				D3E4F5A6B7C8093A415C6D7F /* OnboardingCompleteView.swift */
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1509,6 +1518,9 @@
 				3F6DCBBDFFC5A40F917C9508 /* OnboardingProfile.swift in Sources */,
 				70DC78193E0FCB572E72415F /* OnboardingService.swift in Sources */,
 				C66B7F40B2557912223CF998 /* OnboardingContainerView.swift in Sources */,
+				A1B2C3D4E5F60718293A4B5C /* OnboardingIntentView.swift in Sources */,
+				A2B3C4D5E6F70829304B5C6D /* OnboardingSoundPreviewView.swift in Sources */,
+				A3B4C5D6E7F8093A415C6D7E /* OnboardingCompleteView.swift in Sources */,
 				779959174996A6AD40CDAA2B /* OnboardingWelcomeView.swift in Sources */,
 				643FDD53319FC09246E72F54 /* OnboardingQuizGoalView.swift in Sources */,
 				DE7C2A208ADBAF5A6C1165E8 /* OnboardingQuizChallengesView.swift in Sources */,
