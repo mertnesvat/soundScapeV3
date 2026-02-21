@@ -16,6 +16,7 @@ final class AudioEngine: AudioPlayerProtocol {
     private var insightsService: InsightsService?
     private var analyticsService: AnalyticsService?
     private var reviewPromptService: ReviewPromptService?
+    private var onboardingService: OnboardingService?
 
     // Track if we were playing before an interruption
     private var wasPlayingBeforeInterruption = false
@@ -48,6 +49,10 @@ final class AudioEngine: AudioPlayerProtocol {
 
     func setReviewPromptService(_ service: ReviewPromptService) {
         self.reviewPromptService = service
+    }
+
+    func setOnboardingService(_ service: OnboardingService) {
+        self.onboardingService = service
     }
 
     // MARK: - Audio Session Configuration
@@ -202,6 +207,9 @@ final class AudioEngine: AudioPlayerProtocol {
                 category: sound.category.rawValue,
                 volume: 0.7
             )
+
+            // Track first sound played time for onboarding analytics
+            onboardingService?.trackFirstSoundPlayed()
 
             // Start session tracking if this is the first sound
             if sessionStartTime == nil {

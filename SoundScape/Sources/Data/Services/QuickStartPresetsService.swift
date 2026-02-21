@@ -5,11 +5,16 @@ import Foundation
 final class QuickStartPresetsService {
     private(set) var isCollapsed: Bool
     private(set) var activePresetId: String?
+    private var analyticsService: AnalyticsService?
 
     private let collapsedKey = "quick_start_presets_collapsed"
 
     init() {
         isCollapsed = UserDefaults.standard.bool(forKey: collapsedKey)
+    }
+
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
     }
 
     var presets: [SoundPreset] {
@@ -35,6 +40,7 @@ final class QuickStartPresetsService {
         }
 
         activePresetId = preset.id
+        analyticsService?.logPresetPlayed(presetName: preset.name)
     }
 
     func clearActivePreset() {

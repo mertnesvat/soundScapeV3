@@ -68,6 +68,15 @@ final class AnalyticsService {
         case settingsOpened = "settings_opened"
         case sleepBuddyInterestShown = "sleep_buddy_interest_shown"
 
+        // Onboarding events
+        case onboardingStarted = "onboarding_started"
+        case onboardingStepCompleted = "onboarding_step_completed"
+        case onboardingCompleted = "onboarding_completed"
+        case onboardingSkipped = "onboarding_skipped"
+        case intentSelected = "intent_selected"
+        case presetPlayed = "preset_played"
+        case firstSoundPlayedTime = "first_sound_played_time"
+
         // Paywall events
         case paywallShown = "paywall_shown"
         case paywallDismissed = "paywall_dismissed"
@@ -104,6 +113,10 @@ final class AnalyticsService {
         case placement = "placement"
         case paywallSourceName = "paywall_source"
         case errorMessage = "error_message"
+        case stepNumber = "step_number"
+        case intentCategory = "intent_category"
+        case presetName = "preset_name"
+        case secondsFromLaunch = "seconds_from_launch"
     }
 
     // MARK: - Initialization
@@ -335,6 +348,46 @@ final class AnalyticsService {
     func logSleepBuddyInterestShown() {
         logEvent(.sleepBuddyInterestShown, parameters: [
             .featureName: "sleep_buddy"
+        ])
+    }
+
+    // MARK: - Onboarding Events
+
+    func logOnboardingStarted() {
+        logEvent(.onboardingStarted)
+    }
+
+    func logOnboardingStepCompleted(step: Int) {
+        logEvent(.onboardingStepCompleted, parameters: [
+            .stepNumber: step
+        ])
+    }
+
+    func logOnboardingCompleted() {
+        logEvent(.onboardingCompleted)
+    }
+
+    func logOnboardingSkipped(atStep step: Int) {
+        logEvent(.onboardingSkipped, parameters: [
+            .stepNumber: step
+        ])
+    }
+
+    func logIntentSelected(category: String) {
+        logEvent(.intentSelected, parameters: [
+            .intentCategory: category
+        ])
+    }
+
+    func logPresetPlayed(presetName: String) {
+        logEvent(.presetPlayed, parameters: [
+            .presetName: presetName
+        ])
+    }
+
+    func logFirstSoundPlayedTime(seconds: Int) {
+        logEvent(.firstSoundPlayedTime, parameters: [
+            .secondsFromLaunch: seconds
         ])
     }
 

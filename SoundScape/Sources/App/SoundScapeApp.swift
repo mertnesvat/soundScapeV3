@@ -97,6 +97,11 @@ struct SoundScapeApp: App {
                     // Wire up SleepRecordingService to AudioEngine for sound-aware recording
                     sleepRecordingService.setAudioEngine(audioEngine)
 
+                    // Wire up OnboardingService and QuickStartPresetsService to AnalyticsService
+                    onboardingService.setAnalyticsService(analyticsService)
+                    quickStartPresetsService.setAnalyticsService(analyticsService)
+                    audioEngine.setOnboardingService(onboardingService)
+
                     // Wire up PaywallService to AnalyticsService and SubscriptionService
                     paywallService.setSubscriptionService(subscriptionService)
                     paywallService.setAnalyticsService(analyticsService)

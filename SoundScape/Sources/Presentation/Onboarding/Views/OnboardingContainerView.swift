@@ -4,6 +4,7 @@ struct OnboardingContainerView: View {
     @Environment(OnboardingService.self) private var onboardingService
     @State private var currentStep: OnboardingStep = .intent
     @State private var selectedIntent: UserIntent?
+    @State private var hasTrackedStart = false
 
     enum OnboardingStep: Int, CaseIterable {
         case intent = 0
@@ -28,17 +29,22 @@ struct OnboardingContainerView: View {
                     OnboardingIntentView(
                         onContinue: { intent in
                             selectedIntent = intent
+                            onboardingService.trackIntentSelected(category: intent.rawValue)
+                            onboardingService.trackStepCompleted(OnboardingStep.intent.rawValue + 1)
                             nextStep()
                         },
-                        onSkip: skipOnboarding
+                        onSkip: { skipOnboarding(atStep: OnboardingStep.intent.rawValue + 1) }
                     )
                     .tag(OnboardingStep.intent)
 
                     if let intent = selectedIntent {
                         OnboardingSoundPreviewView(
                             intent: intent,
-                            onContinue: nextStep,
-                            onSkip: skipOnboarding
+                            onContinue: {
+                                onboardingService.trackStepCompleted(OnboardingStep.soundPreview.rawValue + 1)
+                                nextStep()
+                            },
+                            onSkip: { skipOnboarding(atStep: OnboardingStep.soundPreview.rawValue + 1) }
                         )
                         .tag(OnboardingStep.soundPreview)
                     }
@@ -53,6 +59,12 @@ struct OnboardingContainerView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            if !hasTrackedStart {
+                hasTrackedStart = true
+                onboardingService.trackOnboardingStarted()
+            }
+        }
     }
 
     private func nextStep() {
@@ -63,11 +75,13 @@ struct OnboardingContainerView: View {
         }
     }
 
-    private func skipOnboarding() {
+    private func skipOnboarding(atStep step: Int) {
+        onboardingService.trackOnboardingSkipped(atStep: step)
         onboardingService.completeOnboarding()
     }
 
     private func completeOnboarding() {
+        onboardingService.trackStepCompleted(OnboardingStep.complete.rawValue + 1)
         onboardingService.completeOnboarding()
     }
 }

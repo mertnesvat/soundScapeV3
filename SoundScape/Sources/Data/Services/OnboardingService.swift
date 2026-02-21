@@ -4,7 +4,10 @@ import Foundation
 @MainActor
 final class OnboardingService {
     private let profileKey = "onboarding_profile"
+    private let firstLaunchKey = "onboarding_first_launch_time"
+    private let firstSoundTrackedKey = "onboarding_first_sound_tracked"
     private(set) var profile: OnboardingProfile
+    private var analyticsService: AnalyticsService?
 
     var hasCompletedOnboarding: Bool {
         profile.hasCompletedOnboarding
@@ -17,6 +20,46 @@ final class OnboardingService {
         } else {
             self.profile = OnboardingProfile()
         }
+    }
+
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
+    }
+
+    // MARK: - First Launch Tracking
+
+    func recordFirstLaunchIfNeeded() {
+        if UserDefaults.standard.object(forKey: firstLaunchKey) == nil {
+            UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: firstLaunchKey)
+        }
+    }
+
+    func trackFirstSoundPlayed() {
+        guard !UserDefaults.standard.bool(forKey: firstSoundTrackedKey) else { return }
+        guard let launchTime = UserDefaults.standard.object(forKey: firstLaunchKey) as? TimeInterval else { return }
+
+        let elapsed = Int(Date().timeIntervalSince1970 - launchTime)
+        analyticsService?.logFirstSoundPlayedTime(seconds: elapsed)
+        UserDefaults.standard.set(true, forKey: firstSoundTrackedKey)
+    }
+
+    // MARK: - Onboarding Analytics
+
+    func trackOnboardingStarted() {
+        recordFirstLaunchIfNeeded()
+        analyticsService?.logOnboardingStarted()
+    }
+
+    func trackStepCompleted(_ step: Int) {
+        analyticsService?.logOnboardingStepCompleted(step: step)
+    }
+
+    func trackOnboardingSkipped(atStep step: Int) {
+        analyticsService?.logOnboardingSkipped(atStep: step)
+    }
+
+    func trackIntentSelected(category: String) {
+        analyticsService?.logIntentSelected(category: category)
     }
 
     func setSleepGoal(_ goal: OnboardingSleepGoal) {
@@ -54,6 +97,7 @@ final class OnboardingService {
         profile.hasCompletedOnboarding = true
         profile.completedAt = Date()
         saveProfile()
+        analyticsService?.logOnboardingCompleted()
     }
 
     func resetOnboarding() {

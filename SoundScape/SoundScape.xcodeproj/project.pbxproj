@@ -12,6 +12,7 @@
 		FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */; };
 		FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0004 /* AppDelegateTests.swift */; };
 		ONBTEST001 /* OnboardingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBTEST002 /* OnboardingServiceTests.swift */; };
+		ONBANLY001 /* OnboardingAnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBANLY002 /* OnboardingAnalyticsTests.swift */; };
 		FB96EB9100000001 /* SoundScapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000011 /* SoundScapeApp.swift */; };
 		FB96EB9100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000012 /* ContentView.swift */; };
 		FB96EB9100000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000013 /* Assets.xcassets */; };
@@ -275,6 +276,7 @@
 		SMPW0002 /* SmartPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPaywallView.swift; sourceTree = "<group>"; };
 		SMPW0004 /* DelayedSmartPaywallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedSmartPaywallTests.swift; sourceTree = "<group>"; };
 		ONBTEST002 /* OnboardingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingServiceTests.swift; sourceTree = "<group>"; };
+		ONBANLY002 /* OnboardingAnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAnalyticsTests.swift; sourceTree = "<group>"; };
 		FB96EB9100000011 /* SoundScapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeApp.swift; sourceTree = "<group>"; };
 		FB96EB9100000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FB96EB9100000013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1098,6 +1100,7 @@
 				FB96EB91000000U8 /* AlarmTests.swift */,
 				FB96EB91ASMR0031 /* LocalSoundDataSourceTests.swift */,
 				ONBTEST002 /* OnboardingServiceTests.swift */,
+				ONBANLY002 /* OnboardingAnalyticsTests.swift */,
 				PREMTST002 /* PremiumManagerTests.swift */,
 				PAYWLLTST002 /* PaywallServiceTests.swift */,
 				SUBSCTST002 /* SubscriptionServiceTests.swift */,
@@ -1590,6 +1593,7 @@
 				FB96EB91000000T8 /* AlarmTests.swift in Sources */,
 				FB96EB91ASMR0030 /* LocalSoundDataSourceTests.swift in Sources */,
 				ONBTEST001 /* OnboardingServiceTests.swift in Sources */,
+				ONBANLY001 /* OnboardingAnalyticsTests.swift in Sources */,
 				PREMTST001 /* PremiumManagerTests.swift in Sources */,
 				PAYWLLTST001 /* PaywallServiceTests.swift in Sources */,
 				SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */,
