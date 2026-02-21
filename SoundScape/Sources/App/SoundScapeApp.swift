@@ -23,6 +23,7 @@ struct SoundScapeApp: App {
     @State private var subscriptionService = SubscriptionService()
     @State private var paywallService = PaywallService()
     @State private var sleepRecordingService = SleepRecordingService()
+    @State private var quickStartPresetsService = QuickStartPresetsService()
     @State private var premiumManager: PremiumManager?
 
     init() {
@@ -57,6 +58,7 @@ struct SoundScapeApp: App {
             .environment(subscriptionService)
             .environment(paywallService)
             .environment(sleepRecordingService)
+            .environment(quickStartPresetsService)
             .environment(premiumManager ?? createPremiumManager())
             .preferredColorScheme(.dark)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in

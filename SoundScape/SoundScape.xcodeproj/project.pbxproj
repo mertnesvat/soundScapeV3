@@ -234,6 +234,10 @@
 		FB96EB91ALRM0001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0002 /* AppDelegate.swift */; };
 		FB96EB91ALRM0003 /* AlarmNotificationSoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */; };
 		FB96EB91ALRM0005 /* AlarmRingingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0006 /* AlarmRingingView.swift */; };
+		QKST0001 /* SoundPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = QKST0002 /* SoundPreset.swift */; };
+		QKST0003 /* QuickStartPresetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = QKST0004 /* QuickStartPresetsService.swift */; };
+		QKST0005 /* QuickStartPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QKST0006 /* QuickStartPresetsView.swift */; };
+		QKST0007 /* QuickStartPresetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = QKST0008 /* QuickStartPresetsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -500,6 +504,10 @@
 		FB96EB91ALRM0002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationSoundManager.swift; sourceTree = "<group>"; };
 		FB96EB91ALRM0006 /* AlarmRingingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRingingView.swift; sourceTree = "<group>"; };
+		QKST0002 /* SoundPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPreset.swift; sourceTree = "<group>"; };
+		QKST0004 /* QuickStartPresetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickStartPresetsService.swift; sourceTree = "<group>"; };
+		QKST0006 /* QuickStartPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickStartPresetsView.swift; sourceTree = "<group>"; };
+		QKST0008 /* QuickStartPresetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickStartPresetsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -722,6 +730,7 @@
 				FB96EB91BUDDY002 /* SleepBuddy.swift */,
 				FB96EB91SLPC0002 /* SleepContent.swift */,
 				FB96EB91SLREC002 /* SleepRecording.swift */,
+				QKST0002 /* SoundPreset.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -829,6 +838,7 @@
 				FB96EB91000000B6 /* SoundsView.swift */,
 				FB96EB91000000B7 /* SoundCardView.swift */,
 				FB96EB91000000B8 /* CategoryFilterView.swift */,
+				QKST0006 /* QuickStartPresetsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -875,6 +885,7 @@
 				FB96EB91ALRM0004 /* AlarmNotificationSoundManager.swift */,
 				FB96EB91SLREC004 /* SleepRecordingService.swift */,
 				FB96EB91SLREC006 /* SoundEventDetector.swift */,
+				QKST0004 /* QuickStartPresetsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1096,6 +1107,7 @@
 				FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */,
 				FB96EB91SLRECT06 /* SoundEventDetectorTests.swift */,
 				SMPW0004 /* DelayedSmartPaywallTests.swift */,
+				QKST0008 /* QuickStartPresetsTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1558,6 +1570,9 @@
 				F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */,
 				FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */,
 				19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */,
+				QKST0001 /* SoundPreset.swift in Sources */,
+				QKST0003 /* QuickStartPresetsService.swift in Sources */,
+				QKST0005 /* QuickStartPresetsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1584,6 +1599,7 @@
 				FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */,
 				FB96EB91SLRECT05 /* SoundEventDetectorTests.swift in Sources */,
 				SMPW0003 /* DelayedSmartPaywallTests.swift in Sources */,
+				QKST0007 /* QuickStartPresetsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
