@@ -99,6 +99,9 @@ struct SoundScapeApp: App {
                     paywallService.setSubscriptionService(subscriptionService)
                     paywallService.setAnalyticsService(analyticsService)
 
+                    // Record session for delayed smart paywall tracking
+                    paywallService.recordSession()
+
                     // Initialize PremiumManager with PaywallService
                     if premiumManager == nil {
                         premiumManager = PremiumManager(paywallService: paywallService)

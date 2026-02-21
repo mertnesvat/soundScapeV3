@@ -10795,6 +10795,259 @@
           }
         }
       }
+    },
+    "Unlock Your Full Sleep Experience" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock Your Full Sleep Experience"
+          }
+        }
+      }
+    },
+    "You've been enjoying SoundScape — upgrade to unlock everything" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've been enjoying SoundScape — upgrade to unlock everything"
+          }
+        }
+      }
+    },
+    "What You'll Get" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What You'll Get"
+          }
+        }
+      }
+    },
+    "Unlimited Sound Mixes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimited Sound Mixes"
+          }
+        }
+      }
+    },
+    "Save as many mixes as you want" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save as many mixes as you want"
+          }
+        }
+      }
+    },
+    "Binaural Beats" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Binaural Beats"
+          }
+        }
+      }
+    },
+    "All brainwave states including Gamma" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All brainwave states including Gamma"
+          }
+        }
+      }
+    },
+    "Sleep Stories & Wind Down" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleep Stories & Wind Down"
+          }
+        }
+      }
+    },
+    "Full library of stories, yoga nidra & hypnosis" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full library of stories, yoga nidra & hypnosis"
+          }
+        }
+      }
+    },
+    "Sleep Recording" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleep Recording"
+          }
+        }
+      }
+    },
+    "Record and analyze your sleep sounds" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record and analyze your sleep sounds"
+          }
+        }
+      }
+    },
+    "Advanced Insights" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced Insights"
+          }
+        }
+      }
+    },
+    "Detailed sleep analytics and trends" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed sleep analytics and trends"
+          }
+        }
+      }
+    },
+    "All Premium Sounds" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Premium Sounds"
+          }
+        }
+      }
+    },
+    "Access the complete sound library" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access the complete sound library"
+          }
+        }
+      }
+    },
+    "Try Free for 7 Days" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try Free for 7 Days"
+          }
+        }
+      }
+    },
+    "Cancel anytime during your trial — no charge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel anytime during your trial — no charge"
+          }
+        }
+      }
+    },
+    "Start Free Trial" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Free Trial"
+          }
+        }
+      }
+    },
+    "Not Now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Now"
+          }
+        }
+      }
+    },
+    "Loading subscription options..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading subscription options..."
+          }
+        }
+      }
+    },
+    "Purchase Error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase Error"
+          }
+        }
+      }
+    },
+    "Processing..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Processing..."
+          }
+        }
+      }
+    },
+    "Billed monthly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Billed monthly"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"

@@ -32,8 +32,36 @@ final class PaywallService {
     /// Resets to false on dismiss, purchase success, or purchase error.
     var showPaywall: Bool = false
 
-    init() {
-        // SubscriptionService will be injected via setSubscriptionService
+    // MARK: - Delayed Smart Paywall
+
+    /// Number of sessions before the paywall is shown to new users.
+    static let gracePeriodSessions = 3
+
+    /// Maximum number of free saved mixes before triggering the paywall.
+    static let freeSavedMixesLimit = 3
+
+    private let userDefaults: UserDefaults
+
+    private static let sessionCountKey = "paywall_session_count"
+
+    /// Current session count persisted across launches.
+    private(set) var sessionCount: Int {
+        didSet { userDefaults.set(sessionCount, forKey: Self.sessionCountKey) }
+    }
+
+    /// Whether the grace period is still active (user has not yet reached the session threshold).
+    var isInGracePeriod: Bool {
+        sessionCount < Self.gracePeriodSessions
+    }
+
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+        self.sessionCount = userDefaults.integer(forKey: Self.sessionCountKey)
+    }
+
+    /// Call once per app launch to increment the session counter.
+    func recordSession() {
+        sessionCount += 1
     }
 
     /// Sets the SubscriptionService dependency
@@ -66,6 +94,29 @@ final class PaywallService {
         }
 
         // Signal the view layer to present the paywall sheet
+        showPaywall = true
+    }
+
+    /// Triggers the paywall only if the grace period has elapsed.
+    /// During the grace period the `onGranted` closure is called immediately,
+    /// allowing new users to explore premium features freely.
+    func triggerSmartPaywall(source: String, onGranted: @escaping () -> Void) {
+        if isPremium {
+            onGranted()
+            return
+        }
+
+        if isInGracePeriod {
+            onGranted()
+            return
+        }
+
+        analyticsService?.logPaywallShown(placement: source)
+        analyticsService?.logPaywallSource(source)
+
+        currentPaywallPlacement = source
+        paywallCompletionHandler = onGranted
+
         showPaywall = true
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		SMPW0001 /* SmartPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SMPW0002 /* SmartPaywallView.swift */; };
+		SMPW0003 /* DelayedSmartPaywallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SMPW0004 /* DelayedSmartPaywallTests.swift */; };
 		FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */; };
 		FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0004 /* AppDelegateTests.swift */; };
 		ONBTEST001 /* OnboardingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBTEST002 /* OnboardingServiceTests.swift */; };
@@ -266,6 +268,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		SMPW0002 /* SmartPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPaywallView.swift; sourceTree = "<group>"; };
+		SMPW0004 /* DelayedSmartPaywallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedSmartPaywallTests.swift; sourceTree = "<group>"; };
 		ONBTEST002 /* OnboardingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB9100000011 /* SoundScapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeApp.swift; sourceTree = "<group>"; };
 		FB96EB9100000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -621,9 +625,26 @@
 				FB96EB91000000PJ /* Insights */,
 				FB96EB91000000SA /* Settings */,
 				FB96EB91BUDDY00B /* SleepBuddy */,
+				SMPW0010 /* Paywall */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		SMPW0010 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				SMPW0011 /* Views */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
+		SMPW0011 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				SMPW0002 /* SmartPaywallView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FB96EB9100000048 /* Sounds */ = {
@@ -1074,6 +1095,7 @@
 				FB96EB91SLRECT02 /* SleepRecordingTests.swift */,
 				FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */,
 				FB96EB91SLRECT06 /* SoundEventDetectorTests.swift */,
+				SMPW0004 /* DelayedSmartPaywallTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1414,6 +1436,7 @@
 				FB96EB91PAYWAL01 /* PaywallService.swift in Sources */,
 				FB96EB91SUBSC001 /* SubscriptionService.swift in Sources */,
 				FB96EB91PREMM001 /* PremiumManager.swift in Sources */,
+				SMPW0001 /* SmartPaywallView.swift in Sources */,
 				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
 				FB96EB91000000J1 /* SavedMix.swift in Sources */,
 				FB96EB91000000J3 /* SavedMixesService.swift in Sources */,
@@ -1560,6 +1583,7 @@
 				FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */,
 				FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */,
 				FB96EB91SLRECT05 /* SoundEventDetectorTests.swift in Sources */,
+				SMPW0003 /* DelayedSmartPaywallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

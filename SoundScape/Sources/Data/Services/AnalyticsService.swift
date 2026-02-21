@@ -75,6 +75,7 @@ final class AnalyticsService {
         case purchaseCompleted = "purchase_completed"
         case purchaseRestored = "purchase_restored"
         case paywallError = "paywall_error"
+        case paywallSource = "paywall_source"
     }
 
     // MARK: - Parameter Keys
@@ -101,6 +102,7 @@ final class AnalyticsService {
         case timeToSleep = "time_to_sleep_minutes"
         case featureName = "feature_name"
         case placement = "placement"
+        case paywallSourceName = "paywall_source"
         case errorMessage = "error_message"
     }
 
@@ -370,6 +372,12 @@ final class AnalyticsService {
         logEvent(.paywallError, parameters: [
             .placement: placement,
             .errorMessage: error
+        ])
+    }
+
+    func logPaywallSource(_ source: String) {
+        logEvent(.paywallSource, parameters: [
+            .paywallSourceName: source
         ])
     }
 

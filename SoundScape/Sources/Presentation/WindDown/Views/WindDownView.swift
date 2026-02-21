@@ -160,7 +160,7 @@ struct WindDownView: View {
                             onContentTap: { content in
                                 let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: content.id))
                                 if isLocked {
-                                    paywallService.triggerPaywall(placement: "premium_winddown") {
+                                    paywallService.triggerSmartPaywall(source: "sleep_stories") {
                                         playContent(content)
                                     }
                                 } else {
@@ -169,7 +169,7 @@ struct WindDownView: View {
                             },
                             progressForContent: { progressFraction(for: $0) },
                             isContentLocked: { premiumManager.isPremiumRequired(for: .windDownContent(id: $0.id)) },
-                            onLockedTap: { paywallService.triggerPaywall(placement: "premium_winddown") {} }
+                            onLockedTap: { paywallService.triggerSmartPaywall(source: "sleep_stories") {} }
                         )
                     }
 
@@ -197,15 +197,9 @@ struct WindDownView: View {
                     }
                 }
             )) {
-                OnboardingPaywallView(
-                    onComplete: {
-                        paywallService.showPaywall = false
-                    },
-                    isPresented: true
-                )
-                .environment(onboardingService)
-                .environment(paywallService)
-                .environment(subscriptionService)
+                SmartPaywallView()
+                    .environment(paywallService)
+                    .environment(subscriptionService)
             }
         }
     }
@@ -268,14 +262,14 @@ struct WindDownView: View {
                 onTap: {
                     let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: featuredContent.id))
                     if isLocked {
-                        paywallService.triggerPaywall(placement: "premium_winddown") {
+                        paywallService.triggerSmartPaywall(source: "sleep_stories") {
                             playContent(featuredContent)
                         }
                     } else {
                         playContent(featuredContent)
                     }
                 },
-                onLockedTap: { paywallService.triggerPaywall(placement: "premium_winddown") {} }
+                onLockedTap: { paywallService.triggerSmartPaywall(source: "sleep_stories") {} }
             )
         }
     }

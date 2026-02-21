@@ -3,6 +3,8 @@ import SwiftUI
 struct SleepRecordingView: View {
     @Environment(SleepRecordingService.self) private var sleepRecordingService
     @Environment(AudioEngine.self) private var audioEngine
+    @Environment(PaywallService.self) private var paywallService
+    @Environment(SubscriptionService.self) private var subscriptionService
     @State private var selectedSegment = 0
     @State private var showSoundRecordingOptions = false
 
@@ -96,13 +98,15 @@ struct SleepRecordingView: View {
 
     private var recordButton: some View {
         Button {
-            if audioEngine.isAnyPlaying {
-                showSoundRecordingOptions = true
-            } else {
-                Task {
-                    let granted = await sleepRecordingService.requestMicrophonePermission()
-                    if granted {
-                        sleepRecordingService.startRecording()
+            paywallService.triggerSmartPaywall(source: "sleep_recording") {
+                if audioEngine.isAnyPlaying {
+                    showSoundRecordingOptions = true
+                } else {
+                    Task {
+                        let granted = await sleepRecordingService.requestMicrophonePermission()
+                        if granted {
+                            sleepRecordingService.startRecording()
+                        }
                     }
                 }
             }
@@ -121,6 +125,18 @@ struct SleepRecordingView: View {
         .sheet(isPresented: $showSoundRecordingOptions) {
             SoundAwareRecordingSheet()
         }
+        .sheet(isPresented: Binding(
+            get: { paywallService.showPaywall },
+            set: { newValue in
+                if !newValue {
+                    paywallService.handlePaywallDismissed()
+                }
+            }
+        )) {
+            SmartPaywallView()
+                .environment(paywallService)
+                .environment(subscriptionService)
+        }
     }
 }
 
@@ -128,5 +144,7 @@ struct SleepRecordingView: View {
     SleepRecordingView()
         .environment(SleepRecordingService())
         .environment(AudioEngine())
+        .environment(PaywallService())
+        .environment(SubscriptionService())
         .preferredColorScheme(.dark)
 }

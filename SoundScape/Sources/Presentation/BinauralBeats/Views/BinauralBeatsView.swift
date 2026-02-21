@@ -58,15 +58,9 @@ struct BinauralBeatsView: View {
                     }
                 }
             )) {
-                OnboardingPaywallView(
-                    onComplete: {
-                        paywallService.showPaywall = false
-                    },
-                    isPresented: true
-                )
-                .environment(onboardingService)
-                .environment(paywallService)
-                .environment(subscriptionService)
+                SmartPaywallView()
+                    .environment(paywallService)
+                    .environment(subscriptionService)
             }
         }
     }
@@ -124,7 +118,7 @@ struct BrainwaveStateSelectorView: View {
                         isLocked: isLocked
                     ) {
                         if isLocked {
-                            paywallService.triggerPaywall(placement: "premium_binaural") {
+                            paywallService.triggerSmartPaywall(source: "binaural_beats") {
                                 @Bindable var engine = beatEngine
                                 engine.brainwaveState = state
                                 beatEngine.updateSettings()
