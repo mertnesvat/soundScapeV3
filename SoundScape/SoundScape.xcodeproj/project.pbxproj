@@ -10,6 +10,11 @@
 		FB96EB91ALRT0001 /* AlarmNotificationSoundManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0002 /* AlarmNotificationSoundManagerTests.swift */; };
 		FB96EB91ALRT0003 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRT0004 /* AppDelegateTests.swift */; };
 		ONBTEST001 /* OnboardingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ONBTEST002 /* OnboardingServiceTests.swift */; };
+		ADPTST001 /* AdaptiveSessionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADPTST002 /* AdaptiveSessionServiceTests.swift */; };
+		RVWTST001 /* ReviewPromptServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RVWTST002 /* ReviewPromptServiceTests.swift */; };
+		STPTST001 /* StoryProgressServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = STPTST002 /* StoryProgressServiceTests.swift */; };
+		SRPTST001 /* SoundRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SRPTST002 /* SoundRepositoryTests.swift */; };
+		SLCTST001 /* SleepContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLCTST002 /* SleepContentTests.swift */; };
 		FB96EB9100000001 /* SoundScapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000011 /* SoundScapeApp.swift */; };
 		FB96EB9100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000012 /* ContentView.swift */; };
 		FB96EB9100000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000013 /* Assets.xcassets */; };
@@ -264,6 +269,11 @@
 
 /* Begin PBXFileReference section */
 		ONBTEST002 /* OnboardingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingServiceTests.swift; sourceTree = "<group>"; };
+		ADPTST002 /* AdaptiveSessionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveSessionServiceTests.swift; sourceTree = "<group>"; };
+		RVWTST002 /* ReviewPromptServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPromptServiceTests.swift; sourceTree = "<group>"; };
+		STPTST002 /* StoryProgressServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryProgressServiceTests.swift; sourceTree = "<group>"; };
+		SRPTST002 /* SoundRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepositoryTests.swift; sourceTree = "<group>"; };
+		SLCTST002 /* SleepContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentTests.swift; sourceTree = "<group>"; };
 		FB96EB9100000011 /* SoundScapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeApp.swift; sourceTree = "<group>"; };
 		FB96EB9100000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FB96EB9100000013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1068,6 +1078,11 @@
 				FB96EB91SLRECT02 /* SleepRecordingTests.swift */,
 				FB96EB91SLRECT04 /* SleepRecordingServiceTests.swift */,
 				FB96EB91SLRECT06 /* SoundEventDetectorTests.swift */,
+				ADPTST002 /* AdaptiveSessionServiceTests.swift */,
+				RVWTST002 /* ReviewPromptServiceTests.swift */,
+				STPTST002 /* StoryProgressServiceTests.swift */,
+				SRPTST002 /* SoundRepositoryTests.swift */,
+				SLCTST002 /* SleepContentTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1548,6 +1563,11 @@
 				FB96EB91SLRECT01 /* SleepRecordingTests.swift in Sources */,
 				FB96EB91SLRECT03 /* SleepRecordingServiceTests.swift in Sources */,
 				FB96EB91SLRECT05 /* SoundEventDetectorTests.swift in Sources */,
+				ADPTST001 /* AdaptiveSessionServiceTests.swift in Sources */,
+				RVWTST001 /* ReviewPromptServiceTests.swift in Sources */,
+				STPTST001 /* StoryProgressServiceTests.swift in Sources */,
+				SRPTST001 /* SoundRepositoryTests.swift in Sources */,
+				SLCTST001 /* SleepContentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
