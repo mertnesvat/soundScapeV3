@@ -75,6 +75,7 @@ final class AnalyticsService {
         case purchaseCompleted = "purchase_completed"
         case purchaseRestored = "purchase_restored"
         case paywallError = "paywall_error"
+        case paywallSuppressed = "paywall_suppressed"
     }
 
     // MARK: - Parameter Keys
@@ -102,6 +103,8 @@ final class AnalyticsService {
         case featureName = "feature_name"
         case placement = "placement"
         case errorMessage = "error_message"
+        case reason = "reason"
+        case triggerSource = "trigger_source"
     }
 
     // MARK: - Initialization
@@ -370,6 +373,13 @@ final class AnalyticsService {
         logEvent(.paywallError, parameters: [
             .placement: placement,
             .errorMessage: error
+        ])
+    }
+
+    func logPaywallSuppressed(reason: String, triggerSource: String) {
+        logEvent(.paywallSuppressed, parameters: [
+            .reason: reason,
+            .triggerSource: triggerSource
         ])
     }
 

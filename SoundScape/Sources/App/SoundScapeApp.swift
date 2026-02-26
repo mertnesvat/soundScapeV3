@@ -69,6 +69,9 @@ struct SoundScapeApp: App {
                     // Configure Firebase Analytics
                     analyticsService.configure()
 
+                    // Increment session count for paywall throttling
+                    paywallService.incrementSessionCount()
+
                     // Wire up services to AnalyticsService and ReviewPromptService
                     reviewPromptService.setAnalyticsService(analyticsService)
                     audioEngine.setAnalyticsService(analyticsService)
