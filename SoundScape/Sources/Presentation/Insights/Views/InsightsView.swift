@@ -6,6 +6,7 @@ struct InsightsView: View {
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
 
     private var isPremiumRequired: Bool {
         premiumManager.isPremiumRequired(for: .fullInsights)
@@ -65,6 +66,9 @@ struct InsightsView: View {
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizedStringKey("Insights"))
+            .onAppear {
+                analyticsService.logInsightsTabOpened(hasData: insightsService.totalSessions > 0)
+            }
             .sheet(isPresented: Binding(
                 get: { paywallService.showPaywall },
                 set: { newValue in
@@ -242,6 +246,7 @@ struct InsightsView: View {
         .environment(InsightsService())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }
 
@@ -251,5 +256,6 @@ struct InsightsView: View {
         .environment(InsightsService())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }

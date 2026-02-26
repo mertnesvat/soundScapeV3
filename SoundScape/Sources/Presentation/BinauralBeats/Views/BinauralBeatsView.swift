@@ -5,7 +5,9 @@ struct BinauralBeatsView: View {
     @Environment(PaywallService.self) private var paywallService
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var showScienceSheet = false
+    @State private var binauralSessionStart: Date?
 
     var body: some View {
         NavigationStack {
@@ -50,6 +52,21 @@ struct BinauralBeatsView: View {
                 SoundScienceView()
             }
             .background(Color(.systemGroupedBackground))
+            .onAppear {
+                analyticsService.logBinauralTabOpened()
+            }
+            .onChange(of: beatEngine.isPlaying) { _, isPlaying in
+                if isPlaying {
+                    binauralSessionStart = Date()
+                } else if let start = binauralSessionStart {
+                    let duration = Date().timeIntervalSince(start)
+                    analyticsService.logBinauralSessionEnded(
+                        state: beatEngine.brainwaveState.rawValue,
+                        duration: duration
+                    )
+                    binauralSessionStart = nil
+                }
+            }
             .sheet(isPresented: Binding(
                 get: { paywallService.showPaywall },
                 set: { newValue in
@@ -104,6 +121,7 @@ struct BrainwaveStateSelectorView: View {
     @Environment(BinauralBeatEngine.self) private var beatEngine
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(PaywallService.self) private var paywallService
+    @Environment(AnalyticsService.self) private var analyticsService
 
     private let columns = [
         GridItem(.flexible()),
@@ -123,6 +141,10 @@ struct BrainwaveStateSelectorView: View {
                         isSelected: beatEngine.brainwaveState == state,
                         isLocked: isLocked
                     ) {
+                        analyticsService.logBinauralStateSelected(
+                            state: state.rawValue,
+                            isPremium: isLocked
+                        )
                         if isLocked {
                             paywallService.triggerPaywall(placement: "premium_binaural") {
                                 @Bindable var engine = beatEngine
@@ -363,5 +385,6 @@ struct BinauralPlayButton: View {
         .environment(BinauralBeatEngine())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }
