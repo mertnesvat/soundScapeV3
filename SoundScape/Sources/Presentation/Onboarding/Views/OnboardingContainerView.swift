@@ -4,7 +4,10 @@ struct OnboardingContainerView: View {
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(PaywallService.self) private var paywallService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var currentStep: OnboardingStep = .welcome
+    @State private var onboardingStartTime: Date = .now
+    @State private var stepStartTime: Date = .now
 
     enum OnboardingStep: Int, CaseIterable {
         case welcome = 0
@@ -15,6 +18,16 @@ struct OnboardingContainerView: View {
 
         var progress: Double {
             Double(rawValue) / Double(OnboardingStep.allCases.count - 1)
+        }
+
+        var name: String {
+            switch self {
+            case .welcome: return "welcome"
+            case .quizGoal: return "goal"
+            case .quizChallenges: return "challenges"
+            case .guidedFirstSound: return "guided_first_sound"
+            case .complete: return "complete"
+            }
         }
     }
 
@@ -65,6 +78,29 @@ struct OnboardingContainerView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            onboardingStartTime = Date()
+            stepStartTime = Date()
+            analyticsService.logOnboardingStarted(source: "fresh_install")
+            analyticsService.logOnboardingStepViewed(stepNumber: 0, stepName: "welcome")
+        }
+        .onChange(of: currentStep) { oldStep, newStep in
+            // Log completion of previous step
+            let stepDuration = Date().timeIntervalSince(stepStartTime)
+            analyticsService.logOnboardingStepCompleted(
+                stepNumber: oldStep.rawValue,
+                stepName: oldStep.name,
+                duration: stepDuration
+            )
+
+            // Log viewing of new step
+            analyticsService.logOnboardingStepViewed(
+                stepNumber: newStep.rawValue,
+                stepName: newStep.name
+            )
+
+            stepStartTime = Date()
+        }
     }
 
     private func nextStep() {
@@ -84,6 +120,13 @@ struct OnboardingContainerView: View {
     }
 
     private func completeOnboarding() {
+        let totalDuration = Date().timeIntervalSince(onboardingStartTime)
+        let goal = onboardingService.profile.sleepGoal?.rawValue ?? "none"
+        analyticsService.logOnboardingCompleted(
+            totalDuration: totalDuration,
+            stepsCompleted: OnboardingStep.allCases.count,
+            goal: goal
+        )
         onboardingService.completeOnboarding()
     }
 }
@@ -94,4 +137,5 @@ struct OnboardingContainerView: View {
         .environment(PaywallService())
         .environment(SubscriptionService())
         .environment(AudioEngine())
+        .environment(AnalyticsService())
 }

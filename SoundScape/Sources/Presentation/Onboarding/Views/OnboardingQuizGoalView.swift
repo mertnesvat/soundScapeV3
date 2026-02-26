@@ -2,6 +2,7 @@ import SwiftUI
 
 struct OnboardingQuizGoalView: View {
     @Environment(OnboardingService.self) private var onboardingService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var selectedGoal: OnboardingSleepGoal?
     let onContinue: () -> Void
     let onBack: () -> Void
@@ -52,6 +53,7 @@ struct OnboardingQuizGoalView: View {
                                 selectedGoal = goal
                                 onboardingService.setSleepGoal(goal)
                             }
+                            analyticsService.logOnboardingGoalSelected(goal: goal.rawValue)
                             // Auto-advance after brief delay
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                                 onContinue()

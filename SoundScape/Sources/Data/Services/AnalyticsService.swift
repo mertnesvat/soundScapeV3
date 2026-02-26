@@ -76,6 +76,19 @@ final class AnalyticsService {
         case purchaseRestored = "purchase_restored"
         case paywallError = "paywall_error"
         case paywallSuppressed = "paywall_suppressed"
+
+        // Onboarding funnel events
+        case onboardingStarted = "onboarding_started"
+        case onboardingStepViewed = "onboarding_step_viewed"
+        case onboardingStepCompleted = "onboarding_step_completed"
+        case onboardingGoalSelected = "onboarding_goal_selected"
+        case onboardingChallengesSelected = "onboarding_challenges_selected"
+        case onboardingFirstSoundPlayed = "onboarding_first_sound_played"
+        case onboardingTutorialStepViewed = "onboarding_tutorial_step_viewed"
+        case onboardingTutorialSkipped = "onboarding_tutorial_skipped"
+        case onboardingTutorialCompleted = "onboarding_tutorial_completed"
+        case onboardingCompleted = "onboarding_completed"
+        case onboardingSkipped = "onboarding_skipped"
     }
 
     // MARK: - Parameter Keys
@@ -105,6 +118,18 @@ final class AnalyticsService {
         case errorMessage = "error_message"
         case reason = "reason"
         case triggerSource = "trigger_source"
+        case stepNumber = "step_number"
+        case stepName = "step_name"
+        case goal = "goal"
+        case challenges = "challenges"
+        case challengeCount = "challenge_count"
+        case source = "source"
+        case tutorialStep = "tutorial_step"
+        case tutorialStepName = "tutorial_step_name"
+        case skippedAtStep = "skipped_at_step"
+        case totalDuration = "total_duration_seconds"
+        case stepsCompleted = "steps_completed"
+        case goalSelected = "goal_selected"
     }
 
     // MARK: - Initialization
@@ -380,6 +405,84 @@ final class AnalyticsService {
         logEvent(.paywallSuppressed, parameters: [
             .reason: reason,
             .triggerSource: triggerSource
+        ])
+    }
+
+    // MARK: - Onboarding Funnel Events
+
+    func logOnboardingStarted(source: String) {
+        logEvent(.onboardingStarted, parameters: [
+            .source: source
+        ])
+    }
+
+    func logOnboardingStepViewed(stepNumber: Int, stepName: String) {
+        logEvent(.onboardingStepViewed, parameters: [
+            .stepNumber: stepNumber,
+            .stepName: stepName
+        ])
+    }
+
+    func logOnboardingStepCompleted(stepNumber: Int, stepName: String, duration: TimeInterval) {
+        logEvent(.onboardingStepCompleted, parameters: [
+            .stepNumber: stepNumber,
+            .stepName: stepName,
+            .duration: Int(duration)
+        ])
+    }
+
+    func logOnboardingGoalSelected(goal: String) {
+        logEvent(.onboardingGoalSelected, parameters: [
+            .goal: goal
+        ])
+    }
+
+    func logOnboardingChallengesSelected(challenges: String, count: Int) {
+        logEvent(.onboardingChallengesSelected, parameters: [
+            .challenges: challenges,
+            .challengeCount: count
+        ])
+    }
+
+    func logOnboardingFirstSoundPlayed(soundId: String, soundName: String, category: String) {
+        logEvent(.onboardingFirstSoundPlayed, parameters: [
+            .soundId: soundId,
+            .soundName: soundName,
+            .soundCategory: category
+        ])
+    }
+
+    func logOnboardingTutorialStepViewed(step: Int, stepName: String) {
+        logEvent(.onboardingTutorialStepViewed, parameters: [
+            .tutorialStep: step,
+            .tutorialStepName: stepName
+        ])
+    }
+
+    func logOnboardingTutorialSkipped(atStep: Int) {
+        logEvent(.onboardingTutorialSkipped, parameters: [
+            .skippedAtStep: atStep
+        ])
+    }
+
+    func logOnboardingTutorialCompleted(duration: TimeInterval) {
+        logEvent(.onboardingTutorialCompleted, parameters: [
+            .duration: Int(duration)
+        ])
+    }
+
+    func logOnboardingCompleted(totalDuration: TimeInterval, stepsCompleted: Int, goal: String) {
+        logEvent(.onboardingCompleted, parameters: [
+            .totalDuration: Int(totalDuration),
+            .stepsCompleted: stepsCompleted,
+            .goalSelected: goal
+        ])
+    }
+
+    func logOnboardingSkipped(atStepNumber: Int, stepName: String) {
+        logEvent(.onboardingSkipped, parameters: [
+            .stepNumber: atStepNumber,
+            .stepName: stepName
         ])
     }
 

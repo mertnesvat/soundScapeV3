@@ -3,12 +3,14 @@ import SwiftUI
 struct GuidedFirstSoundView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(OnboardingService.self) private var onboardingService
+    @Environment(AnalyticsService.self) private var analyticsService
     let onContinue: () -> Void
     let onBack: () -> Void
 
     @State private var currentCoachStep = 0
     @State private var showCoachMarks = false
     @State private var soundStarted = false
+    @State private var tutorialStartTime: Date = .now
 
     private var starterSound: Sound {
         let goal = onboardingService.profile.sleepGoal
@@ -46,6 +48,7 @@ struct GuidedFirstSoundView: View {
                     }
                     Spacer()
                     Button(String(localized: "Skip")) {
+                        analyticsService.logOnboardingTutorialSkipped(atStep: currentCoachStep)
                         onContinue()
                     }
                     .font(.subheadline)
@@ -176,14 +179,22 @@ struct GuidedFirstSoundView: View {
     }
 
     private func playStarterSound() {
-        audioEngine.play(sound: starterSound)
+        let sound = starterSound
+        audioEngine.play(sound: sound)
+        analyticsService.logOnboardingFirstSoundPlayed(
+            soundId: sound.id,
+            soundName: sound.name,
+            category: sound.category.rawValue
+        )
         withAnimation(.easeInOut(duration: 0.5)) {
             soundStarted = true
         }
+        tutorialStartTime = Date()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             withAnimation {
                 showCoachMarks = true
             }
+            analyticsService.logOnboardingTutorialStepViewed(step: 1, stepName: "first_soundscape")
         }
     }
 
@@ -192,6 +203,7 @@ struct GuidedFirstSoundView: View {
             withAnimation {
                 showCoachMarks = true
             }
+            analyticsService.logOnboardingTutorialStepViewed(step: 1, stepName: "first_soundscape")
             return
         }
 
@@ -199,7 +211,14 @@ struct GuidedFirstSoundView: View {
             withAnimation {
                 currentCoachStep += 1
             }
+            let stepNames = ["first_soundscape", "mix_sounds", "sleep_timer"]
+            analyticsService.logOnboardingTutorialStepViewed(
+                step: currentCoachStep + 1,
+                stepName: stepNames[currentCoachStep]
+            )
         } else {
+            let duration = Date().timeIntervalSince(tutorialStartTime)
+            analyticsService.logOnboardingTutorialCompleted(duration: duration)
             onContinue()
         }
     }
@@ -212,4 +231,5 @@ struct GuidedFirstSoundView: View {
     )
     .environment(AudioEngine())
     .environment(OnboardingService())
+    .environment(AnalyticsService())
 }

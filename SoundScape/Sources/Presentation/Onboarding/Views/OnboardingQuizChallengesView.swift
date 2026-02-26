@@ -2,6 +2,7 @@ import SwiftUI
 
 struct OnboardingQuizChallengesView: View {
     @Environment(OnboardingService.self) private var onboardingService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var selectedChallenges: Set<OnboardingSleepChallenge> = []
     let onContinue: () -> Void
     let onBack: () -> Void
@@ -69,7 +70,14 @@ struct OnboardingQuizChallengesView: View {
             Spacer()
 
             // Continue button
-            OnboardingButton(title: String(localized: "Continue"), action: onContinue)
+            OnboardingButton(title: String(localized: "Continue"), action: {
+                let challengeNames = selectedChallenges.map(\.rawValue).sorted().joined(separator: ",")
+                analyticsService.logOnboardingChallengesSelected(
+                    challenges: challengeNames,
+                    count: selectedChallenges.count
+                )
+                onContinue()
+            })
                 .padding(.horizontal, 24)
                 .padding(.bottom, 48)
                 .opacity(selectedChallenges.isEmpty ? 0.5 : 1)
