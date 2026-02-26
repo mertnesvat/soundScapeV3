@@ -227,6 +227,8 @@
 		A07A6FA5F7EA66CD4D28EE21 /* OnboardingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */; };
 		5C3BB79C6FDB277D788B7081 /* OnboardingCustomPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */; };
 		D53EC2E841C9BE2D2D805B3B /* OnboardingPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */; };
+		D7F9E74DE409266404A6500F /* GuidedFirstSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5FADF5BDC7366322CA2378 /* GuidedFirstSoundView.swift */; };
+		47370448C14316D6D4864E3C /* OnboardingCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D77F0D05F96CC1F65C72F /* OnboardingCompleteView.swift */; };
 		F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */; };
 		FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */; };
 		19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */; };
@@ -493,6 +495,8 @@
 		19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeaturesView.swift; sourceTree = "<group>"; };
 		96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustomPlanView.swift; sourceTree = "<group>"; };
 		5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPaywallView.swift; sourceTree = "<group>"; };
+		EF5FADF5BDC7366322CA2378 /* GuidedFirstSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedFirstSoundView.swift; sourceTree = "<group>"; };
+		4D8D77F0D05F96CC1F65C72F /* OnboardingCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteView.swift; sourceTree = "<group>"; };
 		7D0F65B01CB4A07118E789AA /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		BAC0EE95BE424D4DF432890E /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
 		EE5B8A542E1D980E9EDCB9A6 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
@@ -1190,7 +1194,9 @@
 				58F4C65670B6A8FFE90FFBF8 /* OnboardingReviewsView.swift */,
 				19D93FAB337FB984A80CD06B /* OnboardingFeaturesView.swift */,
 				96B3F20C727CD67DC56DF3FD /* OnboardingCustomPlanView.swift */,
-				5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */
+				5B04CFC03C0E945B4C53630B /* OnboardingPaywallView.swift */,
+				EF5FADF5BDC7366322CA2378 /* GuidedFirstSoundView.swift */,
+				4D8D77F0D05F96CC1F65C72F /* OnboardingCompleteView.swift */
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1535,6 +1541,8 @@
 				A07A6FA5F7EA66CD4D28EE21 /* OnboardingFeaturesView.swift in Sources */,
 				5C3BB79C6FDB277D788B7081 /* OnboardingCustomPlanView.swift in Sources */,
 				D53EC2E841C9BE2D2D805B3B /* OnboardingPaywallView.swift in Sources */,
+				D7F9E74DE409266404A6500F /* GuidedFirstSoundView.swift in Sources */,
+				47370448C14316D6D4864E3C /* OnboardingCompleteView.swift in Sources */,
 				F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */,
 				FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */,
 				19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */,

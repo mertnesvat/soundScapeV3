@@ -6,6 +6,16 @@ struct OnboardingQuizChallengesView: View {
     let onContinue: () -> Void
     let onBack: () -> Void
 
+    /// Simplified challenge options (4 most common)
+    private let simplifiedChallenges: [OnboardingSleepChallenge] = [
+        .racingThoughts,
+        .noise,
+        .stress,
+        .irregularSchedule
+    ]
+
+    private let maxSelections = 3
+
     var body: some View {
         VStack(spacing: 0) {
             // Back button
@@ -21,13 +31,13 @@ struct OnboardingQuizChallengesView: View {
             .padding(.top, 16)
 
             // Question
-            Text("What keeps you from\nsleeping well?")
+            Text(String(localized: "What keeps you up\nat night?"))
                 .font(.system(size: 28, weight: .bold))
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .padding(.top, 32)
 
-            Text("Select all that apply")
+            Text(String(localized: "Select up to 3"))
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .padding(.top, 8)
@@ -35,18 +45,20 @@ struct OnboardingQuizChallengesView: View {
 
             // Options
             VStack(spacing: 12) {
-                ForEach(OnboardingSleepChallenge.allCases, id: \.self) { challenge in
+                ForEach(simplifiedChallenges, id: \.self) { challenge in
                     ChallengeOptionRow(
                         challenge: challenge,
                         isSelected: selectedChallenges.contains(challenge),
+                        isDisabled: !selectedChallenges.contains(challenge) && selectedChallenges.count >= maxSelections,
                         onTap: {
                             withAnimation(.spring(response: 0.3)) {
                                 if selectedChallenges.contains(challenge) {
                                     selectedChallenges.remove(challenge)
-                                } else {
+                                    onboardingService.toggleChallenge(challenge)
+                                } else if selectedChallenges.count < maxSelections {
                                     selectedChallenges.insert(challenge)
+                                    onboardingService.toggleChallenge(challenge)
                                 }
-                                onboardingService.toggleChallenge(challenge)
                             }
                         }
                     )
@@ -57,7 +69,7 @@ struct OnboardingQuizChallengesView: View {
             Spacer()
 
             // Continue button
-            OnboardingButton(title: "Continue", action: onContinue)
+            OnboardingButton(title: String(localized: "Continue"), action: onContinue)
                 .padding(.horizontal, 24)
                 .padding(.bottom, 48)
                 .opacity(selectedChallenges.isEmpty ? 0.5 : 1)
@@ -65,14 +77,17 @@ struct OnboardingQuizChallengesView: View {
         }
         .background(Color.black)
         .onAppear {
+            // Load only from simplified set
             selectedChallenges = onboardingService.profile.sleepChallenges
+                .intersection(Set(simplifiedChallenges))
         }
     }
 }
 
-struct ChallengeOptionRow: View {
+private struct ChallengeOptionRow: View {
     let challenge: OnboardingSleepChallenge
     let isSelected: Bool
+    let isDisabled: Bool
     let onTap: () -> Void
 
     var body: some View {
@@ -83,10 +98,10 @@ struct ChallengeOptionRow: View {
                     .foregroundColor(isSelected ? .white : .purple)
                     .frame(width: 24)
 
-                Text(challenge.title)
+                Text(challenge.localizedTitle)
                     .font(.body)
                     .fontWeight(.medium)
-                    .foregroundColor(.white)
+                    .foregroundColor(isDisabled ? .gray : .white)
 
                 Spacer()
 
@@ -96,7 +111,7 @@ struct ChallengeOptionRow: View {
                         .foregroundColor(.purple)
                 } else {
                     Circle()
-                        .stroke(Color.white.opacity(0.3), lineWidth: 1.5)
+                        .stroke(isDisabled ? Color.white.opacity(0.1) : Color.white.opacity(0.3), lineWidth: 1.5)
                         .frame(width: 22, height: 22)
                 }
             }
@@ -111,6 +126,7 @@ struct ChallengeOptionRow: View {
                     .stroke(isSelected ? Color.purple : Color.white.opacity(0.1), lineWidth: 1)
             )
         }
+        .disabled(isDisabled)
     }
 }
 
