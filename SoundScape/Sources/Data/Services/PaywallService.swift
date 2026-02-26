@@ -77,6 +77,13 @@ final class PaywallService {
     }
 
     func triggerPaywall(placement: String = "unknown", completion: @escaping () -> Void) {
+        // Always log that a paywall trigger occurred (even if suppressed)
+        analyticsService?.logPaywallTriggered(
+            triggerSource: placement,
+            sessionNumber: appSessionCount,
+            contentId: nil
+        )
+
         // If already premium, call completion immediately
         if isPremium {
             completion()
@@ -90,7 +97,7 @@ final class PaywallService {
             return
         }
 
-        // Log paywall trigger for analytics
+        // Log paywall shown for analytics
         analyticsService?.logPaywallShown(placement: placement)
 
         // Store context for purchase completion

@@ -959,4 +959,82 @@ final class AnalyticsService {
         guard isConfigured else { return }
         Analytics.setUserID(userId)
     }
+
+    // MARK: - Install Date & Milestone Tracking
+
+    private static let installDateKey = "app_install_date"
+    private static let lastSessionDateKey = "app_last_session_date"
+    private static let milestoneFirstSoundKey = "milestone_first_sound"
+    private static let milestoneFirstMixKey = "milestone_first_mix"
+    private static let milestoneFirstTimerKey = "milestone_first_timer"
+    private static let milestoneFirstFavoriteKey = "milestone_first_favorite"
+
+    /// Returns the install date, setting it on first call
+    var installDate: Date {
+        if let date = UserDefaults.standard.object(forKey: Self.installDateKey) as? Date {
+            return date
+        }
+        let now = Date()
+        UserDefaults.standard.set(now, forKey: Self.installDateKey)
+        return now
+    }
+
+    /// Seconds since install
+    var secondsSinceInstall: Int {
+        Int(Date().timeIntervalSince(installDate))
+    }
+
+    /// Days since install
+    var daysSinceInstall: Int {
+        Calendar.current.dateComponents([.day], from: installDate, to: Date()).day ?? 0
+    }
+
+    /// Days since last session
+    var daysSinceLastSession: Int {
+        guard let lastDate = UserDefaults.standard.object(forKey: Self.lastSessionDateKey) as? Date else {
+            return 0
+        }
+        return Calendar.current.dateComponents([.day], from: lastDate, to: Date()).day ?? 0
+    }
+
+    /// Record last session date
+    func recordSessionDate() {
+        UserDefaults.standard.set(Date(), forKey: Self.lastSessionDateKey)
+    }
+
+    /// Check and fire a milestone event (fires only once per user lifetime)
+    func checkMilestone(_ key: String, fire: () -> Void) {
+        guard !UserDefaults.standard.bool(forKey: key) else { return }
+        UserDefaults.standard.set(true, forKey: key)
+        fire()
+    }
+
+    /// Check and fire first sound played milestone
+    func checkFirstSoundMilestone(soundId: String, soundName: String) {
+        checkMilestone(Self.milestoneFirstSoundKey) {
+            logFirstSoundPlayedEver(soundId: soundId, soundName: soundName, secondsSinceInstall: secondsSinceInstall)
+        }
+    }
+
+    /// Check and fire first mix created milestone (2+ sounds)
+    func checkFirstMixMilestone(soundCount: Int) {
+        guard soundCount >= 2 else { return }
+        checkMilestone(Self.milestoneFirstMixKey) {
+            logFirstMixCreated(soundCount: soundCount, secondsSinceInstall: secondsSinceInstall)
+        }
+    }
+
+    /// Check and fire first timer set milestone
+    func checkFirstTimerMilestone(durationMinutes: Int) {
+        checkMilestone(Self.milestoneFirstTimerKey) {
+            logFirstTimerSet(durationMinutes: durationMinutes, secondsSinceInstall: secondsSinceInstall)
+        }
+    }
+
+    /// Check and fire first favorite added milestone
+    func checkFirstFavoriteMilestone(soundId: String) {
+        checkMilestone(Self.milestoneFirstFavoriteKey) {
+            logFirstFavoriteAdded(soundId: soundId, secondsSinceInstall: secondsSinceInstall)
+        }
+    }
 }

@@ -203,11 +203,18 @@ final class AudioEngine: AudioPlayerProtocol {
                 volume: 0.7
             )
 
+            // Milestone: first sound ever played
+            analyticsService?.checkFirstSoundMilestone(soundId: sound.id, soundName: sound.name)
+
+            // Milestone: first mix created (2+ sounds)
+            analyticsService?.checkFirstMixMilestone(soundCount: activeSounds.count)
+
             // Start session tracking if this is the first sound
             if sessionStartTime == nil {
                 sessionStartTime = Date()
                 insightsService?.startSession()
                 analyticsService?.logEvent(.sessionStarted)
+                startListeningMilestoneTimer()
             }
 
             // Update Now Playing info on lock screen
@@ -278,6 +285,9 @@ final class AudioEngine: AudioPlayerProtocol {
         for soundId in players.keys {
             stop(soundId: soundId)
         }
+
+        // Stop listening milestone tracking
+        stopListeningMilestoneTimer()
 
         // Clear Now Playing info when all sounds stopped
         clearNowPlayingInfo()
@@ -444,6 +454,52 @@ final class AudioEngine: AudioPlayerProtocol {
             stop(soundId: sound.id)
         } else {
             play(sound: sound)
+        }
+    }
+
+    // MARK: - Listening Milestone Tracking
+
+    private var listeningMilestoneTimer: Timer?
+    private var listeningMilestonesHit: Set<Int> = []
+    private static let listeningMilestones = [60, 300, 900, 1800, 3600] // 1, 5, 15, 30, 60 min
+
+    private func startListeningMilestoneTimer() {
+        listeningMilestonesHit.removeAll()
+        listeningMilestoneTimer?.invalidate()
+        listeningMilestoneTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                self?.checkListeningMilestones()
+            }
+        }
+    }
+
+    private func stopListeningMilestoneTimer() {
+        listeningMilestoneTimer?.invalidate()
+        listeningMilestoneTimer = nil
+    }
+
+    private func checkListeningMilestones() {
+        guard let start = sessionStartTime, isAnyPlaying else { return }
+        let elapsed = Int(Date().timeIntervalSince(start))
+
+        for threshold in Self.listeningMilestones {
+            guard elapsed >= threshold, !listeningMilestonesHit.contains(threshold) else { continue }
+            listeningMilestonesHit.insert(threshold)
+            let label: String
+            switch threshold {
+            case 60: label = "1min"
+            case 300: label = "5min"
+            case 900: label = "15min"
+            case 1800: label = "30min"
+            case 3600: label = "60min"
+            default: continue
+            }
+            analyticsService?.logListeningMilestone(milestone: label, soundCount: activeSounds.count)
+        }
+
+        // Stop timer if all milestones hit
+        if listeningMilestonesHit.count == Self.listeningMilestones.count {
+            stopListeningMilestoneTimer()
         }
     }
 }
