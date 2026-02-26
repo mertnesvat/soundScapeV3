@@ -4,6 +4,7 @@ struct MixerView: View {
     @Environment(AudioEngine.self) private var audioEngine
     @Environment(SavedMixesService.self) private var mixesService
     @Environment(PaywallService.self) private var paywallService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var showSaveMixSheet = false
 
     private let freeSoundLimit = 6
@@ -40,7 +41,17 @@ struct MixerView: View {
                                         audioEngine.setVolume(volume, for: activeSound.id)
                                     },
                                     onRemove: {
+                                        analyticsService.logMixerSoundRemoved(
+                                            soundId: activeSound.id,
+                                            totalActive: audioEngine.activeSounds.count - 1
+                                        )
                                         audioEngine.stop(soundId: activeSound.id)
+                                    },
+                                    onVolumeCommit: { volume in
+                                        analyticsService.logVolumeAdjusted(
+                                            soundId: activeSound.id,
+                                            newVolume: volume
+                                        )
                                     }
                                 )
                             }
@@ -107,6 +118,9 @@ struct MixerView: View {
                     mixesService.saveMix(name: name, sounds: audioEngine.activeSounds)
                 }
             }
+            .onAppear {
+                analyticsService.logMixerOpened(activeSoundCount: audioEngine.activeSounds.count)
+            }
         }
     }
 }
@@ -116,5 +130,6 @@ struct MixerView: View {
         .environment(AudioEngine())
         .environment(SavedMixesService())
         .environment(PaywallService())
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }

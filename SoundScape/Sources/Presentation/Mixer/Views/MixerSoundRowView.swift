@@ -4,13 +4,15 @@ struct MixerSoundRowView: View {
     let activeSound: ActiveSound
     let onVolumeChange: (Float) -> Void
     let onRemove: () -> Void
+    var onVolumeCommit: ((Float) -> Void)?
 
     @State private var volume: Float
 
-    init(activeSound: ActiveSound, onVolumeChange: @escaping (Float) -> Void, onRemove: @escaping () -> Void) {
+    init(activeSound: ActiveSound, onVolumeChange: @escaping (Float) -> Void, onRemove: @escaping () -> Void, onVolumeCommit: ((Float) -> Void)? = nil) {
         self.activeSound = activeSound
         self.onVolumeChange = onVolumeChange
         self.onRemove = onRemove
+        self.onVolumeCommit = onVolumeCommit
         self._volume = State(initialValue: activeSound.volume)
     }
 
@@ -33,8 +35,11 @@ struct MixerSoundRowView: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
 
-                    Slider(value: $volume, in: 0...1) { _ in
+                    Slider(value: $volume, in: 0...1) { editing in
                         onVolumeChange(volume)
+                        if !editing {
+                            onVolumeCommit?(volume)
+                        }
                     }
                     .tint(categoryColor)
 

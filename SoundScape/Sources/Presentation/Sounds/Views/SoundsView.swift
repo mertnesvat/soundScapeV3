@@ -9,6 +9,7 @@ struct SoundsView: View {
     @Environment(PaywallService.self) private var paywallService
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var viewModel: SoundsViewModel?
 
     // Sheet presentation states for toolbar actions
@@ -17,6 +18,7 @@ struct SoundsView: View {
     @State private var showSavedSheet = false
     @State private var showSettingsSheet = false
     @State private var showASMRInfoSheet = false
+    @State private var sheetOpenTime: Date = .now
 
     private let asmrInfoService = ASMRInfoService()
 
@@ -113,31 +115,43 @@ struct SoundsView: View {
                     HStack(spacing: 16) {
                         Button {
                             showMixerSheet = true
+                            analyticsService.logSheetOpened(sheetName: "mixer", fromScreen: "sounds")
+                            sheetOpenTime = .now
                         } label: {
                             Image(systemName: "slider.horizontal.3")
                         }
 
                         Button {
                             showTimerSheet = true
+                            analyticsService.logSheetOpened(sheetName: "timer", fromScreen: "sounds")
+                            sheetOpenTime = .now
                         } label: {
                             Image(systemName: "moon.zzz")
                         }
 
                         Button {
                             showSavedSheet = true
+                            analyticsService.logSheetOpened(sheetName: "saved_mixes", fromScreen: "sounds")
+                            sheetOpenTime = .now
                         } label: {
                             Image(systemName: "folder")
                         }
                     }
                 }
             }
-            .sheet(isPresented: $showMixerSheet) {
+            .sheet(isPresented: $showMixerSheet, onDismiss: {
+                analyticsService.logSheetDismissed(sheetName: "mixer", duration: Date().timeIntervalSince(sheetOpenTime))
+            }) {
                 MixerView()
             }
-            .sheet(isPresented: $showTimerSheet) {
+            .sheet(isPresented: $showTimerSheet, onDismiss: {
+                analyticsService.logSheetDismissed(sheetName: "timer", duration: Date().timeIntervalSince(sheetOpenTime))
+            }) {
                 SleepTimerView()
             }
-            .sheet(isPresented: $showSavedSheet) {
+            .sheet(isPresented: $showSavedSheet, onDismiss: {
+                analyticsService.logSheetDismissed(sheetName: "saved_mixes", duration: Date().timeIntervalSince(sheetOpenTime))
+            }) {
                 SavedMixesView()
             }
             .sheet(isPresented: $showSettingsSheet) {
@@ -210,12 +224,18 @@ struct SoundsView: View {
                         isFavorite: favoritesService.isFavorite(sound.id),
                         isLocked: isLocked,
                         onTogglePlay: {
+                            analyticsService.logSoundCardTapped(
+                                soundId: sound.id,
+                                soundName: sound.name,
+                                category: sound.category.rawValue,
+                                isPremium: isLocked,
+                                isPlaying: viewModel.isPlaying(sound)
+                            )
                             if isLocked {
                                 paywallService.triggerPaywall(placement: "premium_sound") {
                                     viewModel.togglePlay(for: sound)
                                 }
                             } else if wouldExceedMixerLimit(for: sound) {
-                                // Mixer limit reached for free users - show paywall without action
                                 paywallService.triggerPaywall(placement: "unlimited_mixing") {}
                             } else {
                                 viewModel.togglePlay(for: sound)
@@ -263,13 +283,18 @@ struct SoundsView: View {
                         isFavorite: favoritesService.isFavorite(sound.id),
                         isLocked: isLocked,
                         onTogglePlay: {
+                            analyticsService.logSoundCardTapped(
+                                soundId: sound.id,
+                                soundName: sound.name,
+                                category: sound.category.rawValue,
+                                isPremium: isLocked,
+                                isPlaying: viewModel.isPlaying(sound)
+                            )
                             if isLocked {
                                 paywallService.triggerPaywall(placement: "premium_sound") {
                                     viewModel.togglePlay(for: sound)
                                 }
                             } else if wouldExceedMixerLimit(for: sound) {
-                                // Mixer limit reached for free users - show paywall without action
-                                // Sound will only play if user becomes premium
                                 paywallService.triggerPaywall(placement: "unlimited_mixing") {}
                             } else {
                                 viewModel.togglePlay(for: sound)
@@ -300,5 +325,6 @@ struct SoundsView: View {
         .environment(MotionService())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }
