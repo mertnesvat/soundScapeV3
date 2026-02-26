@@ -12,6 +12,7 @@ final class SleepContentPlayerService: NSObject {
     private var player: AVAudioPlayer?
     private var progressTimer: Timer?
     private var progressService: StoryProgressService?
+    private var analyticsService: AnalyticsService?
 
     /// Currently playing content
     private(set) var currentContent: SleepContent?
@@ -67,6 +68,10 @@ final class SleepContentPlayerService: NSObject {
 
     func setProgressService(_ service: StoryProgressService) {
         self.progressService = service
+    }
+
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
     }
 
     // MARK: - Audio Session Configuration
@@ -241,6 +246,14 @@ final class SleepContentPlayerService: NSObject {
 
             // Update Now Playing info
             updateNowPlayingInfo()
+
+            // Log analytics
+            analyticsService?.logWindDownContentStarted(
+                contentId: content.id,
+                title: content.title,
+                category: content.contentType.rawValue,
+                durationMinutes: content.duration / 60
+            )
         } catch {
             print("SleepContentPlayerService: Error creating audio player: \(error.localizedDescription)")
         }
@@ -259,6 +272,16 @@ final class SleepContentPlayerService: NSObject {
 
         // Update Now Playing info
         updateNowPlayingInfo()
+
+        // Log analytics
+        if let content = currentContent {
+            let progress = duration > 0 ? currentTime / duration : 0
+            analyticsService?.logWindDownContentPaused(
+                contentId: content.id,
+                progressPercent: progress,
+                elapsed: currentTime
+            )
+        }
     }
 
     /// Resume playback
@@ -270,6 +293,12 @@ final class SleepContentPlayerService: NSObject {
             player.play()
             isPlaying = true
             updateNowPlayingInfo()
+
+            // Log analytics
+            if let content = currentContent {
+                let progress = duration > 0 ? currentTime / duration : 0
+                analyticsService?.logWindDownContentResumed(contentId: content.id, progressPercent: progress)
+            }
         } catch {
             print("SleepContentPlayerService: Failed to resume: \(error.localizedDescription)")
         }
@@ -471,11 +500,18 @@ extension SleepContentPlayerService: AVAudioPlayerDelegate {
     nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         Task { @MainActor in
             // Content finished playing
-            if flag {
+            if flag, let content = currentContent {
                 // Clear progress since content was completed
-                if let contentId = currentContent?.id {
-                    progressService?.clearProgress(for: contentId)
-                }
+                progressService?.clearProgress(for: content.id)
+
+                // Log completion analytics
+                analyticsService?.logWindDownContentCompleted(
+                    contentId: content.id,
+                    title: content.title,
+                    category: content.contentType.rawValue,
+                    duration: self.duration,
+                    completionPercent: 1.0
+                )
             }
 
             // Reset state

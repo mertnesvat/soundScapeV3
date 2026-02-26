@@ -88,6 +88,7 @@ struct WindDownView: View {
     @Environment(PaywallService.self) private var paywallService
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
 
     @State private var selectedContent: SleepContent?
 
@@ -159,7 +160,15 @@ struct WindDownView: View {
                             category: category,
                             onContentTap: { content in
                                 let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: content.id))
+                                analyticsService.logWindDownContentTapped(
+                                    contentId: content.id,
+                                    title: content.title,
+                                    category: content.contentType.rawValue,
+                                    isPremium: isLocked,
+                                    isLocked: isLocked
+                                )
                                 if isLocked {
+                                    analyticsService.logWindDownPremiumBlocked(contentId: content.id, category: content.contentType.rawValue)
                                     paywallService.triggerPaywall(placement: "premium_winddown") {
                                         playContent(content)
                                     }
@@ -188,6 +197,15 @@ struct WindDownView: View {
                     onDismiss: { selectedContent = nil }
                 )
                 .presentationDragIndicator(.visible)
+            }
+            .onAppear {
+                let hour = Calendar.current.component(.hour, from: Date())
+                let timeOfDay: String
+                if hour >= 21 || hour < 5 { timeOfDay = "night" }
+                else if hour >= 17 { timeOfDay = "evening" }
+                else if hour >= 12 { timeOfDay = "afternoon" }
+                else { timeOfDay = "morning" }
+                analyticsService.logWindDownTabOpened(timeOfDay: timeOfDay, greeting: greeting)
             }
             .sheet(isPresented: Binding(
                 get: { paywallService.showPaywall },
@@ -266,8 +284,10 @@ struct WindDownView: View {
                 progress: progressFraction(for: featuredContent),
                 isLocked: premiumManager.isPremiumRequired(for: .windDownContent(id: featuredContent.id)),
                 onTap: {
+                    analyticsService.logWindDownFeaturedTapped(contentId: featuredContent.id, title: featuredContent.title)
                     let isLocked = premiumManager.isPremiumRequired(for: .windDownContent(id: featuredContent.id))
                     if isLocked {
+                        analyticsService.logWindDownPremiumBlocked(contentId: featuredContent.id, category: featuredContent.contentType.rawValue)
                         paywallService.triggerPaywall(placement: "premium_winddown") {
                             playContent(featuredContent)
                         }
@@ -275,7 +295,10 @@ struct WindDownView: View {
                         playContent(featuredContent)
                     }
                 },
-                onLockedTap: { paywallService.triggerPaywall(placement: "premium_winddown") {} }
+                onLockedTap: {
+                    analyticsService.logWindDownPremiumBlocked(contentId: featuredContent.id, category: featuredContent.contentType.rawValue)
+                    paywallService.triggerPaywall(placement: "premium_winddown") {}
+                }
             )
         }
     }
