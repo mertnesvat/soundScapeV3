@@ -3,6 +3,7 @@ import SwiftUI
 struct SleepReportView: View {
     let recording: SleepRecording
     @Environment(\.dismiss) private var dismiss
+    @Environment(AnalyticsService.self) private var analyticsService
 
     var body: some View {
         ScrollView {
@@ -51,6 +52,12 @@ struct SleepReportView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle(LocalizedStringKey("Sleep Report"))
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            analyticsService.logSleepRecordingReportViewed(
+                recordingId: recording.id.uuidString,
+                snoreScore: recording.snoreScore
+            )
+        }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(String(localized: "Done")) {

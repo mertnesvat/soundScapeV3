@@ -25,6 +25,7 @@ final class SleepRecordingService {
     private var delayTimer: Timer?
     private var delayEndDate: Date?
     private var audioEngine: AudioEngine?
+    private var analyticsService: AnalyticsService?
     private(set) var shouldStopSoundsOnRecordingStart = false
 
     init() {
@@ -46,6 +47,10 @@ final class SleepRecordingService {
 
     func setAudioEngine(_ engine: AudioEngine) {
         self.audioEngine = engine
+    }
+
+    func setAnalyticsService(_ service: AnalyticsService) {
+        self.analyticsService = service
     }
 
     var isSoundPlaybackActive: Bool {
@@ -113,6 +118,8 @@ final class SleepRecordingService {
         recordingDuration = 0
         status = .recording
 
+        analyticsService?.logSleepRecordingStarted(delayMinutes: 0)
+
         startMeteringTimer()
     }
 
@@ -162,10 +169,17 @@ final class SleepRecordingService {
         currentRecording = recording
         saveRecordings()
 
+        analyticsService?.logSleepRecordingStopped(
+            duration: duration,
+            eventsDetected: result.events.count
+        )
+
         status = .complete
     }
 
     func deleteRecording(_ recording: SleepRecording) {
+        analyticsService?.logSleepRecordingDeleted(duration: recording.duration)
+
         // Remove audio file
         try? FileManager.default.removeItem(at: recording.fileURL)
 
@@ -189,6 +203,7 @@ final class SleepRecordingService {
     func startRecordingWithDelay(minutes: Int, stopSoundsFirst: Bool = false) {
         guard status == .idle else { return }
         shouldStopSoundsOnRecordingStart = stopSoundsFirst
+        analyticsService?.logSleepRecordingStarted(delayMinutes: minutes)
         let delaySeconds = TimeInterval(minutes * 60)
         delayEndDate = Date().addingTimeInterval(delaySeconds)
         delayRemaining = delaySeconds

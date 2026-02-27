@@ -51,6 +51,9 @@ final class SleepTimerService {
         // Log analytics event
         analyticsService?.logSleepTimerStarted(durationMinutes: minutes)
 
+        // Milestone: first timer set
+        analyticsService?.checkFirstTimerMilestone(durationMinutes: minutes)
+
         // Store original volumes for fade calculation
         for activeSound in audioEngine.activeSounds {
             originalVolumes[activeSound.id] = activeSound.volume

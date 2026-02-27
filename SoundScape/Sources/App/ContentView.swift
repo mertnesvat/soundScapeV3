@@ -10,6 +10,7 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .sounds
     @State private var showingSleepContentPlayer = false
     @State private var showMixerSheet = false
+    @State private var tabStartTime: Date = .now
 
     enum Tab: String, CaseIterable {
         case sounds
@@ -91,8 +92,14 @@ struct ContentView: View {
                     .tag(Tab.insights)
             }
             .tint(.purple)
-            .onChange(of: selectedTab) { _, newTab in
-                analyticsService.logTabSelected(newTab.rawValue)
+            .onChange(of: selectedTab) { oldTab, newTab in
+                let durationOnTab = Date().timeIntervalSince(tabStartTime)
+                analyticsService.logTabSwitched(
+                    fromTab: oldTab.rawValue,
+                    toTab: newTab.rawValue,
+                    durationOnTab: durationOnTab
+                )
+                tabStartTime = Date()
             }
             .onChange(of: appearanceService.isOLEDModeEnabled) { _, isOLED in
                 configureTabBarAppearance(isOLED: isOLED)

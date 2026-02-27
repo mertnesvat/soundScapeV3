@@ -2,9 +2,18 @@ import SwiftUI
 
 struct OnboardingQuizGoalView: View {
     @Environment(OnboardingService.self) private var onboardingService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var selectedGoal: OnboardingSleepGoal?
     let onContinue: () -> Void
     let onBack: () -> Void
+
+    /// Simplified goal options for onboarding (4 clear choices)
+    private let simplifiedGoals: [OnboardingSleepGoal] = [
+        .fallAsleep,
+        .relaxation,
+        .focus,
+        .meditation
+    ]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -21,23 +30,33 @@ struct OnboardingQuizGoalView: View {
             .padding(.top, 16)
 
             // Question
-            Text("What's your main\nsleep goal?")
+            Text(String(localized: "What brings you here?"))
                 .font(.system(size: 28, weight: .bold))
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .padding(.top, 32)
+                .padding(.bottom, 8)
+
+            Text(String(localized: "Tap to select your main goal"))
+                .font(.subheadline)
+                .foregroundColor(.gray)
                 .padding(.bottom, 32)
 
-            // Options
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                ForEach(OnboardingSleepGoal.allCases, id: \.self) { goal in
-                    GoalOptionCard(
+            // 4 large goal cards
+            VStack(spacing: 16) {
+                ForEach(simplifiedGoals, id: \.self) { goal in
+                    SimplifiedGoalCard(
                         goal: goal,
                         isSelected: selectedGoal == goal,
                         onTap: {
                             withAnimation(.spring(response: 0.3)) {
                                 selectedGoal = goal
                                 onboardingService.setSleepGoal(goal)
+                            }
+                            analyticsService.logOnboardingGoalSelected(goal: goal.rawValue)
+                            // Auto-advance after brief delay
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                onContinue()
                             }
                         }
                     )
@@ -46,13 +65,6 @@ struct OnboardingQuizGoalView: View {
             .padding(.horizontal, 24)
 
             Spacer()
-
-            // Continue button
-            OnboardingButton(title: "Continue", action: onContinue)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 48)
-                .opacity(selectedGoal != nil ? 1 : 0.5)
-                .disabled(selectedGoal == nil)
         }
         .background(Color.black)
         .onAppear {
@@ -61,31 +73,61 @@ struct OnboardingQuizGoalView: View {
     }
 }
 
-struct GoalOptionCard: View {
+private struct SimplifiedGoalCard: View {
     let goal: OnboardingSleepGoal
     let isSelected: Bool
     let onTap: () -> Void
 
+    private var goalLabel: String {
+        switch goal {
+        case .fallAsleep: return String(localized: "Sleep Better")
+        case .relaxation: return String(localized: "Relax")
+        case .focus: return String(localized: "Focus")
+        case .meditation: return String(localized: "Meditate")
+        default: return goal.localizedTitle
+        }
+    }
+
+    private var goalSubtitle: String {
+        switch goal {
+        case .fallAsleep: return String(localized: "Fall asleep faster & sleep deeper")
+        case .relaxation: return String(localized: "Unwind and relieve stress")
+        case .focus: return String(localized: "Boost concentration & productivity")
+        case .meditation: return String(localized: "Practice mindfulness & calm")
+        default: return ""
+        }
+    }
+
     var body: some View {
         Button(action: onTap) {
-            VStack(spacing: 12) {
+            HStack(spacing: 16) {
                 Image(systemName: goal.icon)
                     .font(.system(size: 28))
                     .foregroundColor(isSelected ? .white : .purple)
+                    .frame(width: 44)
 
-                Text(goal.title)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.8)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(goalLabel)
+                        .font(.headline)
+                        .foregroundColor(.white)
+
+                    Text(goalSubtitle)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+
+                Spacer()
+
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(.purple)
+                }
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: 100)
+            .padding(20)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(isSelected ? Color.purple : Color.white.opacity(0.08))
+                    .fill(isSelected ? Color.purple.opacity(0.2) : Color.white.opacity(0.06))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)

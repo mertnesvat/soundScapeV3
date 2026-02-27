@@ -4,23 +4,30 @@ struct OnboardingContainerView: View {
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(PaywallService.self) private var paywallService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var currentStep: OnboardingStep = .welcome
+    @State private var onboardingStartTime: Date = .now
+    @State private var stepStartTime: Date = .now
 
     enum OnboardingStep: Int, CaseIterable {
         case welcome = 0
         case quizGoal = 1
         case quizChallenges = 2
-        case analysis = 3
-        case results = 4
-        case painPoints = 5
-        case benefits = 6
-        case reviews = 7
-        case features = 8
-        case customPlan = 9
-        case paywall = 10
+        case guidedFirstSound = 3
+        case complete = 4
 
         var progress: Double {
             Double(rawValue) / Double(OnboardingStep.allCases.count - 1)
+        }
+
+        var name: String {
+            switch self {
+            case .welcome: return "welcome"
+            case .quizGoal: return "goal"
+            case .quizChallenges: return "challenges"
+            case .guidedFirstSound: return "guided_first_sound"
+            case .complete: return "complete"
+            }
         }
     }
 
@@ -29,8 +36,8 @@ struct OnboardingContainerView: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Progress bar (hidden on welcome and paywall)
-                if currentStep != .welcome && currentStep != .paywall {
+                // Progress bar (hidden on welcome and complete)
+                if currentStep != .welcome && currentStep != .complete {
                     OnboardingProgressView(progress: currentStep.progress)
                         .padding(.horizontal, 24)
                         .padding(.top, 8)
@@ -39,8 +46,7 @@ struct OnboardingContainerView: View {
                 // Content
                 TabView(selection: $currentStep) {
                     OnboardingWelcomeView(
-                        onGetStarted: nextStep,
-                        onSkip: skipOnboarding
+                        onGetStarted: nextStep
                     )
                     .tag(OnboardingStep.welcome)
 
@@ -56,58 +62,45 @@ struct OnboardingContainerView: View {
                     )
                     .tag(OnboardingStep.quizChallenges)
 
-                    OnboardingAnalysisView(
-                        isActive: currentStep == .analysis,
-                        onComplete: nextStep
-                    )
-                    .tag(OnboardingStep.analysis)
-
-                    OnboardingResultsView(
-                        onContinue: nextStep
-                    )
-                    .tag(OnboardingStep.results)
-
-                    OnboardingPainPointsView(
+                    GuidedFirstSoundView(
                         onContinue: nextStep,
                         onBack: previousStep
                     )
-                    .tag(OnboardingStep.painPoints)
+                    .tag(OnboardingStep.guidedFirstSound)
 
-                    OnboardingBenefitsView(
-                        onContinue: nextStep,
-                        onBack: previousStep
+                    OnboardingCompleteView(
+                        onComplete: completeOnboarding
                     )
-                    .tag(OnboardingStep.benefits)
-
-                    OnboardingReviewsView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.reviews)
-
-                    OnboardingFeaturesView(
-                        onContinue: nextStep,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.features)
-
-                    OnboardingCustomPlanView(
-                        onContinue: showPaywall,
-                        onBack: previousStep
-                    )
-                    .tag(OnboardingStep.customPlan)
-
-                    OnboardingPaywallView(
-                        onComplete: completeOnboarding,
-                        isPresented: false
-                    )
-                    .tag(OnboardingStep.paywall)
+                    .tag(OnboardingStep.complete)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: currentStep)
             }
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            onboardingStartTime = Date()
+            stepStartTime = Date()
+            analyticsService.logOnboardingStarted(source: "fresh_install")
+            analyticsService.logOnboardingStepViewed(stepNumber: 0, stepName: "welcome")
+        }
+        .onChange(of: currentStep) { oldStep, newStep in
+            // Log completion of previous step
+            let stepDuration = Date().timeIntervalSince(stepStartTime)
+            analyticsService.logOnboardingStepCompleted(
+                stepNumber: oldStep.rawValue,
+                stepName: oldStep.name,
+                duration: stepDuration
+            )
+
+            // Log viewing of new step
+            analyticsService.logOnboardingStepViewed(
+                stepNumber: newStep.rawValue,
+                stepName: newStep.name
+            )
+
+            stepStartTime = Date()
+        }
     }
 
     private func nextStep() {
@@ -126,27 +119,14 @@ struct OnboardingContainerView: View {
         }
     }
 
-    private func skipOnboarding() {
-        onboardingService.completeOnboarding()
-    }
-
-    private func showPaywall() {
-        // If already premium, skip paywall and complete onboarding
-        if subscriptionService.isPremium {
-            completeOnboarding()
-            return
-        }
-
-        // Set placement context for analytics
-        paywallService.setPaywallPlacement("onboarding")
-
-        // Otherwise, show the paywall step
-        withAnimation {
-            currentStep = .paywall
-        }
-    }
-
     private func completeOnboarding() {
+        let totalDuration = Date().timeIntervalSince(onboardingStartTime)
+        let goal = onboardingService.profile.sleepGoal?.rawValue ?? "none"
+        analyticsService.logOnboardingCompleted(
+            totalDuration: totalDuration,
+            stepsCompleted: OnboardingStep.allCases.count,
+            goal: goal
+        )
         onboardingService.completeOnboarding()
     }
 }
@@ -156,4 +136,6 @@ struct OnboardingContainerView: View {
         .environment(OnboardingService())
         .environment(PaywallService())
         .environment(SubscriptionService())
+        .environment(AudioEngine())
+        .environment(AnalyticsService())
 }

@@ -7,6 +7,7 @@ struct DiscoverView: View {
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
     @State private var selectedCategory: CommunityCategory? = nil
     @State private var showingSavedAlert = false
     @State private var savedMixName = ""
@@ -42,6 +43,9 @@ struct DiscoverView: View {
                 .padding(.vertical)
             }
             .navigationTitle(LocalizedStringKey("Discover"))
+            .onAppear {
+                analyticsService.logDiscoverTabOpened()
+            }
             .alert(LocalizedStringKey("Saved!"), isPresented: $showingSavedAlert) {
                 Button("OK", role: .cancel) {}
             } message: {
@@ -147,6 +151,8 @@ struct DiscoverView: View {
     }
 
     private func playMix(_ mix: CommunityMix) {
+        analyticsService.logDiscoverMixPreviewed(mixId: mix.id.uuidString, mixName: mix.name)
+
         // Stop all current sounds
         audioEngine.stopAll()
 
@@ -201,5 +207,6 @@ struct DiscoverView: View {
         .environment(SavedMixesService())
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }
