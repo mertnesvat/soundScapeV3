@@ -6,6 +6,7 @@ struct AdaptiveView: View {
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(OnboardingService.self) private var onboardingService
     @Environment(SubscriptionService.self) private var subscriptionService
+    @Environment(AnalyticsService.self) private var analyticsService
 
     var body: some View {
         NavigationStack {
@@ -32,6 +33,9 @@ struct AdaptiveView: View {
             }
             .navigationTitle(LocalizedStringKey("Adaptive"))
             .background(Color(.systemBackground))
+            .onAppear {
+                analyticsService.logAdaptiveTabOpened()
+            }
             .sheet(isPresented: Binding(
                 get: { paywallService.showPaywall },
                 set: { newValue in
@@ -171,6 +175,7 @@ struct AdaptivePremiumPreview: View {
         .environment(AdaptiveSessionService(audioEngine: audioEngine))
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
+        .environment(AnalyticsService())
         .preferredColorScheme(.dark)
 }
 

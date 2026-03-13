@@ -32,8 +32,33 @@ final class PaywallService {
     /// Resets to false on dismiss, purchase success, or purchase error.
     var showPaywall: Bool = false
 
+    // MARK: - Session-Based Paywall Controls
+
+    private static let sessionCountKey = "app_session_count"
+
+    /// Number of app sessions (persisted across launches)
+    private(set) var appSessionCount: Int {
+        get { UserDefaults.standard.integer(forKey: Self.sessionCountKey) }
+        set { UserDefaults.standard.set(newValue, forKey: Self.sessionCountKey) }
+    }
+
+    /// Whether a paywall has already been shown in this session (resets on launch)
+    private(set) var paywallShownThisSession: Bool = false
+
+    /// Whether paywall is allowed based on session rules:
+    /// - Not allowed during user's first session
+    /// - Max 1 paywall per session after that
+    var isPaywallAllowed: Bool {
+        appSessionCount >= 2 && !paywallShownThisSession
+    }
+
     init() {
         // SubscriptionService will be injected via setSubscriptionService
+    }
+
+    /// Called on each app launch to increment session count
+    func incrementSessionCount() {
+        appSessionCount += 1
     }
 
     /// Sets the SubscriptionService dependency
@@ -52,18 +77,35 @@ final class PaywallService {
     }
 
     func triggerPaywall(placement: String = "unknown", completion: @escaping () -> Void) {
-        // Log paywall trigger for analytics
-        analyticsService?.logPaywallShown(placement: placement)
-
-        // Store context for purchase completion
-        currentPaywallPlacement = placement
-        paywallCompletionHandler = completion
+        // Always log that a paywall trigger occurred (even if suppressed)
+        analyticsService?.logPaywallTriggered(
+            triggerSource: placement,
+            sessionNumber: appSessionCount,
+            contentId: nil
+        )
 
         // If already premium, call completion immediately
         if isPremium {
             completion()
             return
         }
+
+        // Check session-based paywall rules
+        guard isPaywallAllowed else {
+            let reason = appSessionCount < 2 ? "first_session" : "already_shown_this_session"
+            analyticsService?.logPaywallSuppressed(reason: reason, triggerSource: placement)
+            return
+        }
+
+        // Log paywall shown for analytics
+        analyticsService?.logPaywallShown(placement: placement)
+
+        // Store context for purchase completion
+        currentPaywallPlacement = placement
+        paywallCompletionHandler = completion
+
+        // Mark that paywall has been shown this session
+        paywallShownThisSession = true
 
         // Signal the view layer to present the paywall sheet
         showPaywall = true

@@ -69,6 +69,39 @@ struct SoundScapeApp: App {
                     // Configure Firebase Analytics
                     analyticsService.configure()
 
+                    // Increment session count for paywall throttling
+                    paywallService.incrementSessionCount()
+
+                    // Log session started with retention metrics
+                    let daysSinceLast = analyticsService.daysSinceLastSession
+                    analyticsService.logAppSessionStarted(
+                        sessionNumber: paywallService.appSessionCount,
+                        daysSinceInstall: analyticsService.daysSinceInstall,
+                        daysSinceLastSession: daysSinceLast
+                    )
+                    analyticsService.recordSessionDate()
+
+                    // Set user properties
+                    analyticsService.setUserProperty(
+                        paywallService.isPremium ? "premium" : "free",
+                        forName: "subscription_status"
+                    )
+                    analyticsService.setUserProperty(
+                        "\(paywallService.appSessionCount)",
+                        forName: "total_session_count"
+                    )
+                    analyticsService.setUserProperty(
+                        "\(analyticsService.daysSinceInstall)",
+                        forName: "days_since_install"
+                    )
+                    if let goal = onboardingService.profile.sleepGoal {
+                        analyticsService.setUserProperty(goal.rawValue, forName: "user_goal")
+                    }
+                    if !onboardingService.profile.sleepChallenges.isEmpty {
+                        let challengeStr = onboardingService.profile.sleepChallenges.map(\.rawValue).sorted().joined(separator: ",")
+                        analyticsService.setUserProperty(challengeStr, forName: "user_challenges")
+                    }
+
                     // Wire up services to AnalyticsService and ReviewPromptService
                     reviewPromptService.setAnalyticsService(analyticsService)
                     audioEngine.setAnalyticsService(analyticsService)
@@ -92,8 +125,12 @@ struct SoundScapeApp: App {
                     // Wire up SleepBuddyService to InsightsService for streak calculation
                     sleepBuddyService.setInsightsService(insightsService)
 
-                    // Wire up SleepRecordingService to AudioEngine for sound-aware recording
+                    // Wire up SleepRecordingService to AudioEngine and AnalyticsService
                     sleepRecordingService.setAudioEngine(audioEngine)
+                    sleepRecordingService.setAnalyticsService(analyticsService)
+
+                    // Wire up SleepContentPlayerService to AnalyticsService
+                    sleepContentPlayerService.setAnalyticsService(analyticsService)
 
                     // Wire up PaywallService to AnalyticsService and SubscriptionService
                     paywallService.setSubscriptionService(subscriptionService)

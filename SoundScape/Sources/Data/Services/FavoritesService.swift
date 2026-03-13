@@ -31,6 +31,7 @@ final class FavoritesService {
         } else {
             favoritedIds.insert(soundId)
             analyticsService?.logSoundFavorited(soundId: soundId, soundName: soundName)
+            analyticsService?.checkFirstFavoriteMilestone(soundId: soundId)
             reviewPromptService?.recordFavoriteAction()
         }
         saveFavorites()

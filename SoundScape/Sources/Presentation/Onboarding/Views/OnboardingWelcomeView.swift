@@ -2,22 +2,9 @@ import SwiftUI
 
 struct OnboardingWelcomeView: View {
     let onGetStarted: () -> Void
-    let onSkip: () -> Void
 
     var body: some View {
         VStack(spacing: 0) {
-            // Skip button
-            HStack {
-                Spacer()
-                Button("Skip") {
-                    onSkip()
-                }
-                .font(.subheadline)
-                .foregroundColor(.gray)
-            }
-            .padding(.horizontal, 24)
-            .padding(.top, 16)
-
             Spacer()
 
             // Icon/Visual
@@ -46,14 +33,14 @@ struct OnboardingWelcomeView: View {
             .padding(.bottom, 48)
 
             // Headline
-            Text("Better Sleep\nStarts Tonight")
+            Text(String(localized: "Better Sleep\nStarts Tonight"))
                 .font(.system(size: 36, weight: .bold))
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .padding(.bottom, 16)
 
             // Subheadline
-            Text("Take 30 seconds to personalize your\nsleep experience")
+            Text(String(localized: "Personalize your soundscape\nin just a few taps"))
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.gray)
@@ -61,8 +48,8 @@ struct OnboardingWelcomeView: View {
 
             Spacer()
 
-            // CTA Button
-            OnboardingButton(title: "Get Started", action: onGetStarted)
+            // Single CTA Button
+            OnboardingButton(title: String(localized: "Get Started"), action: onGetStarted)
                 .padding(.horizontal, 24)
                 .padding(.bottom, 48)
         }
@@ -71,8 +58,5 @@ struct OnboardingWelcomeView: View {
 }
 
 #Preview {
-    OnboardingWelcomeView(
-        onGetStarted: {},
-        onSkip: {}
-    )
+    OnboardingWelcomeView(onGetStarted: {})
 }
