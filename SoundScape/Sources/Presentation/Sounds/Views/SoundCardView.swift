@@ -45,26 +45,26 @@ struct SoundCardView: View {
 
     var body: some View {
         Button(action: onTogglePlay) {
-            VStack(spacing: 12) {
+            VStack(spacing: 10) {
                 // Icon with glow effect when playing, mini visualization overlay
                 ZStack {
                     Circle()
                         .fill(categoryColor.opacity(0.2))
-                        .frame(width: 60, height: 60)
+                        .frame(width: 56, height: 56)
 
                     if isPlaying {
                         Circle()
                             .fill(categoryColor.opacity(0.3))
-                            .frame(width: 70, height: 70)
+                            .frame(width: 66, height: 66)
                             .blur(radius: 10)
 
                         // Mini visualization when playing
-                        MiniVisualizationView(sound: sound, volume: 0.7, size: 50)
+                        MiniVisualizationView(sound: sound, volume: 0.7, size: 46)
                             .opacity(0.8)
                     }
 
                     Image(systemName: sound.category.icon)
-                        .font(.system(size: 24))
+                        .font(.system(size: 22))
                         .foregroundColor(categoryColor)
                 }
                 .animation(.easeInOut(duration: 0.3), value: isPlaying)
@@ -76,20 +76,9 @@ struct SoundCardView: View {
                     .foregroundColor(.primary)
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
-
-                // Category label
-                Text(sound.category.rawValue)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                // Play/Pause indicator
-                Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                    .font(.system(size: 32))
-                    .foregroundColor(isPlaying ? categoryColor : .gray)
-                    .symbolEffect(.bounce, value: isPlaying)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
+            .padding(.vertical, 14)
             .padding(.horizontal, 12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
