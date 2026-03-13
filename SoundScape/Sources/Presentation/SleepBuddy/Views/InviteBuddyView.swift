@@ -100,7 +100,7 @@ struct InviteBuddyView: View {
             }
 
             // Share Button
-            ShareLink(item: "Join me as a Sleep Buddy in SoundScape! Enter code: \(inviteCode)") {
+            ShareLink(item: "Join me as a Sleep Buddy in Next Sleep! Enter code: \(inviteCode)") {
                 Label(LocalizedStringKey("Share Code"), systemImage: "square.and.arrow.up")
                     .font(.headline)
                     .frame(maxWidth: .infinity)

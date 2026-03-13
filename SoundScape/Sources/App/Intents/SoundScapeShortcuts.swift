@@ -1,10 +1,10 @@
 import AppIntents
 
-/// App Shortcuts provider for SoundScape
+/// App Shortcuts provider for Next Sleep
 /// Registers all Siri voice commands and Shortcuts app integration
 struct SoundScapeShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
-        // "Hey Siri, I can't sleep with SoundScape"
+        // "Hey Siri, I can't sleep with Next Sleep"
         AppShortcut(
             intent: StartSleepMixIntent(),
             phrases: [
@@ -17,7 +17,7 @@ struct SoundScapeShortcuts: AppShortcutsProvider {
             systemImageName: "moon.zzz.fill"
         )
 
-        // "Hey Siri, play my rain mix with SoundScape"
+        // "Hey Siri, play my rain mix with Next Sleep"
         AppShortcut(
             intent: PlaySavedMixIntent(),
             phrases: [
@@ -29,7 +29,7 @@ struct SoundScapeShortcuts: AppShortcutsProvider {
             systemImageName: "music.note.list"
         )
 
-        // "Hey Siri, set sleep timer with SoundScape"
+        // "Hey Siri, set sleep timer with Next Sleep"
         AppShortcut(
             intent: SetSleepTimerIntent(),
             phrases: [
@@ -41,7 +41,7 @@ struct SoundScapeShortcuts: AppShortcutsProvider {
             systemImageName: "timer"
         )
 
-        // "Hey Siri, stop SoundScape"
+        // "Hey Siri, stop Next Sleep"
         AppShortcut(
             intent: StopSoundsIntent(),
             phrases: [
@@ -54,7 +54,7 @@ struct SoundScapeShortcuts: AppShortcutsProvider {
             systemImageName: "stop.fill"
         )
 
-        // "Hey Siri, resume SoundScape"
+        // "Hey Siri, resume Next Sleep"
         AppShortcut(
             intent: ResumeSoundsIntent(),
             phrases: [

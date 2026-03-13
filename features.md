@@ -6,12 +6,12 @@ continue_on_failure: true
 screenshots: true
 feature_timeout: 60
 
-# Visual Quality Gate (v1.6.0)
+# Visual Quality Gate (v1.7.0)
 visual_gate_enabled: true
 visual_gate_threshold: 0.7
 bundle_id: com.StudioNext.SoundScape
 
-# Action Logging (v1.6.0)
+# Action Logging (v1.7.0)
 action_logging: true
 
 # Deep Quality Mode (v1.10.0)
@@ -43,7 +43,7 @@ The following requirements apply to ALL features in this batch:
 - **Translations**: Every user-facing string must use `String(localized:)` or `LocalizedStringKey` and be added to the existing `Localizable.xcstrings` file at `SoundScape/Resources/Localizable.xcstrings`. The source language is English.
 - **Unit Tests**: All new or modified business logic must have corresponding unit tests. Existing tests in `SoundScape/Tests/` must continue to pass. Test files follow the pattern `SoundScape/Tests/<ServiceName>Tests.swift`.
 - **Build Verification**: The project must build successfully after each feature: `cd SoundScape && xcodebuild -scheme SoundScape -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build`
-- **Medical Disclaimer**: Any screen showing analysis results must include: "SoundScape is not a medical device. Consult a healthcare professional for sleep apnea diagnosis." This text must be localized.
+- **Medical Disclaimer**: Any screen showing analysis results must include: "Next Sleep is not a medical device. Consult a healthcare professional for sleep apnea diagnosis." This text must be localized.
 - **Dark Theme**: All new views must follow the app's existing dark theme patterns and styling.
 
 ## Features

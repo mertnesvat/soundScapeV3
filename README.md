@@ -1,4 +1,4 @@
-# SoundScape
+# Next Sleep
 
 A wellness audio app for iOS that helps users create personalized ambient soundscapes for sleep, relaxation, focus, and meditation.
 

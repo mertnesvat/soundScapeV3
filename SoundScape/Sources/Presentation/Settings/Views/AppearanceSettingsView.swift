@@ -107,7 +107,7 @@ struct AppearanceSettingsView: View {
                 Text("About")
             } footer: {
                 VStack(spacing: 4) {
-                    Text("SoundScape")
+                    Text("Next Sleep")
                         .fontWeight(.medium)
                     Text("Made with ♥ by Studio Next")
                         .font(.caption)

@@ -414,8 +414,8 @@ final class AudioEngine: AudioPlayerProtocol {
 
         var nowPlayingInfo = [String: Any]()
 
-        // Title - "SoundScape Mix"
-        nowPlayingInfo[MPMediaItemPropertyTitle] = "SoundScape Mix"
+        // Title - "Next Sleep Mix"
+        nowPlayingInfo[MPMediaItemPropertyTitle] = "Next Sleep Mix"
 
         // Subtitle - list of active sound names
         let soundNames = activeSounds.map { $0.sound.name }.joined(separator: ", ")

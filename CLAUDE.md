@@ -1,8 +1,8 @@
-# SoundScape - Claude Code Context
+# Next Sleep - Claude Code Context
 
 ## Project Overview
 
-SoundScape is an iOS wellness audio app that helps users create personalized ambient soundscapes for sleep, relaxation, focus, and meditation. Users can mix multiple sounds together, adjust individual volumes, save favorite combinations, and set sleep timers.
+Next Sleep is an iOS wellness audio app that helps users create personalized ambient soundscapes for sleep, relaxation, focus, and meditation. Users can mix multiple sounds together, adjust individual volumes, save favorite combinations, and set sleep timers.
 
 ## Tech Stack
 
@@ -23,7 +23,7 @@ SoundScape/
 ├── Sources/
 │   ├── App/
 │   │   ├── SoundScapeApp.swift      # App entry point, service initialization
-│   │   └── ContentView.swift         # Main tab view (8 tabs)
+│   │   └── ContentView.swift         # Main tab view (7 tabs)
 │   ├── Domain/
 │   │   ├── Entities/                 # Sound, ActiveSound, Alarm, Story, etc.
 │   │   ├── Protocols/                # AudioPlayerProtocol
@@ -75,16 +75,15 @@ SoundScape/
 | Fire | Orange | Campfire, Bonfire |
 | Music | Pink | Creative Mind, Midnight Calm, Ocean Lullaby, Deep Focus Flow, Starlit Sky, Forest Sanctuary, Cinematic Piano, Ambient Melody |
 
-## Tab Structure (8 tabs)
+## Tab Structure (7 tabs)
 
 1. **Sounds** - Main library with Mixer/Timer/Saved as toolbar sheet modals
 2. **Binaural** - Brainwave entrainment tones
-3. **Favorites** - Bookmarked sounds
-4. **Stories** - Narrated sleep stories
-5. **Alarms** - Smart wake-up alarms
-6. **Discover** - Community-curated mixes
-7. **Adaptive** - Context-aware soundscapes
-8. **Insights** - Sleep analytics dashboard
+3. **Wind Down** - Sleep content and stories
+4. **Sleep Rec** - Sleep recording
+5. **Discover** - Community-curated mixes
+6. **Adaptive** - Context-aware soundscapes
+7. **Insights** - Sleep analytics dashboard
 
 ## Build Commands
 

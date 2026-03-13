@@ -22,7 +22,7 @@ struct PlaySavedMixIntent: AppIntent {
         guard let savedMix = container.savedMixesService.mixes.first(where: {
             $0.id.uuidString == mix.id
         }) else {
-            return .result(dialog: "I couldn't find a mix named \(mix.name). You can create one in the SoundScape app.")
+            return .result(dialog: "I couldn't find a mix named \(mix.name). You can create one in the Next Sleep app.")
         }
 
         // Play the mix

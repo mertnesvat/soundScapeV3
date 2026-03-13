@@ -162,7 +162,7 @@ struct RecordingControlsView: View {
             }
             Button(String(localized: "Cancel"), role: .cancel) { }
         } message: {
-            Text(String(localized: "SoundScape needs microphone access to record your sleep. Please enable it in Settings."))
+            Text(String(localized: "Next Sleep needs microphone access to record your sleep. Please enable it in Settings."))
         }
         .sheet(isPresented: $showSoundRecordingOptions) {
             SoundAwareRecordingSheet()
