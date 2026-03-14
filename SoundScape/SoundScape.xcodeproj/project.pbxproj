@@ -152,6 +152,8 @@
 		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
 		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
 		FB96EB91WNDWN001 /* WindDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WNDWN002 /* WindDownView.swift */; };
+		FB96EB91SLPTB001 /* SleepTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPTB002 /* SleepTabView.swift */; };
+		FB96EB91EXPLT001 /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91EXPLT002 /* ExploreTabView.swift */; };
 		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
@@ -417,6 +419,8 @@
 		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
 		FB96EB91WNDWN002 /* WindDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDownView.swift; sourceTree = "<group>"; };
+		FB96EB91SLPTB002 /* SleepTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTabView.swift; sourceTree = "<group>"; };
+		FB96EB91EXPLT002 /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
 		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
@@ -629,6 +633,8 @@
 				FB96EB91000000PJ /* Insights */,
 				FB96EB91000000SA /* Settings */,
 				FB96EB91BUDDY00B /* SleepBuddy */,
+				FB96EB91SLPTBGRP /* Sleep */,
+				FB96EB91EXPLTGRP /* Explore */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
@@ -1109,6 +1115,38 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB96EB91SLPTBGRP /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SLPTBVWS /* Views */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		FB96EB91SLPTBVWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SLPTB002 /* SleepTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91EXPLTGRP /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91EXPLTVWS /* Views */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		FB96EB91EXPLTVWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91EXPLT002 /* ExploreTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FB96EB91WNDWN003 /* WindDown */ = {
 			isa = PBXGroup;
 			children = (
@@ -1505,6 +1543,8 @@
 				FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */,
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
 				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
+				FB96EB91SLPTB001 /* SleepTabView.swift in Sources */,
+				FB96EB91EXPLT001 /* ExploreTabView.swift in Sources */,
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
 				FB96EB91SLREC001 /* SleepRecording.swift in Sources */,
 				FB96EB91SLREC003 /* SleepRecordingService.swift in Sources */,

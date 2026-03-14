@@ -15,20 +15,16 @@ struct ContentView: View {
     enum Tab: String, CaseIterable {
         case sounds
         case binaural
-        case windDown
-        case sleepRecording
-        case discover
-        case adaptive
+        case sleep
+        case explore
         case insights
 
         var icon: String {
             switch self {
             case .sounds: return "waveform"
             case .binaural: return "brain.head.profile"
-            case .windDown: return "moon.zzz.fill"
-            case .sleepRecording: return "mic.fill"
-            case .discover: return "globe"
-            case .adaptive: return "waveform.path.ecg"
+            case .sleep: return "moon.zzz.fill"
+            case .explore: return "globe"
             case .insights: return "chart.bar.fill"
             }
         }
@@ -37,10 +33,8 @@ struct ContentView: View {
             switch self {
             case .sounds: return "Sounds"
             case .binaural: return "Binaural"
-            case .windDown: return "Wind Down"
-            case .sleepRecording: return "Sleep Rec"
-            case .discover: return "Discover"
-            case .adaptive: return "Adaptive"
+            case .sleep: return "Sleep"
+            case .explore: return "Explore"
             case .insights: return "Insights"
             }
         }
@@ -61,29 +55,17 @@ struct ContentView: View {
                     }
                     .tag(Tab.binaural)
 
-                WindDownView()
+                SleepTabView()
                     .tabItem {
-                        Label(Tab.windDown.localizedName, systemImage: Tab.windDown.icon)
+                        Label(Tab.sleep.localizedName, systemImage: Tab.sleep.icon)
                     }
-                    .tag(Tab.windDown)
+                    .tag(Tab.sleep)
 
-                SleepRecordingView()
+                ExploreTabView()
                     .tabItem {
-                        Label(Tab.sleepRecording.localizedName, systemImage: Tab.sleepRecording.icon)
+                        Label(Tab.explore.localizedName, systemImage: Tab.explore.icon)
                     }
-                    .tag(Tab.sleepRecording)
-
-                DiscoverView()
-                    .tabItem {
-                        Label(Tab.discover.localizedName, systemImage: Tab.discover.icon)
-                    }
-                    .tag(Tab.discover)
-
-                AdaptiveView()
-                    .tabItem {
-                        Label(Tab.adaptive.localizedName, systemImage: Tab.adaptive.icon)
-                    }
-                    .tag(Tab.adaptive)
+                    .tag(Tab.explore)
 
                 InsightsView()
                     .tabItem {
