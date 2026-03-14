@@ -40,7 +40,6 @@ struct LargeFeaturedCard: View {
                 } else {
                     // Fallback gradient
                     backgroundGradient
-                    decorativeIcon
                 }
 
                 // Content overlay
@@ -87,9 +86,6 @@ struct LargeFeaturedCard: View {
 
     private var contentOverlay: some View {
         VStack(alignment: .leading, spacing: 8) {
-            // Featured badge
-            featuredBadge
-
             Spacer()
 
             // Title
@@ -107,17 +103,8 @@ struct LargeFeaturedCard: View {
                     .lineLimit(2)
             }
 
-            // Narrator and duration
+            // Duration and play button
             HStack(spacing: 16) {
-                // Narrator
-                HStack(spacing: 4) {
-                    Image(systemName: "person.fill")
-                        .font(.caption)
-                    Text(content.narrator)
-                        .font(.subheadline)
-                }
-
-                // Duration
                 HStack(spacing: 4) {
                     Image(systemName: "clock")
                         .font(.caption)
@@ -133,11 +120,6 @@ struct LargeFeaturedCard: View {
                 }
             }
             .foregroundColor(.white.opacity(0.9))
-
-            // Progress bar (if started)
-            if progress > 0 {
-                progressBar
-            }
         }
         .padding(20)
     }
