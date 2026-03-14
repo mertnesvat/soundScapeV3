@@ -9,6 +9,7 @@ struct ParticleLayer: View {
 
     @State private var particles: [Particle] = []
     @State private var isInitialized = false
+    @State private var lastCanvasSize: CGSize = .zero
 
     enum ParticleDirection {
         case up      // Fire - rising embers
@@ -34,6 +35,10 @@ struct ParticleLayer: View {
                     Task { @MainActor in
                         initializeParticles(in: size)
                     }
+                } else {
+                    Task { @MainActor in
+                        updateParticles(in: size)
+                    }
                 }
 
                 let time = timeline.date.timeIntervalSinceReferenceDate
@@ -51,12 +56,11 @@ struct ParticleLayer: View {
     private func initializeParticles(in size: CGSize) {
         guard !isInitialized else { return }
         isInitialized = true
+        lastCanvasSize = size
 
         particles = (0..<particleCount).map { _ in
             createParticle(in: size, randomY: true)
         }
-
-        startParticleAnimation(in: size)
     }
 
     private func createParticle(in size: CGSize, randomY: Bool) -> Particle {
@@ -140,14 +144,6 @@ struct ParticleLayer: View {
                 Path(ellipseIn: rect),
                 with: .color(color.opacity(0.6))
             )
-        }
-    }
-
-    private func startParticleAnimation(in size: CGSize) {
-        Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
-            Task { @MainActor in
-                updateParticles(in: size)
-            }
         }
     }
 
@@ -259,6 +255,10 @@ struct FlowLayer: View {
                     Task { @MainActor in
                         initializeLines(in: size)
                     }
+                } else {
+                    Task { @MainActor in
+                        updateLines(in: size)
+                    }
                 }
 
                 for line in lines {
@@ -296,8 +296,6 @@ struct FlowLayer: View {
         lines = (0..<lineCount).map { _ in
             createLine(in: size, randomX: true)
         }
-
-        startLineAnimation(in: size)
     }
 
     private func createLine(in size: CGSize, randomX: Bool) -> FlowLine {
@@ -308,14 +306,6 @@ struct FlowLayer: View {
             speed: CGFloat.random(in: 2...5) * CGFloat(intensity + 0.3),
             opacity: Double.random(in: 0.2...0.5) * Double(intensity)
         )
-    }
-
-    private func startLineAnimation(in size: CGSize) {
-        Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
-            Task { @MainActor in
-                updateLines(in: size)
-            }
-        }
     }
 
     private func updateLines(in size: CGSize) {
