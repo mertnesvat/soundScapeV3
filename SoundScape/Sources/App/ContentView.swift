@@ -214,19 +214,6 @@ struct TimerPlaceholderView: View {
     }
 }
 
-struct FavoritesPlaceholderView: View {
-    var body: some View {
-        NavigationStack {
-            ContentUnavailableView(
-                String(localized: "Favorites"),
-                systemImage: "heart",
-                description: Text("Your favorite sounds")
-            )
-            .navigationTitle(LocalizedStringKey("Favorites"))
-        }
-    }
-}
-
 struct SavedMixesPlaceholderView: View {
     var body: some View {
         NavigationStack {

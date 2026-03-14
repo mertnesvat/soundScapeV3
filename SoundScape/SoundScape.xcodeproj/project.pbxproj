@@ -54,7 +54,7 @@
 		FB96EB91PAYWAL01 /* PaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PAYWAL02 /* PaywallService.swift */; };
 		FB96EB91SUBSC001 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SUBSC002 /* SubscriptionService.swift */; };
 		FB96EB91PREMM001 /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PREMM002 /* PremiumManager.swift */; };
-		FB96EB91000000I3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I4 /* FavoritesView.swift */; };
+
 		FB96EB91000000J1 /* SavedMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J2 /* SavedMix.swift */; };
 		FB96EB91000000J3 /* SavedMixesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J4 /* SavedMixesService.swift */; };
 		FB96EB91000000J5 /* SavedMixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J6 /* SavedMixesView.swift */; };
@@ -316,7 +316,7 @@
 		FB96EB91PAYWAL02 /* PaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallService.swift; sourceTree = "<group>"; };
 		FB96EB91SUBSC002 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		FB96EB91PREMM002 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
-		FB96EB91000000I4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+
 		FB96EB91000000J2 /* SavedMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMix.swift; sourceTree = "<group>"; };
 		FB96EB91000000J4 /* SavedMixesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesService.swift; sourceTree = "<group>"; };
 		FB96EB91000000J6 /* SavedMixesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesView.swift; sourceTree = "<group>"; };
@@ -886,7 +886,7 @@
 		FB96EB91000000I5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FB96EB91000000I4 /* FavoritesView.swift */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1426,7 +1426,7 @@
 				FB96EB91PAYWAL01 /* PaywallService.swift in Sources */,
 				FB96EB91SUBSC001 /* SubscriptionService.swift in Sources */,
 				FB96EB91PREMM001 /* PremiumManager.swift in Sources */,
-				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
+
 				FB96EB91000000J1 /* SavedMix.swift in Sources */,
 				FB96EB91000000J3 /* SavedMixesService.swift in Sources */,
 				FB96EB91000000J5 /* SavedMixesView.swift in Sources */,
