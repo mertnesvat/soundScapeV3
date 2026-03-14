@@ -190,19 +190,6 @@ struct MixDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 14))
             }
 
-            // Share button (mock)
-            Button(action: {}) {
-                HStack {
-                    Image(systemName: "square.and.arrow.up")
-                    Text("Share")
-                }
-                .font(.headline)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(Color.gray.opacity(0.2))
-                .foregroundStyle(.primary)
-                .clipShape(RoundedRectangle(cornerRadius: 14))
-            }
         }
         .padding(.top, 8)
     }
