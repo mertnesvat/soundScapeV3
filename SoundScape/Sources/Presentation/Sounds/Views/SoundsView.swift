@@ -95,7 +95,7 @@ struct SoundsView: View {
                                 showASMRInfoSheet = true
                             } label: {
                                 Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
+                                    .foregroundColor(AppTheme.asmrPurple)
                             }
                         }
                     }
