@@ -63,16 +63,6 @@ struct SoundsView: View {
                             }
                         )
 
-                        // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                            let favoriteSounds = viewModel.sounds.filter {
-                                favoritesService.isFavorite($0.id)
-                            }
-                            if !favoriteSounds.isEmpty {
-                                favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
-                            }
-                        }
-
                         // Favorites empty state
                         if viewModel.showingFavorites && viewModel.filteredSounds.isEmpty {
                             ContentUnavailableView(
@@ -204,75 +194,8 @@ struct SoundsView: View {
     }
 
     @ViewBuilder
-    private func favoritesSection(sounds: [Sound], viewModel: SoundsViewModel) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
-                Text(LocalizedStringKey("Favorites"))
-                    .font(.headline)
-                    .foregroundColor(.primary)
-            }
-            .padding(.horizontal, 16)
-
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(sounds) { sound in
-                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
-                    SoundCardView(
-                        sound: sound,
-                        isPlaying: viewModel.isPlaying(sound),
-                        isFavorite: favoritesService.isFavorite(sound.id),
-                        isLocked: isLocked,
-                        onTogglePlay: {
-                            analyticsService.logSoundCardTapped(
-                                soundId: sound.id,
-                                soundName: sound.name,
-                                category: sound.category.rawValue,
-                                isPremium: isLocked,
-                                isPlaying: viewModel.isPlaying(sound)
-                            )
-                            if isLocked {
-                                paywallService.triggerPaywall(placement: "premium_sound") {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            } else if wouldExceedMixerLimit(for: sound) {
-                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
-                            } else {
-                                viewModel.togglePlay(for: sound)
-                            }
-                        },
-                        onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
-                        },
-                        onLockedTap: {
-                            paywallService.triggerPaywall(placement: "premium_sound") {}
-                        }
-                    )
-                }
-            }
-            .padding(.horizontal, 16)
-
-            Divider()
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
-        }
-        .padding(.top, 8)
-    }
-
-    @ViewBuilder
     private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Show header only when favorites exist and no category filter
-            if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
-                if hasFavorites {
-                    Text(LocalizedStringKey("All Sounds"))
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding(.horizontal, 16)
-                }
-            }
-
             // Sound Grid
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(viewModel.filteredSounds) { sound in
