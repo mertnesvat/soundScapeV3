@@ -9,6 +9,7 @@ struct ParticleLayer: View {
 
     @State private var particles: [Particle] = []
     @State private var isInitialized = false
+    @State private var animationTimer: Timer?
 
     enum ParticleDirection {
         case up      // Fire - rising embers
@@ -45,6 +46,10 @@ struct ParticleLayer: View {
         }
         .onChange(of: intensity) { _, _ in
             // Reinitialize when intensity changes significantly
+        }
+        .onDisappear {
+            animationTimer?.invalidate()
+            animationTimer = nil
         }
     }
 
@@ -144,7 +149,7 @@ struct ParticleLayer: View {
     }
 
     private func startParticleAnimation(in size: CGSize) {
-        Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
+        animationTimer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
             Task { @MainActor in
                 updateParticles(in: size)
             }
@@ -242,6 +247,7 @@ struct FlowLayer: View {
 
     @State private var lines: [FlowLine] = []
     @State private var isInitialized = false
+    @State private var animationTimer: Timer?
 
     struct FlowLine: Identifiable {
         let id = UUID()
@@ -286,6 +292,10 @@ struct FlowLayer: View {
                 }
             }
         }
+        .onDisappear {
+            animationTimer?.invalidate()
+            animationTimer = nil
+        }
     }
 
     private func initializeLines(in size: CGSize) {
@@ -311,7 +321,7 @@ struct FlowLayer: View {
     }
 
     private func startLineAnimation(in size: CGSize) {
-        Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
+        animationTimer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
             Task { @MainActor in
                 updateLines(in: size)
             }

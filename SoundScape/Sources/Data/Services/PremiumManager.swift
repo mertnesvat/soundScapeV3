@@ -164,6 +164,23 @@ final class PremiumManager {
         }
     }
 
+    // MARK: - Mixer Limit
+
+    /// The maximum number of simultaneous sounds for free users
+    static let freeSoundLimit = 6
+
+    /// Checks if adding a new sound would exceed the free user limit.
+    /// - Parameters:
+    ///   - soundId: The ID of the sound being toggled
+    ///   - isCurrentlyPlaying: Whether this sound is already playing
+    ///   - activeSoundCount: The current number of active sounds
+    /// - Returns: `true` if the limit would be exceeded
+    func wouldExceedMixerLimit(soundId: String, isCurrentlyPlaying: Bool, activeSoundCount: Int) -> Bool {
+        if isCurrentlyPlaying { return false }
+        if paywallService.isPremium { return false }
+        return activeSoundCount >= PremiumManager.freeSoundLimit
+    }
+
     // MARK: - Convenience Methods
 
     /// Checks if a sound is free

@@ -35,7 +35,7 @@ enum VisualizationType {
         case .weather: return .blue
         case .fire: return .orange
         case .music: return .pink
-        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
+        case .asmr: return AppTheme.asmrPurple
         }
     }
 }

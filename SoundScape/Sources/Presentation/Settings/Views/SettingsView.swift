@@ -10,7 +10,6 @@ struct SettingsView: View {
     @Environment(PaywallService.self) private var paywallService
     @Environment(SubscriptionService.self) private var subscriptionService
 
-    @State private var sleepBuddyTapped = false
     @State private var isRestoring = false
     @State private var showResetOnboardingAlert = false
     @State private var showPaywallSheet = false
@@ -126,46 +125,25 @@ struct SettingsView: View {
 
                 // MARK: - Social
                 Section {
-                    Button {
-                        if !sleepBuddyTapped {
-                            sleepBuddyTapped = true
-                            analyticsService.logSleepBuddyInterestShown()
+                    HStack {
+                        Label {
+                            Text("Sleep Buddy")
+                        } icon: {
+                            Image(systemName: "person.2.fill")
+                                .foregroundStyle(.gray)
                         }
-                    } label: {
-                        HStack {
-                            Label {
-                                Text("Sleep Buddy")
-                            } icon: {
-                                Image(systemName: "person.2.fill")
-                                    .foregroundStyle(sleepBuddyTapped ? .gray : .purple)
-                            }
 
-                            Spacer()
+                        Spacer()
 
-                            if sleepBuddyTapped {
-                                Text("Coming Soon")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Text("Tap to learn more")
-                                    .foregroundStyle(.secondary)
-                            }
-
-                            Image(systemName: sleepBuddyTapped ? "clock.fill" : "chevron.right")
-                                .font(.caption)
-                                .foregroundStyle(sleepBuddyTapped ? Color.orange : Color.gray.opacity(0.5))
-                        }
+                        Text(String(localized: "Coming Soon"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
-                    .foregroundStyle(sleepBuddyTapped ? .secondary : .primary)
-                    .disabled(sleepBuddyTapped)
+                    .foregroundStyle(.secondary)
                 } header: {
                     Text("Social")
                 } footer: {
-                    if sleepBuddyTapped {
-                        Text("Sleep Buddy is coming soon! Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates.")
-                    } else {
-                        Text("Pair with a friend to motivate each other with sleep streaks")
-                    }
+                    Text("Pair with a friend to motivate each other with sleep streaks. Stay tuned for updates.")
                 }
 
                 // MARK: - Sound Science
