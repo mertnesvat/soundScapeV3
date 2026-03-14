@@ -225,21 +225,7 @@ struct MixDetailView: View {
     }
 
     private func saveMix() {
-        // Convert to active sounds for saving
-        var activeSounds: [ActiveSound] = []
-        for mixSound in mix.sounds {
-            if let sound = allSounds.first(where: { $0.id == mixSound.soundId }) {
-                activeSounds.append(ActiveSound(
-                    id: sound.id,
-                    sound: sound,
-                    volume: mixSound.volume,
-                    isPlaying: false
-                ))
-            }
-        }
-
-        if !activeSounds.isEmpty {
-            savedMixesService.saveMix(name: mix.name, sounds: activeSounds)
+        if savedMixesService.saveCommunityMix(name: mix.name, sounds: mix.sounds, allSounds: allSounds) {
             showingSavedAlert = true
         }
     }
