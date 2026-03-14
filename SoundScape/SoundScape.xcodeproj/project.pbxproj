@@ -238,6 +238,7 @@
 		FB96EB91ALRM0005 /* AlarmRingingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ALRM0006 /* AlarmRingingView.swift */; };
 		49E6098753D9407787DC35F2 /* SleepTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798101B2C5D249A19A8A8AB7 /* SleepTabView.swift */; };
 		05F465365DF642C387E0ED80 /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C35B72EA764EA9B9BF7DB2 /* ExploreTabView.swift */; };
+		APPTHEME00000002 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = APPTHEME00000001 /* AppTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -508,6 +509,7 @@
 		FB96EB91ALRM0006 /* AlarmRingingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRingingView.swift; sourceTree = "<group>"; };
 		798101B2C5D249A19A8A8AB7 /* SleepTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTabView.swift; sourceTree = "<group>"; };
 		34C35B72EA764EA9B9BF7DB2 /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
+		APPTHEME00000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -810,6 +812,7 @@
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
 				FB96EB91PLOCK002 /* PremiumLockOverlay.swift */,
 				FB96EB91ASMR0002 /* ASMRInfoView.swift */,
+				APPTHEME00000001 /* AppTheme.swift */,
 				FB96EB91SCI00002 /* SoundScienceView.swift */,
 				FB96EB91VIZ00009 /* Visualization */,
 			);
@@ -1450,6 +1453,7 @@
 				FB96EB91000000A5 /* SoundsViewModel.swift in Sources */,
 				FB96EB91000000A6 /* SoundsView.swift in Sources */,
 				49E6098753D9407787DC35F2 /* SleepTabView.swift in Sources */,
+				APPTHEME00000002 /* AppTheme.swift in Sources */,
 				05F465365DF642C387E0ED80 /* ExploreTabView.swift in Sources */,
 				FB96EB91000000A7 /* SoundCardView.swift in Sources */,
 				FB96EB91000000A8 /* CategoryFilterView.swift in Sources */,

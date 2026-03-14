@@ -46,8 +46,8 @@ struct OLEDCardBackgroundModifier: ViewModifier {
     private var cardBackgroundColor: Color {
         if appearanceService.isOLEDModeEnabled {
             return isPlaying
-                ? Color(.systemGray6).opacity(0.2)
-                : Color(.systemGray6).opacity(0.1)
+                ? Color(.systemGray6).opacity(AppTheme.cardPlayingOpacity)
+                : Color(.systemGray6).opacity(AppTheme.cardIdleOpacity)
         } else {
             return Color(.systemGray6)
         }
@@ -56,8 +56,8 @@ struct OLEDCardBackgroundModifier: ViewModifier {
     private var glowColor: Color {
         if isPlaying {
             return appearanceService.isOLEDModeEnabled
-                ? categoryColor.opacity(0.6)
-                : categoryColor.opacity(0.4)
+                ? categoryColor.opacity(AppTheme.glowPlayingOpacity)
+                : categoryColor.opacity(AppTheme.glowIdleOpacity)
         }
         return .clear
     }
@@ -89,14 +89,14 @@ struct OLEDNowPlayingBarModifier: ViewModifier {
 
     private var backgroundFill: Color {
         appearanceService.isOLEDModeEnabled
-            ? Color(.systemGray6).opacity(0.3)
+            ? Color(.systemGray6).opacity(AppTheme.nowPlayingBarOpacity)
             : Color(.systemGray6)
     }
 
     private var shadowColor: Color {
         appearanceService.isOLEDModeEnabled
-            ? Color.purple.opacity(0.3)
-            : Color.black.opacity(0.3)
+            ? AppTheme.accent.opacity(AppTheme.nowPlayingBarOpacity)
+            : Color.black.opacity(AppTheme.nowPlayingBarOpacity)
     }
 }
 
@@ -116,8 +116,8 @@ struct OLEDGlowModifier: ViewModifier {
     func body(content: Content) -> some View {
         if appearanceService.isOLEDModeEnabled && isActive {
             content
-                .shadow(color: color.opacity(0.6), radius: 8)
-                .shadow(color: color.opacity(0.4), radius: 16)
+                .shadow(color: color.opacity(AppTheme.glowPlayingOpacity), radius: 8)
+                .shadow(color: color.opacity(AppTheme.glowIdleOpacity), radius: 16)
         } else {
             content
         }
