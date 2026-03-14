@@ -74,33 +74,21 @@ struct SoundsView: View {
             .navigationTitle(LocalizedStringKey("Sounds"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    HStack(spacing: 16) {
-                        Button {
-                            showSettingsSheet = true
-                        } label: {
-                            Image(systemName: "gearshape")
-                        }
-
-                        // Show ASMR info button when ASMR category is selected
-                        if viewModel?.selectedCategory == .asmr {
-                            Button {
-                                showASMRInfoSheet = true
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(AppTheme.asmrPurple)
-                            }
-                        }
+                    Button {
+                        showSettingsSheet = true
+                    } label: {
+                        Image(systemName: "gearshape")
                     }
                 }
 
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack(spacing: 16) {
+                    Menu {
                         Button {
                             showMixerSheet = true
                             analyticsService.logSheetOpened(sheetName: "mixer", fromScreen: "sounds")
                             sheetOpenTime = .now
                         } label: {
-                            Image(systemName: "slider.horizontal.3")
+                            Label(String(localized: "Mixer"), systemImage: "slider.horizontal.3")
                         }
 
                         Button {
@@ -108,7 +96,7 @@ struct SoundsView: View {
                             analyticsService.logSheetOpened(sheetName: "timer", fromScreen: "sounds")
                             sheetOpenTime = .now
                         } label: {
-                            Image(systemName: "moon.zzz")
+                            Label(String(localized: "Timer"), systemImage: "moon.zzz")
                         }
 
                         Button {
@@ -116,8 +104,10 @@ struct SoundsView: View {
                             analyticsService.logSheetOpened(sheetName: "saved_mixes", fromScreen: "sounds")
                             sheetOpenTime = .now
                         } label: {
-                            Image(systemName: "folder")
+                            Label(String(localized: "Saved Mixes"), systemImage: "folder")
                         }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -188,6 +178,24 @@ struct SoundsView: View {
     @ViewBuilder
     private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
         VStack(alignment: .leading, spacing: 12) {
+            // ASMR info header when ASMR category is selected
+            if viewModel.selectedCategory == .asmr {
+                HStack {
+                    Spacer()
+                    Button {
+                        showASMRInfoSheet = true
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "info.circle")
+                            Text(String(localized: "About ASMR"))
+                                .font(.caption)
+                        }
+                        .foregroundColor(AppTheme.asmrPurple)
+                    }
+                }
+                .padding(.horizontal, 16)
+            }
+
             // Sound Grid
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(viewModel.filteredSounds) { sound in
