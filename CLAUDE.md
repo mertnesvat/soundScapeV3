@@ -113,3 +113,39 @@ xcrun simctl launch "iPhone 17 Pro" com.StudioNext.SoundScape
 - Views access services via `@Environment(ServiceName.self)`
 - Sound playback is managed by `AudioEngine.activeSounds`
 - Sessions recorded to `InsightsService` when timer ends or sounds stop
+
+## Design Context
+
+### Users
+Bedtime users seeking relief from the day — people who want to fall asleep faster, focus better, or decompress. They open the app when they're tired, often in a dark room. Speed and calm matter: they need to get their soundscape running with minimal friction, then put the phone down.
+
+### Brand Personality
+**Modern, Sleek, Technical** — a precision instrument for sleep, not a whimsical toy. Think Endel's generative minimalism: abstract, dark, flowing. The interface should feel like a well-engineered tool that disappears into the background.
+
+### Emotional Goals
+- **Instant calm & relief** — tension dissolves the moment the app opens; the day is over
+- **Cozy comfort** — warmth and safety, like crawling into fresh sheets
+
+### Aesthetic Direction
+- **Dark-first**: OLED black backgrounds with purple accent (#7F6FD8) and category-coded colors
+- **Generative & abstract**: Flowing liquid visualizations, particle systems, wave layers — not literal nature photos
+- **Minimal chrome**: Let content and audio breathe; reduce visual noise
+- **Reference**: Endel — abstract, generative, minimal dark UI with flowing visuals
+- **Anti-pattern**: Avoid cluttered dashboards, bright whites, or playful/cartoonish elements
+
+### Design Principles
+1. **Calm by default** — Every pixel should lower cortisol. No jarring transitions, no competing elements, no visual anxiety.
+2. **Dark is home** — OLED black is the primary canvas. Color is intentional and category-coded. Light is used sparingly as accent and glow.
+3. **Disappearing UI** — The best interaction is the shortest one. Get to playback fast, then get out of the way.
+4. **Contrast matters** — Enhanced contrast ratios in dark mode. Text and interactive elements must be clearly legible against dark backgrounds without being harsh.
+5. **Motion with purpose** — Animations serve comprehension (state changes, feedback) or atmosphere (visualizations). Never decorative jank.
+
+### Design Tokens (Current)
+| Token | Values |
+|-------|--------|
+| Accent | #7F6FD8 (purple) |
+| Corner Radius | 16 (cards), 12 (buttons), 8 (badges) |
+| Primary Padding | 24 (edges), 16 (standard), 12 (compact) |
+| Shadow (OLED) | category color glow, radius 8-16 |
+| Spring Animation | response 0.3-0.6, damping 0.6-0.7 |
+| Font Weights | .thin (display), .medium (body), .bold (headers) |
