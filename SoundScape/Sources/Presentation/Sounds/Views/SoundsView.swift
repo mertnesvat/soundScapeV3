@@ -17,102 +17,54 @@ struct SoundsView: View {
     @State private var showTimerSheet = false
     @State private var showSavedSheet = false
     @State private var showSettingsSheet = false
-    @State private var showASMRInfoSheet = false
+    @State private var showBinauralSheet = false
     @State private var sheetOpenTime: Date = .now
 
-    private let asmrInfoService = ASMRInfoService()
-
     private let columns = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16),
+        GridItem(.flexible(), spacing: DesignTokens.padding.standard),
+        GridItem(.flexible(), spacing: DesignTokens.padding.standard),
     ]
+
+    /// Categories surfaced as filter chips, per issue #33.
+    private let chipCategories: [SoundCategory] = [.noise, .nature, .weather, .fire, .music]
 
     private let freeSoundLimit = 6
 
     /// Check if adding a new sound would exceed the free user limit
     private func wouldExceedMixerLimit(for sound: Sound) -> Bool {
-        // If already playing, toggling won't add a new sound
         if audioEngine.isPlaying(soundId: sound.id) {
             return false
         }
-        // If premium user, no limit
         if paywallService.isPremium {
             return false
         }
-        // Check if at or over limit
         return audioEngine.activeSounds.count >= freeSoundLimit
     }
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 0) {
-                    if let viewModel = viewModel {
-                        // Category Filter
-                        CategoryFilterView(
-                            selectedCategory: Binding(
-                                get: { viewModel.selectedCategory },
-                                set: { viewModel.selectCategory($0) }
-                            ),
-                            showingFavorites: viewModel.showingFavorites,
-                            onSelectFavorites: {
-                                viewModel.selectFavorites()
-                            },
-                            onSelectCategory: { category in
-                                viewModel.selectCategory(category)
-                            }
-                        )
-
-                        // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                            let favoriteSounds = viewModel.sounds.filter {
-                                favoritesService.isFavorite($0.id)
-                            }
-                            if !favoriteSounds.isEmpty {
-                                favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
-                            }
-                        }
-
-                        // Favorites empty state
-                        if viewModel.showingFavorites && viewModel.filteredSounds.isEmpty {
-                            ContentUnavailableView(
-                                String(localized: "No Favorites"),
-                                systemImage: "heart.slash",
-                                description: Text("Tap the heart on sounds to add favorites")
-                            )
-                            .padding(.top, 60)
-                        } else {
-                            // All Sounds Section
-                            allSoundsSection(viewModel: viewModel)
-                        }
+                VStack(spacing: DesignTokens.padding.standard) {
+                    if let viewModel {
+                        chipRow(viewModel: viewModel)
+                        soundGrid(viewModel: viewModel)
                     }
                 }
+                .padding(.vertical, DesignTokens.padding.standard)
             }
             .oledBackground()
             .navigationTitle(LocalizedStringKey("Sounds"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    HStack(spacing: 16) {
-                        Button {
-                            showSettingsSheet = true
-                        } label: {
-                            Image(systemName: "gearshape")
-                        }
-
-                        // Show ASMR info button when ASMR category is selected
-                        if viewModel?.selectedCategory == .asmr {
-                            Button {
-                                showASMRInfoSheet = true
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
-                            }
-                        }
+                    Button {
+                        showSettingsSheet = true
+                    } label: {
+                        Image(systemName: "gearshape")
                     }
                 }
 
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack(spacing: 16) {
+                    HStack(spacing: DesignTokens.padding.standard) {
                         Button {
                             showMixerSheet = true
                             analyticsService.logSheetOpened(sheetName: "mixer", fromScreen: "sounds")
@@ -157,8 +109,10 @@ struct SoundsView: View {
             .sheet(isPresented: $showSettingsSheet) {
                 SettingsView()
             }
-            .sheet(isPresented: $showASMRInfoSheet) {
-                ASMRInfoView()
+            .sheet(isPresented: $showBinauralSheet, onDismiss: {
+                analyticsService.logSheetDismissed(sheetName: "binaural", duration: Date().timeIntervalSince(sheetOpenTime))
+            }) {
+                BinauralBeatsView()
             }
             .sheet(isPresented: Binding(
                 get: { paywallService.showPaywall },
@@ -177,13 +131,6 @@ struct SoundsView: View {
                 .environment(onboardingService)
                 .environment(paywallService)
                 .environment(subscriptionService)
-            }
-            .onChange(of: viewModel?.selectedCategory) { oldValue, newValue in
-                // Show ASMR info sheet on first visit to ASMR category
-                if newValue == .asmr && !asmrInfoService.hasSeenInfo {
-                    showASMRInfoSheet = true
-                    asmrInfoService.markAsSeen()
-                }
             }
             .onChange(of: audioEngine.activeSounds.count) { oldCount, newCount in
                 if newCount == 0 && oldCount > 0 {
@@ -204,116 +151,111 @@ struct SoundsView: View {
     }
 
     @ViewBuilder
-    private func favoritesSection(sounds: [Sound], viewModel: SoundsViewModel) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
-                Text(LocalizedStringKey("Favorites"))
-                    .font(.headline)
-                    .foregroundColor(.primary)
-            }
-            .padding(.horizontal, 16)
+    private func chipRow(viewModel: SoundsViewModel) -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: DesignTokens.padding.compact) {
+                FilterChip(
+                    title: String(localized: "All"),
+                    icon: "square.grid.2x2.fill",
+                    tint: DesignTokens.accent,
+                    isSelected: viewModel.selectedCategory == nil
+                ) {
+                    viewModel.selectCategory(nil)
+                }
 
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(sounds) { sound in
-                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
-                    SoundCardView(
-                        sound: sound,
-                        isPlaying: viewModel.isPlaying(sound),
-                        isFavorite: favoritesService.isFavorite(sound.id),
-                        isLocked: isLocked,
-                        onTogglePlay: {
-                            analyticsService.logSoundCardTapped(
-                                soundId: sound.id,
-                                soundName: sound.name,
-                                category: sound.category.rawValue,
-                                isPremium: isLocked,
-                                isPlaying: viewModel.isPlaying(sound)
-                            )
-                            if isLocked {
-                                paywallService.triggerPaywall(placement: "premium_sound") {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            } else if wouldExceedMixerLimit(for: sound) {
-                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
-                            } else {
-                                viewModel.togglePlay(for: sound)
-                            }
-                        },
-                        onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
-                        },
-                        onLockedTap: {
-                            paywallService.triggerPaywall(placement: "premium_sound") {}
-                        }
-                    )
+                ForEach(chipCategories, id: \.self) { category in
+                    FilterChip(
+                        title: category.localizedName,
+                        icon: category.icon,
+                        tint: DesignTokens.categoryColor(for: category),
+                        isSelected: viewModel.selectedCategory == category
+                    ) {
+                        viewModel.selectCategory(category)
+                    }
+                }
+
+                FilterChip(
+                    title: String(localized: "Binaural"),
+                    icon: "waveform",
+                    tint: DesignTokens.accent,
+                    isSelected: false
+                ) {
+                    showBinauralSheet = true
+                    analyticsService.logSheetOpened(sheetName: "binaural", fromScreen: "sounds")
+                    sheetOpenTime = .now
                 }
             }
-            .padding(.horizontal, 16)
-
-            Divider()
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
+            .padding(.horizontal, DesignTokens.padding.standard)
         }
-        .padding(.top, 8)
     }
 
     @ViewBuilder
-    private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Show header only when favorites exist and no category filter
-            if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
-                if hasFavorites {
-                    Text(LocalizedStringKey("All Sounds"))
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding(.horizontal, 16)
-                }
-            }
-
-            // Sound Grid
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(viewModel.filteredSounds) { sound in
-                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
-                    SoundCardView(
-                        sound: sound,
-                        isPlaying: viewModel.isPlaying(sound),
-                        isFavorite: favoritesService.isFavorite(sound.id),
-                        isLocked: isLocked,
-                        onTogglePlay: {
-                            analyticsService.logSoundCardTapped(
-                                soundId: sound.id,
-                                soundName: sound.name,
-                                category: sound.category.rawValue,
-                                isPremium: isLocked,
-                                isPlaying: viewModel.isPlaying(sound)
-                            )
-                            if isLocked {
-                                paywallService.triggerPaywall(placement: "premium_sound") {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            } else if wouldExceedMixerLimit(for: sound) {
-                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
-                            } else {
+    private func soundGrid(viewModel: SoundsViewModel) -> some View {
+        LazyVGrid(columns: columns, spacing: DesignTokens.padding.standard) {
+            ForEach(viewModel.filteredSounds) { sound in
+                let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
+                SoundCardView(
+                    sound: sound,
+                    isPlaying: viewModel.isPlaying(sound),
+                    isFavorite: favoritesService.isFavorite(sound.id),
+                    isLocked: isLocked,
+                    onTogglePlay: {
+                        analyticsService.logSoundCardTapped(
+                            soundId: sound.id,
+                            soundName: sound.name,
+                            category: sound.category.rawValue,
+                            isPremium: isLocked,
+                            isPlaying: viewModel.isPlaying(sound)
+                        )
+                        if isLocked {
+                            paywallService.triggerPaywall(placement: "premium_sound") {
                                 viewModel.togglePlay(for: sound)
                             }
-                        },
-                        onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
-                        },
-                        onLockedTap: {
-                            paywallService.triggerPaywall(placement: "premium_sound") {}
+                        } else if wouldExceedMixerLimit(for: sound) {
+                            paywallService.triggerPaywall(placement: "unlimited_mixing") {}
+                        } else {
+                            viewModel.togglePlay(for: sound)
                         }
-                    )
-                }
+                    },
+                    onToggleFavorite: {
+                        favoritesService.toggleFavorite(sound.id, soundName: sound.name)
+                    },
+                    onLockedTap: {
+                        paywallService.triggerPaywall(placement: "premium_sound") {}
+                    }
+                )
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 8)
-            .padding(.bottom, 24)
         }
+        .padding(.horizontal, DesignTokens.padding.standard)
     }
+}
+
+private struct FilterChip: View {
+    let title: String
+    let icon: String
+    let tint: Color
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Image(systemName: icon)
+                    .font(.subheadline.weight(DesignTokens.font.body))
+                Text(title)
+                    .font(.subheadline.weight(DesignTokens.font.body))
+            }
+            .padding(.horizontal, DesignTokens.padding.standard)
+            .padding(.vertical, DesignTokens.padding.compact)
+            .background(
+                Capsule().fill(isSelected ? tint : tint.opacity(chipDimOpacity))
+            )
+            .foregroundColor(isSelected ? DesignTokens.surface : tint)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var chipDimOpacity: Double { 0.15 }
 }
 
 #Preview {
