@@ -14,21 +14,13 @@ struct ContentView: View {
 
     enum Tab: String, CaseIterable {
         case sounds
-        case binaural
         case windDown
-        case sleepRecording
-        case discover
-        case adaptive
         case insights
 
         var icon: String {
             switch self {
             case .sounds: return "waveform"
-            case .binaural: return "brain.head.profile"
             case .windDown: return "moon.zzz.fill"
-            case .sleepRecording: return "mic.fill"
-            case .discover: return "globe"
-            case .adaptive: return "waveform.path.ecg"
             case .insights: return "chart.bar.fill"
             }
         }
@@ -36,11 +28,7 @@ struct ContentView: View {
         var localizedName: LocalizedStringKey {
             switch self {
             case .sounds: return "Sounds"
-            case .binaural: return "Binaural"
             case .windDown: return "Wind Down"
-            case .sleepRecording: return "Sleep Rec"
-            case .discover: return "Discover"
-            case .adaptive: return "Adaptive"
             case .insights: return "Insights"
             }
         }
@@ -55,35 +43,11 @@ struct ContentView: View {
                     }
                     .tag(Tab.sounds)
 
-                BinauralBeatsView()
-                    .tabItem {
-                        Label(Tab.binaural.localizedName, systemImage: Tab.binaural.icon)
-                    }
-                    .tag(Tab.binaural)
-
                 WindDownView()
                     .tabItem {
                         Label(Tab.windDown.localizedName, systemImage: Tab.windDown.icon)
                     }
                     .tag(Tab.windDown)
-
-                SleepRecordingView()
-                    .tabItem {
-                        Label(Tab.sleepRecording.localizedName, systemImage: Tab.sleepRecording.icon)
-                    }
-                    .tag(Tab.sleepRecording)
-
-                DiscoverView()
-                    .tabItem {
-                        Label(Tab.discover.localizedName, systemImage: Tab.discover.icon)
-                    }
-                    .tag(Tab.discover)
-
-                AdaptiveView()
-                    .tabItem {
-                        Label(Tab.adaptive.localizedName, systemImage: Tab.adaptive.icon)
-                    }
-                    .tag(Tab.adaptive)
 
                 InsightsView()
                     .tabItem {
@@ -91,7 +55,7 @@ struct ContentView: View {
                     }
                     .tag(Tab.insights)
             }
-            .tint(.purple)
+            .tint(DesignTokens.accent)
             .onChange(of: selectedTab) { oldTab, newTab in
                 let durationOnTab = Date().timeIntervalSince(tabStartTime)
                 analyticsService.logTabSwitched(
@@ -147,26 +111,20 @@ struct ContentView: View {
 
     private func configureTabBarAppearance(isOLED: Bool) {
         let appearance = UITabBarAppearance()
+        let accent = UIColor(DesignTokens.accent)
+        let surface = UIColor(DesignTokens.surface)
 
-        if isOLED {
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .black
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = surface
 
-            // Dim unselected items for OLED
-            appearance.stackedLayoutAppearance.normal.iconColor = UIColor.gray.withAlphaComponent(
-                0.6)
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
-                .foregroundColor: UIColor.gray.withAlphaComponent(0.6)
-            ]
-
-            // Selected items glow with purple
-            appearance.stackedLayoutAppearance.selected.iconColor = UIColor.systemPurple
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
-                .foregroundColor: UIColor.systemPurple
-            ]
-        } else {
-            appearance.configureWithDefaultBackground()
-        }
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor.gray.withAlphaComponent(0.6)
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.gray.withAlphaComponent(0.6)
+        ]
+        appearance.stackedLayoutAppearance.selected.iconColor = accent
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+            .foregroundColor: accent
+        ]
 
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
