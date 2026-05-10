@@ -16,6 +16,7 @@
 		SRPTST001 /* SoundRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SRPTST002 /* SoundRepositoryTests.swift */; };
 		SLCTST001 /* SleepContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLCTST002 /* SleepContentTests.swift */; };
 		FB96EB9100000001 /* SoundScapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000011 /* SoundScapeApp.swift */; };
+		FB96EB91DSGN0001 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91DSGN0002 /* DesignTokens.swift */; };
 		FB96EB9100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000012 /* ContentView.swift */; };
 		FB96EB9100000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000013 /* Assets.xcassets */; };
 		FB96EB9100000004 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000014 /* GoogleService-Info.plist */; };
@@ -297,6 +298,7 @@
 		FB96EB91000000AD /* ReviewPromptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPromptService.swift; sourceTree = "<group>"; };
 		FB96EB91000000B1 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		FB96EB91000000B2 /* SoundRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepositoryProtocol.swift; sourceTree = "<group>"; };
+		FB96EB91DSGN0002 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		FB96EB91000000B3 /* LocalSoundDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSoundDataSource.swift; sourceTree = "<group>"; };
 		FB96EB91000000B4 /* SoundRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepository.swift; sourceTree = "<group>"; };
 		FB96EB91000000B5 /* SoundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsViewModel.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				FB96EB91000000SA /* Settings */,
 				FB96EB91BUDDY00B /* SleepBuddy */,
 				FB96EB9100000054 /* Components */,
+				FB96EB91DSGN0003 /* DesignSystem */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -808,6 +811,14 @@
 				FB96EB91VIZ00009 /* Visualization */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FB96EB91DSGN0003 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91DSGN0002 /* DesignTokens.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		FB96EB91000000C1 /* Views */ = {
@@ -1402,6 +1413,7 @@
 			files = (
 				FB96EB9100000001 /* SoundScapeApp.swift in Sources */,
 				FB96EB9100000002 /* ContentView.swift in Sources */,
+				FB96EB91DSGN0001 /* DesignTokens.swift in Sources */,
 				FB96EB91ALRM0001 /* AppDelegate.swift in Sources */,
 				FB96EB91ALRM0003 /* AlarmNotificationSoundManager.swift in Sources */,
 				FB96EB91ALRM0005 /* AlarmRingingView.swift in Sources */,
