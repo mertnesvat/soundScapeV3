@@ -15,6 +15,7 @@
 		STPTST001 /* StoryProgressServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = STPTST002 /* StoryProgressServiceTests.swift */; };
 		SRPTST001 /* SoundRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SRPTST002 /* SoundRepositoryTests.swift */; };
 		SLCTST001 /* SleepContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLCTST002 /* SleepContentTests.swift */; };
+		UISNAPTST001 /* UISnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = UISNAPTST002 /* UISnapshotTests.swift */; };
 		FB96EB9100000001 /* SoundScapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB9100000011 /* SoundScapeApp.swift */; };
 		FB96EB91DSGN0001 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91DSGN0002 /* DesignTokens.swift */; };
 		FB96EB91DSGN0004 /* AppBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91DSGN0005 /* AppBackground.swift */; };
@@ -278,6 +279,7 @@
 		STPTST002 /* StoryProgressServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryProgressServiceTests.swift; sourceTree = "<group>"; };
 		SRPTST002 /* SoundRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRepositoryTests.swift; sourceTree = "<group>"; };
 		SLCTST002 /* SleepContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentTests.swift; sourceTree = "<group>"; };
+		UISNAPTST002 /* UISnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISnapshotTests.swift; sourceTree = "<group>"; };
 		FB96EB9100000011 /* SoundScapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeApp.swift; sourceTree = "<group>"; };
 		FB96EB9100000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FB96EB9100000013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1101,6 +1103,7 @@
 				STPTST002 /* StoryProgressServiceTests.swift */,
 				SRPTST002 /* SoundRepositoryTests.swift */,
 				SLCTST002 /* SleepContentTests.swift */,
+				UISNAPTST002 /* UISnapshotTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1592,6 +1595,7 @@
 				STPTST001 /* StoryProgressServiceTests.swift in Sources */,
 				SRPTST001 /* SoundRepositoryTests.swift in Sources */,
 				SLCTST001 /* SleepContentTests.swift in Sources */,
+				UISNAPTST001 /* UISnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
