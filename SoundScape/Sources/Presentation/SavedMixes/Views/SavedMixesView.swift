@@ -20,11 +20,15 @@ struct SavedMixesView: View {
                 } else {
                     List {
                         ForEach(mixesService.mixes) { mix in
-                            row(for: mix)
-                                .listRowBackground(Color.clear)
-                                .listRowSeparator(.hidden)
-                                .contentShape(Rectangle())
-                                .onTapGesture { loadMix(mix) }
+                            Button {
+                                loadMix(mix)
+                            } label: {
+                                row(for: mix)
+                            }
+                            .buttonStyle(.plain)
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                            .accessibilityLabel(Text("Play \(mix.name)"))
                         }
                         .onDelete { indexSet in
                             indexSet.forEach { mixesService.deleteMix(mixesService.mixes[$0]) }
@@ -53,19 +57,13 @@ struct SavedMixesView: View {
 
             Spacer()
 
-            Button {
-                loadMix(mix)
-            } label: {
-                Image(systemName: "play.fill")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(DesignTokens.accent)
-                    .frame(width: 28, height: 28)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text("Play \(mix.name)"))
+            Image(systemName: "play.fill")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(DesignTokens.accent)
+                .accessibilityHidden(true)
         }
         .padding(.vertical, DesignTokens.padding.compact)
+        .contentShape(Rectangle())
     }
 
     private func loadMix(_ mix: SavedMix) {
