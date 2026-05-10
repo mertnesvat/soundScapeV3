@@ -2,85 +2,64 @@ import SwiftUI
 
 struct StoriesView: View {
     @Environment(StoryProgressService.self) private var progressService
-    @State private var selectedCategory: StoryCategory? = nil
 
-    let stories = LocalStoryDataSource.stories
-
-    var filteredStories: [Story] {
-        guard let category = selectedCategory else { return stories }
-        return stories.filter { $0.category == category }
-    }
-
-    var inProgressStories: [Story] {
-        let inProgressIds = progressService.inProgressStoryIds
-        return stories.filter { story in
-            inProgressIds.contains(story.id) && !progressService.isCompleted(story)
-        }
-    }
-
-    var featuredStory: Story {
-        LocalStoryDataSource.featuredStory
-    }
+    private let stories = LocalStoryDataSource.stories
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    // Featured Story Banner
-                    NavigationLink(destination: StoryPlayerView(story: featuredStory)) {
-                        FeaturedStoryBanner(
-                            story: featuredStory,
-                            progressFraction: progressService.progressFraction(for: featuredStory)
-                        )
-                    }
-                    .buttonStyle(.plain)
+            ZStack {
+                DesignTokens.surface.ignoresSafeArea()
 
-                    // Continue Listening (if any in progress)
-                    if !inProgressStories.isEmpty {
-                        StorySectionView(
-                            title: "Continue Listening",
-                            stories: inProgressStories,
-                            progressService: progressService
-                        )
-                    }
-
-                    // Category Filter
-                    StoryCategoryFilterView(selectedCategory: $selectedCategory)
-
-                    // All Stories header
-                    Text(selectedCategory?.rawValue ?? "All Stories")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(.horizontal, 16)
-
-                    // Story Grid
-                    LazyVGrid(
-                        columns: [
-                            GridItem(.flexible(), spacing: 16),
-                            GridItem(.flexible(), spacing: 16)
-                        ],
-                        spacing: 16
-                    ) {
-                        ForEach(filteredStories) { story in
-                            NavigationLink(destination: StoryPlayerView(story: story)) {
-                                StoryCardView(
-                                    story: story,
-                                    progressFraction: progressService.progressFraction(for: story)
-                                )
+                if stories.isEmpty {
+                    Text(LocalizedStringKey("No stories yet."))
+                        .font(.body.weight(DesignTokens.font.body))
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .multilineTextAlignment(.center)
+                } else {
+                    List {
+                        ForEach(stories) { story in
+                            NavigationLink {
+                                StoryPlayerView(story: story)
+                            } label: {
+                                row(for: story)
                             }
                             .buttonStyle(.plain)
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                            .accessibilityLabel(Text("Play \(story.title)"))
                         }
                     }
-                    .padding(.horizontal, 16)
-
-                    // Bottom padding for tab bar
-                    Spacer()
-                        .frame(height: 100)
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden)
                 }
-                .padding(.top, 8)
             }
             .navigationTitle(LocalizedStringKey("Stories"))
         }
+    }
+
+    private func row(for story: Story) -> some View {
+        HStack(spacing: DesignTokens.padding.standard) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(story.title)
+                    .font(.body.weight(DesignTokens.font.body))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+
+                Text(story.formattedDuration)
+                    .font(.caption.weight(DesignTokens.font.body))
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer()
+
+            Image(systemName: "play.fill")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(DesignTokens.accent)
+                .accessibilityHidden(true)
+        }
+        .padding(.vertical, DesignTokens.padding.compact)
+        .contentShape(Rectangle())
     }
 }
 
