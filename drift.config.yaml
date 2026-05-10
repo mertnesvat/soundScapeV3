@@ -1,6 +1,6 @@
 base_branch: master
 max_attempts_per_issue: 5
-max_plan_minutes: 120
+max_plan_minutes: 480
 github_repo: mertnesvat/soundScapeV3
 verifier:
   strategy: cli
