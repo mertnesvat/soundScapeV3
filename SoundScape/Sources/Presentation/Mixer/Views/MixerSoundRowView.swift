@@ -17,58 +17,30 @@ struct MixerSoundRowView: View {
     }
 
     var body: some View {
-        HStack(spacing: 16) {
-            // Category icon
-            Image(systemName: activeSound.sound.category.icon)
-                .font(.title2)
-                .foregroundColor(categoryColor)
-                .frame(width: 40)
+        HStack(spacing: DesignTokens.padding.standard) {
+            Text(activeSound.sound.name)
+                .font(.body.weight(DesignTokens.font.body))
+                .foregroundColor(.primary)
+                .lineLimit(1)
+                .frame(width: 100, alignment: .leading)
 
-            VStack(alignment: .leading, spacing: 8) {
-                // Sound name
-                Text(activeSound.sound.name)
-                    .font(.headline)
-
-                // Volume slider with percentage
-                HStack {
-                    Image(systemName: "speaker.fill")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-
-                    Slider(value: $volume, in: 0...1) { editing in
-                        onVolumeChange(volume)
-                        if !editing {
-                            onVolumeCommit?(volume)
-                        }
-                    }
-                    .tint(categoryColor)
-
-                    Text("\(Int(volume * 100))%")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .frame(width: 40)
+            Slider(value: $volume, in: 0...1) { editing in
+                onVolumeChange(volume)
+                if !editing {
+                    onVolumeCommit?(volume)
                 }
             }
+            .tint(DesignTokens.accent)
 
-            // Remove button
             Button(action: onRemove) {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title2)
-                    .foregroundColor(.gray)
+                Image(systemName: "xmark")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundColor(.secondary)
+                    .frame(width: 28, height: 28)
+                    .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
-        }
-        .padding(.vertical, 8)
-    }
-
-    private var categoryColor: Color {
-        switch activeSound.sound.category {
-        case .noise: return .purple
-        case .nature: return .green
-        case .weather: return .blue
-        case .fire: return .orange
-        case .music: return .pink
-        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
+            .accessibilityLabel(Text("Remove \(activeSound.sound.name)"))
         }
     }
 }

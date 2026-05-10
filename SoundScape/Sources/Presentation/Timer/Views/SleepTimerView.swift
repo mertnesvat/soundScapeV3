@@ -4,24 +4,26 @@ struct SleepTimerView: View {
     @Environment(SleepTimerService.self) private var timerService
     @Environment(\.dismiss) private var dismiss
 
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    @State private var selectedMinutes: Int = 30
+
+    private static let presetMinutes: [Int] = [15, 30, 45, 60, 120]
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 32) {
-                if timerService.isActive {
-                    activeTimerView
-                } else {
-                    presetSelectionView
-                }
+            VStack(spacing: 48) {
+                Spacer(minLength: 0)
 
-                Spacer()
+                countdownLabel
+
+                presetChips
+
+                startStopButton
+
+                Spacer(minLength: 0)
             }
-            .padding(.top, 40)
+            .padding(.horizontal, DesignTokens.padding.edges)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(DesignTokens.surface.ignoresSafeArea())
             .navigationTitle(LocalizedStringKey("Sleep Timer"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -31,90 +33,88 @@ struct SleepTimerView: View {
         }
     }
 
-    // MARK: - Active Timer View
+    // MARK: - Countdown
 
-    private var activeTimerView: some View {
-        VStack(spacing: 24) {
-            Text(timerService.remainingTimeFormatted)
-                .font(.system(size: 72, weight: .thin, design: .rounded))
-                .monospacedDigit()
-                .foregroundColor(.primary)
+    private var countdownLabel: some View {
+        Text(displayedCountdown)
+            .font(.system(size: 88, weight: DesignTokens.font.display, design: .rounded))
+            .monospacedDigit()
+            .foregroundColor(.primary)
+            .contentTransition(.numericText())
+            .animation(.linear(duration: 0.2), value: displayedCountdown)
+    }
 
-            // Progress ring
-            ZStack {
-                Circle()
-                    .stroke(Color.gray.opacity(0.3), lineWidth: 8)
+    private var displayedCountdown: String {
+        if timerService.isActive {
+            return timerService.remainingTimeFormatted
+        }
+        return formatted(minutes: selectedMinutes)
+    }
 
-                Circle()
-                    .trim(from: 0, to: timerService.progress)
-                    .stroke(
-                        Color.purple,
-                        style: StrokeStyle(lineWidth: 8, lineCap: .round)
-                    )
-                    .rotationEffect(.degrees(-90))
-                    .animation(.linear(duration: 1), value: timerService.progress)
+    private func formatted(minutes: Int) -> String {
+        String(format: "%02d:%02d", minutes, 0)
+    }
 
-                VStack(spacing: 4) {
-                    Image(systemName: "moon.zzz.fill")
-                        .font(.system(size: 40))
-                        .foregroundColor(.purple)
+    // MARK: - Preset chips
 
-                    if timerService.remainingSeconds <= 30 {
-                        Text(LocalizedStringKey("Fading out..."))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
+    private var presetChips: some View {
+        HStack(spacing: 8) {
+            ForEach(Self.presetMinutes, id: \.self) { minutes in
+                presetChip(minutes: minutes)
             }
-            .frame(width: 200, height: 200)
-
-            Button(action: {
-                timerService.cancel()
-            }) {
-                Label(LocalizedStringKey("Cancel Timer"), systemImage: "xmark.circle")
-                    .font(.headline)
-            }
-            .foregroundColor(.red)
-            .buttonStyle(.bordered)
-            .tint(.red)
         }
     }
 
-    // MARK: - Preset Selection View
-
-    private var presetSelectionView: some View {
-        VStack(spacing: 24) {
-            Image(systemName: "moon.zzz")
-                .font(.system(size: 60))
-                .foregroundColor(.purple.opacity(0.7))
-
-            Text(LocalizedStringKey("Set Sleep Timer"))
-                .font(.headline)
-                .foregroundColor(.secondary)
-
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(SleepTimerPreset.presets) { preset in
-                    Button(action: {
-                        timerService.start(minutes: preset.minutes)
-                    }) {
-                        Text(preset.localizedLabel)
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 20)
-                            .background(Color(.systemGray5))
-                            .cornerRadius(12)
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-            .padding(.horizontal)
-
-            Text(LocalizedStringKey("Audio will gradually fade out during the last 30 seconds"))
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
+    private func presetChip(minutes: Int) -> some View {
+        let isSelected = !timerService.isActive && selectedMinutes == minutes
+        return Button {
+            selectedMinutes = minutes
+        } label: {
+            Text(label(for: minutes))
+                .font(.subheadline.weight(DesignTokens.font.body))
+                .foregroundStyle(isSelected ? Color.white : Color.primary.opacity(0.85))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, DesignTokens.padding.compact)
+                .background(
+                    RoundedRectangle(cornerRadius: DesignTokens.radius.button, style: .continuous)
+                        .fill(isSelected ? DesignTokens.accent : Color.white.opacity(0.06))
+                )
         }
+        .buttonStyle(.plain)
+        .disabled(timerService.isActive)
+    }
+
+    private func label(for minutes: Int) -> String {
+        switch minutes {
+        case 60: return String(localized: "1h")
+        case 120: return String(localized: "2h")
+        default: return "\(minutes)m"
+        }
+    }
+
+    // MARK: - Start / Stop
+
+    private var startStopButton: some View {
+        Button {
+            if timerService.isActive {
+                timerService.cancel()
+            } else {
+                timerService.start(minutes: selectedMinutes)
+            }
+        } label: {
+            Text(timerService.isActive
+                 ? LocalizedStringKey("Stop")
+                 : LocalizedStringKey("Start"))
+                .font(.headline.weight(DesignTokens.font.header))
+                .foregroundStyle(Color.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, DesignTokens.padding.standard)
+                .background(
+                    RoundedRectangle(cornerRadius: DesignTokens.radius.button, style: .continuous)
+                        .fill(DesignTokens.accent)
+                )
+        }
+        .buttonStyle(.plain)
     }
 }
 

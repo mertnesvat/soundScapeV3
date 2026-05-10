@@ -38,6 +38,7 @@ struct SoundScapeApp: App {
                     OnboardingContainerView()
                 }
             }
+            .appBackground()
             .environment(audioEngine)
             .environment(sleepTimerService ?? createSleepTimerService())
             .environment(adaptiveSessionService ?? createAdaptiveSessionService())
@@ -165,7 +166,45 @@ struct SoundScapeApp: App {
     }
 
     private func configureAppearance() {
-        // Configure global appearance for dark mode
-        UITabBar.appearance().backgroundColor = UIColor.systemBackground
+        let surface = UIColor.black
+
+        let tabAppearance = UITabBarAppearance()
+        tabAppearance.configureWithTransparentBackground()
+        tabAppearance.backgroundColor = surface.withAlphaComponent(0)
+        tabAppearance.shadowColor = .clear
+        let tabFont = UIFont.systemFont(ofSize: 10, weight: .medium)
+        for itemAppearance in [tabAppearance.stackedLayoutAppearance,
+                               tabAppearance.inlineLayoutAppearance,
+                               tabAppearance.compactInlineLayoutAppearance] {
+            itemAppearance.normal.titleTextAttributes = [.font: tabFont]
+            itemAppearance.selected.titleTextAttributes = [.font: tabFont]
+        }
+        UITabBar.appearance().standardAppearance = tabAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+        UITabBar.appearance().backgroundColor = .clear
+        UITabBar.appearance().barTintColor = surface
+        UITabBar.appearance().isTranslucent = true
+
+        let navAppearance = UINavigationBarAppearance()
+        navAppearance.configureWithTransparentBackground()
+        navAppearance.backgroundColor = surface.withAlphaComponent(0)
+        navAppearance.shadowColor = .clear
+        navAppearance.titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+            .foregroundColor: UIColor.white
+        ]
+        navAppearance.largeTitleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 34, weight: .thin),
+            .foregroundColor: UIColor.white
+        ]
+        UINavigationBar.appearance().standardAppearance = navAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
+        UINavigationBar.appearance().compactAppearance = navAppearance
+        UINavigationBar.appearance().tintColor = UIColor(
+            red: 0x7F / 255.0,
+            green: 0x6F / 255.0,
+            blue: 0xD8 / 255.0,
+            alpha: 1.0
+        )
     }
 }

@@ -8,32 +8,62 @@ struct SavedMixesView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
+            ZStack {
+                DesignTokens.surface.ignoresSafeArea()
+
                 if mixesService.mixes.isEmpty {
-                    ContentUnavailableView(
-                        String(localized: "No Saved Mixes"),
-                        systemImage: "folder.badge.plus",
-                        description: Text("Save your current sound mix from the Mixer")
-                    )
+                    Text(LocalizedStringKey("No saved mixes yet."))
+                        .font(.body.weight(DesignTokens.font.body))
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .multilineTextAlignment(.center)
                 } else {
                     List {
                         ForEach(mixesService.mixes) { mix in
-                            SavedMixRowView(
-                                mix: mix,
-                                soundRepository: soundRepository,
-                                onPlay: { loadMix(mix) },
-                                onRename: { newName in mixesService.renameMix(mix, to: newName) }
-                            )
+                            Button {
+                                loadMix(mix)
+                            } label: {
+                                row(for: mix)
+                            }
+                            .buttonStyle(.plain)
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                            .accessibilityLabel(Text("Play \(mix.name)"))
                         }
                         .onDelete { indexSet in
                             indexSet.forEach { mixesService.deleteMix(mixesService.mixes[$0]) }
                         }
                     }
-                    .listStyle(.insetGrouped)
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden)
                 }
             }
             .navigationTitle(LocalizedStringKey("Saved Mixes"))
         }
+    }
+
+    private func row(for mix: SavedMix) -> some View {
+        HStack(spacing: DesignTokens.padding.standard) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(mix.name)
+                    .font(.body.weight(DesignTokens.font.body))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+
+                Text("\(mix.sounds.count) sound\(mix.sounds.count == 1 ? "" : "s")")
+                    .font(.caption.weight(DesignTokens.font.body))
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer()
+
+            Image(systemName: "play.fill")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(DesignTokens.accent)
+                .accessibilityHidden(true)
+        }
+        .padding(.vertical, DesignTokens.padding.compact)
+        .contentShape(Rectangle())
     }
 
     private func loadMix(_ mix: SavedMix) {
@@ -44,7 +74,6 @@ struct SavedMixesView: View {
             for mixSound in mix.sounds {
                 if let sound = soundRepository.getSound(byId: mixSound.soundId) {
                     audioEngine.play(sound: sound)
-                    // Set volume after a brief delay to let play initialize
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         audioEngine.setVolume(mixSound.volume, for: sound.id)
                     }

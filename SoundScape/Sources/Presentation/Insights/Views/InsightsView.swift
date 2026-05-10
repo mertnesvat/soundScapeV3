@@ -14,57 +14,57 @@ struct InsightsView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    // Free tier: Basic stats always visible
-                    basicStatsSection
+            ZStack {
+                DesignTokens.surface.ignoresSafeArea()
 
-                    if isPremiumRequired {
-                        // Free tier: Show premium upsell card
-                        premiumUpsellCard
+                ScrollView {
+                    VStack(alignment: .leading, spacing: DesignTokens.padding.edges) {
+                        // Sleep Recording entry row
+                        sleepRecordingRow
 
-                        // Show locked versions of premium content
-                        lockedWeeklyChartSection
-                        lockedMetricsSection
-                        lockedTopSoundsSection
-                        lockedRecommendationsSection
-                    } else {
-                        // Premium tier: Full dashboard
-                        // Weekly Sleep Chart
-                        WeeklySleepChartView(data: insightsService.weeklyData)
+                        // Free tier: Basic stats always visible
+                        basicStatsSection
 
-                        // Key Metrics
-                        MetricsGridView(
-                            averageDuration: insightsService.averageDuration,
-                            averageQuality: insightsService.averageQuality,
-                            averageTimeToSleep: insightsService.averageTimeToSleep
-                        )
+                        if isPremiumRequired {
+                            // Free tier: Show premium upsell card
+                            premiumUpsellCard
 
-                        // Sleep Goal Progress
-                        if insightsService.sleepGoal != nil {
-                            SleepGoalView(
-                                progress: insightsService.goalProgress,
-                                targetHours: (insightsService.sleepGoal?.targetDuration ?? 0) / 3600,
-                                actualHours: insightsService.averageDuration / 3600
+                            // Show locked versions of premium content
+                            lockedWeeklyChartSection
+                            lockedMetricsSection
+                            lockedTopSoundsSection
+                            lockedRecommendationsSection
+                        } else {
+                            // Premium tier: Full dashboard
+                            WeeklySleepChartView(data: insightsService.weeklyData)
+
+                            MetricsGridView(
+                                averageDuration: insightsService.averageDuration,
+                                averageQuality: insightsService.averageQuality,
+                                averageTimeToSleep: insightsService.averageTimeToSleep
                             )
+
+                            if insightsService.sleepGoal != nil {
+                                SleepGoalView(
+                                    progress: insightsService.goalProgress,
+                                    targetHours: (insightsService.sleepGoal?.targetDuration ?? 0) / 3600,
+                                    actualHours: insightsService.averageDuration / 3600
+                                )
+                            }
+
+                            TopSoundsView(sounds: insightsService.mostUsedSounds)
+
+                            RecommendationsView(recommendations: insightsService.recommendations)
                         }
 
-                        // Top Sounds
-                        TopSoundsView(sounds: insightsService.mostUsedSounds)
-
-                        // Recommendations
-                        RecommendationsView(recommendations: insightsService.recommendations)
+                        UsageStatisticsView(
+                            totalSessions: insightsService.totalSessions,
+                            totalSleepTime: insightsService.totalSleepTime
+                        )
                     }
-
-                    // Usage Statistics - always visible
-                    UsageStatisticsView(
-                        totalSessions: insightsService.totalSessions,
-                        totalSleepTime: insightsService.totalSleepTime
-                    )
+                    .padding(DesignTokens.padding.standard)
                 }
-                .padding()
             }
-            .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizedStringKey("Insights"))
             .onAppear {
                 analyticsService.logInsightsTabOpened(hasData: insightsService.totalSessions > 0)
@@ -90,50 +90,83 @@ struct InsightsView: View {
         }
     }
 
+    // MARK: - Sleep Recording Row
+
+    private var sleepRecordingRow: some View {
+        NavigationLink {
+            SleepRecordingView()
+        } label: {
+            HStack(spacing: DesignTokens.padding.standard) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(LocalizedStringKey("Sleep recording"))
+                        .font(.body.weight(DesignTokens.font.body))
+                        .foregroundStyle(.primary)
+                        .lineLimit(1)
+
+                    Text(LocalizedStringKey("Track snoring and sleep sounds overnight"))
+                        .font(.caption.weight(DesignTokens.font.body))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(DesignTokens.accent)
+                    .accessibilityHidden(true)
+            }
+            .padding(.vertical, DesignTokens.padding.compact)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text("Sleep recording"))
+    }
+
     // MARK: - Basic Stats (Free Tier)
 
     private var basicStatsSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: DesignTokens.padding.standard) {
             Text(LocalizedStringKey("Your Sleep Journey"))
-                .font(.headline)
-                .foregroundColor(.primary)
+                .font(.headline.weight(DesignTokens.font.header))
+                .foregroundStyle(.primary)
 
-            HStack(spacing: 16) {
+            HStack(spacing: DesignTokens.padding.standard) {
                 basicStatCard(
                     title: String(localized: "Total Sessions"),
                     value: "\(insightsService.totalSessions)",
-                    icon: "moon.zzz.fill",
-                    color: .indigo
+                    icon: "moon.zzz.fill"
                 )
 
                 basicStatCard(
                     title: String(localized: "This Week"),
                     value: "\(insightsService.weeklyData.count)",
-                    icon: "calendar",
-                    color: .purple
+                    icon: "calendar"
                 )
             }
         }
     }
 
-    private func basicStatCard(title: String, value: String, icon: String, color: Color) -> some View {
+    private func basicStatCard(title: String, value: String, icon: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Image(systemName: icon)
-                    .foregroundColor(color)
+                    .foregroundStyle(DesignTokens.accent)
                 Text(title)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    .font(.caption.weight(DesignTokens.font.body))
+                    .foregroundStyle(.secondary)
             }
 
             Text(value)
-                .font(.title)
-                .fontWeight(.bold)
+                .font(.title.weight(DesignTokens.font.header))
+                .foregroundStyle(.primary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color(.secondarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(DesignTokens.padding.standard)
+        .background(
+            RoundedRectangle(cornerRadius: DesignTokens.radius.button)
+                .fill(DesignTokens.accent.opacity(0.08))
+        )
     }
 
     // MARK: - Premium Upsell Card
@@ -142,37 +175,32 @@ struct InsightsView: View {
         Button {
             paywallService.triggerPaywall(placement: "full_insights") {}
         } label: {
-            VStack(spacing: 12) {
-                HStack {
-                    Image(systemName: "chart.line.uptrend.xyaxis")
-                        .font(.title2)
-                        .foregroundColor(.white)
+            HStack(spacing: DesignTokens.padding.standard) {
+                Image(systemName: "chart.line.uptrend.xyaxis")
+                    .font(.title2)
+                    .foregroundStyle(DesignTokens.accent)
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(LocalizedStringKey("Unlock Full Analytics"))
-                            .font(.headline)
-                            .foregroundColor(.white)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(LocalizedStringKey("Unlock Full Analytics"))
+                        .font(.headline.weight(DesignTokens.font.header))
+                        .foregroundStyle(.primary)
 
-                        Text(LocalizedStringKey("Charts, trends, recommendations & more"))
-                            .font(.caption)
-                            .foregroundColor(.white.opacity(0.8))
-                    }
-
-                    Spacer()
-
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.white.opacity(0.8))
+                    Text(LocalizedStringKey("Charts, trends, recommendations & more"))
+                        .font(.caption.weight(DesignTokens.font.body))
+                        .foregroundStyle(.secondary)
                 }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(DesignTokens.accent)
             }
-            .padding()
+            .padding(DesignTokens.padding.standard)
             .background(
-                LinearGradient(
-                    colors: [.purple, .indigo],
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
+                RoundedRectangle(cornerRadius: DesignTokens.radius.card)
+                    .fill(DesignTokens.accent.opacity(0.12))
             )
-            .clipShape(RoundedRectangle(cornerRadius: 16))
         }
         .buttonStyle(.plain)
     }
@@ -210,28 +238,29 @@ struct InsightsView: View {
     private func sectionHeader(_ title: String, icon: String) -> some View {
         HStack(spacing: 8) {
             Image(systemName: icon)
-                .foregroundColor(.purple)
+                .foregroundStyle(DesignTokens.accent)
             Text(title)
-                .font(.headline)
+                .font(.headline.weight(DesignTokens.font.header))
+                .foregroundStyle(.primary)
             Spacer()
             Image(systemName: "lock.fill")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
     }
 
     private func lockedPlaceholder(height: CGFloat) -> some View {
-        RoundedRectangle(cornerRadius: 12)
-            .fill(Color(.secondarySystemGroupedBackground))
+        RoundedRectangle(cornerRadius: DesignTokens.radius.button)
+            .fill(DesignTokens.accent.opacity(0.06))
             .frame(height: height)
             .overlay(
                 VStack(spacing: 8) {
                     Image(systemName: "lock.fill")
                         .font(.title2)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     Text(LocalizedStringKey("Premium Feature"))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                        .font(.caption.weight(DesignTokens.font.body))
+                        .foregroundStyle(.secondary)
                 }
             )
             .onTapGesture {

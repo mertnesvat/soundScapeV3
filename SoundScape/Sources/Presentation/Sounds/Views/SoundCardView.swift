@@ -9,93 +9,35 @@ struct SoundCardView: View {
     let onToggleFavorite: () -> Void
     let onLockedTap: () -> Void
 
-    @Environment(AppearanceService.self) private var appearanceService
-    @Environment(MotionService.self) private var motionService
     @State private var heartScale: CGFloat = 1.0
 
     private var categoryColor: Color {
-        switch sound.category {
-        case .noise: return .purple
-        case .nature: return .green
-        case .weather: return .blue
-        case .fire: return .orange
-        case .music: return .pink
-        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
-        }
-    }
-
-    private var cardBackgroundColor: Color {
-        if appearanceService.isOLEDModeEnabled {
-            return isPlaying
-                ? Color(.systemGray6).opacity(0.15)
-                : Color(.systemGray6).opacity(0.08)
-        } else {
-            return Color(.systemGray6)
-        }
-    }
-
-    private var glowColor: Color {
-        if isPlaying {
-            return appearanceService.isOLEDModeEnabled
-                ? categoryColor.opacity(0.6)
-                : categoryColor.opacity(0.4)
-        }
-        return .clear
+        DesignTokens.categoryColor(for: sound.category)
     }
 
     var body: some View {
         Button(action: onTogglePlay) {
-            VStack(spacing: 10) {
-                // Icon with glow effect when playing, mini visualization overlay
-                ZStack {
-                    Circle()
-                        .fill(categoryColor.opacity(0.2))
-                        .frame(width: 56, height: 56)
-
-                    if isPlaying {
-                        Circle()
-                            .fill(categoryColor.opacity(0.3))
-                            .frame(width: 66, height: 66)
-                            .blur(radius: 10)
-
-                        // Mini visualization when playing
-                        MiniVisualizationView(sound: sound, volume: 0.7, size: 46)
-                            .opacity(0.8)
-                    }
-
-                    Image(systemName: sound.category.icon)
-                        .font(.system(size: 22))
-                        .foregroundColor(categoryColor)
-                }
-                .animation(.easeInOut(duration: 0.3), value: isPlaying)
-
-                // Sound name
-                Text(sound.name)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(.primary)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.center)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .padding(.horizontal, 12)
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(cardBackgroundColor)
-                    .shadow(
-                        color: glowColor,
-                        radius: isPlaying ? (appearanceService.isOLEDModeEnabled ? 16 : 12) : 0
-                    )
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(
-                        isPlaying ? categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.7 : 0.5) : Color.clear,
-                        lineWidth: appearanceService.isOLEDModeEnabled ? 1 : 2
-                    )
-            )
-            .reflectiveSheen(categoryColor: categoryColor, cornerRadius: 16)
+            Text(sound.name)
+                .font(.subheadline)
+                .fontWeight(DesignTokens.font.body)
+                .foregroundColor(.primary)
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
+                .padding(DesignTokens.padding.compact)
+                .frame(maxWidth: .infinity)
+                .aspectRatio(1, contentMode: .fit)
+                .background(
+                    RoundedRectangle(cornerRadius: DesignTokens.radius.card)
+                        .fill(DesignTokens.surface)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: DesignTokens.radius.card)
+                        .stroke(categoryColor.opacity(0.3), lineWidth: 1)
+                )
+                .shadow(
+                    color: isPlaying ? categoryColor.opacity(DesignTokens.shadow.opacity) : .clear,
+                    radius: isPlaying ? DesignTokens.shadow.minRadius : 0
+                )
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.3), value: isPlaying)
@@ -114,10 +56,10 @@ struct SoundCardView: View {
             }) {
                 Image(systemName: isFavorite ? "heart.fill" : "heart")
                     .foregroundColor(isFavorite ? .red : .gray)
-                    .font(.title3)
+                    .font(.footnote)
                     .scaleEffect(heartScale)
             }
-            .padding(12)
+            .padding(DesignTokens.padding.compact)
         }
     }
 }
@@ -156,7 +98,5 @@ struct SoundCardView: View {
     }
     .padding()
     .preferredColorScheme(.dark)
-    .background(Color(.systemBackground))
-    .environment(AppearanceService())
-    .environment(MotionService())
+    .background(DesignTokens.surface)
 }
