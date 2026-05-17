@@ -2,6 +2,9 @@ base_branch: master
 max_attempts_per_issue: 5
 max_plan_minutes: 480
 github_repo: mertnesvat/soundScapeV3
+prereqs:
+  - DESIGN.md
+  - PRODUCT.md
 verifier:
   strategy: cli
   commands:
