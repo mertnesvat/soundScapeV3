@@ -24,6 +24,7 @@ struct SoundScapeApp: App {
     @State private var paywallService = PaywallService()
     @State private var sleepRecordingService = SleepRecordingService()
     @State private var premiumManager: PremiumManager?
+    @State private var showSplash: Bool = true
 
     init() {
         configureAppearance()
@@ -32,10 +33,21 @@ struct SoundScapeApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if onboardingService.hasCompletedOnboarding {
+                if showSplash {
+                    SplashWordmarkView()
+                        .transition(.opacity)
+                        .task {
+                            try? await Task.sleep(nanoseconds: 1_000_000_000)
+                            withAnimation(Tokens.tactilePress) {
+                                showSplash = false
+                            }
+                        }
+                } else if onboardingService.hasCompletedOnboarding {
                     ContentView()
+                        .transition(.opacity)
                 } else {
                     OnboardingContainerView()
+                        .transition(.opacity)
                 }
             }
             .environment(audioEngine)
