@@ -21,6 +21,20 @@
                ReferencedContainer = "container:SoundScape.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB96EB91000000Z1"
+               BuildableName = "SoundScapeTests.xctest"
+               BlueprintName = "SoundScapeTests"
+               ReferencedContainer = "container:SoundScape.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
