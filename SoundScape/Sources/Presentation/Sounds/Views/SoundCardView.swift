@@ -5,100 +5,74 @@ struct SoundCardView: View {
     let isPlaying: Bool
     let isFavorite: Bool
     let isLocked: Bool
+    var index: Int = 1
     let onTogglePlay: () -> Void
     let onToggleFavorite: () -> Void
     let onLockedTap: () -> Void
 
-    @Environment(AppearanceService.self) private var appearanceService
-    @Environment(MotionService.self) private var motionService
     @State private var heartScale: CGFloat = 1.0
 
-    private var categoryColor: Color {
-        switch sound.category {
-        case .noise: return .purple
-        case .nature: return .green
-        case .weather: return .blue
-        case .fire: return .orange
-        case .music: return .pink
-        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
-        }
+    private var accentColor: Color {
+        isPlaying ? Tokens.colorOrange : Tokens.colorPeach
     }
 
-    private var cardBackgroundColor: Color {
-        if appearanceService.isOLEDModeEnabled {
-            return isPlaying
-                ? Color(.systemGray6).opacity(0.15)
-                : Color(.systemGray6).opacity(0.08)
-        } else {
-            return Color(.systemGray6)
-        }
+    private var numeralText: String {
+        String(format: "%02d", max(0, index))
     }
 
-    private var glowColor: Color {
-        if isPlaying {
-            return appearanceService.isOLEDModeEnabled
-                ? categoryColor.opacity(0.6)
-                : categoryColor.opacity(0.4)
-        }
-        return .clear
+    private var categoryLabel: String {
+        sound.category.rawValue.uppercased()
     }
 
     var body: some View {
         Button(action: onTogglePlay) {
-            VStack(spacing: 10) {
-                // Icon with glow effect when playing, mini visualization overlay
-                ZStack {
-                    Circle()
-                        .fill(categoryColor.opacity(0.2))
-                        .frame(width: 56, height: 56)
+            HStack(spacing: 0) {
+                // Saturated accent bar (orange when active, peach otherwise)
+                Rectangle()
+                    .fill(accentColor)
+                    .frame(width: 6)
 
-                    if isPlaying {
-                        Circle()
-                            .fill(categoryColor.opacity(0.3))
-                            .frame(width: 66, height: 66)
-                            .blur(radius: 10)
+                VStack(alignment: .leading, spacing: 8) {
+                    // Top-left two-digit zero-padded numeral
+                    Text(numeralText)
+                        .font(.system(size: Tokens.displayNumeralSize,
+                                      weight: .black,
+                                      design: .default))
+                        .foregroundColor(Tokens.colorInk)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
 
-                        // Mini visualization when playing
-                        MiniVisualizationView(sound: sound, volume: 0.7, size: 46)
-                            .opacity(0.8)
-                    }
+                    // Sound name: SF Pro Display bold 18pt
+                    Text(sound.name)
+                        .font(.system(size: 18, weight: .bold, design: .default))
+                        .foregroundColor(Tokens.colorInk)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
 
-                    Image(systemName: sound.category.icon)
-                        .font(.system(size: 22))
-                        .foregroundColor(categoryColor)
+                    // Category microcopy: SF Pro Text regular 12pt at 60% opacity
+                    Text(categoryLabel)
+                        .font(.system(size: 12, weight: .regular, design: .default))
+                        .tracking(1.2)
+                        .foregroundColor(Tokens.colorInk.opacity(0.6))
                 }
-                .animation(.easeInOut(duration: 0.3), value: isPlaying)
-
-                // Sound name
-                Text(sound.name)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(.primary)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.center)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 18)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .padding(.horizontal, 12)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(cardBackgroundColor)
-                    .shadow(
-                        color: glowColor,
-                        radius: isPlaying ? (appearanceService.isOLEDModeEnabled ? 16 : 12) : 0
-                    )
+                RoundedRectangle(cornerRadius: Tokens.radiusTile, style: .continuous)
+                    .fill(Tokens.colorCream)
             )
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(
-                        isPlaying ? categoryColor.opacity(appearanceService.isOLEDModeEnabled ? 0.7 : 0.5) : Color.clear,
-                        lineWidth: appearanceService.isOLEDModeEnabled ? 1 : 2
-                    )
-            )
-            .reflectiveSheen(categoryColor: categoryColor, cornerRadius: 16)
+            .overlay(alignment: .bottom) {
+                // Single 1pt hairline divider at the row bottom
+                Rectangle()
+                    .fill(Tokens.colorInk.opacity(0.08))
+                    .frame(height: 1)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: Tokens.radiusTile, style: .continuous))
         }
-        .buttonStyle(.plain)
-        .animation(.easeInOut(duration: 0.3), value: isPlaying)
+        .buttonStyle(EditorialTilePressStyle())
         .premiumLocked(isLocked: isLocked, onTap: onLockedTap)
         .overlay(alignment: .topTrailing) {
             Button(action: {
@@ -113,17 +87,28 @@ struct SoundCardView: View {
                 onToggleFavorite()
             }) {
                 Image(systemName: isFavorite ? "heart.fill" : "heart")
-                    .foregroundColor(isFavorite ? .red : .gray)
-                    .font(.title3)
+                    .foregroundColor(isFavorite ? Tokens.colorOrange : Tokens.colorInk.opacity(0.4))
+                    .font(.system(size: 18, weight: .semibold))
                     .scaleEffect(heartScale)
+                    .frame(width: 44, height: 44)
+                    .contentShape(Rectangle())
             }
-            .padding(12)
         }
     }
 }
 
+/// Editorial tile press style — applies a tactile press scale and nothing else.
+private struct EditorialTilePressStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        let isPressed = configuration.isPressed
+        return configuration.label
+            .scaleEffect(isPressed ? 0.97 : 1)
+            .animation(Tokens.tactilePress, value: isPressed)
+    }
+}
+
 #Preview {
-    HStack(spacing: 16) {
+    VStack(spacing: 12) {
         SoundCardView(
             sound: Sound(
                 id: "rain",
@@ -134,6 +119,7 @@ struct SoundCardView: View {
             isPlaying: false,
             isFavorite: false,
             isLocked: true,
+            index: 1,
             onTogglePlay: {},
             onToggleFavorite: {},
             onLockedTap: {}
@@ -149,14 +135,12 @@ struct SoundCardView: View {
             isPlaying: true,
             isFavorite: true,
             isLocked: false,
+            index: 12,
             onTogglePlay: {},
             onToggleFavorite: {},
             onLockedTap: {}
         )
     }
     .padding()
-    .preferredColorScheme(.dark)
-    .background(Color(.systemBackground))
-    .environment(AppearanceService())
-    .environment(MotionService())
+    .background(Tokens.colorCream.opacity(0.5))
 }
