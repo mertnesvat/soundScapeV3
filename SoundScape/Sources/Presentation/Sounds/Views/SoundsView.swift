@@ -21,25 +21,17 @@ struct SoundsView: View {
     @State private var sheetOpenTime: Date = .now
 
     private let asmrInfoService = ASMRInfoService()
-
-    private let columns = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16),
-    ]
-
     private let freeSoundLimit = 6
+
+    /// The editorial "featured" category — rendered inside a full-bleed
+    /// `Tokens.colorOrange` block with white type, mirroring ref01's
+    /// `Nos expertises` panel. First non-noise category.
+    private let featuredCategory: SoundCategory = .nature
 
     /// Check if adding a new sound would exceed the free user limit
     private func wouldExceedMixerLimit(for sound: Sound) -> Bool {
-        // If already playing, toggling won't add a new sound
-        if audioEngine.isPlaying(soundId: sound.id) {
-            return false
-        }
-        // If premium user, no limit
-        if paywallService.isPremium {
-            return false
-        }
-        // Check if at or over limit
+        if audioEngine.isPlaying(soundId: sound.id) { return false }
+        if paywallService.isPremium { return false }
         return audioEngine.activeSounds.count >= freeSoundLimit
     }
 
@@ -48,7 +40,6 @@ struct SoundsView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     if let viewModel = viewModel {
-                        // Category Filter
                         CategoryFilterView(
                             selectedCategory: Binding(
                                 get: { viewModel.selectedCategory },
@@ -62,33 +53,14 @@ struct SoundsView: View {
                                 viewModel.selectCategory(category)
                             }
                         )
+                        .padding(.bottom, 8)
 
-                        // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                            let favoriteSounds = viewModel.sounds.filter {
-                                favoritesService.isFavorite($0.id)
-                            }
-                            if !favoriteSounds.isEmpty {
-                                favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
-                            }
-                        }
-
-                        // Favorites empty state
-                        if viewModel.showingFavorites && viewModel.filteredSounds.isEmpty {
-                            ContentUnavailableView(
-                                String(localized: "No Favorites"),
-                                systemImage: "heart.slash",
-                                description: Text("Tap the heart on sounds to add favorites")
-                            )
-                            .padding(.top, 60)
-                        } else {
-                            // All Sounds Section
-                            allSoundsSection(viewModel: viewModel)
-                        }
+                        sectionStack(for: viewModel)
                     }
                 }
+                .padding(.bottom, 32)
             }
-            .oledBackground()
+            .background(Tokens.colorCream.ignoresSafeArea())
             .navigationTitle(LocalizedStringKey("Sounds"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -97,15 +69,15 @@ struct SoundsView: View {
                             showSettingsSheet = true
                         } label: {
                             Image(systemName: "gearshape")
+                                .foregroundColor(Tokens.colorInk)
                         }
 
-                        // Show ASMR info button when ASMR category is selected
                         if viewModel?.selectedCategory == .asmr {
                             Button {
                                 showASMRInfoSheet = true
                             } label: {
                                 Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
+                                    .foregroundColor(Tokens.colorInk)
                             }
                         }
                     }
@@ -119,6 +91,7 @@ struct SoundsView: View {
                             sheetOpenTime = .now
                         } label: {
                             Image(systemName: "slider.horizontal.3")
+                                .foregroundColor(Tokens.colorInk)
                         }
 
                         Button {
@@ -127,6 +100,7 @@ struct SoundsView: View {
                             sheetOpenTime = .now
                         } label: {
                             Image(systemName: "moon.zzz")
+                                .foregroundColor(Tokens.colorInk)
                         }
 
                         Button {
@@ -135,6 +109,7 @@ struct SoundsView: View {
                             sheetOpenTime = .now
                         } label: {
                             Image(systemName: "folder")
+                                .foregroundColor(Tokens.colorInk)
                         }
                     }
                 }
@@ -179,7 +154,6 @@ struct SoundsView: View {
                 .environment(subscriptionService)
             }
             .onChange(of: viewModel?.selectedCategory) { oldValue, newValue in
-                // Show ASMR info sheet on first visit to ASMR category
                 if newValue == .asmr && !asmrInfoService.hasSeenInfo {
                     showASMRInfoSheet = true
                     asmrInfoService.markAsSeen()
@@ -203,116 +177,139 @@ struct SoundsView: View {
         }
     }
 
-    @ViewBuilder
-    private func favoritesSection(sounds: [Sound], viewModel: SoundsViewModel) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
-                Text(LocalizedStringKey("Favorites"))
-                    .font(.headline)
-                    .foregroundColor(.primary)
-            }
-            .padding(.horizontal, 16)
+    // MARK: - Editorial section stack
 
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(sounds) { sound in
-                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
-                    SoundCardView(
-                        sound: sound,
-                        isPlaying: viewModel.isPlaying(sound),
-                        isFavorite: favoritesService.isFavorite(sound.id),
-                        isLocked: isLocked,
-                        onTogglePlay: {
-                            analyticsService.logSoundCardTapped(
-                                soundId: sound.id,
-                                soundName: sound.name,
-                                category: sound.category.rawValue,
-                                isPremium: isLocked,
-                                isPlaying: viewModel.isPlaying(sound)
-                            )
-                            if isLocked {
-                                paywallService.triggerPaywall(placement: "premium_sound") {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            } else if wouldExceedMixerLimit(for: sound) {
-                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
-                            } else {
-                                viewModel.togglePlay(for: sound)
-                            }
-                        },
-                        onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
-                        },
-                        onLockedTap: {
-                            paywallService.triggerPaywall(placement: "premium_sound") {}
-                        }
+    @ViewBuilder
+    private func sectionStack(for viewModel: SoundsViewModel) -> some View {
+        if viewModel.showingFavorites {
+            if viewModel.filteredSounds.isEmpty {
+                ContentUnavailableView(
+                    String(localized: "No Favorites"),
+                    systemImage: "heart.slash",
+                    description: Text("Tap the heart on sounds to add favorites")
+                )
+                .foregroundStyle(Tokens.colorInk.opacity(0.6))
+                .padding(.top, 60)
+            } else {
+                editorialSection(
+                    title: String(localized: "Favorites"),
+                    sounds: viewModel.filteredSounds,
+                    featured: false,
+                    viewModel: viewModel
+                )
+            }
+        } else if let category = viewModel.selectedCategory {
+            editorialSection(
+                title: category.localizedName,
+                sounds: viewModel.filteredSounds,
+                featured: category == featuredCategory,
+                viewModel: viewModel
+            )
+        } else {
+            let favoriteSounds = viewModel.sounds.filter { favoritesService.isFavorite($0.id) }
+            if !favoriteSounds.isEmpty {
+                editorialSection(
+                    title: String(localized: "Favorites"),
+                    sounds: favoriteSounds,
+                    featured: false,
+                    viewModel: viewModel
+                )
+            }
+
+            ForEach(SoundCategory.allCases, id: \.self) { category in
+                let categorySounds = viewModel.sounds.filter { $0.category == category }
+                if !categorySounds.isEmpty {
+                    editorialSection(
+                        title: category.localizedName,
+                        sounds: categorySounds,
+                        featured: category == featuredCategory,
+                        viewModel: viewModel
                     )
                 }
             }
-            .padding(.horizontal, 16)
-
-            Divider()
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
         }
-        .padding(.top, 8)
     }
 
     @ViewBuilder
-    private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Show header only when favorites exist and no category filter
-            if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
-                if hasFavorites {
-                    Text(LocalizedStringKey("All Sounds"))
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding(.horizontal, 16)
-                }
-            }
+    private func editorialSection(
+        title: String,
+        sounds: [Sound],
+        featured: Bool,
+        viewModel: SoundsViewModel
+    ) -> some View {
+        let foreground: Color = featured ? .white : Tokens.colorInk
 
-            // Sound Grid
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(viewModel.filteredSounds) { sound in
-                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
-                    SoundCardView(
-                        sound: sound,
-                        isPlaying: viewModel.isPlaying(sound),
-                        isFavorite: favoritesService.isFavorite(sound.id),
-                        isLocked: isLocked,
-                        onTogglePlay: {
-                            analyticsService.logSoundCardTapped(
-                                soundId: sound.id,
-                                soundName: sound.name,
-                                category: sound.category.rawValue,
-                                isPremium: isLocked,
-                                isPlaying: viewModel.isPlaying(sound)
-                            )
-                            if isLocked {
-                                paywallService.triggerPaywall(placement: "premium_sound") {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            } else if wouldExceedMixerLimit(for: sound) {
-                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
-                            } else {
-                                viewModel.togglePlay(for: sound)
-                            }
-                        },
-                        onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
-                        },
-                        onLockedTap: {
-                            paywallService.triggerPaywall(placement: "premium_sound") {}
-                        }
-                    )
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(alignment: .firstTextBaseline) {
+                Text(title)
+                    .font(.system(size: Tokens.headlineSize,
+                                  weight: .black,
+                                  design: .default))
+                    .foregroundColor(foreground)
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(foreground)
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 28)
+            .padding(.bottom, 16)
+
+            Rectangle()
+                .fill(foreground.opacity(0.12))
+                .frame(height: 1)
+                .padding(.horizontal, 24)
+
+            LazyVStack(spacing: 0) {
+                ForEach(Array(sounds.enumerated()), id: \.element.id) { offset, sound in
+                    soundRow(for: sound, index: offset + 1, viewModel: viewModel)
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.top, 8)
-            .padding(.bottom, 24)
+            .padding(.top, 12)
+            .padding(.bottom, 20)
         }
+        .background(featured ? Tokens.colorOrange : Color.clear)
+    }
+
+    @ViewBuilder
+    private func soundRow(for sound: Sound, index: Int, viewModel: SoundsViewModel) -> some View {
+        let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
+
+        SoundCardView(
+            sound: sound,
+            isPlaying: viewModel.isPlaying(sound),
+            isFavorite: favoritesService.isFavorite(sound.id),
+            isLocked: isLocked,
+            index: index,
+            onTogglePlay: {
+                analyticsService.logSoundCardTapped(
+                    soundId: sound.id,
+                    soundName: sound.name,
+                    category: sound.category.rawValue,
+                    isPremium: isLocked,
+                    isPlaying: viewModel.isPlaying(sound)
+                )
+                if isLocked {
+                    paywallService.triggerPaywall(placement: "premium_sound") {
+                        viewModel.togglePlay(for: sound)
+                    }
+                } else if wouldExceedMixerLimit(for: sound) {
+                    paywallService.triggerPaywall(placement: "unlimited_mixing") {}
+                } else {
+                    viewModel.togglePlay(for: sound)
+                }
+            },
+            onToggleFavorite: {
+                favoritesService.toggleFavorite(sound.id, soundName: sound.name)
+            },
+            onLockedTap: {
+                paywallService.triggerPaywall(placement: "premium_sound") {}
+            }
+        )
+        .padding(.vertical, 4)
     }
 }
 
@@ -326,5 +323,4 @@ struct SoundsView: View {
         .environment(paywallService)
         .environment(PremiumManager(paywallService: paywallService))
         .environment(AnalyticsService())
-        .preferredColorScheme(.dark)
 }
