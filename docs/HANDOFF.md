@@ -9,10 +9,45 @@ The user invoked `/goal` from DriftCode (`/Users/mert/Developer/AI-Experiments/D
 Status:
 - [x] Five parallel research agents completed; docs in `docs/research/`
 - [x] Coding principles + 6-phase refactor plan synthesized in `docs/REFACTOR_BRIEF.md`
-- [ ] **Awaiting user input on phase priorities / scope**
-- [ ] Run `drift plan soundScapeV3 --auto --intent "..."` (intent text is in `REFACTOR_BRIEF.md` Part 3)
-- [ ] Run `drift execute soundScapeV3 --plan <slug>` (long-running)
-- [ ] Run `drift pr soundScapeV3 --plan <slug>` to open the PR
+- [x] User confirmed scope: Phase 0 first, then auto-chain through Phases 1-5
+- [x] **Phase 0 complete and shipped** — slug `wake-xctest-target`, PR **#64**, all 3 issues green, final verifier `test: pass (exit 0, 44229ms)`
+- [ ] **Awaiting Phase 0 merge before Phase 1 can start** (Phase 1's verifier loop depends on Phase 0's `drift.config.yaml` change being on master)
+- [ ] Continue with Phase 1 (`inline-shallow-modules`) once Phase 0 is merged
+
+## Phase 0 outcome (2026-05-18)
+
+- Branch: `drift/wake-xctest-target` (pushed to origin)
+- PR: https://github.com/mertnesvat/soundScapeV3/pull/64
+- Files changed: only `SoundScape/SoundScape.xcodeproj/xcshareddata/xcschemes/SoundScape.xcscheme` and `drift.config.yaml`
+- Tests now running: `FavoritesServiceTests`, `AlarmTests`, `SleepContentTests`, `SleepRecordingTests`, `SoundRepositoryTests`
+- The memory note `project_soundscape_test_step_environmental.md` has been rewritten to reflect the new reality.
+
+## Continuing the chain
+
+After merging PR #64 to master, kick off Phase 1 with this intent (truncated — full text in `REFACTOR_BRIEF.md` Part 2, Phase 1):
+
+```bash
+cd /Users/mert/Developer/AI-Experiments/DriftCode
+
+bun run src/cli.tsx plan /Users/mert/Developer/AI-Experiments/GenProjects/soundScapeV3 --auto --intent "$(cat <<'EOF'
+Phase 1 of the soundScapeV3 architectural deepening refactor: inline shallow modules.
+
+Reference: docs/REFACTOR_BRIEF.md (Phase 1) and docs/research/shallow-modules-deletion-test.md for deletion-test reasoning.
+
+Targets (each is a separate issue):
+1. Inline SoundRepository + SoundRepositoryProtocol. Update SoundsViewModel to use LocalSoundDataSource directly.
+2. Replace AppearanceService with @AppStorage("oled_mode_enabled") at consumers. Delete the service file.
+3. Convert LocalSoundDataSource, LocalCommunityDataSource, LocalStoryDataSource to bundle JSON. Decode once into immutable arrays.
+4. Collapse ReviewPromptService.recordSuccessfulSleepSession() / recordMixSaved() / recordFavoriteAction() into one recordPositiveAction(source:) method. Remove markAsDeclined() no-op. Fix YOUR_APP_STORE_ID placeholder.
+5. Delete SavedMixRowView.swift (dead code).
+6. SoundsViewModel: inline into SoundsView (preferred), or deepen by giving it real state.
+
+Out of scope: no protocol introductions (Phase 3+4), no new use cases (Phase 2), no view restyling (Phase 5), no AudioEngine changes.
+
+Acceptance: xcodebuild test exits 0 (5 scoped tests stay green), xcodebuild build exits 0, file count under SoundScape/Sources/ reduced by >=4.
+EOF
+)"
+```
 
 ## Key docs (read in this order)
 
