@@ -156,6 +156,9 @@
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
 		FB96EB91PLOCK001 /* PremiumLockOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PLOCK002 /* PremiumLockOverlay.swift */; };
+		FB96EB91TOKN001 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91TOKN002 /* Tokens.swift */; };
+		FB96EB91SPLSH001 /* SplashWordmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SPLSH002 /* SplashWordmarkView.swift */; };
+		FB96EB91WEEK0001 /* WeeklyStatsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WEEK0002 /* WeeklyStatsCardView.swift */; };
 		FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0002 /* ServiceContainer.swift */; };
 		FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0004 /* StartSleepMixIntent.swift */; };
 		FB96EB91SIRI0005 /* SavedMixEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SIRI0006 /* SavedMixEntity.swift */; };
@@ -421,6 +424,9 @@
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
 		FB96EB91PLOCK002 /* PremiumLockOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumLockOverlay.swift; sourceTree = "<group>"; };
+		FB96EB91TOKN002 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
+		FB96EB91SPLSH002 /* SplashWordmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashWordmarkView.swift; sourceTree = "<group>"; };
+		FB96EB91WEEK0002 /* WeeklyStatsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyStatsCardView.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0002 /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0004 /* StartSleepMixIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSleepMixIntent.swift; sourceTree = "<group>"; };
 		FB96EB91SIRI0006 /* SavedMixEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixEntity.swift; sourceTree = "<group>"; };
@@ -803,6 +809,8 @@
 				FB96EB91000000S8 /* OLEDBackgroundModifier.swift */,
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
 				FB96EB91PLOCK002 /* PremiumLockOverlay.swift */,
+				FB96EB91TOKN002 /* Tokens.swift */,
+				FB96EB91SPLSH002 /* SplashWordmarkView.swift */,
 				FB96EB91ASMR0002 /* ASMRInfoView.swift */,
 				FB96EB91SCI00002 /* SoundScienceView.swift */,
 				FB96EB91VIZ00009 /* Visualization */,
@@ -1025,6 +1033,7 @@
 		FB96EB91000000PJ /* Insights */ = {
 			isa = PBXGroup;
 			children = (
+				FB96EB91WEEK0002 /* WeeklyStatsCardView.swift */,
 				FB96EB91000000PK /* Views */,
 			);
 			path = Insights;
@@ -1483,6 +1492,9 @@
 				FB96EB91MOTION01 /* MotionService.swift in Sources */,
 				FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */,
 				FB96EB91PLOCK001 /* PremiumLockOverlay.swift in Sources */,
+				FB96EB91TOKN001 /* Tokens.swift in Sources */,
+				FB96EB91SPLSH001 /* SplashWordmarkView.swift in Sources */,
+				FB96EB91WEEK0001 /* WeeklyStatsCardView.swift in Sources */,
 				FB96EB91VIZ00001 /* VisualizationType.swift in Sources */,
 				FB96EB91VIZ00003 /* WaveLayer.swift in Sources */,
 				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,

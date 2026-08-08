@@ -12,10 +12,22 @@ struct InsightsView: View {
         premiumManager.isPremiumRequired(for: .fullInsights)
     }
 
+    // TODO: wire to InsightsService
+    private let sampleStats = WeeklyStatsCardView.Stats(
+        activeMinutes: 234,
+        totalSessions: 12,
+        streakDays: 5,
+        nightlyHours: [3.6, 4.0, 4.1],
+        sparkline: [0.2, 0.3, 0.35, 0.42, 0.5, 0.72, 0.95]
+    )
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
+                    // Editorial Weekly Stats card (ref02-warm-dashboard)
+                    WeeklyStatsCardView(stats: sampleStats)
+
                     // Free tier: Basic stats always visible
                     basicStatsSection
 
