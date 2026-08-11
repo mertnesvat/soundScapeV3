@@ -81,15 +81,6 @@ struct RecommendationCardView: View {
             }
 
             Spacer()
-
-            // Play button
-            Button(action: {
-                // Action handled by parent
-            }) {
-                Image(systemName: "play.circle.fill")
-                    .font(.title2)
-                    .foregroundStyle(.purple)
-            }
         }
         .padding()
         .background(Color(.tertiarySystemGroupedBackground))

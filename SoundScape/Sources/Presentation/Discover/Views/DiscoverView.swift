@@ -179,21 +179,7 @@ struct DiscoverView: View {
     }
 
     private func performSaveMix(_ mix: CommunityMix) {
-        // Convert to active sounds for saving
-        var activeSounds: [ActiveSound] = []
-        for mixSound in mix.sounds {
-            if let sound = allSounds.first(where: { $0.id == mixSound.soundId }) {
-                activeSounds.append(ActiveSound(
-                    id: sound.id,
-                    sound: sound,
-                    volume: mixSound.volume,
-                    isPlaying: false
-                ))
-            }
-        }
-
-        if !activeSounds.isEmpty {
-            savedMixesService.saveMix(name: mix.name, sounds: activeSounds)
+        if savedMixesService.saveCommunityMix(mix, allSounds: allSounds) {
             savedMixName = mix.name
             showingSavedAlert = true
         }

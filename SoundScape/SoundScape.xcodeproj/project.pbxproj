@@ -93,6 +93,8 @@
 		FB96EB91000000O7 /* AdaptiveModeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000O8 /* AdaptiveModeCardView.swift */; };
 		FB96EB91000000O9 /* PhasePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000OA /* PhasePreviewView.swift */; };
 		FB96EB91000000OB /* ActiveAdaptiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */; };
+		SLPTAB00001 /* SleepTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SLPTAB00002 /* SleepTabView.swift */; };
+		EXPTAB00001 /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EXPTAB00002 /* ExploreTabView.swift */; };
 		FB96EB91000000P1 /* SleepInsight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P2 /* SleepInsight.swift */; };
 		FB96EB91000000P3 /* InsightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P4 /* InsightsService.swift */; };
 		FB96EB91000000P5 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000P6 /* InsightsView.swift */; };
@@ -132,6 +134,7 @@
 		FB96EB91000000S3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S4 /* SettingsView.swift */; };
 		FB96EB91000000S5 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S6 /* AppearanceSettingsView.swift */; };
 		FB96EB91000000S7 /* OLEDBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000S8 /* OLEDBackgroundModifier.swift */; };
+		APPTHM00001 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = APPTHM00002 /* AppTheme.swift */; };
 		FB96EB91000000T1 /* SleepTimerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U1 /* SleepTimerServiceTests.swift */; };
 		FB96EB91000000T2 /* InsightsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U2 /* InsightsServiceTests.swift */; };
 		FB96EB91000000T3 /* AudioEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000U3 /* AudioEngineTests.swift */; };
@@ -355,6 +358,8 @@
 		FB96EB91000000O8 /* AdaptiveModeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveModeCardView.swift; sourceTree = "<group>"; };
 		FB96EB91000000OA /* PhasePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhasePreviewView.swift; sourceTree = "<group>"; };
 		FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAdaptiveSessionView.swift; sourceTree = "<group>"; };
+		SLPTAB00002 /* SleepTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTabView.swift; sourceTree = "<group>"; };
+		EXPTAB00002 /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
 		FB96EB91000000P2 /* SleepInsight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepInsight.swift; sourceTree = "<group>"; };
 		FB96EB91000000P4 /* InsightsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsService.swift; sourceTree = "<group>"; };
 		FB96EB91000000P6 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
@@ -394,6 +399,7 @@
 		FB96EB91000000S4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S6 /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
 		FB96EB91000000S8 /* OLEDBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEDBackgroundModifier.swift; sourceTree = "<group>"; };
+		APPTHM00002 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		FB96EB91000000U1 /* SleepTimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U2 /* InsightsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsServiceTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000U3 /* AudioEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineTests.swift; sourceTree = "<group>"; };
@@ -626,6 +632,8 @@
 				FB96EB91SLRECGRP /* SleepRecording */,
 				FB96EB91000000NH /* Discover */,
 				FB96EB91000000OD /* Adaptive */,
+				SLPTAB00003 /* Sleep */,
+				EXPTAB00003 /* Explore */,
 				FB96EB91000000PJ /* Insights */,
 				FB96EB91000000SA /* Settings */,
 				FB96EB91BUDDY00B /* SleepBuddy */,
@@ -799,6 +807,7 @@
 		FB96EB9100000054 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				APPTHM00002 /* AppTheme.swift */,
 				FB96EB91000000G2 /* NowPlayingBarView.swift */,
 				FB96EB91000000S8 /* OLEDBackgroundModifier.swift */,
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
@@ -1018,6 +1027,38 @@
 				FB96EB91000000O8 /* AdaptiveModeCardView.swift */,
 				FB96EB91000000OA /* PhasePreviewView.swift */,
 				FB96EB91000000OC /* ActiveAdaptiveSessionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		SLPTAB00003 /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				SLPTAB00004 /* Views */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		SLPTAB00004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				SLPTAB00002 /* SleepTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EXPTAB00003 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				EXPTAB00004 /* Views */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		EXPTAB00004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EXPTAB00002 /* ExploreTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1546,6 +1587,9 @@
 				F23CB0D9F6A96F4CA85AE032 /* OnboardingButton.swift in Sources */,
 				FE6A01451E48A75A03043FD9 /* OnboardingProgressView.swift in Sources */,
 				19E94D6EC81DD049D1A8C76D /* WrappingHStack.swift in Sources */,
+				SLPTAB00001 /* SleepTabView.swift in Sources */,
+				EXPTAB00001 /* ExploreTabView.swift in Sources */,
+				APPTHM00001 /* AppTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

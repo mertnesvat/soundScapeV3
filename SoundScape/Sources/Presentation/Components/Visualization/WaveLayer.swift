@@ -96,6 +96,7 @@ struct RippleLayer: View {
 
     @State private var ripples: [Ripple] = []
     @State private var lastSpawnTime: Date = .now
+    @State private var animationTimer: Timer?
 
     struct Ripple: Identifiable {
         let id = UUID()
@@ -140,6 +141,10 @@ struct RippleLayer: View {
         .onAppear {
             startRippleAnimation()
         }
+        .onDisappear {
+            animationTimer?.invalidate()
+            animationTimer = nil
+        }
     }
 
     private func spawnRipple(in size: CGSize) {
@@ -152,7 +157,7 @@ struct RippleLayer: View {
     }
 
     private func startRippleAnimation() {
-        Timer.scheduledTimer(withTimeInterval: 1.0 / 30.0, repeats: true) { _ in
+        animationTimer = Timer.scheduledTimer(withTimeInterval: 1.0 / 30.0, repeats: true) { _ in
             Task { @MainActor in
                 updateRipples()
             }

@@ -33,6 +33,29 @@ final class SavedMixesService {
         reviewPromptService?.recordMixSaved()
     }
 
+    /// Saves a CommunityMix by converting its sounds to ActiveSounds.
+    /// - Parameters:
+    ///   - communityMix: The community mix to save
+    ///   - allSounds: The full sound catalog to resolve sound IDs
+    /// - Returns: `true` if saved successfully
+    @discardableResult
+    func saveCommunityMix(_ communityMix: CommunityMix, allSounds: [Sound]) -> Bool {
+        var activeSounds: [ActiveSound] = []
+        for mixSound in communityMix.sounds {
+            if let sound = allSounds.first(where: { $0.id == mixSound.soundId }) {
+                activeSounds.append(ActiveSound(
+                    id: sound.id,
+                    sound: sound,
+                    volume: mixSound.volume,
+                    isPlaying: false
+                ))
+            }
+        }
+        guard !activeSounds.isEmpty else { return false }
+        saveMix(name: communityMix.name, sounds: activeSounds)
+        return true
+    }
+
     func deleteMix(_ mix: SavedMix) {
         mixes.removeAll { $0.id == mix.id }
         persistMixes()
