@@ -336,6 +336,10 @@ struct WindDownSectionView: View {
         SleepContentDataSource.content(for: category.contentType)
     }
 
+    private var displayedContent: [SleepContent] {
+        Array(contentForCategory.prefix(3))
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             // Section Header
@@ -350,7 +354,7 @@ struct WindDownSectionView: View {
 
                 Spacer()
 
-                if contentForCategory.count > 4 {
+                if contentForCategory.count > 3 {
                     Button(action: {}) {
                         Text(LocalizedStringKey("See All"))
                             .font(.subheadline)
@@ -363,7 +367,7 @@ struct WindDownSectionView: View {
             // Horizontal Scroll of Cards
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(contentForCategory) { content in
+                    ForEach(displayedContent) { content in
                         SleepContentCardView(
                             content: content,
                             progress: progressForContent(content),

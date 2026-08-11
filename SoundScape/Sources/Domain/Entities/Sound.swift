@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct Sound: Identifiable, Equatable {
     let id: String
@@ -46,6 +47,17 @@ enum SoundCategory: String, CaseIterable {
         case .fire: return "orange"
         case .music: return "pink"
         case .asmr: return "lavender"
+        }
+    }
+
+    var swiftUIColor: Color {
+        switch self {
+        case .noise: return .purple
+        case .nature: return .green
+        case .weather: return .blue
+        case .fire: return .orange
+        case .music: return .pink
+        case .asmr: return AppTheme.asmrPurple
         }
     }
 }

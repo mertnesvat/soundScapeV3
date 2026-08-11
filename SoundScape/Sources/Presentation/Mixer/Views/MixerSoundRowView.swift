@@ -62,14 +62,7 @@ struct MixerSoundRowView: View {
     }
 
     private var categoryColor: Color {
-        switch activeSound.sound.category {
-        case .noise: return .purple
-        case .nature: return .green
-        case .weather: return .blue
-        case .fire: return .orange
-        case .music: return .pink
-        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
-        }
+        activeSound.sound.category.swiftUIColor
     }
 }
 

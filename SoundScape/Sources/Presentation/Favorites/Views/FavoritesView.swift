@@ -13,24 +13,16 @@ struct FavoritesView: View {
         GridItem(.flexible(), spacing: 16)
     ]
 
-    private let freeSoundLimit = 6
-
     init(repository: SoundRepositoryProtocol = SoundRepository()) {
         self.repository = repository
     }
 
-    /// Check if adding a new sound would exceed the free user limit
     private func wouldExceedMixerLimit(for sound: Sound) -> Bool {
-        // If already playing, toggling won't add a new sound
-        if audioEngine.isPlaying(soundId: sound.id) {
-            return false
-        }
-        // If premium user, no limit
-        if paywallService.isPremium {
-            return false
-        }
-        // Check if at or over limit
-        return audioEngine.activeSounds.count >= freeSoundLimit
+        premiumManager.wouldExceedMixerLimit(
+            soundId: sound.id,
+            activeSoundCount: audioEngine.activeSounds.count,
+            isAlreadyPlaying: audioEngine.isPlaying(soundId: sound.id)
+        )
     }
 
     private var allSounds: [Sound] {

@@ -29,14 +29,7 @@ enum VisualizationType {
 
     /// Returns the primary color for the visualization based on category
     static func color(for category: SoundCategory) -> Color {
-        switch category {
-        case .noise: return .purple
-        case .nature: return .green
-        case .weather: return .blue
-        case .fire: return .orange
-        case .music: return .pink
-        case .asmr: return Color(red: 0.8, green: 0.6, blue: 1.0)
-        }
+        category.swiftUIColor
     }
 }
 

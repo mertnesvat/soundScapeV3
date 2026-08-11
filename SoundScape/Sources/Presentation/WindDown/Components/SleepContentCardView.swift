@@ -42,12 +42,6 @@ struct SleepContentCardView: View {
                     .multilineTextAlignment(.leading)
                     .frame(height: 40, alignment: .top)
 
-                // Narrator
-                Text(content.narrator)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-
                 // Duration
                 HStack(spacing: 4) {
                     Image(systemName: "clock")
@@ -56,12 +50,8 @@ struct SleepContentCardView: View {
                         .font(.caption)
                 }
                 .foregroundColor(.secondary)
-
-                // Progress bar - always reserve space for consistent height
-                progressBar
-                    .opacity(progress > 0 ? 1 : 0)
             }
-            .frame(width: 140, height: 220)
+            .frame(width: 140, height: 190)
             .padding(12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
