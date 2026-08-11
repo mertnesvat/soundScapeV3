@@ -46,8 +46,8 @@ struct OLEDCardBackgroundModifier: ViewModifier {
     private var cardBackgroundColor: Color {
         if appearanceService.isOLEDModeEnabled {
             return isPlaying
-                ? Color(.systemGray6).opacity(0.2)
-                : Color(.systemGray6).opacity(0.1)
+                ? Color(.systemGray6).opacity(AppTheme.oledCardOpacity)
+                : Color(.systemGray6).opacity(AppTheme.oledSubtleOpacity)
         } else {
             return Color(.systemGray6)
         }
@@ -89,14 +89,14 @@ struct OLEDNowPlayingBarModifier: ViewModifier {
 
     private var backgroundFill: Color {
         appearanceService.isOLEDModeEnabled
-            ? Color(.systemGray6).opacity(0.3)
+            ? Color(.systemGray6).opacity(AppTheme.oledGlowOpacity)
             : Color(.systemGray6)
     }
 
     private var shadowColor: Color {
         appearanceService.isOLEDModeEnabled
-            ? Color.purple.opacity(0.3)
-            : Color.black.opacity(0.3)
+            ? AppTheme.accent.opacity(AppTheme.oledGlowOpacity)
+            : Color.black.opacity(AppTheme.oledGlowOpacity)
     }
 }
 

@@ -350,7 +350,7 @@ struct WindDownSectionView: View {
 
                 Spacer()
 
-                if contentForCategory.count > 4 {
+                if contentForCategory.count > 3 {
                     Button(action: {}) {
                         Text(LocalizedStringKey("See All"))
                             .font(.subheadline)
@@ -360,10 +360,10 @@ struct WindDownSectionView: View {
             }
             .padding(.horizontal, 16)
 
-            // Horizontal Scroll of Cards
+            // Horizontal Scroll of Cards (max 3 visible)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(contentForCategory) { content in
+                    ForEach(contentForCategory.prefix(3)) { content in
                         SleepContentCardView(
                             content: content,
                             progress: progressForContent(content),

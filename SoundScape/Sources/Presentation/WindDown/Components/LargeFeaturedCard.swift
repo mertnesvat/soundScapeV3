@@ -40,7 +40,6 @@ struct LargeFeaturedCard: View {
                 } else {
                     // Fallback gradient
                     backgroundGradient
-                    decorativeIcon
                 }
 
                 // Content overlay
@@ -70,26 +69,10 @@ struct LargeFeaturedCard: View {
             )
     }
 
-    // MARK: - Decorative Icon
-
-    private var decorativeIcon: some View {
-        HStack {
-            Spacer()
-            Image(systemName: content.contentType.icon)
-                .font(.system(size: 80))
-                .foregroundColor(.white.opacity(0.2))
-                .padding(.trailing, 20)
-                .padding(.bottom, 20)
-        }
-    }
-
     // MARK: - Content Overlay
 
     private var contentOverlay: some View {
         VStack(alignment: .leading, spacing: 8) {
-            // Featured badge
-            featuredBadge
-
             Spacer()
 
             // Title
@@ -107,17 +90,8 @@ struct LargeFeaturedCard: View {
                     .lineLimit(2)
             }
 
-            // Narrator and duration
+            // Duration and play button
             HStack(spacing: 16) {
-                // Narrator
-                HStack(spacing: 4) {
-                    Image(systemName: "person.fill")
-                        .font(.caption)
-                    Text(content.narrator)
-                        .font(.subheadline)
-                }
-
-                // Duration
                 HStack(spacing: 4) {
                     Image(systemName: "clock")
                         .font(.caption)
@@ -133,28 +107,8 @@ struct LargeFeaturedCard: View {
                 }
             }
             .foregroundColor(.white.opacity(0.9))
-
-            // Progress bar (if started)
-            if progress > 0 {
-                progressBar
-            }
         }
         .padding(20)
-    }
-
-    // MARK: - Featured Badge
-
-    private var featuredBadge: some View {
-        Text("FEATURED")
-            .font(.caption2)
-            .fontWeight(.bold)
-            .foregroundColor(.white.opacity(0.9))
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
-            .background(
-                Capsule()
-                    .fill(Color.white.opacity(0.25))
-            )
     }
 
     // MARK: - Play Button
@@ -168,24 +122,6 @@ struct LargeFeaturedCard: View {
                 Circle()
                     .fill(Color.white.opacity(0.25))
             )
-    }
-
-    // MARK: - Progress Bar
-
-    private var progressBar: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .leading) {
-                Capsule()
-                    .fill(Color.white.opacity(0.3))
-                    .frame(height: 4)
-
-                Capsule()
-                    .fill(Color.white)
-                    .frame(width: geometry.size.width * progress, height: 4)
-            }
-        }
-        .frame(height: 4)
-        .padding(.top, 4)
     }
 
     // MARK: - Coming Soon Overlay

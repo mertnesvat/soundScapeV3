@@ -27,20 +27,12 @@ struct SoundsView: View {
         GridItem(.flexible(), spacing: 16),
     ]
 
-    private let freeSoundLimit = 6
-
-    /// Check if adding a new sound would exceed the free user limit
     private func wouldExceedMixerLimit(for sound: Sound) -> Bool {
-        // If already playing, toggling won't add a new sound
-        if audioEngine.isPlaying(soundId: sound.id) {
-            return false
-        }
-        // If premium user, no limit
-        if paywallService.isPremium {
-            return false
-        }
-        // Check if at or over limit
-        return audioEngine.activeSounds.count >= freeSoundLimit
+        premiumManager.wouldExceedMixerLimit(
+            soundId: sound.id,
+            isCurrentlyPlaying: audioEngine.isPlaying(soundId: sound.id),
+            activeSoundCount: audioEngine.activeSounds.count
+        )
     }
 
     var body: some View {
@@ -63,17 +55,7 @@ struct SoundsView: View {
                             }
                         )
 
-                        // Favorites Section (only when favorites exist and no category filter)
-                        if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                            let favoriteSounds = viewModel.sounds.filter {
-                                favoritesService.isFavorite($0.id)
-                            }
-                            if !favoriteSounds.isEmpty {
-                                favoritesSection(sounds: favoriteSounds, viewModel: viewModel)
-                            }
-                        }
-
-                        // Favorites empty state
+                        // Favorites empty state (when Favorites chip is selected)
                         if viewModel.showingFavorites && viewModel.filteredSounds.isEmpty {
                             ContentUnavailableView(
                                 String(localized: "No Favorites"),
@@ -92,33 +74,21 @@ struct SoundsView: View {
             .navigationTitle(LocalizedStringKey("Sounds"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    HStack(spacing: 16) {
-                        Button {
-                            showSettingsSheet = true
-                        } label: {
-                            Image(systemName: "gearshape")
-                        }
-
-                        // Show ASMR info button when ASMR category is selected
-                        if viewModel?.selectedCategory == .asmr {
-                            Button {
-                                showASMRInfoSheet = true
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(Color(red: 0.8, green: 0.6, blue: 1.0))
-                            }
-                        }
+                    Button {
+                        showSettingsSheet = true
+                    } label: {
+                        Image(systemName: "gearshape")
                     }
                 }
 
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack(spacing: 16) {
+                    Menu {
                         Button {
                             showMixerSheet = true
                             analyticsService.logSheetOpened(sheetName: "mixer", fromScreen: "sounds")
                             sheetOpenTime = .now
                         } label: {
-                            Image(systemName: "slider.horizontal.3")
+                            Label(String(localized: "Mixer"), systemImage: "slider.horizontal.3")
                         }
 
                         Button {
@@ -126,7 +96,7 @@ struct SoundsView: View {
                             analyticsService.logSheetOpened(sheetName: "timer", fromScreen: "sounds")
                             sheetOpenTime = .now
                         } label: {
-                            Image(systemName: "moon.zzz")
+                            Label(String(localized: "Timer"), systemImage: "moon.zzz")
                         }
 
                         Button {
@@ -134,8 +104,10 @@ struct SoundsView: View {
                             analyticsService.logSheetOpened(sheetName: "saved_mixes", fromScreen: "sounds")
                             sheetOpenTime = .now
                         } label: {
-                            Image(systemName: "folder")
+                            Label(String(localized: "Saved Mixes"), systemImage: "folder")
                         }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -204,73 +176,24 @@ struct SoundsView: View {
     }
 
     @ViewBuilder
-    private func favoritesSection(sounds: [Sound], viewModel: SoundsViewModel) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
-                Text(LocalizedStringKey("Favorites"))
-                    .font(.headline)
-                    .foregroundColor(.primary)
-            }
-            .padding(.horizontal, 16)
-
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(sounds) { sound in
-                    let isLocked = premiumManager.isPremiumRequired(for: .sound(id: sound.id))
-                    SoundCardView(
-                        sound: sound,
-                        isPlaying: viewModel.isPlaying(sound),
-                        isFavorite: favoritesService.isFavorite(sound.id),
-                        isLocked: isLocked,
-                        onTogglePlay: {
-                            analyticsService.logSoundCardTapped(
-                                soundId: sound.id,
-                                soundName: sound.name,
-                                category: sound.category.rawValue,
-                                isPremium: isLocked,
-                                isPlaying: viewModel.isPlaying(sound)
-                            )
-                            if isLocked {
-                                paywallService.triggerPaywall(placement: "premium_sound") {
-                                    viewModel.togglePlay(for: sound)
-                                }
-                            } else if wouldExceedMixerLimit(for: sound) {
-                                paywallService.triggerPaywall(placement: "unlimited_mixing") {}
-                            } else {
-                                viewModel.togglePlay(for: sound)
-                            }
-                        },
-                        onToggleFavorite: {
-                            favoritesService.toggleFavorite(sound.id, soundName: sound.name)
-                        },
-                        onLockedTap: {
-                            paywallService.triggerPaywall(placement: "premium_sound") {}
-                        }
-                    )
-                }
-            }
-            .padding(.horizontal, 16)
-
-            Divider()
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
-        }
-        .padding(.top, 8)
-    }
-
-    @ViewBuilder
     private func allSoundsSection(viewModel: SoundsViewModel) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Show header only when favorites exist and no category filter
-            if viewModel.selectedCategory == nil && !viewModel.showingFavorites {
-                let hasFavorites = viewModel.sounds.contains { favoritesService.isFavorite($0.id) }
-                if hasFavorites {
-                    Text(LocalizedStringKey("All Sounds"))
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding(.horizontal, 16)
+            // ASMR info header when ASMR category is selected
+            if viewModel.selectedCategory == .asmr {
+                HStack {
+                    Spacer()
+                    Button {
+                        showASMRInfoSheet = true
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "info.circle")
+                            Text(String(localized: "About ASMR"))
+                                .font(.caption)
+                        }
+                        .foregroundColor(AppTheme.asmrPurple)
+                    }
                 }
+                .padding(.horizontal, 16)
             }
 
             // Sound Grid

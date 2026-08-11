@@ -33,6 +33,25 @@ final class SavedMixesService {
         reviewPromptService?.recordMixSaved()
     }
 
+    /// Save a community mix by converting its sounds to SavedMix format
+    func saveCommunityMix(name: String, sounds: [(soundId: String, volume: Float)], allSounds: [Sound]) {
+        var activeSounds: [ActiveSound] = []
+        for mixSound in sounds {
+            if let sound = allSounds.first(where: { $0.id == mixSound.soundId }) {
+                activeSounds.append(ActiveSound(
+                    id: sound.id,
+                    sound: sound,
+                    volume: mixSound.volume,
+                    isPlaying: false
+                ))
+            }
+        }
+
+        if !activeSounds.isEmpty {
+            saveMix(name: name, sounds: activeSounds)
+        }
+    }
+
     func deleteMix(_ mix: SavedMix) {
         mixes.removeAll { $0.id == mix.id }
         persistMixes()

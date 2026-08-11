@@ -54,7 +54,7 @@
 		FB96EB91PAYWAL01 /* PaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PAYWAL02 /* PaywallService.swift */; };
 		FB96EB91SUBSC001 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SUBSC002 /* SubscriptionService.swift */; };
 		FB96EB91PREMM001 /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91PREMM002 /* PremiumManager.swift */; };
-		FB96EB91000000I3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000I4 /* FavoritesView.swift */; };
+
 		FB96EB91000000J1 /* SavedMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J2 /* SavedMix.swift */; };
 		FB96EB91000000J3 /* SavedMixesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J4 /* SavedMixesService.swift */; };
 		FB96EB91000000J5 /* SavedMixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91000000J6 /* SavedMixesView.swift */; };
@@ -145,6 +145,7 @@
 		PAYWLLTST001 /* PaywallServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = PAYWLLTST002 /* PaywallServiceTests.swift */; };
 		SUBSCTST001 /* SubscriptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUBSCTST002 /* SubscriptionServiceTests.swift */; };
 		FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91ASMR0002 /* ASMRInfoView.swift */; };
+		FB96EB91THME0001 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91THME0002 /* AppTheme.swift */; };
 		FB96EB91SCI00001 /* SoundScienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SCI00002 /* SoundScienceView.swift */; };
 		FB96EB91BUDDY001 /* SleepBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY002 /* SleepBuddy.swift */; };
 		FB96EB91BUDDY003 /* SleepBuddyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY004 /* SleepBuddyService.swift */; };
@@ -152,6 +153,8 @@
 		FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY008 /* InviteBuddyView.swift */; };
 		FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91BUDDY00A /* BuddyStatusCard.swift */; };
 		FB96EB91WNDWN001 /* WindDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91WNDWN002 /* WindDownView.swift */; };
+		FB96EB91SLPTB001 /* SleepTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SLPTB002 /* SleepTabView.swift */; };
+		FB96EB91EXPLT001 /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91EXPLT002 /* ExploreTabView.swift */; };
 		FB96EB91CTRL0001 /* SoundScapeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91CTRL0002 /* SoundScapeControl.swift */; };
 		FB96EB91MOTION01 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91MOTION02 /* MotionService.swift */; };
 		FB96EB91SHEEN001 /* ReflectiveSheenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */; };
@@ -316,7 +319,7 @@
 		FB96EB91PAYWAL02 /* PaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallService.swift; sourceTree = "<group>"; };
 		FB96EB91SUBSC002 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		FB96EB91PREMM002 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
-		FB96EB91000000I4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+
 		FB96EB91000000J2 /* SavedMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMix.swift; sourceTree = "<group>"; };
 		FB96EB91000000J4 /* SavedMixesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesService.swift; sourceTree = "<group>"; };
 		FB96EB91000000J6 /* SavedMixesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMixesView.swift; sourceTree = "<group>"; };
@@ -410,6 +413,7 @@
 		FB96EB91ALRT0004 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		FB96EB91000000V1 /* SoundScapeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundScapeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB96EB91ASMR0002 /* ASMRInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMRInfoView.swift; sourceTree = "<group>"; };
+		FB96EB91THME0002 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		FB96EB91SCI00002 /* SoundScienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScienceView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY002 /* SleepBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddy.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY004 /* SleepBuddyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepBuddyService.swift; sourceTree = "<group>"; };
@@ -417,6 +421,8 @@
 		FB96EB91BUDDY008 /* InviteBuddyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteBuddyView.swift; sourceTree = "<group>"; };
 		FB96EB91BUDDY00A /* BuddyStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyStatusCard.swift; sourceTree = "<group>"; };
 		FB96EB91WNDWN002 /* WindDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDownView.swift; sourceTree = "<group>"; };
+		FB96EB91SLPTB002 /* SleepTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTabView.swift; sourceTree = "<group>"; };
+		FB96EB91EXPLT002 /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
 		FB96EB91CTRL0002 /* SoundScapeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeControl.swift; sourceTree = "<group>"; };
 		FB96EB91MOTION02 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectiveSheenModifier.swift; sourceTree = "<group>"; };
@@ -629,6 +635,8 @@
 				FB96EB91000000PJ /* Insights */,
 				FB96EB91000000SA /* Settings */,
 				FB96EB91BUDDY00B /* SleepBuddy */,
+				FB96EB91SLPTBGRP /* Sleep */,
+				FB96EB91EXPLTGRP /* Explore */,
 				FB96EB9100000054 /* Components */,
 			);
 			path = Presentation;
@@ -804,6 +812,7 @@
 				FB96EB91SHEEN002 /* ReflectiveSheenModifier.swift */,
 				FB96EB91PLOCK002 /* PremiumLockOverlay.swift */,
 				FB96EB91ASMR0002 /* ASMRInfoView.swift */,
+				FB96EB91THME0002 /* AppTheme.swift */,
 				FB96EB91SCI00002 /* SoundScienceView.swift */,
 				FB96EB91VIZ00009 /* Visualization */,
 			);
@@ -886,7 +895,7 @@
 		FB96EB91000000I5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FB96EB91000000I4 /* FavoritesView.swift */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1105,6 +1114,38 @@
 				FB96EB91BUDDY006 /* SleepBuddyView.swift */,
 				FB96EB91BUDDY008 /* InviteBuddyView.swift */,
 				FB96EB91BUDDY00A /* BuddyStatusCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91SLPTBGRP /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SLPTBVWS /* Views */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		FB96EB91SLPTBVWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91SLPTB002 /* SleepTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB96EB91EXPLTGRP /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91EXPLTVWS /* Views */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		FB96EB91EXPLTVWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB96EB91EXPLT002 /* ExploreTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1426,7 +1467,7 @@
 				FB96EB91PAYWAL01 /* PaywallService.swift in Sources */,
 				FB96EB91SUBSC001 /* SubscriptionService.swift in Sources */,
 				FB96EB91PREMM001 /* PremiumManager.swift in Sources */,
-				FB96EB91000000I3 /* FavoritesView.swift in Sources */,
+
 				FB96EB91000000J1 /* SavedMix.swift in Sources */,
 				FB96EB91000000J3 /* SavedMixesService.swift in Sources */,
 				FB96EB91000000J5 /* SavedMixesView.swift in Sources */,
@@ -1488,6 +1529,7 @@
 				FB96EB91VIZ00005 /* ParticleLayer.swift in Sources */,
 				FB96EB91VIZ00007 /* LiquidVisualizationView.swift in Sources */,
 				FB96EB91ASMR0001 /* ASMRInfoView.swift in Sources */,
+				FB96EB91THME0001 /* AppTheme.swift in Sources */,
 				FB96EB91SCI00001 /* SoundScienceView.swift in Sources */,
 				FB96EB91SIRI0001 /* ServiceContainer.swift in Sources */,
 				FB96EB91SIRI0003 /* StartSleepMixIntent.swift in Sources */,
@@ -1505,6 +1547,8 @@
 				FB96EB91BUDDY007 /* InviteBuddyView.swift in Sources */,
 				FB96EB91BUDDY009 /* BuddyStatusCard.swift in Sources */,
 				FB96EB91WNDWN001 /* WindDownView.swift in Sources */,
+				FB96EB91SLPTB001 /* SleepTabView.swift in Sources */,
+				FB96EB91EXPLT001 /* ExploreTabView.swift in Sources */,
 				FB96EB91SLPC0001 /* SleepContent.swift in Sources */,
 				FB96EB91SLREC001 /* SleepRecording.swift in Sources */,
 				FB96EB91SLREC003 /* SleepRecordingService.swift in Sources */,

@@ -508,13 +508,8 @@ private struct SubscriptionOptionCard: View {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color.white.opacity(isSelected ? 0.1 : 0.05))
             )
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(isSelected ? Color.purple : Color.clear, lineWidth: 2)
-            )
         }
         .disabled(isDisabled)
-        .opacity(isDisabled ? 0.6 : 1.0)
     }
 }
 

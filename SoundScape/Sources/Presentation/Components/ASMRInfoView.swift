@@ -3,7 +3,7 @@ import SwiftUI
 struct ASMRInfoView: View {
     @Environment(\.dismiss) private var dismiss
 
-    private let asmrColor = Color(red: 0.8, green: 0.6, blue: 1.0)
+    private let asmrColor = AppTheme.asmrPurple
 
     var body: some View {
         NavigationStack {
@@ -149,7 +149,7 @@ private struct TriggerRowView: View {
     let title: String
     let description: String
 
-    private let asmrColor = Color(red: 0.8, green: 0.6, blue: 1.0)
+    private let asmrColor = AppTheme.asmrPurple
 
     var body: some View {
         HStack(spacing: 12) {

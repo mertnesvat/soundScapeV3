@@ -42,12 +42,6 @@ struct SleepContentCardView: View {
                     .multilineTextAlignment(.leading)
                     .frame(height: 40, alignment: .top)
 
-                // Narrator
-                Text(content.narrator)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-
                 // Duration
                 HStack(spacing: 4) {
                     Image(systemName: "clock")
@@ -56,12 +50,8 @@ struct SleepContentCardView: View {
                         .font(.caption)
                 }
                 .foregroundColor(.secondary)
-
-                // Progress bar - always reserve space for consistent height
-                progressBar
-                    .opacity(progress > 0 ? 1 : 0)
             }
-            .frame(width: 140, height: 220)
+            .frame(width: 140, height: 200)
             .padding(12)
             .background(
                 RoundedRectangle(cornerRadius: 16)
@@ -104,23 +94,6 @@ struct SleepContentCardView: View {
                     .foregroundColor(.white.opacity(0.8))
             }
         }
-    }
-
-    // MARK: - Progress Bar
-
-    private var progressBar: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .leading) {
-                Capsule()
-                    .fill(Color(.systemGray4))
-                    .frame(height: 4)
-
-                Capsule()
-                    .fill(categoryColor)
-                    .frame(width: geometry.size.width * progress, height: 4)
-            }
-        }
-        .frame(height: 4)
     }
 
     // MARK: - Coming Soon Overlay
