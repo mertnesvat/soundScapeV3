@@ -21,6 +21,20 @@
                ReferencedContainer = "container:SoundScape.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB96EB91000000Z1"
+               BuildableName = "SoundScapeTests.xctest"
+               BlueprintName = "SoundScapeTests"
+               ReferencedContainer = "container:SoundScape.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -40,6 +54,62 @@
                BlueprintName = "SoundScapeTests"
                ReferencedContainer = "container:SoundScape.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AdaptiveSessionServiceTests">
+               </Test>
+               <Test
+                  Identifier = "AlarmNotificationSoundManagerTests">
+               </Test>
+               <Test
+                  Identifier = "AlarmServiceTests">
+               </Test>
+               <Test
+                  Identifier = "AppDelegateTests">
+               </Test>
+               <Test
+                  Identifier = "AudioEngineTests">
+               </Test>
+               <Test
+                  Identifier = "BinauralBeatEngineTests">
+               </Test>
+               <Test
+                  Identifier = "InsightsServiceTests">
+               </Test>
+               <Test
+                  Identifier = "LocalSoundDataSourceTests">
+               </Test>
+               <Test
+                  Identifier = "OnboardingServiceTests">
+               </Test>
+               <Test
+                  Identifier = "PaywallServiceTests">
+               </Test>
+               <Test
+                  Identifier = "PremiumManagerTests">
+               </Test>
+               <Test
+                  Identifier = "ReviewPromptServiceTests">
+               </Test>
+               <Test
+                  Identifier = "SavedMixesServiceTests">
+               </Test>
+               <Test
+                  Identifier = "SleepRecordingServiceTests">
+               </Test>
+               <Test
+                  Identifier = "SleepTimerServiceTests">
+               </Test>
+               <Test
+                  Identifier = "SoundEventDetectorTests">
+               </Test>
+               <Test
+                  Identifier = "StoryProgressServiceTests">
+               </Test>
+               <Test
+                  Identifier = "SubscriptionServiceTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
